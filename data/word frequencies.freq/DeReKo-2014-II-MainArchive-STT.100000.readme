@@ -1,0 +1,45 @@
+The frequency list DeReKo-2014-II-MainArchive-STT.100000.freq was
+extracted from the part of DeReKo-2014-II that was included in
+COSMAS-II main archive (approx. 7 billion tokens).  Frequences here
+refer to combinations of token, lemma and part-of-speech information
+annotated with the TreeTagger.
+
+Frequencies were calculated by adding the tag probabilities given by
+the TreeTagger. For example the following lexeme annotation:
+
+
+  <lexeme id="58" pos="16599" len="4">
+    <surface-form>Viel</surface-form>
+    <sense id="0">
+      <base-form>viel</base-form>
+      <part-of-speech conf="0.579626">ADV</part-of-speech>
+    </sense>
+    <sense id="1">
+      <base-form>viel</base-form>
+      <part-of-speech conf="0.212014">PIAT</part-of-speech>
+    </sense>
+    <sense id="2">
+      <base-form>viel</base-form>
+      <part-of-speech conf="0.208360">PIS</part-of-speech>
+    </sense>
+  </lexeme>
+
+resulted in the following frequency calculation:
+
+freq[Viel\tviel\tADV] += 0.579626
+freq[Viel\tviel\tPIAT] += 0.212014
+freq[Viel\tviel\tPIS] += 0.208360
+
+
+LICENSE
+========
+This work is published under Creative Commons License
+Attribution-NonCommercial 3.0 Unported (CC BY-NC 3.0)
+(http://creativecommons.org/licenses/by-nc/3.0).
+
+HOW TO REFER TO THIS FREQUENCY LIST
+===================================
+Institut für Deutsche Sprache (2014): Korpusbasierte
+Wortformenliste DeReWo, DeReKo-2014-II-MainArchive-STT.100000,
+http://www.ids-mannheim.de/derewo, Institut für Deutsche Sprache,
+Programmbereich Korpuslinguistik, Mannheim, Deutschland
