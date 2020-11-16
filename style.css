@@ -18,3 +18,7 @@ a {
 a:hover {
 	color: #79b7bb;
 }
+
+img {
+	max-width: 80%;
+}
