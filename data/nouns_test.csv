@@ -1,29 +1,29 @@
-singular,plural,plural_type,gender,definition
-Koch,Köche,umlaut + e,m,chef
-Hund,Hunde,e,m,dog
-Gans,Gänse,umlaut + e,f,goose 
-Pferd,Pferde,e,n,horse
-Haus,Häuser,umlaut + er,n,house
-Mund,Münder,umlaut + er,m,mouth
-Auge,Augen,en,n,eye
-Name,Namen,en,m,name
-Lehre,Lehren,en,f,doctrine
-Kino,Kinos,s,n,cinema
-CD,CDs,s,f,CD
-Radio,Radios,s,n,radio
-Onkel,Onkel,no change,m,uncle
-Student,Studenten,en,m,student
-Lehrerin,Lehrerinnen,en,f,teacher (female)
-Thema,Themen,en,n,topic
-Friseur,Friseure,e,m,hairdresser
-Hand,Hände,umlaut + e,f,hand
-Wort,Wörter,umlaut + er,n,word
-Opa,Opas,s,m,grandfather
-Mädchen,Mädchen,no change,n,girl
-Löffel,Löffel,no change,m,spoon
-Geld,-,-,n,money
-Hunger,-,-,m,hunger
-Milch,-,-,f,milk
--,Eltern,-,pl,parents
--,Leute,-,pl,people
-Kind,Kinder,er,n,child
+singular,plural,plural_type,gender,definition,letters,syllables,suffix,last_3_letters?
+Koch,Köche,umlaut + e,m,chef,4,1,-,och
+Hund,Hunde,e,m,dog,4,1,-,und
+Gans,Gänse,umlaut + e,f,goose ,4,1,-,ans
+Pferd,Pferde,e,n,horse,5,1,-,erd
+Haus,Häuser,umlaut + er,n,house,4,1,-,aus
+Mund,Münder,umlaut + er,m,mouth,4,1,-,und
+Auge,Augen,en,n,eye,4,2,-,uge
+Name,Namen,en,m,name,4,2,-,ame
+Lehre,Lehren,en,f,doctrine,5,2,-,hre
+Kino,Kinos,s,n,cinema,4,2,-,ino
+CD,CDs,s,f,CD,2,2,-,CD
+Radio,Radios,s,n,radio,5,3,-,dio
+Onkel,Onkel,no change,m,uncle,5,2,-,kel
+Student,Studenten,en,m,student,7,2,-,ent
+Lehrerin,Lehrerinnen,en,f,teacher (female),8,3,in,rin
+Thema,Themen,en,n,topic,5,2,-,ema
+Friseur,Friseure,e,m,hairdresser,7,2,-,eur
+Hand,Hände,umlaut + e,f,hand,4,1,-,and
+Wort,Wörter,umlaut + er,n,word,4,1,-,ort
+Opa,Opas,s,m,grandfather,3,2,-,Opa
+Mädchen,Mädchen,no change,n,girl,7,2,chen,hen
+Löffel,Löffel,no change,m,spoon,6,2,el,fel
+Geld,-,-,n,money,4,1,-,eld
+Hunger,-,-,m,hunger,6,2,er,ger
+Milch,-,-,f,milk,5,1,-,lch
+-,Eltern,-,pl,parents,6,2,-,ern
+-,Leute,-,pl,people,5,2,-,ute
+Kind,Kinder,er,n,child,4,1,-,ind
