@@ -10,7 +10,15 @@ dic = pyphen.Pyphen(lang='de_DE')
 df = pd.read_csv('nouns_orig.csv', encoding='utf-8-sig')
 print(df)
 print(df.columns, '\n')
-print(list(set(','.join(list(set(df.pos))).split(','))), '\n') # unique POS
+
+# unique POS
+print(list(set(','.join(list(set(df.pos))).split(','))), '\n') 
+# alphabet
+chars = set(''.join(df.lemma))
+print(chars, '\n')
+
+# rename columns - remove spaces, remove "nominativ"
+df = df.rename(columns={x:re.sub(' |(nominativ)', '', x) for x in df.columns})
 
 # list of suffixes to look for
 suffixes = [x[1:] for x in df.lemma if x.startswith('-')]
@@ -175,13 +183,10 @@ suffixes = list(set(suffixes))
 suffixes = sorted(suffixes, key=len, reverse=True)
 print(suffixes, '\n')
 
-# alphabet
-chars = set(''.join(df.lemma))
-print(chars, '\n')
-
 no_suffix = 0 # number of words with no matching suffix
 no_suffix_col = [] # list of words with no matching suffix
 suffixes_col = [] # list of suffixes for each lemma
+plural_suffixes_col = [] # list of suffixes for each plural
 syllables_col = [] # list of syllable counts for each lemma 
 
 # get suffix of lemma, return 0 if no suffix
@@ -192,8 +197,13 @@ def get_suffix(lemma):
 			return s
 	return np.nan
 
-# check each lemma for suffix
-for lemma in df.lemma:
+# check each lemma for syllables and singular/plural suffixes
+for i,row in df.iterrows():
+	lemma = row.lemma
+	singular = row.singular
+	plural = row.plural
+	
+	# GET SUFFIX (SINGULAR)
 	suffix = get_suffix(lemma)
 	suffixes_col.append(suffix)
 	# if there's no matching suffix
@@ -201,10 +211,27 @@ for lemma in df.lemma:
 		no_suffix += 1
 		no_suffix_col.append(lemma)
 		# print(lemma)
-	# get syllables
+		
+	# GET PLURAL TYPE
+	if type(plural) is not str or type(singular) is not str: # if plural == 0, np.nan
+		plural_suffixes_col.append(np.nan) 
+	else:
+		plural_suffix = ''
+		for i in range(len(singular)):
+			if singular[i] != plural[i]:
+				if plural[i] in ['ä', 'ü', 'ö']:
+					plural_suffix = 'umlaut + '
+					continue
+				break
+		plural_suffix += plural[i+1:]
+		if plural_suffix == '': plural_suffix = 'no change'
+		plural_suffixes_col.append(plural_suffix)
+		
+	# GET SYLLABLES
 	lemma = re.sub('[\-\+\,\'\`\’\ʻ\(\)\@\. ]+', '', lemma)
 	sylls = len(dic.inserted(lemma).split('-'))
 	syllables_col.append(sylls)
+	
 
 # print number of words found for each suffix
 print(Counter(suffixes_col).most_common())
@@ -214,8 +241,24 @@ print('\nno_suffix count', no_suffix, '\n')
 no_suffix_col = sorted(no_suffix_col, key=lambda x: x[::-1])
 # [print(x) for x in no_suffix_col]
 
-# save suffixes in df
+# print unique plural types
+plural_types_counter = Counter(plural_suffixes_col)
+print(plural_types_counter, '\n')
+# clean up plural types (get rid of bad ones)
+plural_suffixes_col_NEW = []
+for p in plural_suffixes_col:
+	if plural_types_counter[p] < 10:
+		plural_suffixes_col_NEW.append(0)
+	else:
+		plural_suffixes_col_NEW.append(p)
+plural_suffixes_col = plural_suffixes_col_NEW
+# print unique plural types again
+plural_types_counter = Counter(plural_suffixes_col)
+print(plural_types_counter, '\n')
+
+# save columns in df
 df['suffix'] = suffixes_col
+df['plural_type'] = plural_suffixes_col
 df['syllables'] = syllables_col
 df['letters'] = [len(x) for x in df.lemma]
 
@@ -223,28 +266,27 @@ df['letters'] = [len(x) for x in df.lemma]
 ### SAVE CSV ###
 
 # only keep these columns
-df = df[['lemma', 'pos', 'suffix', 'syllables', 'letters']+[x for x in df.columns if x.startswith('nominativ') or x.startswith('genus')]]
-# rename columns - remove spaces, remove "nominativ"
-df = df.rename(columns={x:re.sub(' |(nominativ)', '', x) for x in df.columns})
+df = df[['lemma', 'pos', 'suffix', 'plural_type', 'syllables', 'letters', 'plural']+[x for x in df.columns if x.startswith('genus')]]
 df = df.fillna(0)
 df.to_csv('nouns.csv', index=False, encoding='utf-8-sig')
+print(df)
 print('saved csv !')
 
 
-#### CONVERT TO JSON ###
-
-json_data = []
-
-for i,row in df.iterrows():
-	row_obj = {col:row[col] for col in df.columns}
-	row_obj['pos'] = row_obj['pos'].split(',')
-	# print(row_obj)
-	json_data.append(row_obj)
-
-with open('nouns.json', 'w') as aus:
-	json.dump(json_data, aus)
-
-print('saved json !')
+# #### CONVERT TO JSON ###
+#
+# json_data = []
+#
+# for i,row in df.iterrows():
+# 	row_obj = {col:row[col] for col in df.columns}
+# 	row_obj['pos'] = row_obj['pos'].split(',')
+# 	# print(row_obj)
+# 	json_data.append(row_obj)
+#
+# with open('nouns.json', 'w') as aus:
+# 	json.dump(json_data, aus)
+#
+# print('saved json !')
 
 
 

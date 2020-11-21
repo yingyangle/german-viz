@@ -52,4 +52,5 @@ Contains gender and definition for German words in the online dictionary dict.cc
 https://vlo.clarin.eu/record/http_58__47__47_hdl.handle.net_47_11022_47_0000-0007-CFD6-F;jsessionid=F7E87C05E0911059A1439209076F49EA?0&docId=http_58__47__47_hdl.handle.net_47_11022_47_0000-0007-CFD6-F&tab=resources
 
 Contains German compound words and the words that make up the compound.
-* Some of the letters seem to be encoding weridly. 
+* Some of the letters seem to be encoded weirdly. 
+
