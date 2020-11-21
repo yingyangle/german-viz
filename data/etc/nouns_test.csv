@@ -1,0 +1,29 @@
+id,singular,plural,plural_type,gender,definition,letters,syllables,suffix,last_3_letters?,frequency?
+1,Koch,Köche,umlaut + e,m,chef,4,1,-,och,63
+2,Hund,Hunde,e,m,dog,4,1,-,und,72
+3,Gans,Gänse,umlaut + e,f,goose ,4,1,-,ans,52
+4,Pferd,Pferde,e,n,horse,5,1,-,erd,74
+5,Haus,Häuser,umlaut + er,n,house,4,1,-,aus,33
+6,Mund,Münder,umlaut + er,m,mouth,4,1,-,und,44
+7,Auge,Augen,en,n,eye,4,2,-,uge,92
+8,Name,Namen,en,m,name,4,2,-,ame,48
+9,Lehre,Lehren,en,f,doctrine,5,2,-,hre,43
+10,Kino,Kinos,s,n,cinema,4,2,-,ino,67
+11,CD,CDs,s,f,CD,2,2,-,CD,57
+12,Radio,Radios,s,n,radio,5,3,-,dio,35
+13,Onkel,Onkel,no change,m,uncle,5,2,-,kel,99
+14,Student,Studenten,en,m,student,7,2,-,ent,59
+15,Lehrerin,Lehrerinnen,en,f,teacher (female),8,3,in,rin,77
+16,Thema,Themen,en,n,topic,5,2,-,ema,60
+17,Friseur,Friseure,e,m,hairdresser,7,2,-,eur,37
+18,Hand,Hände,umlaut + e,f,hand,4,1,-,and,46
+19,Wort,Wörter,umlaut + er,n,word,4,1,-,ort,50
+20,Opa,Opas,s,m,grandfather,3,2,-,Opa,38
+21,Mädchen,Mädchen,no change,n,girl,7,2,chen,hen,51
+22,Löffel,Löffel,no change,m,spoon,6,2,el,fel,12
+23,Geld,-,-,n,money,4,1,-,eld,30
+24,Hunger,-,-,m,hunger,6,2,er,ger,70
+25,Milch,-,-,f,milk,5,1,-,lch,75
+26,-,Eltern,-,pl,parents,6,2,-,ern,7
+27,-,Leute,-,pl,people,5,2,-,ute,6
+28,Kind,Kinder,er,n,child,4,1,-,ind,31

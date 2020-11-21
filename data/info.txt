@@ -1,3 +1,38 @@
+
+### nouns.csv ###
+https://github.com/gambolputty/german_nouns
+Wiktionary dump of German nouns.
+
+--- pos (part of speech) ---
+
+Substantiv = noun
+Adjektiv = adjective
+adjektivische Deklination = substantive adjective (an adjective used as a noun, e.g 'the meek' in 'the meek shall inherit the earth')
+Deklinierte Form = declined form (not in the nominative)
+
+Wortverbindung = collocation (words that often appear together e.g. 'make an effort')
+Redewendung = idiom
+Geflügeltes Wort = idioms/sayings/aphorisms 
+Grußformel = greeting
+
+Suffix = suffix
+Affix = affix (prefixes, suffixes, interfixes)
+Gebundenes Lexem = bound morpheme (a morpheme that can't be by itself, e.g. prefixes, suffixes)
+Abkürzung = abbreviation
+Buchstabe = letter (of the alphabet)
+Symbol = symbol
+
+Partikel = particle
+Zahlklassifikator = classifier (e.g. "flock" in "a flock of sheep")
+
+Toponym = toponym (place name)
+Eigenname = proper name
+Vorname = first name
+Nachname = last name
+Straßenname = street name
+
+
+
 ### nouns_fict.txt ###
 https://figshare.com/articles/Corpus_of_German-Language_Fiction_txt_/4524680/1#:~:text=dataset,-Datasets%20usually%20provide&text=Contains%202%2C735%20German-language%20prose,8%20MB%20uncompressed%20literary%20data.
 

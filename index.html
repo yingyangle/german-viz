@@ -19,11 +19,11 @@
 
 		<!-- SCRIPTS -->
 		<script src="https://d3js.org/d3.v6.min.js"></script>
-		<script src="js/alluvial.js" async defer type="module"></script>
+		<!-- <script src="js/alluvial.js" async defer type="module"></script>
 		<script src="js/bubble.js" async defer type="module"></script>
 		<script src="js/force.js" async defer type="module"></script>
 		<script src="js/pie.js" async defer type="module"></script>
-		<script src="js/scatter.js" async defer type="module"></script>
+		<script src="js/scatter.js" async defer type="module"></script> -->
 	</head>
 
 	<body>
@@ -86,6 +86,21 @@
 		
 		
 		</div>
+		
+		
+		<script>
+			// LOAD CSV
+			d3.csv('data/nouns_suffixes.csv', d3.autoType).then(data => {
+				console.log(data)
+			})
+
+			// LOAD JSON
+			fetch('data/nouns_suffixes.json')
+				.then(response => response.json())
+				.then(data => {
+					console.log(data)
+				})
+		</script>
 
 	</body>
 </html>
