@@ -2,15 +2,15 @@
 # -*- coding: utf-8 -*-
 
 import os, re, numpy as np, pandas as pd, json
+import pyphen
 from collections import Counter
 
-df = pd.read_csv('nouns.csv', encoding='utf-8-sig')
+dic = pyphen.Pyphen(lang='de_DE')
+
+df = pd.read_csv('nouns_orig.csv', encoding='utf-8-sig')
 print(df)
 print(df.columns, '\n')
 print(list(set(','.join(list(set(df.pos))).split(','))), '\n') # unique POS
-
-no_suffix = 0 # number of words with no matching suffix
-suffixes_col = [] # list of suffixes for each lemma
 
 # list of suffixes to look for
 suffixes = [x[1:] for x in df.lemma if x.startswith('-')]
@@ -173,9 +173,16 @@ suffixes = suffixes + [
 suffixes = list(set(suffixes))
 # order suffixes in descending order of length
 suffixes = sorted(suffixes, key=len, reverse=True)
-print(suffixes)
+print(suffixes, '\n')
 
-no_suffix_col = []
+# alphabet
+chars = set(''.join(df.lemma))
+print(chars, '\n')
+
+no_suffix = 0 # number of words with no matching suffix
+no_suffix_col = [] # list of words with no matching suffix
+suffixes_col = [] # list of suffixes for each lemma
+syllables_col = [] # list of syllable counts for each lemma 
 
 # get suffix of lemma, return 0 if no suffix
 def get_suffix(lemma):
@@ -194,6 +201,10 @@ for lemma in df.lemma:
 		no_suffix += 1
 		no_suffix_col.append(lemma)
 		# print(lemma)
+	# get syllables
+	lemma = re.sub('[\-\+\,\'\`\’\ʻ\(\)\@\. ]+', '', lemma)
+	sylls = len(dic.inserted(lemma).split('-'))
+	syllables_col.append(sylls)
 
 # print number of words found for each suffix
 print(Counter(suffixes_col).most_common())
@@ -203,14 +214,20 @@ print('\nno_suffix count', no_suffix, '\n')
 no_suffix_col = sorted(no_suffix_col, key=lambda x: x[::-1])
 # [print(x) for x in no_suffix_col]
 
-# save suffixes in .csv
+# save suffixes in df
 df['suffix'] = suffixes_col
+df['syllables'] = syllables_col
+df['letters'] = [len(x) for x in df.lemma]
+
+
+### SAVE CSV ###
+
 # only keep these columns
-df = df[['lemma', 'pos', 'suffix']+[x for x in df.columns if x.startswith('nominativ') or x.startswith('genus')]]
+df = df[['lemma', 'pos', 'suffix', 'syllables', 'letters']+[x for x in df.columns if x.startswith('nominativ') or x.startswith('genus')]]
 # rename columns - remove spaces, remove "nominativ"
 df = df.rename(columns={x:re.sub(' |(nominativ)', '', x) for x in df.columns})
 df = df.fillna(0)
-df.to_csv('nouns_suffixes.csv', index=False, encoding='utf-8-sig')
+df.to_csv('nouns.csv', index=False, encoding='utf-8-sig')
 print('saved csv !')
 
 
@@ -224,7 +241,7 @@ for i,row in df.iterrows():
 	# print(row_obj)
 	json_data.append(row_obj)
 
-with open('nouns_suffixes.json', 'w') as aus:
+with open('nouns.json', 'w') as aus:
 	json.dump(json_data, aus)
 
 print('saved json !')

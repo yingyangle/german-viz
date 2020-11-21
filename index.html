@@ -90,12 +90,12 @@
 		
 		<script>
 			// LOAD CSV
-			d3.csv('data/nouns_suffixes.csv', d3.autoType).then(data => {
+			d3.csv('data/nouns.csv', d3.autoType).then(data => {
 				console.log(data)
 			})
 
 			// LOAD JSON
-			fetch('data/nouns_suffixes.json')
+			fetch('data/nouns.json')
 				.then(response => response.json())
 				.then(data => {
 					console.log(data)

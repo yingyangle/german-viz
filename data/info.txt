@@ -3,6 +3,9 @@
 https://github.com/gambolputty/german_nouns
 Wiktionary dump of German nouns.
 
+nouns_orig.csv = original .csv downloaded from GitHub
+nouns.csv = includes suffix, syllable count, letter count
+
 --- pos (part of speech) ---
 
 Substantiv = noun
