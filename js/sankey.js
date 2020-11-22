@@ -6,6 +6,22 @@ let height = 500 - margin.top - margin.bottom
 var count_cutoff = $('#sankey-count').val()
 let edgeColor = 'path'
 
+let f = d3.format(',.0f')
+let format = d => `${f(d)} words`
+let colorScale = d3.scaleOrdinal(d3.schemeCategory10)
+
+// RANGE SLIDER FOR MINIMUM COUNT (count_cutoff)
+const range = document.getElementById('sankey-range')
+const rangeV = document.getElementById('sankey-range-value')
+const setValue = () => {
+		const newValue = Number( (range.value - range.min) * 100 / (range.max - range.min) )
+		const newPosition = 10 - (newValue * 0.2)
+		rangeV.innerHTML = `<span>${range.value}</span>`
+		rangeV.style.left = `calc(${newValue}% + (${newPosition}px))`
+	}
+document.addEventListener('DOMContentLoaded', setValue)
+range.addEventListener('input', setValue)
+
 let _sankey = d3.sankey()
 	.nodeWidth(15)
 	.nodePadding(10)
@@ -16,13 +32,8 @@ let sankey = ({nodes, links}) => _sankey({
 	links: links.map(d => Object.assign({}, d))
 })
 
-let f = d3.format(',.0f')
-let format = d => `${f(d)} words`
-
-let colorScale = d3.scaleOrdinal(d3.schemeCategory10)
-
-
-Promise.all([ // load multiple files
+// load .json files
+Promise.all([ 
 	d3.json('data/nodes.json'), 
 	d3.json('data/links.json')
 ]).then(data => {
@@ -30,17 +41,22 @@ Promise.all([ // load multiple files
 		'nodes': data[0],
 		'links': data[1]
 	}
+	// original untouched data to use for getData()
 	const data_orig = _.cloneDeep(data)
 	console.log(data)
 
+	// creat svg
 	let svg = d3.select('#sankey')
 		.attr('viewBox', `0 0 ${width} ${height}`)
 		.style('width', '100%')
 		.style('height', 'auto')
 
+	// get original data, filter data, convert to sankey data
 	function getData() {
+		// set data to original full data
 		data = _.cloneDeep(data_orig)
-		// find nodes to remove (filtering)
+
+		// find nodes to remove
 		var nodes_to_remove = []
 		for (var i in data.nodes) {
 			n = data.nodes[i]
@@ -49,31 +65,30 @@ Promise.all([ // load multiple files
 			} 
 		}
 		console.log('remove', nodes_to_remove)
-		// remove nodes from nodes list (filtering)
+		// remove nodes from nodes list
 		data.nodes = data.nodes.filter(node => {
 			return !nodes_to_remove.includes(node.i)
 		})
 
-		// get index of singular 'other' category
+		// get index of singular 'other' type and plural 'other' type
 		var other_singular = data.nodes.findIndex(x => x.name == 'other' & x.type == 'singular')
 		var other_plural = data.nodes.findIndex(x => x.name == 'other' & x.type == 'plural')
 		console.log('other_singular', other_singular)
 		console.log('other_plural', other_plural)
 
 		var other_singular_add = 0, other_plural_add = 0
-		var links_to_remove = []
 
-		// remove links from links list (filtering)
+		// update source and target indices for links
 		for (var i in data.links) {
 			l = data.links[i]
-			// source - singular
+			// source (singular)
 			if (nodes_to_remove.includes(l.source)) {
 				l.source = other_singular
 				other_singular_add += 1
 			} else {
 				l.source = data.nodes.findIndex(x => x.i == l.source)
 			}
-			// target - plural
+			// target (plural)
 			if (nodes_to_remove.includes(l.target)) {
 				l.target = other_plural
 				other_plural_add += 1
@@ -81,7 +96,7 @@ Promise.all([ // load multiple files
 				l.target = data.nodes.findIndex(x => x.i == l.target)
 			}
 		}
-		// remove duplicates
+		// remove duplicate links
 		var unique_links = []
 		$.each(data.links, function(i, link){
 			var i = unique_links.findIndex(x => x.source == link.source & x.target == link.target)
@@ -103,19 +118,21 @@ Promise.all([ // load multiple files
 
 		return {nodes, links}
 	}
-
-	
 	
 	// UPDATE FUNCTION
+	// re-filter data, clear svg contents, draw new svg contents
 	function update() {
-		count_cutoff = $('#sankey-count').val()
+		// get new count_cutoff
+		count_cutoff = parseInt($('#sankey-range').val())
+		// get new filtered data
 		var {nodes, links} = getData()
-
 		console.log('nodes:', nodes.length, 'links:', links.length)
 		console.log('count_cutoff', count_cutoff)
+
+		// clear svg contents
 		svg.selectAll('*').remove();
 
-		// category nodes
+		// nodes
 		svg.append('g')
 			.attr('stroke', '#000')
 			.selectAll('rect')
@@ -138,6 +155,7 @@ Promise.all([ // load multiple files
 			.join('g')
 			.style('mix-blend-mode', 'multiply')
 
+		// link colors
 		if (edgeColor === 'path') {
 			let gradient = link.append('linearGradient')
 				.attr('id', (d,i) => {
@@ -166,9 +184,11 @@ Promise.all([ // load multiple files
 				: colorScale(d.target.name))
 			.attr('stroke-width', d => Math.max(1, d.width))
 		
+		// tooltip
 		link.append('title')
 			.text(d => `${d.source.name} → ${d.target.name}\n${format(d.value)}`)
 
+		// node labels
 		svg.append('g')
 			.style('font', '10px sans-serif')
 			.selectAll('text')
@@ -184,6 +204,9 @@ Promise.all([ // load multiple files
 		
 	update()
 	$('#sankey-reload').on('click', update)
+	$('#sankey-range').on('change', () => {
+		update()
+	})
 
 
 })

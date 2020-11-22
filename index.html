@@ -41,9 +41,15 @@
 			<h5>Christine Yang, Yuezhen Chen, Ann Pan</h5>
 			<br><br><br>
 
+			<!-- SANKEY DIAGRAM -->
+
 			<h6>Minimum count:</h6>
-			<input type="number" id="sankey-count" value=800>
-			<button id="sankey-reload" class="btn">Reload</button>
+			<br><br>
+			<div class="range-wrap">
+				<div class="range-value" id="sankey-range-value"></div>
+				<input id="sankey-range" type="range" min=10 max=4000 value=800 step=10>
+			</div>
+
 			<svg id="sankey" ></svg>
 			<br><br>
 
