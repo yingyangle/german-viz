@@ -1,0 +1,213 @@
+{"nodes":[{
+    "BorrowedWord": "bank",
+    "Relation": "earlier",
+    "Donor Language": "Germanic",
+    "SourceWord": "bank-"
+  },
+
+  {
+    "BorrowedWord": "bat",
+    "Relation": "immediate",
+    "Donor Language": "Middle North Germanic",
+    "SourceWord": "bakka"
+  },
+  {
+    "BorrowedWord": "blanket",
+    "Relation": "earlier",
+    "Donor Language": "Germanic",
+    "SourceWord": "blank"
+  },
+  {
+    "BorrowedWord": "blue",
+    "Relation": "earlier",
+    "Donor Language": "Germanic",
+    "SourceWord": "bl?waz"
+  },
+  {
+    "BorrowedWord": "booty",
+    "Relation": "earlier",
+    "Donor Language": "German",
+    "SourceWord": "Beute"
+  },
+  {
+    "BorrowedWord": "brackish",
+    "Relation": "immediate",
+    "Donor Language": "Middle Low German",
+    "SourceWord": "brak"
+  },
+  {
+    "BorrowedWord": "brick",
+    "Relation": "earlier",
+    "Donor Language": "Middle Low German",
+    "SourceWord": "bricke"
+  },
+  {
+    "BorrowedWord": "dance",
+    "Relation": "earlier",
+    "Donor Language": "Germanic",
+    "SourceWord": "danson"
+  },
+  {
+    "BorrowedWord": "garden",
+    "Relation": "earlier",
+    "Donor Language": "Proto-Germanic",
+    "SourceWord": "gardan-"
+  },
+  {
+    "BorrowedWord": "grape",
+    "Relation": "earlier",
+    "Donor Language": "Germanic",
+    "SourceWord": "krappon"
+  },
+  {
+    "BorrowedWord": "headband",
+    "Relation": "earlier",
+    "Donor Language": "Germanic",
+    "SourceWord": "bindon"
+  },
+  {
+    "BorrowedWord": "heron",
+    "Relation": "earlier",
+    "Donor Language": "Proto-Germanic",
+    "SourceWord": "xaigaran"
+  },
+  {
+    "BorrowedWord": "hut",
+    "Relation": "earlier",
+    "Donor Language": "Proto-Germanic",
+    "SourceWord": "hudja"
+  },
+  {
+    "BorrowedWord": "lazy",
+    "Relation": "immediate",
+    "Donor Language": "Middle Low German",
+    "SourceWord": "lasich"
+  },
+  {
+    "BorrowedWord": "mumble",
+    "Relation": "immediate",
+    "Donor Language": "Middle Low German",
+    "SourceWord": "mummelen"
+  },
+  {
+    "BorrowedWord": "pill",
+    "Relation": "immediate",
+    "Donor Language": "Middle Low German",
+    "SourceWord": "pille"
+  },
+  {
+    "BorrowedWord": "pitchfork",
+    "Relation": "earlier",
+    "Donor Language": "Germanic",
+    "SourceWord": "pikka"
+  },
+  {
+    "BorrowedWord": "reef",
+    "Relation": "immediate",
+    "Donor Language": "Middle Low German",
+    "SourceWord": "riffe"
+  },
+  {
+    "BorrowedWord": "roast",
+    "Relation": "earlier",
+    "Donor Language": "West Germanic",
+    "SourceWord": "raustjan"
+  },
+  {
+    "BorrowedWord": "rub",
+    "Relation": "immediate",
+    "Donor Language": "Middle Low German",
+    "SourceWord": "rubben"
+  },
+  {
+    "BorrowedWord": "scale",
+    "Relation": "earlier",
+    "Donor Language": "Germanic",
+    "SourceWord": "skalja"
+  },
+  {
+    "BorrowedWord": "shelf",
+    "Relation": "immediate",
+    "Donor Language": "Middle Low German",
+    "SourceWord": "schelf"
+  },
+  {
+    "BorrowedWord": "shop",
+    "Relation": "earlier",
+    "Donor Language": "Middle Low German",
+    "SourceWord": "schoppen"
+  },
+  {
+    "BorrowedWord": "shore",
+    "Relation": "immediate",
+    "Donor Language": "Middle Low German",
+    "SourceWord": "schôre"
+  },
+  {
+    "BorrowedWord": "shrimp",
+    "Relation": "immediate",
+    "Donor Language": "Middle High German",
+    "SourceWord": "schrimpen"
+  },
+  {
+    "BorrowedWord": "sledge",
+    "Relation": "immediate",
+    "Donor Language": "Middle Low German",
+    "SourceWord": "slede"
+  },
+  {
+    "BorrowedWord": "sling",
+    "Relation": "immediate",
+    "Donor Language": "Middle Low German",
+    "SourceWord": "slinge"
+  },
+  {
+    "BorrowedWord": "smile",
+    "Relation": "immediate",
+    "Donor Language": "Middle Low German",
+    "SourceWord": "smilen"
+  },
+  {
+    "BorrowedWord": "soup, supper",
+    "Relation": "earlier",
+    "Donor Language": "Germanic",
+    "SourceWord": "supian"
+  },
+  {
+    "BorrowedWord": "split",
+    "Relation": "immediate",
+    "Donor Language": "Middle Low German",
+    "SourceWord": "splitten"
+  },
+  {
+    "BorrowedWord": "stallion",
+    "Relation": "earlier",
+    "Donor Language": "Germanic",
+    "SourceWord": "stallo"
+  },
+  {
+    "BorrowedWord": "swamp",
+    "Relation": "immediate",
+    "Donor Language": "Middle Low German",
+    "SourceWord": "swampen"
+  },
+  {
+    "BorrowedWord": "towel",
+    "Relation": "earlier",
+    "Donor Language": "Germanic",
+    "SourceWord": "thwaxljo"
+  },
+  {
+    "BorrowedWord": "trade",
+    "Relation": "immediate",
+    "Donor Language": "Middle Low German",
+    "SourceWord": "trade"
+  },
+  {
+    "BorrowedWord": "wages",
+    "Relation": "earlier",
+    "Donor Language": "Germanic",
+    "SourceWord": "wadjam"
+  }
+]
+}
