@@ -30,77 +30,89 @@ Promise.all([ // load multiple files
 		'nodes': data[0],
 		'links': data[1]
 	}
+	const data_orig = _.cloneDeep(data)
 	console.log(data)
-
-	// find nodes to remove (filtering)
-	var nodes_to_remove = []
-	var nodes_to_remove2 = []
-	for (var i in data.nodes) {
-		n = data.nodes[i]
-		if (n.count < count_cutoff) {
-			nodes_to_remove.push(n.i)
-		} 
-	}
-	console.log('remove', nodes_to_remove)
-	// remove nodes from nodes list (filtering)
-	data.nodes = data.nodes.filter(node => {
-		return !nodes_to_remove.includes(node.i)
-	})
-
-	// get index of singular 'other' category
-	var other_singular = data.nodes.findIndex(x => x.name == 'other' & x.type == 'singular')
-	var other_plural = data.nodes.findIndex(x => x.name == 'other' & x.type == 'plural')
-	console.log('other_singular', other_singular)
-	console.log('other_plural', other_plural)
-
-	var other_singular_add = 0, other_plural_add = 0
-	var links_to_remove = []
-
-	// remove links from links list (filtering)
-	for (var i in data.links) {
-		l = data.links[i]
-		// source - singular
-		if (nodes_to_remove.includes(l.source)) {
-			l.source = other_singular
-			other_singular_add += 1
-		} else {
-			l.source = data.nodes.findIndex(x => x.i == l.source)
-		}
-		// target - plural
-		if (nodes_to_remove.includes(l.target)) {
-			l.target = other_plural
-			other_plural_add += 1
-		} else {
-			l.target = data.nodes.findIndex(x => x.i == l.target)
-		}
-	}
-	// remove duplicates
-	var unique_links = []
-	$.each(data.links, function(i, link){
-		var i = unique_links.findIndex(x => x.source == link.source & x.target == link.target)
-		// add new unique link
-		if (i == -1) {
-			unique_links.push(link)
-		} else { // increment value on existing link
-			unique_links[i].value += link.value
-		}
-	})
-	console.log('unique', unique_links)
-	data.links = unique_links
-
-	// convert data to sankey data
-	let {nodes, links} = sankey(data)
-	console.log('nodes', nodes)
-	console.log('links', links)
 
 	let svg = d3.select('#sankey')
 		.attr('viewBox', `0 0 ${width} ${height}`)
 		.style('width', '100%')
 		.style('height', 'auto')
+
+	function getData() {
+		data = _.cloneDeep(data_orig)
+		// find nodes to remove (filtering)
+		var nodes_to_remove = []
+		for (var i in data.nodes) {
+			n = data.nodes[i]
+			if (n.count < count_cutoff) {
+				nodes_to_remove.push(n.i)
+			} 
+		}
+		console.log('remove', nodes_to_remove)
+		// remove nodes from nodes list (filtering)
+		data.nodes = data.nodes.filter(node => {
+			return !nodes_to_remove.includes(node.i)
+		})
+
+		// get index of singular 'other' category
+		var other_singular = data.nodes.findIndex(x => x.name == 'other' & x.type == 'singular')
+		var other_plural = data.nodes.findIndex(x => x.name == 'other' & x.type == 'plural')
+		console.log('other_singular', other_singular)
+		console.log('other_plural', other_plural)
+
+		var other_singular_add = 0, other_plural_add = 0
+		var links_to_remove = []
+
+		// remove links from links list (filtering)
+		for (var i in data.links) {
+			l = data.links[i]
+			// source - singular
+			if (nodes_to_remove.includes(l.source)) {
+				l.source = other_singular
+				other_singular_add += 1
+			} else {
+				l.source = data.nodes.findIndex(x => x.i == l.source)
+			}
+			// target - plural
+			if (nodes_to_remove.includes(l.target)) {
+				l.target = other_plural
+				other_plural_add += 1
+			} else {
+				l.target = data.nodes.findIndex(x => x.i == l.target)
+			}
+		}
+		// remove duplicates
+		var unique_links = []
+		$.each(data.links, function(i, link){
+			var i = unique_links.findIndex(x => x.source == link.source & x.target == link.target)
+			// add new unique link
+			if (i == -1) {
+				unique_links.push(link)
+			} else { // increment value on existing link
+				unique_links[i].value += link.value
+			}
+		})
+		console.log('unique', unique_links)
+		data.links = unique_links
+
+		// convert data to sankey data
+		console.log(sankey(data))
+		let {nodes, links} = sankey(data)
+		console.log('nodes', nodes)
+		console.log('links', links)
+
+		return {nodes, links}
+	}
+
+	
 	
 	// UPDATE FUNCTION
 	function update() {
+		count_cutoff = $('#sankey-count').val()
+		var {nodes, links} = getData()
+
 		console.log('nodes:', nodes.length, 'links:', links.length)
+		console.log('count_cutoff', count_cutoff)
 		svg.selectAll('*').remove();
 
 		// category nodes
