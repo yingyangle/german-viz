@@ -48,11 +48,13 @@ Promise.all([ // load multiple files
 	})
 
 	// get index of singular 'other' category
-	var other = data.nodes.filter(obj => { return obj.name == 'other' })
 	var other_singular = data.nodes.findIndex(x => x.name == 'other' & x.type == 'singular')
 	var other_plural = data.nodes.findIndex(x => x.name == 'other' & x.type == 'plural')
 	console.log('other_singular', other_singular)
 	console.log('other_plural', other_plural)
+
+	var other_singular_add = 0, other_plural_add = 0
+	var links_to_remove = []
 
 	// remove links from links list (filtering)
 	for (var i in data.links) {
@@ -60,16 +62,31 @@ Promise.all([ // load multiple files
 		// source - singular
 		if (nodes_to_remove.includes(l.source)) {
 			l.source = other_singular
+			other_singular_add += 1
 		} else {
 			l.source = data.nodes.findIndex(x => x.i == l.source)
 		}
 		// target - plural
 		if (nodes_to_remove.includes(l.target)) {
 			l.target = other_plural
+			other_plural_add += 1
 		} else {
 			l.target = data.nodes.findIndex(x => x.i == l.target)
 		}
 	}
+	// remove duplicates
+	var unique_links = []
+	$.each(data.links, function(i, link){
+		var i = unique_links.findIndex(x => x.source == link.source & x.target == link.target)
+		// add new unique link
+		if (i == -1) {
+			unique_links.push(link)
+		} else { // increment value on existing link
+			unique_links[i].value += link.value
+		}
+	})
+	console.log('unique', unique_links)
+	data.links = unique_links
 
 	// convert data to sankey data
 	let {nodes, links} = sankey(data)
@@ -80,33 +97,10 @@ Promise.all([ // load multiple files
 		.attr('viewBox', `0 0 ${width} ${height}`)
 		.style('width', '100%')
 		.style('height', 'auto')
-
-	// // category nodes
-	// svg.append('g')
-	// 	.attr('stroke', '#000')
-	// 	.selectAll('rect')
-	// 	.data(nodes)
-	// 	.join('rect')
-	// 	.attr('x', d => d.x0)
-	// 	.attr('y', d => d.y0)
-	// 	.attr('height', d => d.y1 - d.y0)
-	// 	.attr('width', d => d.x1 - d.x0)
-	// 	.attr('fill', d => colorScale(d.name))
-	// 	.append('title')
-	// 	.text(d => `${d.name}\n${format(d.value)}`)
-
-	// // links
-	// let link = svg.append('g')
-	// 	.attr('fill', 'none')
-	// 	.attr('stroke-opacity', 0.5)
-	// 	.selectAll('g')
-	// 	.data(links)
-	// 	.join('g')
-	// 	.style('mix-blend-mode', 'multiply')
 	
 	// UPDATE FUNCTION
 	function update() {
-		console.log(nodes.length, links.length)
+		console.log('nodes:', nodes.length, 'links:', links.length)
 		svg.selectAll('*').remove();
 
 		// category nodes
@@ -172,7 +166,7 @@ Promise.all([ // load multiple files
 			.attr('y', d => (d.y1 + d.y0) / 2)
 			.attr('dy', '0.35em')
 			.attr('text-anchor', d => d.x0 < width / 2 ? 'start' : 'end')
-			.text(d => d.name + '\n' + d.count)
+			.text(d => d.name + '\n' + d.value)
 		console.log('updated !')
 	}
 		
