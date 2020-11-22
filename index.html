@@ -18,9 +18,11 @@
 		<link rel="stylesheet" href="style.css">
 
 		<!-- SCRIPTS -->
-		<script src="https://d3js.org/d3.v6.min.js"></script>
-		<!-- <script src="js/alluvial.js" async defer type="module"></script>
-		<script src="js/bubble.js" async defer type="module"></script>
+		<script src="https://d3js.org/d3.v5.min.js" type="text/javascript"></script>
+		<script src="https://unpkg.com/d3-sankey@0.7.1/build/d3-sankey.js" type="text/javascript"></script>
+
+		<script src="js/sankey.js" async defer></script>
+		<!-- <script src="js/bubble.js" async defer type="module"></script>
 		<script src="js/force.js" async defer type="module"></script>
 		<script src="js/pie.js" async defer type="module"></script>
 		<script src="js/scatter.js" async defer type="module"></script> -->
@@ -35,6 +37,9 @@
 			<h2 id="title">The German Language</h2>
 			<h5>Christine Yang, Yuezhen Chen, Ann Pan</h5>
 			<br><br><br>
+
+			<svg id="sankey" ></svg>
+			<br><br>
 
 			<h2>What is German?</h2>
 
@@ -89,17 +94,17 @@
 		
 		
 		<script>
-			// LOAD CSV
-			d3.csv('data/nouns.csv', d3.autoType).then(data => {
-				console.log(data)
-			})
+			// // LOAD CSV
+			// d3.csv('data/nouns.csv', d3.autoType).then(data => {
+			// 	console.log(data)
+			// })
 
-			// LOAD JSON
-			fetch('data/nouns.json')
-				.then(response => response.json())
-				.then(data => {
-					console.log(data)
-				})
+			// // LOAD JSON
+			// fetch('data/nouns.json')
+			// 	.then(response => response.json())
+			// 	.then(data => {
+			// 		console.log(data)
+			// 	})
 		</script>
 
 	</body>

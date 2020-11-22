@@ -186,7 +186,7 @@ print(suffixes, '\n')
 no_suffix = 0 # number of words with no matching suffix
 no_suffix_col = [] # list of words with no matching suffix
 suffixes_col = [] # list of suffixes for each lemma
-plural_suffixes_col = [] # list of suffixes for each plural
+plural_types_col = [] # list of suffixes for each plural
 syllables_col = [] # list of syllable counts for each lemma 
 
 # get suffix of lemma, return 0 if no suffix
@@ -214,18 +214,18 @@ for i,row in df.iterrows():
 		
 	# GET PLURAL TYPE
 	if type(plural) is not str or type(singular) is not str: # if plural == 0, np.nan
-		plural_suffixes_col.append(np.nan) 
+		plural_types_col.append(np.nan) 
 	else:
-		plural_suffix = ''
+		plural_type = ''
 		for i in range(len(singular)):
 			if singular[i] != plural[i]:
 				if plural[i] in ['ä', 'ü', 'ö']:
-					plural_suffix = 'umlaut + '
+					plural_type = 'umlaut + '
 					continue
 				break
-		plural_suffix += plural[i+1:]
-		if plural_suffix == '': plural_suffix = 'no change'
-		plural_suffixes_col.append(plural_suffix)
+		plural_type += plural[i+1:]
+		if plural_type == '': plural_type = 'no change'
+		plural_types_col.append(plural_type)
 		
 	# GET SYLLABLES
 	lemma = re.sub('[\-\+\,\'\`\’\ʻ\(\)\@\. ]+', '', lemma)
@@ -242,37 +242,37 @@ no_suffix_col = sorted(no_suffix_col, key=lambda x: x[::-1])
 # [print(x) for x in no_suffix_col]
 
 # print unique plural types
-plural_types_counter = Counter(plural_suffixes_col)
+plural_types_counter = Counter(plural_types_col)
 print(plural_types_counter, '\n')
 # clean up plural types (get rid of bad ones)
-plural_suffixes_col_NEW = []
-for p in plural_suffixes_col:
+plural_types_col_NEW = []
+for p in plural_types_col:
 	if plural_types_counter[p] < 10:
-		plural_suffixes_col_NEW.append(0)
+		plural_types_col_NEW.append(0)
 	else:
-		plural_suffixes_col_NEW.append(p)
-plural_suffixes_col = plural_suffixes_col_NEW
+		plural_types_col_NEW.append(p)
+plural_types_col = plural_types_col_NEW
 # print unique plural types again
-plural_types_counter = Counter(plural_suffixes_col)
+plural_types_counter = Counter(plural_types_col)
 print(plural_types_counter, '\n')
 
 # save columns in df
 df['suffix'] = suffixes_col
-df['plural_type'] = plural_suffixes_col
+df['plural_type'] = plural_types_col
 df['syllables'] = syllables_col
 df['letters'] = [len(x) for x in df.lemma]
 
-
-### SAVE CSV ###
-
-# only keep these columns
-df = df[['lemma', 'pos', 'suffix', 'plural_type', 'syllables', 'letters', 'plural']+[x for x in df.columns if x.startswith('genus')]]
-df = df.fillna(0)
-df.to_csv('nouns.csv', index=False, encoding='utf-8-sig')
-print(df)
-print('saved csv !')
-
-
+#
+# ### SAVE CSV ###
+#
+# # only keep these columns
+# df = df[['lemma', 'pos', 'suffix', 'plural_type', 'syllables', 'letters', 'singular', 'plural']+[x for x in df.columns if x.startswith('genus')]]
+# df = df.fillna(0)
+# df.to_csv('nouns.csv', index=False, encoding='utf-8-sig')
+# print(df)
+# print('saved csv !')
+#
+#
 # #### CONVERT TO JSON ###
 #
 # json_data = []
@@ -287,7 +287,7 @@ print('saved csv !')
 # 	json.dump(json_data, aus)
 #
 # print('saved json !')
-
-
+#
+#
 
 
