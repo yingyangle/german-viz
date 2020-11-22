@@ -19,6 +19,21 @@ a:hover {
 	color: #79b7bb;
 }
 
+.btn {
+	color: #f7f7f7;
+	background-color: #79b7bb;
+	border-color: transparent;
+	margin: 0 10px 0 10px;
+	font-size: 18px;
+}
+
+.btn:hover, .btn:focus, .btn:active {
+	color: #f7f7f7;
+	background-color: #679b9f;
+	border-color: none;
+}
+
 img {
 	max-width: 80%;
 }
+

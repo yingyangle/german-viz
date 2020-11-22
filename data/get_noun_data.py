@@ -225,6 +225,7 @@ for i,row in df.iterrows():
 				break
 		plural_type += plural[i+1:]
 		if plural_type == '': plural_type = 'no change'
+		if plural_type == 'umlaut + ': plural_type = 'umlaut'
 		plural_types_col.append(plural_type)
 		
 	# GET SYLLABLES
@@ -262,32 +263,32 @@ df['plural_type'] = plural_types_col
 df['syllables'] = syllables_col
 df['letters'] = [len(x) for x in df.lemma]
 
-#
-# ### SAVE CSV ###
-#
-# # only keep these columns
-# df = df[['lemma', 'pos', 'suffix', 'plural_type', 'syllables', 'letters', 'singular', 'plural']+[x for x in df.columns if x.startswith('genus')]]
-# df = df.fillna(0)
-# df.to_csv('nouns.csv', index=False, encoding='utf-8-sig')
-# print(df)
-# print('saved csv !')
-#
-#
-# #### CONVERT TO JSON ###
-#
-# json_data = []
-#
-# for i,row in df.iterrows():
-# 	row_obj = {col:row[col] for col in df.columns}
-# 	row_obj['pos'] = row_obj['pos'].split(',')
-# 	# print(row_obj)
-# 	json_data.append(row_obj)
-#
-# with open('nouns.json', 'w') as aus:
-# 	json.dump(json_data, aus)
-#
-# print('saved json !')
-#
-#
+
+### SAVE CSV ###
+
+# only keep these columns
+df = df[['lemma', 'pos', 'suffix', 'plural_type', 'syllables', 'letters', 'singular', 'plural']+[x for x in df.columns if x.startswith('genus')]]
+df = df.fillna(0)
+df.to_csv('nouns.csv', index=False, encoding='utf-8-sig')
+print(df)
+print('saved csv !')
+
+
+#### CONVERT TO JSON ###
+
+json_data = []
+
+for i,row in df.iterrows():
+	row_obj = {col:row[col] for col in df.columns}
+	row_obj['pos'] = row_obj['pos'].split(',')
+	# print(row_obj)
+	json_data.append(row_obj)
+
+with open('nouns.json', 'w') as aus:
+	json.dump(json_data, aus)
+
+print('saved json !')
+
+
 
 
