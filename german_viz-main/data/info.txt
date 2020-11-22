@@ -1,0 +1,56 @@
+
+### nouns.csv ###
+https://github.com/gambolputty/german_nouns
+Wiktionary dump of German nouns.
+
+nouns_orig.csv = original .csv downloaded from GitHub
+nouns.csv = includes suffix, syllable count, letter count
+
+--- pos (part of speech) ---
+
+Substantiv = noun
+Adjektiv = adjective
+adjektivische Deklination = substantive adjective (an adjective used as a noun, e.g 'the meek' in 'the meek shall inherit the earth')
+Deklinierte Form = declined form (not in the nominative)
+
+Wortverbindung = collocation (words that often appear together e.g. 'make an effort')
+Redewendung = idiom
+Geflügeltes Wort = idioms/sayings/aphorisms 
+Grußformel = greeting
+
+Suffix = suffix
+Affix = affix (prefixes, suffixes, interfixes)
+Gebundenes Lexem = bound morpheme (a morpheme that can't be by itself, e.g. prefixes, suffixes)
+Abkürzung = abbreviation
+Buchstabe = letter (of the alphabet)
+Symbol = symbol
+
+Partikel = particle
+Zahlklassifikator = classifier (e.g. "flock" in "a flock of sheep")
+
+Toponym = toponym (place name)
+Eigenname = proper name
+Vorname = first name
+Nachname = last name
+Straßenname = street name
+
+
+
+### nouns_fict.txt ###
+https://figshare.com/articles/Corpus_of_German-Language_Fiction_txt_/4524680/1#:~:text=dataset,-Datasets%20usually%20provide&text=Contains%202%2C735%20German-language%20prose,8%20MB%20uncompressed%20literary%20data.
+
+Contains 40,000 most common nouns from 2,735 German-language prose works by 549 authors, spanning from ca. 1510 to the 1940s (the bulk of texts is from 1840–1930). Includes the singular, plural, and gender for each noun according to Wikipedia. Data collected by Christine.
+
+
+### dictcc.txt ###
+https://www1.dict.cc/translation_file_request.php
+
+Contains gender and definition for German words in the online dictionary dict.cc. Data provided by dict.cc.
+
+
+### compounds.txt ###
+https://vlo.clarin.eu/record/http_58__47__47_hdl.handle.net_47_11022_47_0000-0007-CFD6-F;jsessionid=F7E87C05E0911059A1439209076F49EA?0&docId=http_58__47__47_hdl.handle.net_47_11022_47_0000-0007-CFD6-F&tab=resources
+
+Contains German compound words and the words that make up the compound.
+* Some of the letters seem to be encoded weirdly. 
+
