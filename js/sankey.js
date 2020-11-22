@@ -1,7 +1,7 @@
-let m = 10
-let margin = ({ top: m, right: m, bottom: m, left: m })
-let width = 700 - margin.left - margin.right
-let height = 500 - margin.top - margin.bottom
+let m = 70
+let margin = ({ top: 0, right: m, bottom: 0, left: m })
+let width = 1000 - margin.left - margin.right
+let height = 900 - margin.top - margin.bottom
 
 var count_cutoff = $('#sankey-count').val()
 let edgeColor = 'path'
@@ -47,9 +47,13 @@ Promise.all([
 
 	// creat svg
 	let svg = d3.select('#sankey')
-		.attr('viewBox', `0 0 ${width} ${height}`)
-		.style('width', '100%')
-		.style('height', 'auto')
+		// .attr('viewBox', `0 0 ${width} ${height}`)
+		// .style('width', '50%')
+		// .style('height', 'auto')
+		.attr('width', width + margin.left + margin.right)
+		.attr('height', height + margin.top + margin.bottom)
+		.append('g')
+		.attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
 
 	// get original data, filter data, convert to sankey data
 	function getData() {
@@ -188,9 +192,20 @@ Promise.all([
 		link.append('title')
 			.text(d => `${d.source.name} → ${d.target.name}\n${format(d.value)}`)
 
-		// node labels
+		// node name labels
 		svg.append('g')
-			.style('font', '10px sans-serif')
+			.style('font', '14px sans-serif')
+			.selectAll('text')
+			.data(nodes)
+			.join('text')
+			.attr('x', d => d.x0 < width / 2 ? d.x1 - 20 : d.x0 + 20)
+			.attr('y', d => (d.y1 + d.y0) / 2)
+			.attr('dy', '0.35em')
+			.attr('text-anchor', d => d.x0 < width / 2 ? 'end' : 'start')
+			.text(d => d.name)
+		// node count labels
+		svg.append('g')
+			.style('font', '12px sans-serif')
 			.selectAll('text')
 			.data(nodes)
 			.join('text')
@@ -198,7 +213,7 @@ Promise.all([
 			.attr('y', d => (d.y1 + d.y0) / 2)
 			.attr('dy', '0.35em')
 			.attr('text-anchor', d => d.x0 < width / 2 ? 'start' : 'end')
-			.text(d => d.name + '\n' + d.value)
+			.text(d => d.value)
 		console.log('updated !')
 	}
 		
