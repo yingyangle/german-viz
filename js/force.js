@@ -1,4 +1,4 @@
-const sizeScale = d3.scaleLinear().range([6,42])
+const sizeScale = d3.scaleLinear().range([7,43])
 var colors = d3.scaleOrdinal(d3.schemeCategory10)
 
 var dataset;
@@ -63,35 +63,78 @@ drag = simulation => {
 			.join("line");
 		console.log(dataset.nodes)
 
-		let nodes = svg.append("g")
-			.attr("stroke", "#fff")
-			.attr("stroke-width", 1.5)
-			.selectAll("circle")
-			.data(dataset.nodes)
-			.join("circle")
-			.attr("r", d => sizeScale(d.freq))
-			.style("fill", 'orange')
-			.call(drag(simulation));
+		
 
-		nodes.append("text")
-		.text(function(d) {
-			console.log('label',d.name);
-			return d.name;
-		})
-			.style('fill', 'black')
+		
+		// var nodes = svg.selectAll("g")
+		// .data(dataset.nodes).enter()
+		// .append("g");
+
+		// let circle = nodes.append("circle")
+		// 	.attr("class", "nodes")
+		// 	.attr("r", d => sizeScale(d.freq))
+		// 	.attr("fill", d => colorScale(d.gender))
+		// 	.attr('opacity', 0.8)
+		// 	.call(drag(simulation));
+
+		// let nodes = svg.append("g")
+		// 	.attr("stroke", "#fff")
+		// 	.attr("stroke-width", 1.5)
+		// 	.selectAll("circle")
+		// 	.data(dataset.nodes)
+		// 	.join("circle")
+		// 	.attr("r", d => sizeScale(d.freq))
+		// 	.style("fill", d => colorScale(d.gender))
+		// 	.call(drag(simulation))
+		let colorScale = d3.scaleOrdinal(d3.schemeTableau10)
+		var node = svg.selectAll("g")
+		.data(dataset.nodes).enter()
+		.append("g");
+		let circle = node.append("circle")
+		.attr("class", "node")
+		.attr("r", d => sizeScale(d.freq))
+		.attr("fill", d => colorScale(d.gender))
+		.attr('opacity', 0.8)
+		.call(drag(simulation));
+		
+		let text = node.append("text")
+			.text(function(d){
+				return d.name;
+			})
 			.style('font-size', '12px')
-			.attr('x', 6)
-			.attr('y', 3);
+			.attr("fill", "black")
+			.attr('x', 5)
+			.attr('y', 5)
+			.attr("text-anchor", "middle");
+			// .on('mouseover.forcetooltip', function(d) {
+			// 	tooltip.transition()
+			// 		.duration(100)
+			// 		.style("opacity", .8);
+			// 		tooltip.html(d.name + "<p/>Frequency: " + d.freq+"<p/> Gender: " + d.gender)
+			// 		.style("left", (d3.event.pageX) + "px")
+			// 		.style("top", (d3.event.pageY + 10) + "px");
+			// })
+			// .on("mouseout.forcetooltip", function() {
+			// 	tooltip.transition()
+			// 		.duration(100)
+			// 		.style("opacity", 0);
+			// })
+			// .on("mousemove", function() {
+			// 	tooltip.style("left", (d3.event.pageX) + "px")
+			// 		.style("top", (d3.event.pageY + 10) + "px");
+			// });
+		
 
 
 
-
-		simulation.on("tick", function() {
-			nodes.attr("cx", function(d){d.x = Math.max(10, Math.min(width - 10, d.x)); return d.x;})
-				.attr("cy", function(d) {d.y = Math.max(10, Math.min(height - 10, d.y)); return d.y});
+		simulation.on("tick",()=>{
+			circle.attr("cx", d => d.x)
+			.attr("cy", d => d.y);
 			lines.attr("x1", function(d) { return d.source.x; })
 				.attr("y1", function(d) { return d.source.y; })
 				.attr("x2", function(d) { return d.target.x; })
 				.attr("y2", function(d) { return d.target.y; });
-			});
+			text.attr("x", function(d) { return d.x; })
+					.attr("y", function(d) { return d.y; });
+		});
 		});
