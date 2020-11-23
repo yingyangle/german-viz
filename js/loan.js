@@ -11,7 +11,7 @@ console.log(words);
   let height = 1000;
 
   let nodes = words.nodes;
-  let borrowed = nodes.BorrowedWord;
+  let borrowed = nodes.SourceWord;
   console.log(nodes);
 console.log(borrowed);
 
@@ -85,7 +85,7 @@ console.log(borrowed);
           tooltip.transition()
             .duration(100)
             .style("opacity", .8);
-          tooltip.html("Origin Word: " + d.SourceWord + "<p/>Origin Language/Dialect: " + d.DonorLanguage)
+          tooltip.html("English Word: " + d.BorrowedWord + "<p/>Origin Language/Dialect: " + d.DonorLanguage)
             .style("left", (d3.event.pageX) + "px")
             .style("top", (d3.event.pageY + 10) + "px");
         })
