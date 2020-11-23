@@ -30,42 +30,68 @@ console.log(borrowed);
     }))
 
       //drag
-    const drag = d3.drag()
-      .on("start", (event)=>{
-        force.alphaTarget(0.3).restart();
-        event.subject.fx = event.x;
-        event.subject.fy = event.y;
-      })
-      .on("drag", (event)=>{
-        event.subject.fx = event.x;
-        event.subject.fy = event.y;
-      })
-      .on("end", (event)=>{
-        force.alphaTarget(0.0);
-        event.subject.fx = null;
-        event.subject.fy = null;
-      })
+      drag = simulation => {
+
+        function dragstarted(d) {
+          if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+          d.fx = d.x;
+          d.fy = d.y;
+        }
+      
+        function dragged(d) {
+          d.fx = d3.event.x;
+          d.fy = d3.event.y;
+        }
+      
+        function dragended(d) {
+          if (!d3.event.active) simulation.alphaTarget(0);
+          d.fx = null;
+          d.fy = null;
+        }
+      
+        return d3.drag()
+          .on("start", dragstarted)
+          .on("drag", dragged)
+          .on("end", dragended);
+        }
 
     //Create node as circles
-    let node = svg
-    .selectAll(".node")
-    .data(nodes)
-    .enter()
-    .append("circle")
+
+    var node = svg.selectAll("g")
+    .data(words.nodes).enter()
+    .append("g");
+
+
+    let circle = node.append("circle")
     .attr("class", "node")
     .attr("r", 50)
     .attr("fill", "lightblue")
+    .call(drag(force));
+    let text = node.append("text")
+    .text(function(d){
+      return d.BorrowedWord;
+    })
+        .style('font-size', '14px')
+        .attr("fill", "black")
+        .attr('x', 0)
+        .attr('y', 0)
+        .attr("text-anchor", "middle");
+ 
    // .call(drag);
       
 //Tooltip
     node.append("title")
-      .text(nodes.BorrowedWord);
+      .text(function(d){
+        return d.SourceWord;
+      })
     
     
 //Called each time the simulation ticks
 //Each tick, take new x and y values for each link and circle, x y values calculated by d3 and appended to our dataset objects
     force.on("tick", ()=>{
-      node.attr("cx", d => d.x)
+      circle.attr("cx", d => d.x)
       .attr("cy", d => d.y);
+      text.attr("x", function(d) { return d.x; })
+        .attr("y", function(d) { return d.y; });
     });
   });
