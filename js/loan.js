@@ -11,7 +11,7 @@ console.log(words);
   let height = 1000;
 
   let nodes = words.nodes;
-  let borrowed = nodes.SourceWord;
+  let borrowed = nodes.BorrowedWord;
   console.log(nodes);
 console.log(borrowed);
 
@@ -74,7 +74,7 @@ console.log(borrowed);
 
     let text = node.append("text")
     .text(function(d){
-      return d.BorrowedWord;
+      return d.SourceWord;
     })
         .style('font-size', '14px')
         .attr("fill", "black")
