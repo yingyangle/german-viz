@@ -69,7 +69,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 	background: #79b7bb;
 }
 .range-wrap{
-	width: 500px;
+	width: 300px;
 	position: relative;
 	margin: auto;
 }

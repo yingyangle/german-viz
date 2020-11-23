@@ -37,22 +37,19 @@
 			<h5>Christine Yang, Yuezhen Chen, Ann Pan</h5>
 			<br><br><br>
 
-			<!-- SANKEY DIAGRAM -->
-
+			
 			<div class="row">
-				<div id="sankey-container" class="col-8">
-
+				<!-- LEFT COLUMN - SANKEY -->
+				<div id="sankey-container" class="col-6">
 					<!-- top row -->
 					<div class="row">
-
 						<!-- SHOW OTHER BUTTON -->
-						<div class="col-3">
+						<div class="col-4">
 							<br><br>
 							<button id="sankey-other-button" class="btn">Show "Other"</button>
 						</div>
-
 						<!-- RANGE SLIDER -->
-						<div class="col-9">
+						<div class="col-8">
 							<h6>Minimum count:</h6>
 							<br>
 							<div class="range-wrap">
@@ -60,15 +57,15 @@
 								<input id="sankey-range" type="range" min=10 max=4000 value=800 step=10>
 							</div>
 						</div>
-						
 					</div> <!-- end row -->
-					
 					<br>
-	
+					<!-- SANKEY DIAGRAM -->
 					<svg id="sankey" ></svg>
 				</div>
-				<div class="col-4">
-
+				<!-- RIGHT COLUMN - BUBBLE CHART, PIE CHART -->
+				<div class="col-6">
+					<br><br><br><br>
+					<div id="bubble"></div>
 				</div>
 			</div>
 			
@@ -131,8 +128,9 @@
 		
 		
 		<script src="js/sankey.js"></script>
-		<script src="js/force.js" ></script>
-		<!-- <script src="js/bubble.js" async defer type="module"></script>
+		<script src="js/bubble.js"></script>
+		<script src="js/force.js"></script>
+		<!-- 
 		<script src="js/force.js" async defer type="module"></script>
 		<script src="js/pie.js" async defer type="module"></script>
 		<script src="js/scatter.js" async defer type="module"></script> -->

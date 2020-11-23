@@ -1,6 +1,6 @@
 let m = 70
 let margin = ({ top: 30, right: m, bottom: 0, left: m })
-let width = 900 - margin.left - margin.right
+let width = 700 - margin.left - margin.right
 let height = 900 - margin.top - margin.bottom
 
 var count_cutoff = $('#sankey-count').val()
@@ -9,7 +9,7 @@ let edgeColor = 'path'
 
 let f = d3.format(',.0f')
 let format = d => `${f(d)} words`
-let colorScale = d3.scaleOrdinal(d3.schemeCategory10)
+let colorScale = d3.scaleOrdinal(d3.schemeTableau10)
 
 // RANGE SLIDER FOR MINIMUM COUNT (count_cutoff)
 const range = document.getElementById('sankey-range')
@@ -45,7 +45,7 @@ Promise.all([
 	// move singular "other" to end of nodes list
 	var removed = data.nodes.splice(data.nodes.findIndex(x => x.name == 'other' & x.type == 'singular'), 1)
 	data.nodes = data.nodes.concat(removed)
-	
+
 	// create copy or original untouched data
 	const data_orig = _.cloneDeep(data)
 
@@ -73,9 +73,9 @@ Promise.all([
 			} 
 		}
 		console.log('remove', nodes_to_remove)
-		// remove nodes from nodes list
+		// remove nodes with count < count_cutoff
 		data.nodes = data.nodes.filter(node => {
-			return !nodes_to_remove.includes(node.i)
+			return node.count > count_cutoff
 		})
 
 		// get index of singular 'other' type and plural 'other' type
@@ -122,8 +122,6 @@ Promise.all([
 		if (other_flag == 0) {
 			// remove singular "other" type from nodes
 			data.nodes = data.nodes.filter(node => {
-				// console.log(node, 'adsfdsaads')
-				if (node.name == 'other' & node.type == 'singular') console.log(node, 'OTHER')
 				return !(node.name == 'other' & node.type == 'singular')
 			})
 			// remove singular "other" type from links
@@ -131,7 +129,6 @@ Promise.all([
 				return node.source != other_singular
 			})
 		}
-		console.log(data)
 		
 		// convert data to sankey data
 		console.log(sankey(data))
@@ -153,7 +150,7 @@ Promise.all([
 		console.log('count_cutoff', count_cutoff)
 
 		// clear svg contents
-		svg.selectAll('*').remove();
+		svg.selectAll('*').remove()
 
 		// nodes
 		svg.append('g')
@@ -255,11 +252,12 @@ Promise.all([
 			.attr('dy', '0.35em')
 			.attr('text-anchor', 'center')
 			.text('plural type')
-	console.log('updated !')
 		console.log('updated !')
 	}
 		
 	update()
+
+	// event listeners
 	$('#sankey-range').on('change', update)
 	$('#sankey-other-button').on('click', function() {
 		if (other_flag) {
