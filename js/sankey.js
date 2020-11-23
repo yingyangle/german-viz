@@ -7,6 +7,10 @@ var count_cutoff = $('#sankey-count').val()
 var other_flag = 0 // whether or not to show singular "other" category
 let edgeColor = 'path'
 
+var selected_ending = ''
+var selected_type = 'singular'
+var selected_i // index of selected_ending in nodes list
+
 let f = d3.format(',.0f')
 let format = d => `${f(d)} words`
 let colorScale = d3.scaleOrdinal(d3.schemeTableau10)
@@ -72,7 +76,7 @@ Promise.all([
 				nodes_to_remove.push(n.i)
 			} 
 		}
-		console.log('remove', nodes_to_remove)
+		// console.log('remove', nodes_to_remove)
 		// remove nodes with count < count_cutoff
 		data.nodes = data.nodes.filter(node => {
 			return node.count > count_cutoff
@@ -81,8 +85,8 @@ Promise.all([
 		// get index of singular 'other' type and plural 'other' type
 		var other_singular = data.nodes.findIndex(x => x.name == 'other' & x.type == 'singular')
 		var other_plural = data.nodes.findIndex(x => x.name == 'other' & x.type == 'plural')
-		console.log('other_singular', other_singular)
-		console.log('other_plural', other_plural)
+		// console.log('other_singular', other_singular)
+		// console.log('other_plural', other_plural)
 
 		var other_singular_add = 0, other_plural_add = 0
 
@@ -115,7 +119,7 @@ Promise.all([
 				unique_links[i].value += link.value
 			}
 		})
-		console.log('unique', unique_links)
+		// console.log('unique', unique_links)
 		data.links = unique_links
 
 		// remove singular "other" type if other_flag == 0
@@ -131,10 +135,10 @@ Promise.all([
 		}
 		
 		// convert data to sankey data
-		console.log(sankey(data))
+		// console.log(sankey(data))
 		let {nodes, links} = sankey(data)
-		console.log('nodes', nodes)
-		console.log('links', links)
+		console.log('sankey nodes', nodes)
+		console.log('sankey links', links)
 
 		return {nodes, links}
 	}
@@ -146,8 +150,8 @@ Promise.all([
 		count_cutoff = parseInt($('#sankey-range').val())
 		// get new filtered data
 		var {nodes, links} = getData()
-		console.log('nodes:', nodes.length, 'links:', links.length)
-		console.log('count_cutoff', count_cutoff)
+		// console.log('nodes:', nodes.length, 'links:', links.length)
+		// console.log('count_cutoff', count_cutoff)
 
 		// clear svg contents
 		svg.selectAll('*').remove()
@@ -159,13 +163,31 @@ Promise.all([
 			.selectAll('rect')
 			.data(nodes)
 			.join('rect')
+			.attr('class', 'sankey-node')
 			.attr('x', d => d.x0)
 			.attr('y', d => d.y0)
 			.attr('height', d => d.y1 - d.y0)
 			.attr('width', d => d.x1 - d.x0)
 			.attr('fill', d => colorScale(d.name))
+			.on('click', function(d) {
+				selected_ending = d.name
+				selected_type = d.type
+				$('#selected-ending').html(selected_ending)
+				$('#selected-type').html('('+selected_type+' ending)')
+			})
+			.on('mouseover', function(d) {
+				d3.select(this)
+					.attr('fill', 'black')
+					.attr('opacity', 0.7)
+			})
+			.on('mouseout', function(d) {
+				d3.select(this)
+					.attr('fill', d => colorScale(d.name))
+					.attr('opacity', 1)
+			})
 			.append('title')
 			.text(d => `${d.name}\n${format(d.value)}`)
+			
 
 		// links
 		let link = svg.append('g')
@@ -252,7 +274,7 @@ Promise.all([
 			.style('fill', '#4d4b47')
 			.text('Plural Ending')
 
-		console.log('updated !')
+		console.log('updated sankey !')
 	}
 		
 	update()
@@ -264,12 +286,10 @@ Promise.all([
 			other_flag = 0
 			$('#sankey-other-button').html('Show "Other"')
 			update()
-			console.log('other 0')
 		} else {
 			other_flag = 1
 			$('#sankey-other-button').html('Hide "Other"')
 			update()
-			console.log('other 1')
 		}
 	})
 

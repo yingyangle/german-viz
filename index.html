@@ -57,17 +57,20 @@
 							<br>
 							<div class="range-wrap">
 								<div class="range-value" id="sankey-range-value"></div>
-								<input id="sankey-range" type="range" min=10 max=4000 value=800 step=10>
+								<input id="sankey-range" type="range" min=200 max=4000 value=800 step=10>
 							</div>
 						</div>
 					</div> <!-- end row -->
 					<br>
+					<p>Click a singular or plural ending below to select it.</p>
 					<!-- SANKEY DIAGRAM -->
 					<svg id="sankey" ></svg>
 				</div>
 				<!-- RIGHT COLUMN - BUBBLE CHART, PIE CHART -->
 				<div class="col-5">
-					<br><br><br><br>
+					<p>Showing Data For: <span id="selected-ending">All Plurals</span> <span id="selected-type"></span></p>
+					<button id="show-all-plurals" class="btn">Show All Plurals</button>
+					<button id="show-all-singulars" class="btn">Show All Singulars</button>
 					<!-- BUBBLE CHART -->
 					<div id="bubble"></div>
 					<br><br>
@@ -135,8 +138,11 @@
 
 			
 		
-		
+		<br><br><br>
+
+		<p>mit <i class="heart-icon"></i> gemacht</p>
 		</div>
+
 		
 		<script defer src="js/loan.js"></script>
 		

@@ -18,7 +18,7 @@ Promise.all([
 		if (data[i].genus == 0) continue
 		gender_count[data[i].genus] += 1
 	}
-	console.log(gender_count)
+	// console.log(gender_count)
 	data = gender_count
 
 	var gender_names = {
@@ -44,7 +44,7 @@ Promise.all([
 	var pie = d3.pie()
 		.value(d => d.value)
 	var data_ready = pie(d3.entries(data))
-	console.log(data_ready)
+	console.log('pie', data_ready)
 
 	// shape helper to build arcs
 	var arcGenerator = d3.arc()
@@ -69,17 +69,17 @@ Promise.all([
 	svg.selectAll('path')
 		.on('mouseover.tooltip', function(d) {
 			tooltip.transition()
-				.duration(100)
+				.duration(200)
 				.style('font-family', 'Nunito Sans')
 				.style('padding', '10px')
 				.style('opacity', .8);
-			tooltip.html('Gender: -' + d.data.key + '<p/>' + `${f(d.data.value)} words`)
+			tooltip.html('Gender: ' + gender_names[d.data.key] + '<p/>' + `${f(d.data.value)} words`)
 				.style('left', (d3.event.pageX) + 'px')
 				.style('top', (d3.event.pageY + 10) + 'px');
 		})
 		.on('mouseout.tooltip', function() {
 			tooltip.transition()
-				.duration(100)
+				.duration(200)
 				.style('opacity', 0);
 		})
 		.on('mousemove', function() {
@@ -105,7 +105,7 @@ Promise.all([
 		.style('fill', '#4d4b47')
 		.on('mouseover.tooltip', function(d) {
 			tooltip.transition()
-				.duration(100)
+				.duration(200)
 				.style('font-family', 'Nunito Sans')
 				.style('padding', '10px')
 				.style('opacity', .8);
@@ -115,7 +115,7 @@ Promise.all([
 		})
 		.on('mouseout.tooltip', function() {
 			tooltip.transition()
-				.duration(100)
+				.duration(200)
 				.style('opacity', 0);
 		})
 		.on('mousemove', function() {

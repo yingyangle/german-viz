@@ -6,14 +6,14 @@
 
 d3.json('data/loanWords.json', d3.autoType).then(data => {
 	let words = data; // data1.csv
-	console.log(words)
+	// console.log(words)
 	let width = 1000
 	let height = 1000
 
 	let nodes = words.nodes
 	let borrowed = nodes.BorrowedWord
-	console.log(nodes)
-	console.log(borrowed)
+	console.log('loanwords', nodes)
+	console.log('loanwords', borrowed)
 
 	const svg = d3.select('.chart-area').append('svg')
 		.attr('viewBox',  [-width / 2, -height / 2, width, height])
@@ -71,7 +71,7 @@ d3.json('data/loanWords.json', d3.autoType).then(data => {
 		.call(drag(force))
 		.on('mouseover.tooltip', function(d) {
 			tooltip.transition()
-				.duration(100)
+				.duration(200)
 				.style('font-family', 'Nunito Sans')
 				.style('padding', '10px')
 				.style('opacity', .8)
@@ -81,7 +81,7 @@ d3.json('data/loanWords.json', d3.autoType).then(data => {
 		})
 		.on('mouseout.tooltip', function() {
 			tooltip.transition()
-				.duration(100)
+				.duration(200)
 				.style('opacity', 0)
 		})
 		.on('mousemove', function() {
@@ -102,7 +102,7 @@ d3.json('data/loanWords.json', d3.autoType).then(data => {
 		.call(drag(force))
 		.on('mouseover.tooltip', function(d) {
 			tooltip.transition()
-				.duration(100)
+				.duration(200)
 				.style('font-family', 'Nunito Sans')
 				.style('padding', '10px')
 				.style('opacity', .8)
@@ -112,7 +112,7 @@ d3.json('data/loanWords.json', d3.autoType).then(data => {
 		})
 		.on('mouseout.tooltip', function() {
 			tooltip.transition()
-				.duration(100)
+				.duration(200)
 				.style('opacity', 0)
 		})
 		.on('mousemove', function() {

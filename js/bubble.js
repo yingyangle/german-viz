@@ -1,84 +1,67 @@
-var selected_ending = ''
-var selected_type = 'singular'
-var selected_i // index of selected_ending in nodes list
 
 var count_cutoff = $('#sankey-count').val()
 
-// bubbleChart creation function; instantiate new bubble chart given a DOM element to display it in and a dataset to visualise
-function bubbleChart() {
-	const width = 500
-	const height = 500
+Promise.all([ 
+	d3.json('data/nodes.json'), 
+	d3.json('data/links.json')
+]).then(data => {
+	let width = 500
+	let height = 600
 
-	// location to center the bubbles
-	const center = { x: width/2 - 40, y: height/2 }
+	console.log('bubble', data)
+	let nodes = data[0]
+	let links = data[1]
+	const nodes_orig = _.cloneDeep(nodes)
 
-	// strength to apply to the position forces
-	const forceStrength = 0.05
+	const svg = d3.select('#bubble').append('svg')
+		.attr('viewBox',  [-width / 2, -height / 2, width, height])
 
-	// these will be set in createNodes and chart functions
-	let svg = null
-	let bubbles = null
-	let labels = null
-	let nodes = []
-	
-	// charge is dependent on size of the bubble, so bigger towards the middle
-	function charge(d) {
-		return Math.pow(d.radius, 2.0) * 0.01
-	}
+	function update() {
+		nodes = nodes_orig
+		selected_i = nodes.findIndex(x => x.name == selected_ending & x.type == selected_type)
+		console.log(selected_ending, selected_i)
 
-	// create a force simulation and add forces to it
-	const simulation = d3.forceSimulation()
-		.force('charge', d3.forceManyBody().strength(charge))
-		// .force('center', d3.forceCenter(center.x, center.y))
-		.force('x', d3.forceX().strength(forceStrength).x(center.x))
-		.force('y', d3.forceY().strength(forceStrength).y(center.y))
-		.force('collision', d3.forceCollide().radius(d => d.radius + 1))
+		// clear svg contents
+		svg.selectAll('*').remove()
 
-	// force simulation starts up automatically, which we don't want as there aren't any nodes yet
-	simulation.stop()
+		// filter nodes to show correct type (plural or singular)
+		nodes = nodes.filter(node => {
+			return node.type != selected_type // & node.count >= count_cutoff
+		})
 
-	// drag
-	drag = simulation => {
-
-		function dragstarted(d) {
-			if (!d3.event.active) simulation.alphaTarget(0.3).restart();
-			d.fx = d.x;
-			d.fy = d.y;
+		if (selected_i != -1) {
+			// adjust count according to selected ending
+			var nodes_to_remove = []
+			for (var i in nodes) {
+				var node = nodes[i]
+				// find link from selected singular to current node
+				if (selected_type == 'singular') {
+					var j = links.findIndex(x => x.target == node.i & x.source == selected_i)
+				} else { // find link from current node to selected plural
+					var j = links.findIndex(x => x.source == node.i & x.target == selected_i)
+				}
+				// if link not found
+				if (j == -1) {
+					nodes_to_remove.push(node)
+				} else { // set node count as link count 
+					node.count = links[j].value
+				}
+			}
+			// remove nodes with 0 count
+			nodes = nodes.filter(node => {
+				return !nodes_to_remove.includes(node)
+			})
 		}
-		
-		function dragged(d) {
-			d.fx = d3.event.x;
-			d.fy = d3.event.y;
-		}
-		
-		function dragended(d) {
-			if (!d3.event.active) simulation.alphaTarget(0);
-			d.fx = null;
-			d.fy = null;
-		}
-		
-		return d3.drag()
-			.on("start", dragstarted)
-			.on("drag", dragged)
-			.on("end", dragended);
-	}
 
-	// data manipulation function takes raw data from csv and converts it into an array of node objects
-	// each node will store data and visualisation values to draw a bubble
-	// rawData is expected to be an array of data objects, read in d3.csv
-	// function returns the new node array, with a node for each element in the rawData input
-	function createNodes(rawData) {
-		// use max size in the data as the max in the scale's domain
-		// note we have to ensure that size is a number
-		const maxSize = d3.max(rawData, d => +d.count)
-
+		const center = { x: 0, y: 0 }
+		const maxSize = d3.max(nodes, d => +d.count)
+		
 		// size bubbles based on area
 		const radiusScale = d3.scaleSqrt()
 			.domain([0, maxSize])
 			.range([0, 80])
-
-		// use map() to convert raw data into node data
-		const myNodes = rawData.map(d => ({
+		
+		nodes = nodes.map(d => ({
 			...d,
 			radius: radiusScale(+d.count),
 			size: +d.count,
@@ -86,184 +69,159 @@ function bubbleChart() {
 			y: Math.random() * 800
 		}))
 
-		return myNodes
-	}
+		console.log('bubble nodes', nodes)
 
-	// main entry point to bubble chart, returned by parent closure
-	// prepares rawData for visualisation and adds an svg element to the provided selector and starts the visualisation process
-	let chart = function chart(selector, rawData) {
-		// convert raw data into nodes data
-		nodes = createNodes(rawData)
+		// charge is dependent on size of the bubble, so bigger towards the middle
+		function charge(d) {
+			return Math.pow(d.radius, 2.0) * 0.01
+		}
 
-		// create svg element inside provided selector
-		svg = d3.select(selector)
-			.append('svg')
-			.attr('width', width)
-			.attr('height', height)
+		const force = d3.forceSimulation(nodes)
+			.force('charge', d3.forceManyBody().strength(charge))
+			// .force('center', d3.forceCenter(center.x, center.y))
+			.force('x', d3.forceX().strength(0.07).x(center.x))
+			.force('y', d3.forceY().strength(0.07).y(center.y))
+			.force('collision', d3.forceCollide().radius(d => d.radius + 1))
 
-		// bind nodes data to circle elements
-		const elements = svg.selectAll('.bubble')
-			.data(nodes, d => d.name)
+		// drag
+		drag = simulation => {
+
+			function dragstarted(d) {
+				if (!d3.event.active) simulation.alphaTarget(0.3).restart()
+				d.fx = d.x
+				d.fy = d.y
+			}
+			
+			function dragged(d) {
+				d.fx = d3.event.x
+				d.fy = d3.event.y
+			}
+			
+			function dragended(d) {
+				if (!d3.event.active) simulation.alphaTarget(0)
+				d.fx = null
+				d.fy = null
+			}
+			
+			return d3.drag()
+				.on('start', dragstarted)
+				.on('drag', dragged)
+				.on('end', dragended)
+		}
+		
+		// create node as circles
+		var node = svg.selectAll('g')
+			.data(nodes)
 			.enter()
 			.append('g')
 
-		bubbles = elements
-			.append('circle')
-			.classed('bubble', true)
+		let colorScale = d3.scaleOrdinal(d3.schemeTableau10)
+
+		let circle = node.append('circle')
+			.attr('class', 'node')
 			.attr('r', d => d.radius)
 			.attr('fill', d => colorScale(d.name))
-			.attr('fill-opacity', 0.7)
-			.call(drag(simulation))
+			.attr('opacity', 0.8)
+			.call(drag(force))
 			.on('mouseover.tooltip', function(d) {
 				tooltip.transition()
-					.duration(100)
+					.duration(200)
 					.style('font-family', 'Nunito Sans')
 					.style('padding', '10px')
 					.style('opacity', .8)
-
-				tooltip.html('Plural Type: -' + d.name + '<p/>' + `${f(d.count)} words`)
+				tooltip.html('Plural Type: ' + d.name + '<p/>' + `${f(d.count)} words`)
 					.style('left', (d3.event.pageX) + 'px')
 					.style('top', (d3.event.pageY + 10) + 'px')
 			})
 			.on('mouseout.tooltip', function() {
 				tooltip.transition()
-					.duration(100)
+					.duration(200)
 					.style('opacity', 0)
 			})
 			.on('mousemove', function() {
 				tooltip.style('left', (d3.event.pageX) + 'px')
 					.style('top', (d3.event.pageY + 10) + 'px')
 			})
-			
+
+		// circle labels
+		let text = node.append('text')
+			.text(d => d.name)
+			.style('font-size', '26px')
+			.attr('fill', '#4d4b47')
+			.attr('x', 0)
+			.attr('y', 0)
+			.attr('text-anchor', 'middle')
+			.call(drag(force))
+			.on('mouseover.tooltip', function(d) {
+				tooltip.transition()
+					.duration(200)
+					.style('font-family', 'Nunito Sans')
+					.style('padding', '10px')
+					.style('opacity', .8)
+				tooltip.html('Plural Type: ' + d.name + '<p/>' + `${f(d.count)} words`)
+					.style('left', (d3.event.pageX) + 'px')
+					.style('top', (d3.event.pageY + 10) + 'px')
+			})
+			.on('mouseout.tooltip', function() {
+				tooltip.transition()
+					.duration(200)
+					.style('opacity', 0)
+			})
+			.on('mousemove', function() {
+				tooltip.style('left', (d3.event.pageX) + 'px')
+					.style('top', (d3.event.pageY + 10) + 'px')
+			})
+
 		// tooltip
 		var tooltip = d3.select('body')
 			.append('div')
 			.attr('class', 'tooltip')
 			.style('opacity', 0)
 
-		// labels
-		labels = elements
-			.append('text')
-			.attr('dy', '.3em')
-			.call(drag(force))
-			.style('text-anchor', 'middle')
-			.style('font-size', 30)
-			.style('fill', '#4d4b47')
-			.text(d => d.name)
-			.on('mouseover.tooltip', function(d) {
-				tooltip.transition()
-					.duration(100)
-					.style('font-family', 'Nunito Sans')
-					.style('padding', '10px')
-					.style('opacity', .8)
-
-				tooltip.html('Plural Type: -' + d.name + '<p/>' + `${f(d.count)} words`)
-					.style('left', (d3.event.pageX) + 'px')
-					.style('top', (d3.event.pageY + 10) + 'px')
-			})
-			.on('mouseout.tooltip', function() {
-				tooltip.transition()
-					.duration(100)
-					.style('opacity', 0)
-			})
-			.on('mousemove', function() {
-				tooltip.style('left', (d3.event.pageX) + 'px')
-					.style('top', (d3.event.pageY + 10) + 'px')
-			})
-		
 		svg.append('text')
-			.attr('x', d => width / 2)
-			.attr('y', d => 30)
+			.attr('x', d => 0)
+			.attr('y', d => -200)
 			.attr('text-anchor', 'middle')
 			.style('font-size', '30px')
 			.style('fill', '#4d4b47')
 			.text('Plural Types')
 
-		// set simulation's nodes to our newly created nodes array
-		// simulation starts running automatically once nodes are set
-		simulation.nodes(nodes)
-			.on('tick', ticked)
-			.restart()
-	}
 
-	// callback function called after every tick of the force simulation
-	// here we do the actual repositioning of the circles based on current x and y value of their bound node data
-	// x and y values are modified by the force simulation
-	function ticked() {
-		bubbles
-			.attr('cx', d => d.x)
+		// called each time the simulation ticks
+		// each tick, take new x and y values for each link and circle, x y values calculated by d3 and appended to our dataset objects
+		force.on('tick', ()=>{
+			circle.attr('cx', d => d.x)
 			.attr('cy', d => d.y)
-
-		labels
-			.attr('x', d => d.x)
-			.attr('y', d => d.y)
+			text.attr('x', function(d) { return d.x; })
+				.attr('y', function(d) { return d.y; })
+		})
 	}
 
-	// return chart function from closure
-	return chart
-}
+	
+	update()
 
-// new bubble chart instance
-let myBubbleChart = bubbleChart()
+	// $('#sankey-range').on('change', () => {
+	// 	update()
+	// })
 
-// function called once promise is resolved and data is loaded from csv
-// calls bubble chart function to display inside #vis div
-function display(data) {
-	console.log(data)
-	nodes = data[0]
-	links = data[1]
-
-	selected_i = nodes.findIndex(x => x.name == selected_ending & x.type == selected_type)
-
-	// filter nodes to show correct type (plural or singular)
-	nodes = nodes.filter(node => {
-		return node.type != selected_type & node.count >= count_cutoff
+	$('.sankey-node').on('click', () => {
+		update()
 	})
 
-	if (selected_i == -1) {
-		// create bubble chart
-		myBubbleChart('#bubble', nodes)
-		return
-	}
-
-	// adjust count according to selected ending
-	var nodes_to_remove = []
-	for (var i in nodes) {
-		var node = nodes[i]
-		// find link from selected singular to current node
-		if (selected_type == 'singular') {
-			var j = links.findIndex(x => x.target == node.i & x.source == selected_i)
-		} else { // find link from current node to selected plural
-			var j = links.findIndex(x => x.source == node.i & x.target == selected_i)
-		}
-		// if link not found
-		if (j == -1) {
-			nodes_to_remove.push(node)
-		} else { // set node count as link count 
-			node.count = links[j].value
-		}
-	}
-	// remove nodes with 0 count
-	nodes = nodes.filter(node => {
-		return !nodes_to_remove.includes(node)
+	$('#show-all-singulars').on('click', () => {
+		selected_ending = ''
+		selected_type = 'plural'
+		$('#selected-ending').html('All Singulars')
+		$('#selected-type').html('')
+		update()
 	})
 
-	// create bubble chart
-	myBubbleChart('#bubble', nodes)
-}
+	$('#show-all-plurals').on('click', () => {
+		selected_ending = ''
+		selected_type = 'singular'
+		$('#selected-ending').html('All Plurals')
+		$('#selected-type').html('')
+		update()
+	})
+})
 
-// load data
-Promise.all([ 
-	d3.json('data/nodes.json'), 
-	d3.json('data/links.json')
-]).then(display)
-
-// $('#sankey-range').on('change', function() {
-// 	console.log('sankey bubble')
-// 	d3.select('#bubble').selectAll('*').remove()
-// 	// load data
-// 	Promise.all([ 
-// 		d3.json('data/nodes.json'), 
-// 		d3.json('data/links.json')
-// 	]).then(display)
-// })

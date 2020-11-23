@@ -69,6 +69,14 @@ a:hover {
 	border-color: none;
 }
 
+.sankey-node, #show-all-singulars, #show-all-plurals {
+	cursor: pointer;
+}
+
+.heart-icon {
+	background-image: 'https://www.flaticon.com/svg/static/icons/svg/3208/3208707.svg';
+}
+
 /* RANGE SLIDER */
 
 input[type=range] {

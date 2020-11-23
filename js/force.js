@@ -42,7 +42,7 @@ Promise.all([
 ])
 .then(data => {
 	let dataset = data[0]
-	console.log('test',dataset.nodes)
+	console.log('force',dataset.nodes)
 	sizeScale.domain([0, d3.max(dataset.nodes, d => (d.freq))])
 
 	const simulation = d3.forceSimulation(dataset.nodes)
@@ -58,7 +58,7 @@ Promise.all([
 		.data(dataset.links)
 		.join('line')
 
-	console.log(dataset.nodes)
+	console.log('force', dataset.nodes)
 
 	// var nodes = svg.selectAll('g')
 	// .data(dataset.nodes).enter()
@@ -106,7 +106,7 @@ Promise.all([
 		.call(drag(simulation))
 		// .on('mouseover.forcetooltip', function(d) {
 		// 	tooltip.transition()
-		// 		.duration(100)
+		// 		.duration(200)
 		// 		.style('opacity', .8)
 		// 		tooltip.html(d.name + '<p/>Frequency: ' + d.freq+'<p/> Gender: ' + d.gender)
 		// 		.style('left', (d3.event.pageX) + 'px')
@@ -114,7 +114,7 @@ Promise.all([
 		// })
 		// .on('mouseout.forcetooltip', function() {
 		// 	tooltip.transition()
-		// 		.duration(100)
+		// 		.duration(200)
 		// 		.style('opacity', 0)
 		// })
 		// .on('mousemove', function() {
