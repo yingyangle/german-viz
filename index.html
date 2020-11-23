@@ -39,14 +39,40 @@
 
 			<!-- SANKEY DIAGRAM -->
 
-			<h6>Minimum count:</h6>
-			<br><br>
-			<div class="range-wrap">
-				<div class="range-value" id="sankey-range-value"></div>
-				<input id="sankey-range" type="range" min=10 max=4000 value=800 step=10>
-			</div>
+			<div class="row">
+				<div id="sankey-container" class="col-8">
 
-			<svg id="sankey" ></svg>
+					<!-- top row -->
+					<div class="row">
+
+						<!-- SHOW OTHER BUTTON -->
+						<div class="col-3">
+							<br><br>
+							<button id="sankey-other-button" class="btn">Show "Other"</button>
+						</div>
+
+						<!-- RANGE SLIDER -->
+						<div class="col-9">
+							<h6>Minimum count:</h6>
+							<br>
+							<div class="range-wrap">
+								<div class="range-value" id="sankey-range-value"></div>
+								<input id="sankey-range" type="range" min=10 max=4000 value=800 step=10>
+							</div>
+						</div>
+						
+					</div> <!-- end row -->
+					
+					<br>
+	
+					<svg id="sankey" ></svg>
+				</div>
+				<div class="col-4">
+
+				</div>
+			</div>
+			
+			
 			<br><br>
 
 			<h2>What is German?</h2>

@@ -1,9 +1,10 @@
 let m = 70
-let margin = ({ top: 0, right: m, bottom: 0, left: m })
-let width = 1000 - margin.left - margin.right
+let margin = ({ top: 30, right: m, bottom: 0, left: m })
+let width = 900 - margin.left - margin.right
 let height = 900 - margin.top - margin.bottom
 
 var count_cutoff = $('#sankey-count').val()
+var other_flag = 0 // whether or not to show singular "other" category
 let edgeColor = 'path'
 
 let f = d3.format(',.0f')
@@ -41,9 +42,12 @@ Promise.all([
 		'nodes': data[0],
 		'links': data[1]
 	}
-	// original untouched data to use for getData()
+	// move singular "other" to end of nodes list
+	var removed = data.nodes.splice(data.nodes.findIndex(x => x.name == 'other' & x.type == 'singular'), 1)
+	data.nodes = data.nodes.concat(removed)
+	
+	// create copy or original untouched data
 	const data_orig = _.cloneDeep(data)
-	console.log(data)
 
 	// creat svg
 	let svg = d3.select('#sankey')
@@ -114,6 +118,21 @@ Promise.all([
 		console.log('unique', unique_links)
 		data.links = unique_links
 
+		// remove singular "other" type if other_flag == 0
+		if (other_flag == 0) {
+			// remove singular "other" type from nodes
+			data.nodes = data.nodes.filter(node => {
+				// console.log(node, 'adsfdsaads')
+				if (node.name == 'other' & node.type == 'singular') console.log(node, 'OTHER')
+				return !(node.name == 'other' & node.type == 'singular')
+			})
+			// remove singular "other" type from links
+			data.links = data.links.filter(node => {
+				return node.source != other_singular
+			})
+		}
+		console.log(data)
+		
 		// convert data to sankey data
 		console.log(sankey(data))
 		let {nodes, links} = sankey(data)
@@ -214,13 +233,46 @@ Promise.all([
 			.attr('dy', '0.35em')
 			.attr('text-anchor', d => d.x0 < width / 2 ? 'start' : 'end')
 			.text(d => `${f(d.value)}`)
+		// singular axis label
+		svg.append('g')
+			.style('font', '14px sans-serif')
+			.selectAll('text')
+			.data(nodes)
+			.join('text')
+			.attr('x', d => -30)
+			.attr('y', d => -20)
+			.attr('dy', '0.35em')
+			.attr('text-anchor', 'center')
+			.text('singular ending')
+		// plural axis label
+		svg.append('g')
+			.style('font', '14px sans-serif')
+			.selectAll('text')
+			.data(nodes)
+			.join('text')
+			.attr('x', d => width - 40)
+			.attr('y', d => -20)
+			.attr('dy', '0.35em')
+			.attr('text-anchor', 'center')
+			.text('plural type')
+	console.log('updated !')
 		console.log('updated !')
 	}
 		
 	update()
-	$('#sankey-reload').on('click', update)
-	$('#sankey-range').on('change', () => {
-		update()
+	$('#sankey-range').on('change', update)
+	$('#sankey-other-button').on('click', function() {
+		if (other_flag) {
+			other_flag = 0
+			$('#sankey-other-button').html('Show "Other"')
+			update()
+			console.log('other 0')
+		} else {
+			other_flag = 1
+			$('#sankey-other-button').html('Hide "Other"')
+			update()
+			console.log('other 1')
+		}
 	})
 
 
