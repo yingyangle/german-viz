@@ -55,6 +55,7 @@ console.log(borrowed);
           .on("end", dragended);
         }
 
+    
     //Create node as circles
 
     var node = svg.selectAll("g")
@@ -67,6 +68,10 @@ console.log(borrowed);
     .attr("r", 50)
     .attr("fill", "lightblue")
     .call(drag(force));
+    
+
+  
+
     let text = node.append("text")
     .text(function(d){
       return d.BorrowedWord;
@@ -75,17 +80,34 @@ console.log(borrowed);
         .attr("fill", "black")
         .attr('x', 0)
         .attr('y', 0)
-        .attr("text-anchor", "middle");
- 
-   // .call(drag);
+        .attr("text-anchor", "middle")
+        .on('mouseover.tooltip', function(d) {
+          tooltip.transition()
+            .duration(100)
+            .style("opacity", .8);
+          tooltip.html("Origin Word: " + d.SourceWord + "<p/>Origin Language/Dialect: " + d.DonorLanguage)
+            .style("left", (d3.event.pageX) + "px")
+            .style("top", (d3.event.pageY + 10) + "px");
+        })
+      .on("mouseout.tooltip", function() {
+          tooltip.transition()
+            .duration(100)
+            .style("opacity", 0);
+        })
+        .on("mousemove", function() {
+          tooltip.style("left", (d3.event.pageX) + "px")
+            .style("top", (d3.event.pageY + 10) + "px");
+        });
+        
+
+ //tooltip
+ var tooltip = d3.select("body")
+	.append("div")
+	.attr("class", "tooltip")
+	.style("opacity", 0);
       
-//Tooltip
-    node.append("title")
-      .text(function(d){
-        return d.SourceWord;
-      })
-    
-    
+
+
 //Called each time the simulation ticks
 //Each tick, take new x and y values for each link and circle, x y values calculated by d3 and appended to our dataset objects
     force.on("tick", ()=>{
