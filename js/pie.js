@@ -60,11 +60,39 @@ Promise.all([
 		.attr('d', arcGenerator)
 		.transition()
 		.duration(800)
+		// .attr('stroke', 'black') // outline
+		// .style('stroke-width', '1px')
+		.style('opacity', 0.7)
 		.attr('fill', d => color(d.data.key))
 		.attr('fill-opacity', 0.8)
-		// .attr('stroke', 'black') // outline
-		.style('stroke-width', '1px')
-		.style('opacity', 0.7)
+	
+	// tooltip on hover
+	svg.selectAll('path')
+		.on('mouseover.tooltip', function(d) {
+			tooltip.transition()
+				.duration(100)
+				.style('font-family', 'Nunito Sans')
+				.style('padding', '10px')
+				.style('opacity', .8);
+			tooltip.html('Gender: -' + d.data.key + '<p/>' + `${f(d.data.value)} words`)
+				.style('left', (d3.event.pageX) + 'px')
+				.style('top', (d3.event.pageY + 10) + 'px');
+		})
+		.on('mouseout.tooltip', function() {
+			tooltip.transition()
+				.duration(100)
+				.style('opacity', 0);
+		})
+		.on('mousemove', function() {
+			tooltip.style('left', (d3.event.pageX) + 'px')
+				.style('top', (d3.event.pageY + 10) + 'px');
+		})
+		
+	// tooltip
+	var tooltip = d3.select('body')
+		.append('div')
+		.attr('class', 'tooltip')
+		.style('opacity', 0)
 
 	// labels
 	svg.selectAll('g')
@@ -76,6 +104,25 @@ Promise.all([
 		.style('text-anchor', 'middle')
 		.style('font-size', '30px')
 		.style('fill', '#4d4b47')
+		.on('mouseover.tooltip', function(d) {
+			tooltip.transition()
+				.duration(100)
+				.style('font-family', 'Nunito Sans')
+				.style('padding', '10px')
+				.style('opacity', .8);
+			tooltip.html('Gender: -' + d.data.key + '<p/>' + `${f(d.data.value)} words`)
+				.style('left', (d3.event.pageX) + 'px')
+				.style('top', (d3.event.pageY + 10) + 'px');
+		})
+		.on('mouseout.tooltip', function() {
+			tooltip.transition()
+				.duration(100)
+				.style('opacity', 0);
+		})
+		.on('mousemove', function() {
+			tooltip.style('left', (d3.event.pageX) + 'px')
+				.style('top', (d3.event.pageY + 10) + 'px');
+		})
 	
 	// title
 	svg.append('text')

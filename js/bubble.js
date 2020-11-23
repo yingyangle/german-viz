@@ -1,5 +1,5 @@
 var selected_ending = ''
-var selected_type = 'plural'
+var selected_type = 'singular'
 var selected_i // index of selected_ending in nodes list
 
 var count_cutoff = $('#sankey-count').val()
@@ -36,11 +36,6 @@ function bubbleChart() {
 
 	// force simulation starts up automatically, which we don't want as there aren't any nodes yet
 	simulation.stop()
-
-	// set up color scale
-	// const fillcolor = d3.scaleOrdinal()
-	// 	.domain(['1', '2', '3', '5', '99'])
-	// 	.range(['#0074D9', '#7FDBFF', '#39CCCC', '#3D9970', '#AAAAAA'])
 
 	// data manipulation function takes raw data from csv and converts it into an array of node objects
 	// each node will store data and visualisation values to draw a bubble
@@ -92,6 +87,32 @@ function bubbleChart() {
 			.attr('r', d => d.radius)
 			.attr('fill', d => colorScale(d.name))
 			.attr('fill-opacity', 0.7)
+			.on('mouseover.tooltip', function(d) {
+				tooltip.transition()
+					.duration(100)
+					.style('font-family', 'Nunito Sans')
+					.style('padding', '10px')
+					.style('opacity', .8)
+
+				tooltip.html('Plural Type: -' + d.name + '<p/>' + `${f(d.count)} words`)
+					.style('left', (d3.event.pageX) + 'px')
+					.style('top', (d3.event.pageY + 10) + 'px')
+			})
+			.on('mouseout.tooltip', function() {
+				tooltip.transition()
+					.duration(100)
+					.style('opacity', 0)
+			})
+			.on('mousemove', function() {
+				tooltip.style('left', (d3.event.pageX) + 'px')
+					.style('top', (d3.event.pageY + 10) + 'px')
+			})
+			
+		// tooltip
+		var tooltip = d3.select('body')
+			.append('div')
+			.attr('class', 'tooltip')
+			.style('opacity', 0)
 
 		// labels
 		labels = elements
@@ -101,6 +122,26 @@ function bubbleChart() {
 			.style('font-size', 30)
 			.style('fill', '#4d4b47')
 			.text(d => d.name)
+			.on('mouseover.tooltip', function(d) {
+				tooltip.transition()
+					.duration(100)
+					.style('font-family', 'Nunito Sans')
+					.style('padding', '10px')
+					.style('opacity', .8)
+
+				tooltip.html('Plural Type: -' + d.name + '<p/>' + `${f(d.count)} words`)
+					.style('left', (d3.event.pageX) + 'px')
+					.style('top', (d3.event.pageY + 10) + 'px')
+			})
+			.on('mouseout.tooltip', function() {
+				tooltip.transition()
+					.duration(100)
+					.style('opacity', 0)
+			})
+			.on('mousemove', function() {
+				tooltip.style('left', (d3.event.pageX) + 'px')
+					.style('top', (d3.event.pageY + 10) + 'px')
+			})
 		
 		svg.append('text')
 			.attr('x', d => width / 2)

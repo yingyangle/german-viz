@@ -23,7 +23,7 @@ d3.json('data/loanWords.json', d3.autoType).then(data => {
 	})
 
 	const force = d3.forceSimulation(nodes)
-		.force('charge', d3.forceManyBody().strength(20))
+		.force('charge', d3.forceManyBody().strength(70))
 		.force('center', d3.forceCenter())
 		.force('collide', d3.forceCollide().radius(function(d) {
 			return d.r
@@ -69,7 +69,26 @@ d3.json('data/loanWords.json', d3.autoType).then(data => {
 		.attr("r", 50)
 		.attr("fill", d => colorScale(d.DonorLanguage))
 		.attr('opacity', 0.8)
-		.call(drag(force));
+		.call(drag(force))
+		.on('mouseover.tooltip', function(d) {
+			tooltip.transition()
+				.duration(100)
+				.style('font-family', 'Nunito Sans')
+				.style('padding', '10px')
+				.style("opacity", .8);
+			tooltip.html("English Word: " + d.BorrowedWord + "<p/>Origin: " + d.DonorLanguage)
+				.style("left", (d3.event.pageX) + "px")
+				.style("top", (d3.event.pageY + 10) + "px");
+		})
+		.on("mouseout.tooltip", function() {
+			tooltip.transition()
+				.duration(100)
+				.style("opacity", 0);
+		})
+		.on("mousemove", function() {
+			tooltip.style("left", (d3.event.pageX) + "px")
+				.style("top", (d3.event.pageY + 10) + "px");
+		});
 
 	// circle labels
 	let text = node.append("text")
