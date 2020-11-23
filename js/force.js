@@ -7,27 +7,27 @@ var visType = "Force";
 drag = simulation => {
 
 	function dragstarted(d) {
-	  if (!d3.event.active) simulation.alphaTarget(0.3).restart();
-	  d.fx = d.x;
-	  d.fy = d.y;
+		if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+		d.fx = d.x;
+		d.fy = d.y;
 	}
 
 	function dragged(d) {
-	  d.fx = d3.event.x;
-	  d.fy = d3.event.y;
+		d.fx = d3.event.x;
+		d.fy = d3.event.y;
 	}
 
 	function dragended(d) {
-	  if (!d3.event.active) simulation.alphaTarget(0);
-	  d.fx = null;
-	  d.fy = null;
+		if (!d3.event.active) simulation.alphaTarget(0);
+		d.fx = null;
+		d.fy = null;
 	}
 
 	return d3.drag()
 		.on("start", dragstarted)
 		.on("drag", dragged)
 		.on("end", dragended);
-  }
+}
 // /drag = f(simulation);
 
 
@@ -77,11 +77,11 @@ drag = simulation => {
 		.text(function(d) {
 			console.log('label',d.name);
 			return d.name;
-		  })
-		  .style('fill', 'black')
-		  .style('font-size', '12px')
-		  .attr('x', 6)
-		  .attr('y', 3);
+		})
+			.style('fill', 'black')
+			.style('font-size', '12px')
+			.attr('x', 6)
+			.attr('y', 3);
 
 
 
