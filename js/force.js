@@ -5,24 +5,24 @@ var dataset;
 var visType = "Force";
 
 drag = simulation => {
-  
+
     function dragstarted(d) {
       if (!d3.event.active) simulation.alphaTarget(0.3).restart();
       d.fx = d.x;
       d.fy = d.y;
     }
-    
+
     function dragged(d) {
       d.fx = d3.event.x;
       d.fy = d3.event.y;
     }
-    
+
     function dragended(d) {
       if (!d3.event.active) simulation.alphaTarget(0);
       d.fx = null;
       d.fy = null;
     }
-    
+
     return d3.drag()
         .on("start", dragstarted)
         .on("drag", dragged)
@@ -30,7 +30,7 @@ drag = simulation => {
   }
 // /drag = f(simulation);
 
-    
+
 // creat svg
 	let svg = d3.select('#force')
 		.attr('width', width + margin.left + margin.right)
@@ -38,8 +38,9 @@ drag = simulation => {
         .attr("viewBox", [0, 0, width, height]);
 
 
-        Promise.all([ 
+        Promise.all([
             d3.json('data/genders.json')
+            // d3.json('data/genders_more.json')
         ])
     .then(data=>{
         let dataset = data[0];
@@ -53,7 +54,7 @@ drag = simulation => {
             .force('collide', d3.forceCollide().radius(d =>
                 sizeScale(d.freq) + 20));
 
-        
+
         let lines = svg.append("g")
             .style("stroke", "#999")
             .attr("stroke-opacity", 0.6)
@@ -71,7 +72,7 @@ drag = simulation => {
             .attr("r", d => sizeScale(d.freq))
             .style("fill", 'orange')
             .call(drag(simulation));
-        
+
         nodes.append("text")
         .text(function(d) {
             console.log('label',d.name);
@@ -82,9 +83,9 @@ drag = simulation => {
           .attr('x', 6)
           .attr('y', 3);
 
-    
 
-              
+
+
         simulation.on("tick", function() {
             nodes.attr("cx", function(d){d.x = Math.max(10, Math.min(width - 10, d.x)); return d.x;})
                 .attr("cy", function(d) {d.y = Math.max(10, Math.min(height - 10, d.y)); return d.y});
