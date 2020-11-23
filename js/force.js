@@ -1,35 +1,33 @@
 const sizeScale = d3.scaleLinear().range([6,42])
 var colors = d3.scaleOrdinal(d3.schemeCategory10)
+
 var dataset;
 var visType = "Force";
-var drag = simulation =>{
-    function started(event) {
-        if (!event.active) {
-            simulation.alphaTarget(0.3).restart();
-            event.subject.fx = event.subject.x;
-            event.subject.fy = event.subject.y;
-        }
-    }
 
-    function dragged(event) {
-        event.subject.fx = event.x;
-        event.subject.fy = event.y;
+drag = simulation => {
+  
+    function dragstarted(d) {
+      if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+      d.fx = d.x;
+      d.fy = d.y;
     }
-
-    function ended(event) {
-        if (!event.active) {
-            simulation.alphaTarget(0);
-            event.subject.fx = null;
-            event.subject.fy = null;
-        }
+    
+    function dragged(d) {
+      d.fx = d3.event.x;
+      d.fy = d3.event.y;
     }
-
+    
+    function dragended(d) {
+      if (!d3.event.active) simulation.alphaTarget(0);
+      d.fx = null;
+      d.fy = null;
+    }
+    
     return d3.drag()
-        .filter(event => visType === "Force")
-        .on("start", started)
+        .on("start", dragstarted)
         .on("drag", dragged)
-        .on("end", ended);
-}
+        .on("end", dragended);
+  }
 // /drag = f(simulation);
 
     
@@ -37,7 +35,7 @@ var drag = simulation =>{
 	let svg = d3.select('#force')
 		.attr('width', width + margin.left + margin.right)
 		.attr('height', height + margin.top + margin.bottom)
-        .attr("viewBox", [-width/2, -height/2, width, height]);
+        .attr("viewBox", [0, 0, width, height]);
 
 
         Promise.all([ 
@@ -47,6 +45,7 @@ var drag = simulation =>{
         let dataset = data[0];
         console.log('test',dataset.nodes);
         sizeScale.domain([0,d3.max(dataset.nodes, d=>(d.freq))])
+
         const simulation = d3.forceSimulation(dataset.nodes)
             .force("link", d3.forceLink(dataset.links).id(d => d.i).distance(300))
             .force("charge", d3.forceManyBody().strength(-5))
@@ -70,14 +69,22 @@ var drag = simulation =>{
             .data(dataset.nodes)
             .join("circle")
             .attr("r", d => sizeScale(d.freq))
-            .style("fill", "orange")
+            .style("fill", 'orange')
             .call(drag(simulation));
+        
+        nodes.append("text")
+        .text(function(d) {
+            console.log('label',d.name);
+            return d.name;
+          })
+          .style('fill', 'black')
+          .style('font-size', '12px')
+          .attr('x', 6)
+          .attr('y', 3);
 
-        nodes.append("title")
-            .text(function(d) {
-                return d.name;
-            });
-            
+    
+
+              
         simulation.on("tick", function() {
             nodes.attr("cx", function(d){d.x = Math.max(10, Math.min(width - 10, d.x)); return d.x;})
                 .attr("cy", function(d) {d.y = Math.max(10, Math.min(height - 10, d.y)); return d.y});
