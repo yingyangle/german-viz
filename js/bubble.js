@@ -1,3 +1,5 @@
+$( document ).ready(function() {
+console.log('ready !')
 
 var count_cutoff = $('#sankey-count').val()
 
@@ -195,8 +197,9 @@ Promise.all([
 			text.attr('x', function(d) { return d.x; })
 				.attr('y', function(d) { return d.y; })
 		})
-	}
 
+		console.log('updated bubble !')
+	}
 	
 	update()
 
@@ -206,6 +209,7 @@ Promise.all([
 
 	$('.sankey-node').on('click', () => {
 		update()
+		console.log('sankey node click update')
 	})
 
 	$('#show-all-singulars').on('click', () => {
@@ -225,3 +229,5 @@ Promise.all([
 	})
 })
 
+
+})
