@@ -1,7 +1,7 @@
 let m = 70
 let margin = ({ top: 30, right: m, bottom: 0, left: m })
 let width = 700 - margin.left - margin.right
-let height = 900 - margin.top - margin.bottom
+let height = 1000 - margin.top - margin.bottom
 
 var count_cutoff = $('#sankey-count').val()
 var other_flag = 0 // whether or not to show singular "other" category
@@ -154,7 +154,8 @@ Promise.all([
 
 		// nodes
 		svg.append('g')
-			.attr('stroke', '#000')
+			// .attr('stroke', 'black') // outline
+			.attr('opacity', 0.7)
 			.selectAll('rect')
 			.data(nodes)
 			.join('rect')
@@ -231,27 +232,20 @@ Promise.all([
 			.attr('text-anchor', d => d.x0 < width / 2 ? 'start' : 'end')
 			.text(d => `${f(d.value)}`)
 		// singular axis label
-		svg.append('g')
-			.style('font', '14px sans-serif')
-			.selectAll('text')
-			.data(nodes)
-			.join('text')
-			.attr('x', d => -30)
-			.attr('y', d => -20)
-			.attr('dy', '0.35em')
-			.attr('text-anchor', 'center')
+		svg.append('text')
+			.attr('x', -20)
+			.attr('y', -20)
+			.attr('text-anchor', 'middle')
+			.style('font-size', '14px')
 			.text('singular ending')
 		// plural axis label
-		svg.append('g')
-			.style('font', '14px sans-serif')
-			.selectAll('text')
-			.data(nodes)
-			.join('text')
-			.attr('x', d => width - 40)
-			.attr('y', d => -20)
-			.attr('dy', '0.35em')
-			.attr('text-anchor', 'center')
-			.text('plural type')
+		svg.append('text')
+			.attr('x', width - 40)
+			.attr('y', -20)
+			.attr('text-anchor', 'middle')
+			.style('font-size', '14px')
+			.text('plural ending')
+
 		console.log('updated !')
 	}
 		

@@ -98,18 +98,14 @@ function bubbleChart() {
 			.append('text')
 			.attr('dy', '.3em')
 			.style('text-anchor', 'middle')
-			.style('font-size', 10)
+			.style('font-size', 12)
 			.text(d => d.name)
 		
-		svg.append('g')
-			.style('font', '14px sans-serif')
-			.selectAll('text')
-			.data(nodes)
-			.join('text')
+		svg.append('text')
 			.attr('x', d => width / 2)
-			.attr('y', d => 30)
-			.attr('dy', '0.35em')
-			.attr('text-anchor', 'center')
+			.attr('y', d => 20)
+			.attr('text-anchor', 'middle')
+			.style('font-size', '20px')
 			.text('Plural Types')
 
 		// set simulation's nodes to our newly created nodes array
