@@ -7,7 +7,6 @@ Promise.all([
 	var height = 500
 	var margin = 40
 	var radius = 180
-	var color = d3.scaleOrdinal(d3.schemeTableau10)
 
 	// count nouns for each gender
 	var gender_count = {
@@ -36,7 +35,7 @@ Promise.all([
 		.attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')')
 
 	// set the color scale
-	var color = d3.scaleOrdinal()
+	var colorScale = d3.scaleOrdinal()
 		.domain(data)
 		.range(['rgb(255, 157, 167)	', 'rgb(118, 183, 178)', 'rgb(89, 161, 79)'])
 		// blue, pink, green
@@ -63,7 +62,7 @@ Promise.all([
 		// .attr('stroke', 'black') // outline
 		// .style('stroke-width', '1px')
 		.style('opacity', 0.7)
-		.attr('fill', d => color(d.data.key))
+		.attr('fill', d => colorScale(d.data.key))
 		.attr('fill-opacity', 0.8)
 	
 	// tooltip on hover

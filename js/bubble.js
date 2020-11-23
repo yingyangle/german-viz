@@ -13,7 +13,7 @@ function bubbleChart() {
 	const center = { x: width/2 - 40, y: height/2 }
 
 	// strength to apply to the position forces
-	const forceStrength = 0.03
+	const forceStrength = 0.05
 
 	// these will be set in createNodes and chart functions
 	let svg = null
@@ -36,6 +36,32 @@ function bubbleChart() {
 
 	// force simulation starts up automatically, which we don't want as there aren't any nodes yet
 	simulation.stop()
+
+	// drag
+	drag = simulation => {
+
+		function dragstarted(d) {
+			if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+			d.fx = d.x;
+			d.fy = d.y;
+		}
+		
+		function dragged(d) {
+			d.fx = d3.event.x;
+			d.fy = d3.event.y;
+		}
+		
+		function dragended(d) {
+			if (!d3.event.active) simulation.alphaTarget(0);
+			d.fx = null;
+			d.fy = null;
+		}
+		
+		return d3.drag()
+			.on("start", dragstarted)
+			.on("drag", dragged)
+			.on("end", dragended);
+	}
 
 	// data manipulation function takes raw data from csv and converts it into an array of node objects
 	// each node will store data and visualisation values to draw a bubble
@@ -87,6 +113,7 @@ function bubbleChart() {
 			.attr('r', d => d.radius)
 			.attr('fill', d => colorScale(d.name))
 			.attr('fill-opacity', 0.7)
+			.call(drag(simulation))
 			.on('mouseover.tooltip', function(d) {
 				tooltip.transition()
 					.duration(100)
@@ -118,6 +145,7 @@ function bubbleChart() {
 		labels = elements
 			.append('text')
 			.attr('dy', '.3em')
+			.call(drag(force))
 			.style('text-anchor', 'middle')
 			.style('font-size', 30)
 			.style('fill', '#4d4b47')
