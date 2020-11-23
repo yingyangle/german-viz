@@ -70,20 +70,22 @@ d3.json('data/loanWords.json', d3.autoType).then(data => {
 		.attr("fill", d => colorScale(d.DonorLanguage))
 		.attr('opacity', 0.8)
 		.call(drag(force));
-	
 
+	// circle labels
 	let text = node.append("text")
-		.text(function(d){
+		.text(function(d) {
 			return d.SourceWord;
 		})
-		.style('font-size', '14px')
-		.attr("fill", "black")
+		.style('font-size', '26px')
+		.attr("fill", "#4d4b47")
 		.attr('x', 0)
 		.attr('y', 0)
 		.attr("text-anchor", "middle")
 		.on('mouseover.tooltip', function(d) {
 			tooltip.transition()
 				.duration(100)
+				.style('font-family', 'Nunito Sans')
+				.style('padding', '10px')
 				.style("opacity", .8);
 			tooltip.html("English Word: " + d.BorrowedWord + "<p/>Origin: " + d.DonorLanguage)
 				.style("left", (d3.event.pageX) + "px")

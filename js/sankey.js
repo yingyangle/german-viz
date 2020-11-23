@@ -1,5 +1,5 @@
-let m = 70
-let margin = ({ top: 30, right: m, bottom: 0, left: m })
+let m = 90
+let margin = ({ top: 50, right: m, bottom: 10, left: m })
 let width = 700 - margin.left - margin.right
 let height = 1000 - margin.top - margin.bottom
 
@@ -211,10 +211,12 @@ Promise.all([
 
 		// node name labels
 		svg.append('g')
-			.style('font', '14px sans-serif')
+			.style('font', '12px')
+			.style('fill', '#4d4b47')
 			.selectAll('text')
 			.data(nodes)
 			.join('text')
+			.attr('class', 'nunito')
 			.attr('x', d => d.x0 < width / 2 ? d.x1 - 20 : d.x0 + 20)
 			.attr('y', d => (d.y1 + d.y0) / 2)
 			.attr('dy', '0.35em')
@@ -222,10 +224,12 @@ Promise.all([
 			.text(d => d.name)
 		// node count labels
 		svg.append('g')
-			.style('font', '12px sans-serif')
+			.style('font', '12px')
+			.style('fill', '#4d4b47')
 			.selectAll('text')
 			.data(nodes)
 			.join('text')
+			.attr('class', 'nunito')
 			.attr('x', d => d.x0 < width / 2 ? d.x1 + 6 : d.x0 - 6)
 			.attr('y', d => (d.y1 + d.y0) / 2)
 			.attr('dy', '0.35em')
@@ -233,18 +237,20 @@ Promise.all([
 			.text(d => `${f(d.value)}`)
 		// singular axis label
 		svg.append('text')
-			.attr('x', -20)
+			.attr('x', 4)
 			.attr('y', -20)
 			.attr('text-anchor', 'middle')
-			.style('font-size', '14px')
-			.text('singular ending')
+			.style('font-size', '26px')
+			.style('fill', '#4d4b47')
+			.text('Singular Ending')
 		// plural axis label
 		svg.append('text')
 			.attr('x', width - 40)
 			.attr('y', -20)
 			.attr('text-anchor', 'middle')
-			.style('font-size', '14px')
-			.text('plural ending')
+			.style('font-size', '26px')
+			.style('fill', '#4d4b47')
+			.text('Plural Ending')
 
 		console.log('updated !')
 	}

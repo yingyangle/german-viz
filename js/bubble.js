@@ -6,11 +6,11 @@ var count_cutoff = $('#sankey-count').val()
 
 // bubbleChart creation function; instantiate new bubble chart given a DOM element to display it in and a dataset to visualise
 function bubbleChart() {
-	const width = 600
+	const width = 500
 	const height = 500
 
 	// location to center the bubbles
-	const center = { x: width/2, y: height/2 }
+	const center = { x: width/2 - 40, y: height/2 }
 
 	// strength to apply to the position forces
 	const forceStrength = 0.03
@@ -98,14 +98,16 @@ function bubbleChart() {
 			.append('text')
 			.attr('dy', '.3em')
 			.style('text-anchor', 'middle')
-			.style('font-size', 12)
+			.style('font-size', 30)
+			.style('fill', '#4d4b47')
 			.text(d => d.name)
 		
 		svg.append('text')
 			.attr('x', d => width / 2)
-			.attr('y', d => 20)
+			.attr('y', d => 30)
 			.attr('text-anchor', 'middle')
-			.style('font-size', '20px')
+			.style('font-size', '30px')
+			.style('fill', '#4d4b47')
 			.text('Plural Types')
 
 		// set simulation's nodes to our newly created nodes array

@@ -74,14 +74,16 @@ Promise.all([
 		.text(d => gender_names[d.data.key])
 		.attr('transform', d => 'translate(' + arcGenerator.centroid(d) + ')')
 		.style('text-anchor', 'middle')
-		.style('font-size', 17)
+		.style('font-size', '30px')
+		.style('fill', '#4d4b47')
 	
 	// title
 	svg.append('text')
 		.attr('x', -20)
-		.attr('y', -230)
+		.attr('y', -220)
 		.attr('text-anchor', 'middle')
-		.style('font-size', '20px')
+		.style('font-size', '30px')
+		.style('fill', '#4d4b47')
 		.text('Gender Distribution')
 	
 })

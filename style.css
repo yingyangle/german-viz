@@ -1,12 +1,48 @@
 body {
-	color: #5b5b5b;
-	background-color: #f7f7f7;
+	color: #4d4b47;
+	background-color: #fef9ee;
 	font-family: 'Nunito Sans', sans-serif;
+	/* font-family: 'Sacramento', serif; */
 	text-align: center;
 }
 
 #container {
-	margin: 50px;
+	/* margin: 50px; */
+}
+
+#title {
+	font-family: 'Sacramento', serif;
+	font-size: 90px;
+	margin-bottom: 10px;
+}
+
+h2 {
+	font-family: 'Sacramento', serif;
+	font-size: 60px;
+}
+
+h5 {
+	font-size: 20px;
+	font-family: 'Nunito Sans', sans-serif; 
+}
+
+svg {
+	font-family: 'Sacramento', serif;
+	color: #4d4b47;
+}
+
+.nunito {
+	font-family: 'Nunito Sans', sans-serif;
+	color: #4d4b47;
+}
+
+/* h5 {
+	font-family: 'Sacramento', serif;
+	font-size: 30px;
+} */
+
+img {
+	max-width: 80%;
 }
 
 a {
@@ -31,10 +67,6 @@ a:hover {
 	color: #f7f7f7;
 	background-color: #679b9f;
 	border-color: none;
-}
-
-img {
-	max-width: 80%;
 }
 
 /* RANGE SLIDER */
