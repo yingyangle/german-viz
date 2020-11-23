@@ -2,6 +2,8 @@ $( document ).ready(function() {
 console.log('ready !')
 
 var count_cutoff = $('#sankey-count').val()
+const center = { x: 0, y: 0 }
+// const center = { x: width/2 - 40, y: height/2 }
 
 Promise.all([ 
 	d3.json('data/nodes.json'), 
@@ -13,19 +15,13 @@ Promise.all([
 	console.log('bubble', data)
 	let nodes = data[0]
 	let links = data[1]
-	const nodes_orig = _.cloneDeep(nodes)
+	const nodes_orig = _.cloneDeep(nodes) // save copy of original data
 
 	const svg = d3.select('#bubble').append('svg')
 		.attr('viewBox',  [-width / 2, -height / 2, width, height])
-
-	function update() {
-		nodes = nodes_orig
-		selected_i = nodes.findIndex(x => x.name == selected_ending & x.type == selected_type)
-		console.log(selected_ending, selected_i)
-
-		// clear svg contents
-		svg.selectAll('*').remove()
-
+	
+	// filter and format data
+	function get_data() {
 		// filter nodes to show correct type (plural or singular)
 		nodes = nodes.filter(node => {
 			return node.type != selected_type // & node.count >= count_cutoff
@@ -55,7 +51,6 @@ Promise.all([
 			})
 		}
 
-		const center = { x: 0, y: 0 }
 		const maxSize = d3.max(nodes, d => +d.count)
 		
 		// size bubbles based on area
@@ -63,15 +58,29 @@ Promise.all([
 			.domain([0, maxSize])
 			.range([0, 80])
 		
+		// format nodes info
 		nodes = nodes.map(d => ({
 			...d,
 			radius: radiusScale(+d.count),
 			size: +d.count,
-			x: Math.random() * 900,
-			y: Math.random() * 800
+			x: Math.random() * -200,
+			y: Math.random() * 100
 		}))
 
 		console.log('bubble nodes', nodes)
+		return nodes
+	}
+
+	// update bubble chart
+	function update() {
+		nodes = nodes_orig
+		selected_i = nodes.findIndex(x => x.name == selected_ending & x.type == selected_type)
+		console.log(selected_ending, selected_i)
+
+		// clear svg contents
+		svg.selectAll('*').remove()
+
+		nodes = get_data()
 
 		// charge is dependent on size of the bubble, so bigger towards the middle
 		function charge(d) {
@@ -84,6 +93,8 @@ Promise.all([
 			.force('x', d3.forceX().strength(0.07).x(center.x))
 			.force('y', d3.forceY().strength(0.07).y(center.y))
 			.force('collision', d3.forceCollide().radius(d => d.radius + 1))
+
+		force.stop()
 
 		// drag
 		drag = simulation => {
@@ -119,7 +130,8 @@ Promise.all([
 
 		let colorScale = d3.scaleOrdinal(d3.schemeTableau10)
 
-		let circle = node.append('circle')
+		let bubbles = node.append('circle')
+			.classed('bubble', true)
 			.attr('class', 'node')
 			.attr('r', d => d.radius)
 			.attr('fill', d => colorScale(d.name))
@@ -146,7 +158,7 @@ Promise.all([
 			})
 
 		// circle labels
-		let text = node.append('text')
+		let labels = node.append('text')
 			.text(d => d.name)
 			.style('font-size', '26px')
 			.attr('fill', '#4d4b47')
@@ -180,9 +192,10 @@ Promise.all([
 			.attr('class', 'tooltip')
 			.style('opacity', 0)
 
+		// title
 		svg.append('text')
-			.attr('x', d => 0)
-			.attr('y', d => -200)
+			.attr('x', 0)
+			.attr('y', -200)
 			.attr('text-anchor', 'middle')
 			.style('font-size', '30px')
 			.style('fill', '#4d4b47')
@@ -191,12 +204,16 @@ Promise.all([
 
 		// called each time the simulation ticks
 		// each tick, take new x and y values for each link and circle, x y values calculated by d3 and appended to our dataset objects
-		force.on('tick', ()=>{
-			circle.attr('cx', d => d.x)
-			.attr('cy', d => d.y)
-			text.attr('x', function(d) { return d.x; })
-				.attr('y', function(d) { return d.y; })
-		})
+		force.on('tick', () => {
+			bubbles
+				.attr('cx', d => d.x)
+				.attr('cy', d => d.y)
+
+			labels
+				.attr('x', d => d.x)
+				.attr('y', d => d.y)
+			})
+			.restart()
 
 		console.log('updated bubble !')
 	}
