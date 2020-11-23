@@ -10,7 +10,7 @@ Promise.all([
 	d3.json('data/links.json')
 ]).then(data => {
 	let width = 500
-	let height = 600
+	let height = 500
 
 	console.log('bubble', data)
 	let nodes = data[0]
@@ -135,14 +135,14 @@ Promise.all([
 			.attr('class', 'node')
 			.attr('r', d => d.radius)
 			.attr('fill', d => colorScale(d.name))
-			.attr('opacity', 0.8)
+			.attr('opacity', 0.7)
 			.call(drag(force))
 			.on('mouseover.tooltip', function(d) {
 				tooltip.transition()
 					.duration(200)
 					.style('font-family', 'Nunito Sans')
 					.style('padding', '10px')
-					.style('opacity', .8)
+					.style('opacity', 0.7)
 				tooltip.html('Plural Type: ' + d.name + '<p/>' + `${f(d.count)} words`)
 					.style('left', (d3.event.pageX) + 'px')
 					.style('top', (d3.event.pageY + 10) + 'px')
