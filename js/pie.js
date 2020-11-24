@@ -14,7 +14,7 @@ Promise.all([
 
 	var width = 500
 	var height = 500
-	var radius = Math.min(width, height) / 2 - 60
+	var radius = Math.min(width, height) / 2 - 100
 
 	// set the color scale
 	var colorScale = d3.scaleOrdinal()
@@ -63,8 +63,8 @@ Promise.all([
 				.duration(200)
 				.style('font-family', 'Nunito Sans')
 				.style('padding', '10px')
-				.style('opacity', .8);
-			tooltip.html('Gender: ' + gender_names[d.data.key] + '<p/>' + `${f(d.data.value)} words`)
+				.style('opacity', .9);
+			tooltip.html('Gender: ' + gender_names[d.data.key] + '<br>' + `${f(d.data.value)} words`)
 				.style('left', (d3.event.pageX) + 'px')
 				.style('top', (d3.event.pageY + 10) + 'px');
 		})
@@ -156,6 +156,13 @@ Promise.all([
 	}
 
 	// update()
+
+	$('#sankey-range').on('change', () => {
+		$('.sankey-node').on('click', () => {
+			update()
+			console.log('sankey node click update')
+		})
+	})
 
 	$('.sankey-node').on('click', () => {
 		update()

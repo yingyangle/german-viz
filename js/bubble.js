@@ -142,8 +142,8 @@ Promise.all([
 					.duration(200)
 					.style('font-family', 'Nunito Sans')
 					.style('padding', '10px')
-					.style('opacity', 0.7)
-				tooltip.html('Plural Type: ' + d.name + '<p/>' + `${f(d.count)} words`)
+					.style('opacity', 0.9)
+				tooltip.html('Plural Type: ' + d.name + '<br>' + `${f(d.count)} words`)
 					.style('left', (d3.event.pageX) + 'px')
 					.style('top', (d3.event.pageY + 10) + 'px')
 			})
@@ -171,8 +171,8 @@ Promise.all([
 					.duration(200)
 					.style('font-family', 'Nunito Sans')
 					.style('padding', '10px')
-					.style('opacity', .8)
-				tooltip.html('Plural Type: ' + d.name + '<p/>' + `${f(d.count)} words`)
+					.style('opacity', .9)
+				tooltip.html('Plural Type: ' + d.name + '<br>' + `${f(d.count)} words`)
 					.style('left', (d3.event.pageX) + 'px')
 					.style('top', (d3.event.pageY + 10) + 'px')
 			})
@@ -220,9 +220,12 @@ Promise.all([
 	
 	update()
 
-	// $('#sankey-range').on('change', () => {
-	// 	update()
-	// })
+	$('#sankey-range').on('change', () => {
+		$('.sankey-node').on('click', () => {
+			update()
+			console.log('sankey node click update')
+		})
+	})
 
 	$('.sankey-node').on('click', () => {
 		update()

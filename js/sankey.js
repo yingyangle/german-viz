@@ -226,10 +226,33 @@ Promise.all([
 				: edgeColor === 'input' ? colorScale(d.source.name)
 				: colorScale(d.target.name))
 			.attr('stroke-width', d => Math.max(1, d.width))
-		
+
+		// tooltip on link hover
+		link.on('mouseover.tooltip', function(d) {
+				tooltip.transition()
+					.duration(200)
+					.style('font-family', 'Nunito Sans')
+					.style('padding', '10px')
+					.style('opacity', .9);
+				tooltip.html(d.source.name + ' → ' + d.target.name + '<br>' + `${f(d.value)} words`)
+					.style('left', (d3.event.pageX) + 'px')
+					.style('top', (d3.event.pageY + 10) + 'px');
+			})
+			.on('mouseout.tooltip', function() {
+				tooltip.transition()
+					.duration(200)
+					.style('opacity', 0);
+			})
+			.on('mousemove', function() {
+				tooltip.style('left', (d3.event.pageX) + 'px')
+					.style('top', (d3.event.pageY + 10) + 'px');
+			})
+			
 		// tooltip
-		link.append('title')
-			.text(d => `${d.source.name} → ${d.target.name}\n${format(d.value)}`)
+		var tooltip = d3.select('body')
+			.append('div')
+			.attr('class', 'tooltip')
+			.style('opacity', 0)
 
 		// node name labels
 		svg.append('g')
