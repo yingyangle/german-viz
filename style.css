@@ -7,7 +7,7 @@ body {
 }
 
 #container {
-	/* margin: 50px; */
+	margin: 10px;
 }
 
 #title {
@@ -35,6 +35,14 @@ svg {
 	font-family: 'Nunito Sans', sans-serif;
 	color: #4d4b47;
 }
+
+.flag-icon {
+	max-width: 10%;
+}
+
+/* .row {
+	width: 100%;
+} */
 
 /* h5 {
 	font-family: 'Sacramento', serif;
@@ -158,4 +166,26 @@ div.tooltip {
 	border-width: 1px;
 	box-shadow: 3px 3px 10px rgba(0, 0, 0, .5);
 	pointer-events: none;
+}
+
+
+/* MEDIA QUERIES */
+
+/* MOBILE */
+@media only screen and (max-width: 600px) {
+
+	.flag-icon {
+		min-width: 40%;
+		margin-bottom: 20px;
+	}
+
+	#title {
+		margin-bottom: 40px;
+	}
+
+	h5 {
+		font-size: 30px;
+		line-height: 3.5rem;
+	}
+
 }

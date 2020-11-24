@@ -4,13 +4,18 @@ const gender_names = {
 	'm': 'masculine',
 	'n': 'neuter'
 }
+const gender_names_short = {
+	'f': 'fem.',
+	'm': 'masc.',
+	'n': 'neut.'
+}
 
 Promise.all([
 	d3.json('data/nouns.json'),
 ]).then(data => {
 	data = data[0]
 	const data_orig = _.cloneDeep(data)
-	console.log('pie', data)
+	// console.log('pie', data)
 
 	var width = 500
 	var height = 500
@@ -37,10 +42,12 @@ Promise.all([
 	// create svg
 	var svg = d3.select('#pie')
 		.append('svg')
-		.attr('width', width)
-		.attr('height', height)
+		// .attr('width', width)
+		// .attr('height', height)
+		// .attr('viewBox', `0 0 ${width + margin.left + margin.right} ${height + margin.top + margin.bottom}`)
+		.attr('viewBox',  [-width / 2, -height / 2, width, height])
 		.append('g')
-		.attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')')
+		// .attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')')
 
 	// build pie chart
 	svg.selectAll('g')
@@ -86,12 +93,39 @@ Promise.all([
 	
 	// title
 	svg.append('text')
-		.attr('x', -20)
+		.attr('x', -10)
 		.attr('y', -220)
 		.attr('text-anchor', 'middle')
 		.style('font-size', '30px')
 		.style('fill', '#4d4b47')
 		.text('Gender Distribution')
+
+	// legend boxes
+	svg.append('g')
+		.selectAll('rect')
+		.data(data_ready)
+		.enter()
+		.append('rect')
+		.attr('class', 'box')
+		.attr('height', 10) 
+		.attr('width', 10) 
+		.attr('x', (d,i) => i * 100 - radius + 30)
+		.attr('y', height - 300)
+		.attr('fill', d => colorScale(d.data.key))
+
+	// legend labels
+	svg.append('g')
+		.selectAll('text')
+		.data(data_ready)
+		.enter()
+		.append('text')
+		.text(d => gender_names_short[d.data.key])
+		.attr('x', (d,i) => i * 100 - radius + 50)
+		.attr('y', height - 300 + 10)
+		.attr('font-size', '12px')
+		// .attr('fill', '#6d6d6d')
+		.attr('font-family', 'Nunito Sans')
+		.attr('text-anchor', 'beginning')
 
 	// filter and format data
 	function get_data() {
@@ -147,6 +181,8 @@ Promise.all([
 			.attr('stroke', 'white')
 			.attr('stroke-width', '6px')
 			.each(function(d) { this._current = d })
+		
+		console.log('UPDATED PIE !')
 	}
 
 	function arcTween(a) {

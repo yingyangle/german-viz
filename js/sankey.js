@@ -53,6 +53,11 @@ Promise.all([
 	// create copy or original untouched data
 	const data_orig = _.cloneDeep(data)
 
+	let m = 90
+	let margin = ({ top: 50, right: m, bottom: 10, left: m })
+	let width = 700 - margin.left - margin.right
+	let height = 1000 - margin.top - margin.bottom
+
 	// creat svg
 	let svg = d3.select('#sankey')
 		// .attr('viewBox', `0 0 ${width} ${height}`)
@@ -296,8 +301,8 @@ Promise.all([
 			.style('font-size', '26px')
 			.style('fill', '#4d4b47')
 			.text('Plural Ending')
-
-		console.log('updated sankey !')
+		
+		console.log('UPDATED SANKEY !')
 	}
 		
 	update()

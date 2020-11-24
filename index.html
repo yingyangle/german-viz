@@ -34,50 +34,71 @@
 		<div id="container" class="text-center">
 
 			<br><br>
-			<img src="https://www.flaticon.com/svg/static/icons/svg/2053/2053281.svg" alt="" width=10%>
+			<img class="flag-icon" src="https://www.flaticon.com/svg/static/icons/svg/2053/2053281.svg" alt="">
 			<br>
 			<h2 id="title">The German Language</h2>
 			<h5>Christine Yang, Yuezhen Chen, Ann Pan</h5>
 			<br><br><br>
 
-			
-			<div class="row">
-				<!-- LEFT COLUMN - SANKEY -->
-				<div id="sankey-container" class="col-7">
-					<!-- top row -->
-					<div class="row">
-						<!-- SHOW OTHER BUTTON -->
-						<div class="col-4">
-							<br><br>
-							<button id="sankey-other-button" class="btn">Show "Other"</button>
+			<!-- <div class="container-fluid">
+				<div class="row">
+					<div class="col-6">
+						<div class="row">
+							<div class="col-6">test1</div>
+							<div class="col-6">test2</div>
 						</div>
-						<!-- RANGE SLIDER -->
-						<div class="col-8">
-							<h6>Minimum count:</h6>
-							<br>
-							<div class="range-wrap">
-								<div class="range-value" id="sankey-range-value"></div>
-								<input id="sankey-range" type="range" min=200 max=4000 value=800 step=10>
-							</div>
-						</div>
-					</div> <!-- end row -->
-					<br>
-					<p>Click a singular or plural ending below to select it.</p>
-					<!-- SANKEY DIAGRAM -->
-					<svg id="sankey" ></svg>
+					</div>
+					<div class="col-6">
+						testtt
+					</div>
 				</div>
-				<!-- RIGHT COLUMN - BUBBLE CHART, PIE CHART -->
-				<div class="col-5">
-					<p>Showing Data For: <span id="selected-ending">All Plurals</span> <span id="selected-type"></span></p>
-					<button id="show-all-plurals" class="btn">Show All Plurals</button>
-					<button id="show-all-singulars" class="btn">Show All Singulars</button>
-					<!-- BUBBLE CHART -->
-					<div id="bubble"></div>
-					<br><br>
-					<!-- PIE CHART -->
-					<div id="pie"></div>
+			</div> -->
+
+			<div class="container-fluid">
+				<div class="row">
+					<!-- LEFT COLUMN - SANKEY -->
+					<div id="sankey-container" class="col-md-7">
+						<!-- top row -->
+						<div class="row">
+							<!-- SHOW OTHER BUTTON -->
+							<div class="col-md-4">
+								<br><br>
+								<button id="sankey-other-button" class="btn">Show "Other"</button>
+							</div>
+							<!-- RANGE SLIDER -->
+							<div class="col-md-8">
+								<h6>Minimum count:</h6>
+								<br>
+								<div class="range-wrap">
+									<div class="range-value" id="sankey-range-value"></div>
+									<input id="sankey-range" type="range" min=200 max=4000 value=800 step=10>
+								</div>
+							</div>
+						</div> <!-- end row -->
+						<br>
+						<p>Click a singular or plural ending below to select it.</p>
+						<!-- SANKEY DIAGRAM -->
+						<svg id="sankey" ></svg>
+					</div>
+					<!-- RIGHT COLUMN - BUBBLE CHART, PIE CHART -->
+					<div class="col-md-5">
+						<p>Showing Data For: <span id="selected-ending">All Plurals</span> <span id="selected-type"></span></p>
+						<button id="show-all-plurals" class="btn">Show All Plurals</button>
+						<button id="show-all-singulars" class="btn">Show All Singulars</button>
+						<!-- BUBBLE CHART -->
+						<div id="bubble"></div>
+						<br><br>
+						<!-- PIE CHART -->
+						<div id="pie"></div>
+					</div>
 				</div>
 			</div>
+
+			
+			
+
+			
+			
 			
 			
 			<br><br>
@@ -122,7 +143,7 @@
 			<p><i>[introduce what grammatical gender is, common misconceptions, explain what it actually is, lead into discussion of the visualization]</i></p>
 
 			<img src="img/gender.png" alt=""><br><br>
-			<svg id="force" ></svg>
+			<div id="force" ></div>
 			<div id="forcetooltip" class="hidden"></div>
 
 			<p><i>[talk about insights gained from this visualization, patterns found, exceptions to the rule, how this can help learners of German]</i></p>

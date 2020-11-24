@@ -2,8 +2,8 @@ $( document ).ready(function() {
 console.log('ready !')
 
 var count_cutoff = $('#sankey-count').val()
-const center = { x: 0, y: 0 }
-// const center = { x: width/2 - 40, y: height/2 }
+// const center = { x: 0, y: 0 }
+const center = { x: width / 2 , y: height / 2 }
 
 Promise.all([ 
 	d3.json('data/nodes.json'), 
@@ -18,6 +18,7 @@ Promise.all([
 	const nodes_orig = _.cloneDeep(nodes) // save copy of original data
 
 	const svg = d3.select('#bubble').append('svg')
+		// .attr('viewBox', `0 0 ${width + margin.left + margin.right} ${height + margin.top + margin.bottom}`)
 		.attr('viewBox',  [-width / 2, -height / 2, width, height])
 	
 	// filter and format data
@@ -75,7 +76,7 @@ Promise.all([
 	function update() {
 		nodes = nodes_orig
 		selected_i = nodes.findIndex(x => x.name == selected_ending & x.type == selected_type)
-		console.log(selected_ending, selected_i)
+		console.log('selected ending', selected_ending, selected_i)
 
 		// clear svg contents
 		svg.selectAll('*').remove()
@@ -89,7 +90,7 @@ Promise.all([
 
 		const force = d3.forceSimulation(nodes)
 			.force('charge', d3.forceManyBody().strength(charge))
-			// .force('center', d3.forceCenter(center.x, center.y))
+			.force('center', d3.forceCenter())
 			.force('x', d3.forceX().strength(0.07).x(center.x))
 			.force('y', d3.forceY().strength(0.07).y(center.y))
 			.force('collision', d3.forceCollide().radius(d => d.radius + 1))
@@ -215,7 +216,7 @@ Promise.all([
 			})
 			.restart()
 
-		console.log('updated bubble !')
+		console.log('UPDATED BUBBLE !')
 	}
 	
 	update()

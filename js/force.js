@@ -29,12 +29,15 @@ drag = simulation => {
 }
 // /drag = f(simulation)
 
+height = 1000
+width = 1000
 
 // creat svg
 let svg = d3.select('#force')
-	.attr('width', width + margin.left + margin.right)
-	.attr('height', height + margin.top + margin.bottom)
-	.attr('viewBox', [0, 0, width, height])
+	.append('svg')
+	// .attr('width', width + margin.left + margin.right)
+	// .attr('height', height + margin.top + margin.bottom)
+	.attr('viewBox',  [-width / 2, -height / 2, width, height])
 
 Promise.all([
 	d3.json('data/genders.json')
@@ -48,7 +51,7 @@ Promise.all([
 	const simulation = d3.forceSimulation(dataset.nodes)
 		.force('link', d3.forceLink(dataset.links).id(d => d.i).distance(300))
 		.force('charge', d3.forceManyBody().strength(-5))
-		.force('center', d3.forceCenter(width / 2, height / 2))
+		.force('center', d3.forceCenter())
 		.force('collide', d3.forceCollide().radius(d => sizeScale(d.freq) + 20))
 
 	let lines = svg.append('g')
