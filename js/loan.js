@@ -8,14 +8,14 @@ d3.json('data/loanWords.json', d3.autoType).then(data => {
 	let words = data; // data1.csv
 	// console.log(words)
 	let width = 1000
-	let height = 1200
+	let height = 800
 
 	let nodes = words.nodes
 	let borrowed = nodes.BorrowedWord
 	console.log('loanwords', nodes)
 	console.log('loanwords', borrowed)
 
-	const svg = d3.select('.chart-area').append('svg')
+	const svg = d3.select('#loanwords').append('svg')
 		.attr('viewBox',  [-width / 2, -height / 2, width, height])
 	
 	nodes.forEach(d=>{

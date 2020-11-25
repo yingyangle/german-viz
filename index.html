@@ -33,6 +33,7 @@
 
 		<div id="container" class="text-center">
 
+			<!-- TITLE -->
 			<br><br>
 			<img class="flag-icon" src="https://www.flaticon.com/svg/static/icons/svg/2053/2053281.svg" alt="">
 			<br>
@@ -40,20 +41,64 @@
 			<h5>Christine Yang, Yuezhen Chen, Ann Pan</h5>
 			<br><br><br>
 
-			<!-- <div class="container-fluid">
-				<div class="row">
-					<div class="col-6">
-						<div class="row">
-							<div class="col-6">test1</div>
-							<div class="col-6">test2</div>
-						</div>
-					</div>
-					<div class="col-6">
-						testtt
-					</div>
-				</div>
-			</div> -->
+			<div class="text-container">
+				<h2>What is German?</h2>
+				<h2>Hello</h2>
 
+				<p>German is an Indo-European language spoken primarily in Germany, Austria, and Switzerland. There are ### native speakers and ### second language learners. </p>
+
+				<p><i>[briefly talk about the shared history of German and English]</i></p>
+
+				<br>
+				<h2>The Influence of German</h2>
+
+				<p><i>[stuff about German's influence on the English language today]</i></p>
+				<p><i>[maybe also introduce some cool words for fun/ audience engagement (Treppenwitz, Erklärungsnot, Backpfeifengesicht, Kummerspeck, Fremdschämen, Weltschmerz, Schadenfreude, Drachenfutter, Futterneid, Ruinenlust, Schattenparker, Schnapsidee, Sitzfleisch, Zeitgeist, etc.)]</i> German also has specific words to express interesting and relatable concepts that we don't have words for in English. ... Some of these words such as Zeitgeist might sound familiar to you, because in fact English borrows a lot of words from German when it lacks a proper words itself.</p>
+			</div>
+
+			<p><b>***[VISUALIZATION- loanwords from german into english]***</b></p>
+
+			<div id="loanwords"></div>
+			<div id="tooltip" class="hidden">
+				<p><strong>Source Word</strong></p>
+				<p><span id="value">Hello</span></p>
+			  </div>
+
+			<div class="text-container">
+				<p><i>[stuff about German second language learners]</i> German is the second most popular second language learned in Europe after English, and is particularly popular in southern Slavic countries such as Slovenia and in Middle Eastern countries such as Turkey.</p>
+
+				<img src="img/duolingo.png" alt=""><br><br>
+
+				<br>
+				<h2>German Grammar</h2>
+
+				<p><i>[introduction to the basics of German grammar and morphology, and also in comparison with the grammar of English of other languages (Spanish? French? Chinese? Korean? Latin?)]</i></p>
+
+				<p><i>[difficulties of German morphology, importance of illuminating patterns in German for second language learners]</i> In particular, German is known for its difficult plural and gender patterns. </p>
+				<p><i>[include examples of grammar]</i></p>
+
+				<p><i>[talk about mistakes considered the most egregious by native german speakers -> gender? (check on this)]</i></p>
+
+				<br>
+				<h2>Gender Patterns</h2>
+
+				<p><i>[introduce what grammatical gender is, common misconceptions, explain what it actually is, lead into discussion of the visualization]</i></p>
+			</div>
+			
+			<div id="force" ></div>
+			<div id="forcetooltip" class="hidden"></div>
+			<img src="img/gender.png" alt=""><br><br>
+
+			<div class="text-container">
+				<p><i>[talk about insights gained from this visualization, patterns found, exceptions to the rule, how this can help learners of German]</i></p>
+
+				<br>
+				<h2>Plural Patterns</h2>
+
+				<p><i>[introduce problem with memorizing a bunch of plurals]</i></p>
+			</div>
+
+			<!-- PLURALS VIZ -->
 			<div class="container-fluid">
 				<div class="row">
 					<!-- LEFT COLUMN - SANKEY -->
@@ -95,72 +140,15 @@
 					</div>
 				</div>
 			</div>
-
-			
-			
-
-			
-			
-			
-			
 			<br><br>
 
-			<h2>What is German?</h2>
-			<h2>Hello</h2>
-
-			<p>German is an Indo-European language spoken primarily in Germany, Austria, and Switzerland. There are ### native speakers and ### second language learners. </p>
-
-			<p><i>[briefly talk about the shared history of German and English]</i></p>
-
-			<br>
-			<h2>The Influence of German</h2>
-
-			<p><i>[stuff about German's influence on the English language today]</i></p>
-			<p><i>[maybe also introduce some cool words for fun/ audience engagement (Treppenwitz, Erklärungsnot, Backpfeifengesicht, Kummerspeck, Fremdschämen, Weltschmerz, Schadenfreude, Drachenfutter, Futterneid, Ruinenlust, Schattenparker, Schnapsidee, Sitzfleisch, Zeitgeist, etc.)]</i> German also has specific words to express interesting and relatable concepts that we don't have words for in English. ... Some of these words such as Zeitgeist might sound familiar to you, because in fact English borrows a lot of words from German when it lacks a proper words itself.</p>
-
-			<p><b>***[VISUALIZATION- loanwords from german into english]***</b></p>
-			<div class="chart-area"></div>
-			<div id="tooltip" class="hidden">
-				<p><strong>Source Word</strong></p>
-				<p><span id="value">Hello</span></p>
-			  </div>
-
-			<p><i>[stuff about German second language learners]</i> German is the second most popular second language learned in Europe after English, and is particularly popular in southern Slavic countries such as Slovenia and in Middle Eastern countries such as Turkey.</p>
-
-			<img src="img/duolingo.png" alt=""><br><br>
-
-			<br>
-			<h2>German Grammar</h2>
-
-			<p><i>[introduction to the basics of German grammar and morphology, and also in comparison with the grammar of English of other languages (Spanish? French? Chinese? Korean? Latin?)]</i></p>
-
-			<p><i>[difficulties of German morphology, importance of illuminating patterns in German for second language learners]</i> In particular, German is known for its difficult plural and gender patterns. </p>
-			<p><i>[include examples of grammar]</i></p>
-
-			<p><i>[talk about mistakes considered the most egregious by native german speakers -> gender? (check on this)]</i></p>
-
-			<br>
-			<h2>Gender Patterns</h2>
-
-			<p><i>[introduce what grammatical gender is, common misconceptions, explain what it actually is, lead into discussion of the visualization]</i></p>
-
-			<img src="img/gender.png" alt=""><br><br>
-			<div id="force" ></div>
-			<div id="forcetooltip" class="hidden"></div>
-
-			<p><i>[talk about insights gained from this visualization, patterns found, exceptions to the rule, how this can help learners of German]</i></p>
-
-			<br>
-			<h2>Plural Patterns</h2>
-
-			<p><i>[introduce problem with memorizing a bunch of plurals]</i></p>
-
 			<img src="img/plurals.png" alt=""><br><br>
-
-			<p><i>[talk about insights gained from this visualization, patterns found, exceptions to the rule, how this can help learners of German]</i></p>
+			
+			<div class="text-container">
+				<p><i>[talk about insights gained from this visualization, patterns found, exceptions to the rule, how this can help learners of German]</i></p>
+			</div>
 		
 		<br><br><br><br><br>
-
 		<p> gemacht mit <img src="https://www.flaticon.com/svg/static/icons/svg/3208/3208707.svg" alt="" height="20px" class="heart-icon"> in Boston </p>
 		</div>
 

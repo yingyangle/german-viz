@@ -110,7 +110,7 @@ Promise.all([
 		.attr('height', 16) 
 		.attr('width', 16) 
 		.attr('x', (d,i) => i * 100 - radius + 30)
-		.attr('y', height - 300)
+		.attr('y', height - 320)
 		.attr('fill', d => colorScale(d.data.key))
 
 	// legend labels
@@ -121,7 +121,7 @@ Promise.all([
 		.append('text')
 		.text(d => gender_names_short[d.data.key])
 		.attr('x', (d,i) => i * 100 - radius + 50)
-		.attr('y', height - 300 + 14)
+		.attr('y', height - 320 + 14)
 		.attr('font-size', '16px')
 		// .attr('fill', '#6d6d6d')
 		.attr('font-family', 'Nunito Sans')

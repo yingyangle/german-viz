@@ -10,7 +10,7 @@ Promise.all([
 	d3.json('data/links.json')
 ]).then(data => {
 	let width = 500
-	let height = 700
+	let height = 500
 
 	console.log('bubble', data)
 	let nodes = data[0]
