@@ -8,7 +8,7 @@ d3.json('data/loanWords.json', d3.autoType).then(data => {
 	let words = data; // data1.csv
 	// console.log(words)
 	let width = 1000
-	let height = 1000
+	let height = 1200
 
 	let nodes = words.nodes
 	let borrowed = nodes.BorrowedWord
@@ -23,7 +23,7 @@ d3.json('data/loanWords.json', d3.autoType).then(data => {
 	})
 
 	const force = d3.forceSimulation(nodes)
-		.force('charge', d3.forceManyBody().strength(70))
+		.force('charge', d3.forceManyBody().strength(40))
 		.force('center', d3.forceCenter())
 		.force('collide', d3.forceCollide().radius(function(d) {
 			return d.r
@@ -65,7 +65,7 @@ d3.json('data/loanWords.json', d3.autoType).then(data => {
 
 	let circle = node.append('circle')
 		.attr('class', 'node')
-		.attr('r', 50)
+		.attr('r', width / 20)
 		.attr('fill', d => colorScale(d.DonorLanguage))
 		.attr('opacity', 0.8)
 		.call(drag(force))
@@ -73,7 +73,7 @@ d3.json('data/loanWords.json', d3.autoType).then(data => {
 			tooltip.transition()
 				.duration(200)
 				.style('font-family', 'Nunito Sans')
-				.style('padding', '10px')
+				.style('padding', '20px')
 				.style('opacity', 0.9)
 			tooltip.html('English Word: ' + d.BorrowedWord + '<br>Origin: ' + d.DonorLanguage)
 				.style('left', (d3.event.pageX) + 'px')
@@ -94,7 +94,8 @@ d3.json('data/loanWords.json', d3.autoType).then(data => {
 		.text(function(d) {
 			return d.SourceWord
 		})
-		.style('font-size', '26px')
+		.style('font-size', '18px')
+		.attr('class', 'nunito')
 		.attr('fill', '#4d4b47')
 		.attr('x', 0)
 		.attr('y', 0)

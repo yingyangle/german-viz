@@ -3,14 +3,14 @@ console.log('ready !')
 
 var count_cutoff = $('#sankey-count').val()
 // const center = { x: 0, y: 0 }
-const center = { x: width / 2 , y: height / 2 }
+const center = { x: width / 2 , y: height / 2 + 900 }
 
 Promise.all([ 
 	d3.json('data/nodes.json'), 
 	d3.json('data/links.json')
 ]).then(data => {
 	let width = 500
-	let height = 500
+	let height = 700
 
 	console.log('bubble', data)
 	let nodes = data[0]
@@ -161,7 +161,8 @@ Promise.all([
 		// circle labels
 		let labels = node.append('text')
 			.text(d => d.name)
-			.style('font-size', '26px')
+			.style('font-size', '18px')
+			.attr('class', 'nunito')
 			.attr('fill', '#4d4b47')
 			.attr('x', 0)
 			.attr('y', 0)
@@ -198,7 +199,7 @@ Promise.all([
 			.attr('x', 0)
 			.attr('y', -200)
 			.attr('text-anchor', 'middle')
-			.style('font-size', '30px')
+			.style('font-size', '40px')
 			.style('fill', '#4d4b47')
 			.text('Plural Types')
 

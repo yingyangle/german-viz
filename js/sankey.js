@@ -55,19 +55,23 @@ Promise.all([
 
 	let m = 90
 	let margin = ({ top: 50, right: m, bottom: 10, left: m })
-	let width = 700 - margin.left - margin.right
-	let height = 1000 - margin.top - margin.bottom
+	let width = 700 
+	let height = 1000 
 
 	// creat svg
 	let svg = d3.select('#sankey')
+		.attr('viewBox', [0,0, width, height])
 		// .attr('viewBox', `0 0 ${width} ${height}`)
 		// .style('width', '50%')
 		// .style('height', 'auto')
-		.attr('width', width + margin.left + margin.right)
-		.attr('height', height + margin.top + margin.bottom)
+		// .attr('width', width + margin.left + margin.right)
+		// .attr('height', height + margin.top + margin.bottom)
 		.append('g')
 		.attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
 
+	width = 700 - margin.left - margin.right
+	height = 1000 - margin.top - margin.bottom
+	
 	// get original data, filter data, convert to sankey data
 	function getData() {
 		// set data to original full data
@@ -261,8 +265,6 @@ Promise.all([
 
 		// node name labels
 		svg.append('g')
-			.style('font', '12px')
-			.style('fill', '#4d4b47')
 			.selectAll('text')
 			.data(nodes)
 			.join('text')
@@ -274,8 +276,6 @@ Promise.all([
 			.text(d => d.name)
 		// node count labels
 		svg.append('g')
-			.style('font', '12px')
-			.style('fill', '#4d4b47')
 			.selectAll('text')
 			.data(nodes)
 			.join('text')

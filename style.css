@@ -33,6 +33,7 @@ svg {
 
 .nunito {
 	font-family: 'Nunito Sans', sans-serif;
+	font-size: 16px;
 	color: #4d4b47;
 }
 
@@ -67,7 +68,7 @@ a:hover {
 	color: #f7f7f7;
 	background-color: #79b7bb;
 	border-color: transparent;
-	margin: 0 10px 0 10px;
+	margin: 10px 10px 10px 10px;
 	font-size: 18px;
 }
 
@@ -116,16 +117,16 @@ input[type=range]::-webkit-slider-thumb {
 input[type=range]:focus::-webkit-slider-runnable-track {
 	background: #79b7bb;
 }
-.range-wrap{
-	width: 300px;
+.range-wrap {
+	width: 90%;
 	position: relative;
 	margin: auto;
 }
-.range-value{
+.range-value {
 	position: absolute;
 	top: -70%;
 }
-.range-value span{
+.range-value span {
 	width: 80px;
 	height: 30px;
 	line-height: 24px;
@@ -140,7 +141,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 	border-radius: 6px;
 	padding: 4px;
 }
-.range-value span:before{
+.range-value span:before {
 	content: "";
 	position: absolute;
 	width: 0;
@@ -181,11 +182,12 @@ div.tooltip {
 
 	#title {
 		margin-bottom: 40px;
+		font-size: 60px;
 	}
 
 	h5 {
-		font-size: 30px;
-		line-height: 3.5rem;
+		font-size: 20px;
+		line-height: 2.5rem;
 	}
 
 }

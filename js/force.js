@@ -101,7 +101,8 @@ Promise.all([
 	
 	let text = node.append('text')
 		.text(d => d.name)
-		.style('font-size', '24px')
+		.style('font-size', '18px')
+		.attr('class', 'nunito')
 		.attr('fill', '#4d4b47')
 		.attr('x', 5)
 		.attr('y', 5)
