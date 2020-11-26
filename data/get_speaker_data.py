@@ -42,23 +42,36 @@ for tr in trs:
 	
 print(df)
 
-### SAVE CSV ###
-df.to_csv('speakers.csv', index=False, encoding='utf-8-sig')
+# ### SAVE CSV ###
+# df.to_csv('speakers.csv', index=False, encoding='utf-8-sig')
+#
+# #### CONVERT TO JSON ###
+#
+# json_data = {}
+#
+# for i,row in df.iterrows():
+# 	json_data[row['Country']] = {col:row[col] for col in df.columns}
+#
+# with open('speakers.json', 'w') as aus:
+# 	json.dump(json_data, aus)
+#
+# print('saved json !')
 
-#### CONVERT TO JSON ###
+
+
+### CONVERT LEARNERS TO JSON ###
+
+df = pd.read_csv('learners.csv', encoding='utf-8-sig')
 
 json_data = {}
 
 for i,row in df.iterrows():
-	json_data[row['Country']] = {col:row[col] for col in df.columns}
+	json_data[row['country']] = row['learners']
 
-with open('speakers.json', 'w') as aus:
+with open('learners.json', 'w') as aus:
 	json.dump(json_data, aus)
 
 print('saved json !')
-
-
-
 
 
 

@@ -4,7 +4,7 @@
 
 // make interactive, put circles containing the word. Activity is to guess what the english word borrowed from the german word is. Click circle to see source word.
 
-d3.json('data/loanWords.json', d3.autoType).then(data => {
+d3.json('data/loanwords.json', d3.autoType).then(data => {
 	let words = data; // data1.csv
 	// console.log(words)
 	let width = 1000

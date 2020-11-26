@@ -178,6 +178,7 @@ Promise.all([
 			.attr('height', d => d.y1 - d.y0)
 			.attr('width', d => d.x1 - d.x0)
 			.attr('fill', d => colorScale_plurals(d.name))
+			.attr('opacity', 0.8)
 			.on('click', function(d) {
 				selected_ending = d.name
 				selected_type = d.type
@@ -186,13 +187,13 @@ Promise.all([
 			})
 			.on('mouseover', function(d) {
 				d3.select(this)
-					.attr('fill', 'black')
-					.attr('opacity', 0.7)
+					// .attr('fill', 'black')
+					.attr('opacity', 1)
 			})
 			.on('mouseout', function(d) {
 				d3.select(this)
 					.attr('fill', d => colorScale_plurals(d.name))
-					.attr('opacity', 1)
+					.attr('opacity', 0.8)
 			})
 			.append('title')
 			.text(d => `${d.name}\n${format(d.value)}`)
@@ -201,7 +202,7 @@ Promise.all([
 		// links
 		let link = svg.append('g')
 			.attr('fill', 'none')
-			.attr('stroke-opacity', 0.5)
+			.attr('stroke-opacity', 0.4)
 			.selectAll('g')
 			.data(links)
 			.join('g')

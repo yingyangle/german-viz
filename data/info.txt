@@ -34,6 +34,13 @@ Vorname = first name
 Nachname = last name
 Straßenname = street name
 
+### learners.csv ###
+https://www.auswaertiges-amt.de/de/aussenpolitik/themen/kulturdialog/-/2346768
+Survey: German as a foreign language
+
+Column Headers Translation:
+
+Country, total German learners 2020, total number of students in the host country 2020, schools with foreign language lessons 2020, schools with DaF 2020, German teachers 2020, DaF learners in the school sector 2020, increase / decrease in DaF learners in the school sector compared to 2015 to 2020, universities with General German 2020, German learning students 2020, increase / decrease in German learning students compared to 2015 to 2020, extracurricular / extra-university GFL institutions 2020, GFL learners at extracurricular / extra-university institutions 2020, GFL learners at Goethe Institutes 2020, perspective School sector [trend from 2015 to 2020] 
 
 
 ### nouns_fict.txt ###

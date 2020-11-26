@@ -134,7 +134,7 @@ Promise.all([
 			.attr('class', 'node')
 			.attr('r', d => d.radius)
 			.attr('fill', d => colorScale_plurals(d.name))
-			.attr('opacity', 0.7)
+			.attr('opacity', 0.6)
 			.call(drag(force))
 			.on('mouseover.tooltip', function(d) {
 				tooltip.transition()
