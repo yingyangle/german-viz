@@ -145,7 +145,10 @@ Promise.all([
 					.style('font-family', 'Nunito Sans')
 					.style('padding', '10px')
 					.style('opacity', .9)
-				tooltip.html('Country: ' + d.properties.name +'<br>' + 'German Learners: ' + `${f(d.pop)}`)
+				var pop = d.pop
+				if (d.pop == -1) pop = 'N/A'
+				else pop = `${f(pop)}`
+				tooltip.html('Country: ' + d.properties.name +'<br>' + 'German Learners: ' + pop)
 					.style('left', (d3.event.pageX) + 'px')
 					.style('top', (d3.event.pageY + 10) + 'px')
 			})
@@ -172,7 +175,7 @@ Promise.all([
 			.attr('text-anchor', 'middle')
 			.style('font-size', '36px')
 			.style('fill', '#4d4b47')
-			.text('German Learners Around the World')
+			.text('German Language Learners Around the World')
 	}
 
 	// show native speaker map
