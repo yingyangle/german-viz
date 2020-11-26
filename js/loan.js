@@ -4,25 +4,26 @@
 
 // make interactive, put circles containing the word. Activity is to guess what the english word borrowed from the german word is. Click circle to see source word.
 
-d3.json('data/loanwords.json', d3.autoType).then(data => {
-	let words = data; // data1.csv
+function createLoanwords() {
+	data = _.cloneDeep(data_orig)
+	let words = data.loanwords 
 	// console.log(words)
 	let width = 1000
 	let height = 800
 
-	let nodes = words.nodes
-	let borrowed = nodes.BorrowedWord
+	let loan_nodes = words.nodes
+	let borrowed = loan_nodes.BorrowedWord
 	console.log('loanwords', nodes)
 	console.log('loanwords', borrowed)
 
 	const svg = d3.select('#loanwords').append('svg')
 		.attr('viewBox',  [-width / 2, -height / 2, width, height])
 	
-	nodes.forEach(d=>{
+		loan_nodes.forEach(d=>{
 		d.r = 50
 	})
 
-	const force = d3.forceSimulation(nodes)
+	const force = d3.forceSimulation(loan_nodes)
 		.force('charge', d3.forceManyBody().strength(40))
 		.force('center', d3.forceCenter())
 		.force('collide', d3.forceCollide().radius(function(d) {
@@ -111,4 +112,4 @@ d3.json('data/loanwords.json', d3.autoType).then(data => {
 		text.attr('x', function(d) { return d.x; })
 			.attr('y', function(d) { return d.y; })
 	})
-});
+}

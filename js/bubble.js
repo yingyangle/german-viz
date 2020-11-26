@@ -14,14 +14,18 @@ function createBubble() {
 	
 	// filter and format data
 	function get_data() {
-		bubble_nodes = nodes
-		bubble_links = links
-		console.log('bubble', data, bubble_nodes, bubble_links)
-
-		// filter nodes to show correct type (plural or singular)
-		// bubble_nodes = bubble_nodes.filter(node => {
-		// 	return node.type != selected_type // & node.count >= count_cutoff
-		// })
+		if (selected_ending == '') {
+			bubble_nodes = data.nodes
+			bubble_links = data.links
+			// filter nodes to show correct type (plural or singular)
+			bubble_nodes = bubble_nodes.filter(node => {
+				return node.type != selected_type // & node.count >= count_cutoff
+			})
+		} else {
+			bubble_nodes = nodes
+			bubble_links = links
+		}
+		console.log('bubble', bubble_nodes, bubble_links)
 
 		// filter nodes according to selected ending
 		var nodes_to_remove = []
@@ -71,11 +75,10 @@ function createBubble() {
 
 	// update bubble chart
 	function update() {
+		bubble_nodes = get_data()
 
 		// clear svg contents
 		svg.selectAll('*').remove()
-
-		bubble_nodes = get_data()
 
 		// charge is dependent on size of the bubble, so bigger towards the middle
 		function charge(d) {
@@ -202,8 +205,10 @@ function createBubble() {
 	$('#show-all-singulars').on('click', () => {
 		selected_ending = ''
 		selected_type = 'plural'
+		selected_i = -1
 		bubble_title = 'Singular Endings Distribution'
 		bubble_type = 'Singular'
+		console.log('selected', selected_ending, selected_type, selected_i)
 		$('#selected-ending').html('All Singulars')
 		$('#selected-type').html('')
 		update()
@@ -212,8 +217,10 @@ function createBubble() {
 	$('#show-all-plurals').on('click', () => {
 		selected_ending = ''
 		selected_type = 'singular'
+		selected_i = -1
 		bubble_title = 'Plural Endings Distribution'
 		bubble_type = 'Plural'
+		console.log('selected', selected_ending, selected_type, selected_i)
 		$('#selected-ending').html('All Plurals')
 		$('#selected-type').html('')
 		update()

@@ -1,12 +1,8 @@
-Promise.all([
-	d3.json('data/world.geojson'),
-	d3.json('data/speakers.json'),
-	d3.json('data/learners.json'),
-])
-.then(data => {
-	var world = data[0]
-	var speakers = data[1]
-	var learners = data[2]
+function createMap() {
+	data = _.cloneDeep(data_orig)
+	var world = data.world
+	var speakers = data.speakers
+	var learners = data.learners
 	console.log('map', data)
 
 	var path = d3.geoPath()
@@ -257,5 +253,4 @@ Promise.all([
 		}
 	})
 
-	
-})
+}

@@ -1,14 +1,7 @@
-
-// /drag = f(simulation)
-
-Promise.all([
-	d3.json('data/genders.json')
-	// d3.json('data/genders_more.json')
-])
-.then(data => {
-	const sizeScale = d3.scaleLinear().range([7,43])
-
-	var visType = 'Force'
+function createForce() {
+	data = _.cloneDeep(data_orig)
+	var gender_data = data.genders
+	console.log('force',gender_data.nodes)
 
 	width = 1000
 	height = 700
@@ -20,13 +13,12 @@ Promise.all([
 		// .attr('height', height + margin.top + margin.bottom)
 		.attr('viewBox',  [-width / 2, -height / 2, width, height])
 
+	const sizeScale = d3.scaleLinear()
+		.range([7,43])
+		.domain([0, d3.max(gender_data.nodes, d => (d.freq))])
 
-	var dataset = data[0]
-	console.log('force',dataset.nodes)
-	sizeScale.domain([0, d3.max(dataset.nodes, d => (d.freq))])
-
-	const simulation = d3.forceSimulation(dataset.nodes)
-		.force('link', d3.forceLink(dataset.links).id(d => d.i).distance(300))
+	const simulation = d3.forceSimulation(gender_data.nodes)
+		.force('link', d3.forceLink(gender_data.links).id(d => d.i).distance(300))
 		.force('charge', d3.forceManyBody().strength(-5))
 		.force('center', d3.forceCenter())
 		.force('collide', d3.forceCollide().radius(d => sizeScale(d.freq) + 20))
@@ -35,13 +27,13 @@ Promise.all([
 		.style('stroke', '#999')
 		.attr('stroke-opacity', 0.6)
 		.selectAll('line')
-		.data(dataset.links)
+		.data(gender_data.links)
 		.join('line')
 
-	console.log('force', dataset.nodes)
+	console.log('force', gender_data.nodes)
 
 	// var nodes = svg.selectAll('g')
-	// .data(dataset.nodes).enter()
+	// .data(gender_data.nodes).enter()
 	// .append('g')
 
 	// let circle = nodes.append('circle')
@@ -55,7 +47,7 @@ Promise.all([
 	// 	.attr('stroke', '#fff')
 	// 	.attr('stroke-width', 1.5)
 	// 	.selectAll('circle')
-	// 	.data(dataset.nodes)
+	// 	.data(gender_data.nodes)
 	// 	.join('circle')
 	// 	.attr('r', d => sizeScale(d.freq))
 	// 	.style('fill', d => colorScale(d.gender))
@@ -66,7 +58,7 @@ Promise.all([
 		// green, blue, pink
 
 	var node = svg.selectAll('g')
-		.data(dataset.nodes).enter()
+		.data(gender_data.nodes).enter()
 		.append('g')
 
 	let circle = node.append('circle')
@@ -116,4 +108,4 @@ Promise.all([
 		text.attr('x', d => d.x)
 			.attr('y', d => d.y)
 	})
-})
+}

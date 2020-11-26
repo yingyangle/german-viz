@@ -1,29 +1,11 @@
-
-const gender_names = {
-	'f': 'feminine',
-	'm': 'masculine',
-	'n': 'neuter'
-}
-const gender_names_short = {
-	'f': 'fem.',
-	'm': 'masc.',
-	'n': 'neut.'
-}
-
-Promise.all([
-	d3.json('data/nouns.json'),
-]).then(data => {
-	data = data[0]
-	const data_orig = _.cloneDeep(data)
-	// console.log('pie', data)
-
+function createPie() {
 	var width = 500
 	var height = 500
 	var radius = Math.min(width, height) / 2 - 100
 
 	// set the color scale
 	var colorScale = d3.scaleOrdinal()
-		.domain(data)
+		.domain(data.nouns)
 		.range(['rgb(171, 198, 155)', 'rgb(247, 200, 200)', 'rgb(186, 211, 205)'])
 		// green, pink, blue
 
@@ -36,8 +18,8 @@ Promise.all([
 		.innerRadius(0)
 		.outerRadius(radius)
 	
-	data = get_data()
-	var data_ready = pie(d3.entries(data))
+	nouns = get_data()
+	var data_ready = pie(d3.entries(nouns))
 
 	// create svg
 	var svg = d3.select('#pie')
@@ -60,7 +42,7 @@ Promise.all([
 		// .attr('stroke', 'black') // outline
 		// .style('stroke-width', '1px')
 		.attr('fill', d => colorScale(d.data.key))
-		.attr('fill-opacity', 1)
+		// .attr('fill-opacity', 1)
 		.each(function(d) { this._current = d })
 	
 	// tooltip on hover
@@ -70,7 +52,7 @@ Promise.all([
 				.duration(200)
 				.style('font-family', 'Nunito Sans')
 				.style('padding', '10px')
-				.style('opacity', .9)
+				.style('opacity', 0.9)
 			tooltip.html('Gender: <b>' + gender_names[d.data.key] + '</b><br>' + `${f(d.data.value)} words`)
 				.style('left', (d3.event.pageX) + 'px')
 				.style('top', (d3.event.pageY + 10) + 'px')
@@ -129,19 +111,19 @@ Promise.all([
 
 	// filter and format data
 	function get_data() {
-		data = data_orig
+		nouns = data_orig.nouns
 
 		// filter data to only included selected ending
 		if (selected_type == 'singular' & selected_ending != '') {
-			data = data.filter(word => {
+			nouns = nouns.filter(word => {
 				return word.suffix == selected_ending
 			})
 		} else if (selected_type == 'plural' & selected_ending != '') {
-			data = data.filter(word => {
+			nouns = nouns.filter(word => {
 				return word.plural_type == selected_ending 
 			})
 		}
-		console.log('pie', data)
+		console.log('pie', nouns)
 
 		// count nouns for each gender
 		var gender_count = {
@@ -149,20 +131,20 @@ Promise.all([
 			'm': 0,
 			'n': 0
 		}
-		for (var i in data) {
-			if (data[i].genus == 0) continue
-			gender_count[data[i].genus] += 1
+		for (var i in nouns) {
+			if (nouns[i].genus == 0) continue
+			gender_count[nouns[i].genus] += 1
 		}
-		data = gender_count
+		nouns = gender_count
 
-		console.log('pie ', data)
-		return data
+		console.log('pie ', nouns)
+		return nouns
 	}
 
 	// update pie chart
 	function update() {
-		data = get_data()
-		data_ready = pie(d3.entries(data))
+		nouns = get_data()
+		data_ready = pie(d3.entries(nouns))
 		console.log('pie', data_ready)
 
 		// join new data
@@ -191,19 +173,24 @@ Promise.all([
 		return (t) => arcGenerator(i(t))
 	}
 
-	// update()
+	update()
 
+	// event listeners
 	$('#sankey-range').on('change', () => {
 		$('.sankey-node').on('click', () => {
 			update()
-			console.log('sankey node click update')
 		})
 	})
 
 	$('.sankey-node').on('click', () => {
 		update()
 	})
-	
-})
 
+	$('#show-all-singulars').on('click', () => {
+		update()
+	})
 
+	$('#show-all-plurals').on('click', () => {
+		update()
+	})
+}

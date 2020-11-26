@@ -5,11 +5,22 @@ var selected_ending = ''
 var selected_type = 'singular'
 var selected_i = -1 // index of selected_ending in nodes list
 
-var data, nodes, links
-var data_orig, nodes_orig, links_orig
+var data, nodes, links, nouns
+var data_orig
 
 var f = d3.format(',.0f') // format number strings
 var colorScale_plurals = d3.scaleOrdinal(d3.schemeTableau10)
+
+const gender_names = {
+	'f': 'feminine',
+	'm': 'masculine',
+	'n': 'neuter'
+}
+const gender_names_short = {
+	'f': 'fem.',
+	'm': 'masc.',
+	'n': 'neut.'
+}
 
 // RANGE SLIDER FOR MINIMUM COUNT (count_cutoff)
 const range = document.getElementById('sankey-range')
@@ -26,11 +37,23 @@ range.addEventListener('input', setValue)
 // load .json files
 Promise.all([ 
 	d3.json('data/nodes.json'), 
-	d3.json('data/links.json')
+	d3.json('data/links.json'),
+	d3.json('data/nouns.json'),
+	d3.json('data/loanwords.json'),
+	d3.json('data/genders.json'),
+	d3.json('data/world.geojson'),
+	d3.json('data/speakers.json'),
+	d3.json('data/learners.json'),
 ]).then(data => {
 	data = {
 		'nodes': data[0],
-		'links': data[1]
+		'links': data[1],
+		'nouns': data[2],
+		'loanwords': data[3],
+		'genders': data[4],
+		'world': data[5],
+		'speakers': data[6],
+		'learners': data[7],
 	}
 	// move singular "other" to end of nodes list
 	var removed = data.nodes.splice(data.nodes.findIndex(x => x.name == 'other' & x.type == 'singular'), 1)
@@ -65,7 +88,14 @@ Promise.all([
 			.on('end', dragended)
 	}
 
+	console.log('data', data)
+
+	// create visualizations
+	createLoanwords()
+	createForce()
+	createMap()
 	createSankey()
 	createBubble()
+	createPie()
 
 })

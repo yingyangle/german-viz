@@ -1,4 +1,5 @@
 function createSankey() {
+	console.log(data, 'sank')
 	let m = 90
 	let margin = ({ top: 50, right: m, bottom: 10, left: m })
 	let width = 700
@@ -29,9 +30,9 @@ function createSankey() {
 	function getData() {
 		// set data to original full data
 		data = _.cloneDeep(data_orig)
-		nodes_orig = _.cloneDeep(data.nodes)
-		links_orig = _.cloneDeep(data.links)
-		console.log('orig', data_orig, nodes_orig, links_orig)
+		// nodes_orig = _.cloneDeep(data.nodes)
+		// links_orig = _.cloneDeep(data.links)
+		// console.log('orig', data_orig, nodes_orig, links_orig)
 
 		// find nodes to remove
 		var nodes_to_remove = []
