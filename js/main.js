@@ -1,3 +1,7 @@
+// SHOW LOADING SCREEN
+document.body.classList.toggle('noscroll', true)
+$('#loading').css('visibility', 'visible')
+
 var count_cutoff = $('#sankey-count').val()
 var other_flag = 0 // whether or not to show singular "other" category
 
@@ -97,5 +101,9 @@ Promise.all([
 	createSankey()
 	createBubble()
 	createPie()
+
+	// HIDE LOADING SCREEN
+	document.body.classList.toggle('noscroll', false)
+	$('#loading').css('visibility', 'hidden')
 
 })
