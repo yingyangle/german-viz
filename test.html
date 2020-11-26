@@ -22,25 +22,75 @@
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css"> -->
 		<link rel="stylesheet" href="style.css">
+
+		<!-- SCRIPTS -->
+		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+		<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+
+		<!-- NEEDED FOR TERNARY PLOT -->
+		<script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.1.6/d3.min.js"></script>
+
+
+		<style>
+			a{
+				font-family: sans-serif;
+				color: #DB7365;
+				padding: 0.3rem;
+			}
+			a:hover{
+				background-color: #DB7365;
+				color: #fff1e0;
+			}
+			body{
+				background: #fff1e0;
+			}
+			line.tick {
+				stroke-width: 0.5;
+			}
+	
+			line.minor-tick {
+				stroke-width: 1;
+				stroke-opacity:0.1;
+			}
+	
+			.a-axis{
+				stroke: #333;
+			}
+	
+			.b-axis{
+				stroke: #333;
+			}
+	
+			.c-axis{
+				stroke: #333;
+			}
+	
+			.axis-title{
+				font-family: sans-serif;
+				font-size: 1.5rem;
+			}
+	
+			text.tick-text {
+				font-family: sans-serif;
+				font-weight: lighter;
+				font-size: 1rem;
+				fill: #333;
+				stroke:none;
+			}
+	
+			circle {
+				fill: #fff1e0;
+				stroke: #DB7365;
+				stroke-width: 2px;
+			}
+		</style>
+
 	</head>
 	<body>
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-6">
-					<h3>Word List</h3><br><br>
-					<p>This is a word list</p>
-					<div id="wordlist-container">
-						<div id="wordlist">
-							alskdjfhasd <br>
-							sdkfasldkjflad <br>
-							sdkfasldkjflad <br>sdkfasldkjflad <br>sdkfasldkjflad <br>sdkfasldkjflad <br>sdkfasldkjflad <br>sdkfasldkjflad <br>sdkfasldkjflad <br>sdkfasldkjflad <br>sdkfasldkjflad <br>sdkfasldkjflad <br>sdkfasldkjflad <br>sdkfasldkjflad <br>sdkfasldkjflad <br>sdkfasldkjflad <br>sdkfasldkjflad <br>sdkfasldkjflad <br>sdkfasldkjflad <br>sdkfasldkjflad <br>sdkfasldkjflad <br>sdkfasldkjflad <br>sdkfasldkjflad <br>sdkfasldkjflad <br>sdkfasldkjflad <br>sdkfasldkjflad <br>sdkfasldkjflad <br>sdkfasldkjflad <br>sdkfasldkjflad <br>sdkfasldkjflad <br>sdkfasldkjflad <br>sdkfasldkjflad <br>sdkfasldkjflad <br>sdkfasldkjflad <br>sdkfasldkjflad <br>sdkfasldkjflad <br>sdkfasldkjflad <br>sdkfasldkjflad <br>
-						</div>
-					</div>
-				</div>
-				
-			</div>
-		</div>
+
+		<a id="nextbutton" href="#">Data change</a>
+	<div id="plot"></div>
 		
-		<script src="" async defer></script>
+		<script src="js/test.js" async defer></script>
 	</body>
 </html>

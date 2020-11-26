@@ -3,7 +3,7 @@
 
 import os, re, numpy as np, pandas as pd, json
 import pyphen
-from collections import Counter
+from collections import Counter, defaultdict
 
 dic = pyphen.Pyphen(lang='de_DE')
 
@@ -264,30 +264,74 @@ df['syllables'] = syllables_col
 df['letters'] = [len(x) for x in df.lemma]
 
 
-### SAVE CSV ###
+# ### SAVE CSV ###
+#
+# # only keep these columns
+# df = df[['lemma', 'pos', 'suffix', 'plural_type', 'syllables', 'letters', 'singular', 'plural']+[x for x in df.columns if x.startswith('genus')]]
+# df = df.fillna(0)
+# df.to_csv('nouns.csv', index=False, encoding='utf-8-sig')
+# print(df)
+# print('saved csv !')
+#
+#
+# ### CONVERT TO JSON ###
+#
+# json_data = []
+#
+# for i,row in df.iterrows():
+# 	row_obj = {col:row[col] for col in df.columns}
+# 	row_obj['pos'] = row_obj['pos'].split(',')
+# 	# print(row_obj)
+# 	json_data.append(row_obj)
+#
+# with open('nouns.json', 'w') as aus:
+# 	json.dump(json_data, aus)
+#
+# print('saved json !')
 
-# only keep these columns
-df = df[['lemma', 'pos', 'suffix', 'plural_type', 'syllables', 'letters', 'singular', 'plural']+[x for x in df.columns if x.startswith('genus')]]
-df = df.fillna(0)
-df.to_csv('nouns.csv', index=False, encoding='utf-8-sig')
+
+
+#### GET GENDER PCTS (for ternary plot) ###
+
 print(df)
-print('saved csv !')
 
-
-#### CONVERT TO JSON ###
-
-json_data = []
+suffix_count = defaultdict(lambda: defaultdict(int))
 
 for i,row in df.iterrows():
-	row_obj = {col:row[col] for col in df.columns}
-	row_obj['pos'] = row_obj['pos'].split(',')
-	# print(row_obj)
-	json_data.append(row_obj)
+	suf = row['suffix']
+	gen = row['genus']
+	if gen not in {'f', 'm', 'n'}: continue
+	if suf and gen: 
+		suffix_count[suf][gen] += 1
 
-with open('nouns.json', 'w') as aus:
-	json.dump(json_data, aus)
+def default_to_regular(d):
+	if isinstance(d, defaultdict):
+		d = {k: default_to_regular(v) for k, v in d.items()}
+	return d
+
+suffix_count = default_to_regular(suffix_count)
+
+for suf in suffix_count:
+	total = sum([suffix_count[suf][g] for g in suffix_count[suf]])
+	suffix_count[suf]['total'] = total
+	for gen in ['f', 'm', 'n']:
+		if gen not in suffix_count[suf]:
+			suffix_count[suf][gen] = 0
+		else:
+			suffix_count[suf][gen] = suffix_count[suf][gen] / total
+		
+
+with open('gender_pct.json', 'w') as aus:
+	json.dump(suffix_count, aus)
 
 print('saved json !')
+
+
+
+
+
+
+
 
 
 
