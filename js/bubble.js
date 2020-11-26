@@ -129,13 +129,11 @@ Promise.all([
 			.enter()
 			.append('g')
 
-		let colorScale = d3.scaleOrdinal(d3.schemeTableau10)
-
 		let bubbles = node.append('circle')
 			.classed('bubble', true)
 			.attr('class', 'node')
 			.attr('r', d => d.radius)
-			.attr('fill', d => colorScale(d.name))
+			.attr('fill', d => colorScale_plurals(d.name))
 			.attr('opacity', 0.7)
 			.call(drag(force))
 			.on('mouseover.tooltip', function(d) {

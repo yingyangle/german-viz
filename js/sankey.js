@@ -13,7 +13,7 @@ var selected_i // index of selected_ending in nodes list
 
 let f = d3.format(',.0f')
 let format = d => `${f(d)} words`
-let colorScale = d3.scaleOrdinal(d3.schemeTableau10)
+let colorScale_plurals = d3.scaleOrdinal(d3.schemeTableau10)
 
 // RANGE SLIDER FOR MINIMUM COUNT (count_cutoff)
 const range = document.getElementById('sankey-range')
@@ -177,7 +177,7 @@ Promise.all([
 			.attr('y', d => d.y0)
 			.attr('height', d => d.y1 - d.y0)
 			.attr('width', d => d.x1 - d.x0)
-			.attr('fill', d => colorScale(d.name))
+			.attr('fill', d => colorScale_plurals(d.name))
 			.on('click', function(d) {
 				selected_ending = d.name
 				selected_type = d.type
@@ -191,7 +191,7 @@ Promise.all([
 			})
 			.on('mouseout', function(d) {
 				d3.select(this)
-					.attr('fill', d => colorScale(d.name))
+					.attr('fill', d => colorScale_plurals(d.name))
 					.attr('opacity', 1)
 			})
 			.append('title')
@@ -222,18 +222,18 @@ Promise.all([
 
 			gradient.append('stop')
 				.attr('offset', '0%')
-				.attr('stop-color', d => colorScale(d.source.name))
+				.attr('stop-color', d => colorScale_plurals(d.source.name))
 
 			gradient.append('stop')
 				.attr('offset', '100%')
-				.attr('stop-color', d => colorScale(d.target.name))
+				.attr('stop-color', d => colorScale_plurals(d.target.name))
 		}
 
 		link.append('path')
 			.attr('d', d3.sankeyLinkHorizontal())
 			.attr('stroke', d => edgeColor === 'path' ? d.uid
-				: edgeColor === 'input' ? colorScale(d.source.name)
-				: colorScale(d.target.name))
+				: edgeColor === 'input' ? colorScale_plurals(d.source.name)
+				: colorScale_plurals(d.target.name))
 			.attr('stroke-width', d => Math.max(1, d.width))
 
 		// tooltip on link hover

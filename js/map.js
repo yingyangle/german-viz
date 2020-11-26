@@ -5,15 +5,15 @@ Promise.all([
 .then(data => {
 	var topo = data[0]
 	var population = data[1]
-	console.log(data)
+	console.log('map', data)
 
 	var path = d3.geoPath()
 	var projection = d3.geoNaturalEarth1()
 		.fitExtent([[0, 0], [width, height]], topo)
 
 	var map_data = d3.map()
-	colorScale = d3.scaleThreshold()
-		.domain([1000, 10000, 100000, 1000000])
+	colorScale_map = d3.scaleThreshold()
+		.domain([100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000])
 		.range(d3.schemeBlues[7])
 	
 	width = 1000
@@ -23,30 +23,6 @@ Promise.all([
 		.append('svg')
 		.attr('width', width)
 		.attr('height', height)
-
-	let mouseOver = function(d) {
-		// d3.selectAll('.Country')
-		// 	// .transition()
-		// 	// .duration(100)
-		// 	.style('opacity', .5)
-		d3.select(this)
-			// .transition()
-			// .duration(100)
-			.style('opacity', 1)
-			.style('stroke', '#4d4b47')
-	}
-
-	let mouseLeave = function(d) {
-		// d3.selectAll('.Country')
-		// 	// .transition()
-		// 	// .duration(100)
-		// 	.style('opacity', .9)
-		d3.select(this)
-			// .transition()
-			// .duration(100)
-			.style('opacity', 0.9)
-			.style('stroke', 'gray')
-	}
 
 	// draw the map
 	svg.append('g')
@@ -60,16 +36,29 @@ Promise.all([
 		)
 		// set the color of each country
 		.attr('fill', function (d) {
-			console.log(population[d.properties.name] || 0)
-			d.pop = population[d.properties.name] || 0
-			if (d.pop != 0) d.pop = d.pop.Speakers
-			return colorScale(d.pop)
+			var country_data = population[d.properties.name] || 0
+			if (country_data != 0) {
+				d.pop = country_data.Speakers
+				d.percent = country_data.Percentage
+			} else {
+				d.pop = 0
+				d.percent = 0
+			}
+			return colorScale_map(d.pop)
 		})
 		.style('stroke', 'gray')
 		.attr('class', 'Country')
 		.style('opacity', .8)
-		.on('mouseover', mouseOver)
-		.on('mouseout', mouseLeave)
+		.on('mouseover', function() {
+			d3.select(this)
+				.style('opacity', 1)
+				.style('stroke', '#4d4b47')
+		})
+		.on('mouseout', function() {
+			d3.select(this)
+				.style('opacity', 0.9)
+				.style('stroke', 'gray')
+		})
 
 	// tooltip on hover
 	svg.selectAll('path')
@@ -79,7 +68,7 @@ Promise.all([
 				.style('font-family', 'Nunito Sans')
 				.style('padding', '10px')
 				.style('opacity', .9)
-			tooltip.html('Country: ' + d.properties.name +'<br>' + 'Native German Speakers: ' + `${f(d.pop)}`)
+			tooltip.html('Country: ' + d.properties.name +'<br>' + 'Native German Speakers: ' + `${f(d.pop)}` + '<br>' + 'Percentage of Population: ' + `${f(d.percent)}%`)
 				.style('left', (d3.event.pageX) + 'px')
 				.style('top', (d3.event.pageY + 10) + 'px')
 		})
