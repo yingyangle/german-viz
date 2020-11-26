@@ -71,7 +71,7 @@ Promise.all([
 				.style('font-family', 'Nunito Sans')
 				.style('padding', '10px')
 				.style('opacity', .9)
-			tooltip.html('Gender: ' + gender_names[d.data.key] + '<br>' + `${f(d.data.value)} words`)
+			tooltip.html('Gender: <b>' + gender_names[d.data.key] + '</b><br>' + `${f(d.data.value)} words`)
 				.style('left', (d3.event.pageX) + 'px')
 				.style('top', (d3.event.pageY + 10) + 'px')
 		})

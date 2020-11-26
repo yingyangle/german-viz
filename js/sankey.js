@@ -5,15 +5,16 @@ let height = 1000 - margin.top - margin.bottom
 
 var count_cutoff = $('#sankey-count').val()
 var other_flag = 0 // whether or not to show singular "other" category
-let edgeColor = 'path'
+var edgeColor = 'path'
 
 var selected_ending = ''
 var selected_type = 'singular'
 var selected_i // index of selected_ending in nodes list
 
-let f = d3.format(',.0f')
-let format = d => `${f(d)} words`
-let colorScale_plurals = d3.scaleOrdinal(d3.schemeTableau10)
+var nodes, links
+
+var f = d3.format(',.0f')
+var colorScale_plurals = d3.scaleOrdinal(d3.schemeTableau10)
 
 // RANGE SLIDER FOR MINIMUM COUNT (count_cutoff)
 const range = document.getElementById('sankey-range')
@@ -196,7 +197,7 @@ Promise.all([
 					.attr('opacity', 0.8)
 			})
 			.append('title')
-			.text(d => `${d.name}\n${format(d.value)}`)
+			.text(d => `${d.name}\n${f(d.value)} words`)
 			
 
 		// links
@@ -244,7 +245,7 @@ Promise.all([
 					.style('font-family', 'Nunito Sans')
 					.style('padding', '10px')
 					.style('opacity', .9);
-				tooltip.html(d.source.name + ' → ' + d.target.name + '<br>' + `${f(d.value)} words`)
+				tooltip.html('<b>' + d.source.name + ' → ' + d.target.name + '</b><br>' + `${f(d.value)} words`)
 					.style('left', (d3.event.pageX) + 'px')
 					.style('top', (d3.event.pageY + 10) + 'px');
 			})

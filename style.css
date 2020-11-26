@@ -2,6 +2,7 @@ body {
 	color: #4d4b47;
 	background-color: #fef9ee;
 	font-family: 'Nunito Sans', sans-serif;
+	font-weight: 900px;
 	/* font-family: 'Sacramento', serif; */
 	text-align: center;
 }
@@ -69,17 +70,25 @@ a:hover {
 }
 
 .btn {
-	color: #f7f7f7;
-	background-color: #79b7bb;
-	border-color: transparent;
+	/* color: #f7f7f7; */
+	/* background-color: #79b7bb; */
+	/* border-color: transparent; */
+	color: #4d4b47;
+	background-color: transparent;
+	border-color: #7e7c77;
+	border-radius: 15px;
+	border-width: 1px;
 	margin: 10px 10px 10px 10px;
 	font-size: 18px;
+	opacity: 0.9;
 }
 
 .btn:hover, .btn:focus, .btn:active {
-	color: #f7f7f7;
-	background-color: #679b9f;
-	border-color: none;
+	color: #4d4b47;
+	/* background-color: #679b9f; */
+	/* border-color: none; */
+	background-color: #e3dcd0;
+	border-color: #4d4b47;
 }
 
 .sankey-node, #show-all-singulars, #show-all-plurals {
@@ -105,7 +114,8 @@ input[type=range]::-webkit-slider-runnable-track {
 	height: 4px;
 	cursor: pointer;
 	transition: 0.2s;
-	background: #79b7bb;
+	/* background: #79b7bb; */
+	background: #4d4b47;
 	border-radius: 25px;
 }
 input[type=range]::-webkit-slider-thumb {
@@ -119,12 +129,14 @@ input[type=range]::-webkit-slider-thumb {
 	margin-top: -8px;
 }
 input[type=range]:focus::-webkit-slider-runnable-track {
-	background: #79b7bb;
+	/* background: #79b7bb; */
+	background: #4d4b47;
 }
 .range-wrap {
 	width: 90%;
 	position: relative;
 	margin: auto;
+	margin-top: 10px;
 }
 .range-value {
 	position: absolute;
@@ -135,7 +147,9 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 	height: 30px;
 	line-height: 24px;
 	text-align: center;
-	background: #79b7bb;
+	/* background: #79b7bb; */
+	/* color: #fff; */
+	background: #4d4b47;
 	color: #fff;
 	font-size: 12px;
 	display: block;
@@ -150,7 +164,8 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 	position: absolute;
 	width: 0;
 	height: 0;
-	border-top: 10px solid #79b7bb;
+	/* border-top: 10px solid #79b7bb; */
+	border-top: 10px solid #4d4b47;
 	border-left: 5px solid transparent;
 	border-right: 5px solid transparent;
 	top: 100%;

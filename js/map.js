@@ -74,7 +74,7 @@ Promise.all([
 					.style('font-family', 'Nunito Sans')
 					.style('padding', '10px')
 					.style('opacity', .9)
-				tooltip.html('Country: ' + d.properties.name +'<br>' + 'Native German Speakers: ' + `${f(d.pop)}` + '<br>' + 'Percentage of Population: ' + `${f(d.percent)}%`)
+				tooltip.html('Country: <b>' + d.properties.name +'</b><br>' + 'Native Speakers: <b>' + `${f(d.pop)}` + '</b><br>' + 'Percentage of Population: <b>' + `${f(d.percent)}%` + '</b>')
 					.style('left', (d3.event.pageX) + 'px')
 					.style('top', (d3.event.pageY + 10) + 'px')
 			})
@@ -181,7 +181,7 @@ Promise.all([
 				var pop = d.pop
 				if (d.pop == -1) pop = 'N/A'
 				else pop = `${f(pop)}`
-				tooltip.html('Country: ' + d.properties.name +'<br>' + 'German Learners: ' + pop)
+				tooltip.html('Country: <b>' + d.properties.name +'</b><br>' + 'Learners: <b>' + pop + '</b>')
 					.style('left', (d3.event.pageX) + 'px')
 					.style('top', (d3.event.pageY + 10) + 'px')
 			})

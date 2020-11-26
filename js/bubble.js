@@ -1,16 +1,16 @@
 $( document ).ready(function() {
 console.log('ready !')
 
-var count_cutoff = $('#sankey-count').val()
-// const center = { x: 0, y: 0 }
-const center = { x: width / 2 , y: height / 2 + 900 }
-
 Promise.all([ 
 	d3.json('data/nodes.json'), 
 	d3.json('data/links.json')
 ]).then(data => {
 	let width = 500
 	let height = 500
+	var center = { x: width / 2 , y: height / 2 + 900 }
+	var bubble_title = 'Plural Endings Distribution'
+	var bubble_type = 'Plural'
+	count_cutoff = $('#sankey-count').val()
 
 	console.log('bubble', data)
 	let nodes = data[0]
@@ -18,8 +18,7 @@ Promise.all([
 	const nodes_orig = _.cloneDeep(nodes) // save copy of original data
 
 	const svg = d3.select('#bubble').append('svg')
-		// .attr('viewBox', `0 0 ${width + margin.left + margin.right} ${height + margin.top + margin.bottom}`)
-		.attr('viewBox',  [-width / 2, -height / 2, width, height])
+		.attr('viewBox', [-width / 2, -height / 2, width, height])
 	
 	// filter and format data
 	function get_data() {
@@ -142,7 +141,7 @@ Promise.all([
 					.style('font-family', 'Nunito Sans')
 					.style('padding', '10px')
 					.style('opacity', 0.9)
-				tooltip.html('Plural Type: ' + d.name + '<br>' + `${f(d.count)} words`)
+				tooltip.html(bubble_type + ' Type: <b>' + d.name + '</b><br>' + `${f(d.count)} words`)
 					.style('left', (d3.event.pageX) + 'px')
 					.style('top', (d3.event.pageY + 10) + 'px')
 			})
@@ -172,7 +171,7 @@ Promise.all([
 					.style('font-family', 'Nunito Sans')
 					.style('padding', '10px')
 					.style('opacity', .9)
-				tooltip.html('Plural Type: ' + d.name + '<br>' + `${f(d.count)} words`)
+				tooltip.html(bubble_type + ' Type: <b>' + d.name + '</b><br>' + `${f(d.count)} words`)
 					.style('left', (d3.event.pageX) + 'px')
 					.style('top', (d3.event.pageY + 10) + 'px')
 			})
@@ -199,7 +198,7 @@ Promise.all([
 			.attr('text-anchor', 'middle')
 			.style('font-size', '40px')
 			.style('fill', '#4d4b47')
-			.text('Plural Types')
+			.text(bubble_title)
 
 
 		// called each time the simulation ticks
@@ -223,18 +222,19 @@ Promise.all([
 	$('#sankey-range').on('change', () => {
 		$('.sankey-node').on('click', () => {
 			update()
-			console.log('sankey node click update')
 		})
+		update()
 	})
 
 	$('.sankey-node').on('click', () => {
 		update()
-		console.log('sankey node click update')
 	})
 
 	$('#show-all-singulars').on('click', () => {
 		selected_ending = ''
 		selected_type = 'plural'
+		bubble_title = 'Singular Endings Distribution'
+		bubble_type = 'Singular'
 		$('#selected-ending').html('All Singulars')
 		$('#selected-type').html('')
 		update()
@@ -243,6 +243,8 @@ Promise.all([
 	$('#show-all-plurals').on('click', () => {
 		selected_ending = ''
 		selected_type = 'singular'
+		bubble_title = 'Plural Endings Distribution'
+		bubble_type = 'Plural'
 		$('#selected-ending').html('All Plurals')
 		$('#selected-type').html('')
 		update()

@@ -56,7 +56,6 @@ d3.json('data/loanwords.json', d3.autoType).then(data => {
 	}
 	
 	// create node as circles
-
 	var node = svg.selectAll('g')
 		.data(words.nodes).enter()
 		.append('g')
@@ -75,7 +74,7 @@ d3.json('data/loanwords.json', d3.autoType).then(data => {
 				.style('font-family', 'Nunito Sans')
 				.style('padding', '20px')
 				.style('opacity', 0.9)
-			tooltip.html('English Word: ' + d.BorrowedWord + '<br>Origin: ' + d.DonorLanguage)
+			tooltip.html('English Word: <b>' + d.BorrowedWord + '</b><br>Origin: <b>' + d.DonorLanguage + '</b>')
 				.style('left', (d3.event.pageX) + 'px')
 				.style('top', (d3.event.pageY + 10) + 'px')
 		})
@@ -107,7 +106,7 @@ d3.json('data/loanwords.json', d3.autoType).then(data => {
 				.style('font-family', 'Nunito Sans')
 				.style('padding', '10px')
 				.style('opacity', 0.9)
-			tooltip.html('English Word: ' + d.BorrowedWord + '<br>Origin: ' + d.DonorLanguage)
+			tooltip.html('English Word: <b>' + d.BorrowedWord + '</b><br>Origin: <b>' + d.DonorLanguage + '</b>')
 				.style('left', (d3.event.pageX) + 'px')
 				.style('top', (d3.event.pageY + 10) + 'px')
 		})
