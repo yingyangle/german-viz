@@ -1,7 +1,3 @@
-const sizeScale = d3.scaleLinear().range([7,43])
-
-var dataset
-var visType = 'Force'
 
 drag = simulation => {
 
@@ -29,22 +25,27 @@ drag = simulation => {
 }
 // /drag = f(simulation)
 
-width = 1000
-height = 700
-
-// creat svg
-let svg = d3.select('#force')
-	.append('svg')
-	// .attr('width', width + margin.left + margin.right)
-	// .attr('height', height + margin.top + margin.bottom)
-	.attr('viewBox',  [-width / 2, -height / 2, width, height])
-
 Promise.all([
 	d3.json('data/genders.json')
 	// d3.json('data/genders_more.json')
 ])
 .then(data => {
-	let dataset = data[0]
+	const sizeScale = d3.scaleLinear().range([7,43])
+
+	var visType = 'Force'
+
+	width = 1000
+	height = 700
+
+	// creat svg
+	let svg = d3.select('#force')
+		.append('svg')
+		// .attr('width', width + margin.left + margin.right)
+		// .attr('height', height + margin.top + margin.bottom)
+		.attr('viewBox',  [-width / 2, -height / 2, width, height])
+
+
+	var dataset = data[0]
 	console.log('force',dataset.nodes)
 	sizeScale.domain([0, d3.max(dataset.nodes, d => (d.freq))])
 
