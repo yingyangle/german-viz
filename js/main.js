@@ -95,12 +95,14 @@ Promise.all([
 	console.log('data', data)
 
 	// create visualizations
+
 	createLoanwords()
 	createForce()
 	createMap()
 	createSankey()
 	createBubble()
 	createPie()
+	createWordlist()
 
 	// HIDE LOADING SCREEN
 	document.body.classList.toggle('noscroll', false)
