@@ -65,6 +65,7 @@ Promise.all([
 
 	// create copy or original untouched data
 	data_orig = _.cloneDeep(data)
+	console.log('data', data)
 
 	// drag
 	drag = simulation => {
@@ -92,9 +93,8 @@ Promise.all([
 			.on('end', dragended)
 	}
 
-	console.log('data', data)
 
-	// create visualizations
+	// CREATE VISUALIZATIONS
 
 	createLoanwords()
 	createForce()
@@ -103,6 +103,7 @@ Promise.all([
 	createBubble()
 	createPie()
 	createWordlist()
+	createScatter()
 
 	// HIDE LOADING SCREEN
 	document.body.classList.toggle('noscroll', false)

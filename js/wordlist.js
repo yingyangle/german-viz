@@ -1,5 +1,4 @@
 function createWordlist() {
-	console.log(data)
 	nouns = data.nouns
 	console.log('wordlist', nouns)
 
