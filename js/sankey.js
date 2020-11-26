@@ -1,82 +1,37 @@
-let m = 90
-let margin = ({ top: 50, right: m, bottom: 10, left: m })
-let width = 700 - margin.left - margin.right
-let height = 1000 - margin.top - margin.bottom
-
-var count_cutoff = $('#sankey-count').val()
-var other_flag = 0 // whether or not to show singular "other" category
-var edgeColor = 'path'
-
-var selected_ending = ''
-var selected_type = 'singular'
-var selected_i // index of selected_ending in nodes list
-
-var nodes, links
-
-var f = d3.format(',.0f')
-var colorScale_plurals = d3.scaleOrdinal(d3.schemeTableau10)
-
-// RANGE SLIDER FOR MINIMUM COUNT (count_cutoff)
-const range = document.getElementById('sankey-range')
-const rangeV = document.getElementById('sankey-range-value')
-const setValue = () => {
-		const newValue = Number( (range.value - range.min) * 100 / (range.max - range.min) )
-		const newPosition = 10 - (newValue * 0.2)
-		rangeV.innerHTML = `<span>${range.value}</span>`
-		rangeV.style.left = `calc(${newValue}% + (${newPosition}px))`
-	}
-document.addEventListener('DOMContentLoaded', setValue)
-range.addEventListener('input', setValue)
-
-let _sankey = d3.sankey()
-	.nodeWidth(15)
-	.nodePadding(10)
-	.extent([[1, 1], [width - 1, height - 5]])
-
-let sankey = ({nodes, links}) => _sankey({
-	nodes: nodes.map(d => Object.assign({}, d)),
-	links: links.map(d => Object.assign({}, d))
-})
-
-// load .json files
-Promise.all([ 
-	d3.json('data/nodes.json'), 
-	d3.json('data/links.json')
-]).then(data => {
-	data = {
-		'nodes': data[0],
-		'links': data[1]
-	}
-	// move singular "other" to end of nodes list
-	var removed = data.nodes.splice(data.nodes.findIndex(x => x.name == 'other' & x.type == 'singular'), 1)
-	data.nodes = data.nodes.concat(removed)
-
-	// create copy or original untouched data
-	const data_orig = _.cloneDeep(data)
-
+function createSankey() {
 	let m = 90
 	let margin = ({ top: 50, right: m, bottom: 10, left: m })
-	let width = 700 
-	let height = 1000 
+	let width = 700
+	let height = 1000
 
-	// creat svg
+	var edgeColor = 'path' // color of links
+
+	// create svg
 	let svg = d3.select('#sankey')
 		.attr('viewBox', [0,0, width, height])
-		// .attr('viewBox', `0 0 ${width} ${height}`)
-		// .style('width', '50%')
-		// .style('height', 'auto')
-		// .attr('width', width + margin.left + margin.right)
-		// .attr('height', height + margin.top + margin.bottom)
 		.append('g')
 		.attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
 
 	width = 700 - margin.left - margin.right
 	height = 1000 - margin.top - margin.bottom
+
+	let _sankey = d3.sankey()
+		.nodeWidth(15)
+		.nodePadding(10)
+		.extent([[1, 1], [width - 1, height - 5]])
+
+	let sankey = ({nodes, links}) => _sankey({
+		nodes: nodes.map(d => Object.assign({}, d)),
+		links: links.map(d => Object.assign({}, d))
+	})
 	
 	// get original data, filter data, convert to sankey data
 	function getData() {
 		// set data to original full data
 		data = _.cloneDeep(data_orig)
+		nodes_orig = _.cloneDeep(data.nodes)
+		links_orig = _.cloneDeep(data.links)
+		console.log('orig', data_orig, nodes_orig, links_orig)
 
 		// find nodes to remove
 		var nodes_to_remove = []
@@ -143,14 +98,17 @@ Promise.all([
 				return node.source != other_singular
 			})
 		}
+		nodes = data.nodes
+		links = data.links
 		
 		// convert data to sankey data
-		// console.log(sankey(data))
-		let {nodes, links} = sankey(data)
-		console.log('sankey nodes', nodes)
-		console.log('sankey links', links)
+		var sankey_data = sankey(data)
+		var sankey_nodes = sankey_data.nodes 
+		var sankey_links = sankey_data.links
+		console.log('sankey nodes', sankey_nodes)
+		console.log('sankey links', sankey_links)
 
-		return {nodes, links}
+		return {sankey_nodes, sankey_links}
 	}
 	
 	// UPDATE FUNCTION
@@ -159,8 +117,11 @@ Promise.all([
 		// get new count_cutoff
 		count_cutoff = parseInt($('#sankey-range').val())
 		// get new filtered data
-		var {nodes, links} = getData()
-		// console.log('nodes:', nodes.length, 'links:', links.length)
+		var sankey_data = getData()
+		var sankey_nodes = sankey_data.sankey_nodes 
+		var sankey_links = sankey_data.sankey_links
+		// console.log(sankey_nodes, sankey_links)
+		// console.log('nodes:', sankey_nodes.length, 'links:', sankey_links.length)
 		// console.log('count_cutoff', count_cutoff)
 
 		// clear svg contents
@@ -171,7 +132,7 @@ Promise.all([
 			// .attr('stroke', 'black') // outline
 			.attr('opacity', 0.7)
 			.selectAll('rect')
-			.data(nodes)
+			.data(sankey_nodes)
 			.join('rect')
 			.attr('class', 'sankey-node')
 			.attr('x', d => d.x0)
@@ -185,6 +146,8 @@ Promise.all([
 				selected_type = d.type
 				$('#selected-ending').html(selected_ending)
 				$('#selected-type').html('('+selected_type+' ending)')
+				selected_i = sankey_nodes.findIndex(x => x.name == selected_ending & x.type == selected_type)
+				console.log('selected ending', selected_ending, selected_i)
 			})
 			.on('mouseover', function(d) {
 				d3.select(this)
@@ -205,7 +168,7 @@ Promise.all([
 			.attr('fill', 'none')
 			.attr('stroke-opacity', 0.4)
 			.selectAll('g')
-			.data(links)
+			.data(sankey_links)
 			.join('g')
 			.style('mix-blend-mode', 'multiply')
 
@@ -268,7 +231,7 @@ Promise.all([
 		// node name labels
 		svg.append('g')
 			.selectAll('text')
-			.data(nodes)
+			.data(sankey_nodes)
 			.join('text')
 			.attr('class', 'nunito')
 			.attr('x', d => d.x0 < width / 2 ? d.x1 - 20 : d.x0 + 20)
@@ -279,7 +242,7 @@ Promise.all([
 		// node count labels
 		svg.append('g')
 			.selectAll('text')
-			.data(nodes)
+			.data(sankey_nodes)
 			.join('text')
 			.attr('class', 'nunito')
 			.attr('x', d => d.x0 < width / 2 ? d.x1 + 6 : d.x0 - 6)
@@ -322,6 +285,4 @@ Promise.all([
 			update()
 		}
 	})
-
-
-})
+}

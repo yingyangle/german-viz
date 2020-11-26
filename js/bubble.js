@@ -1,57 +1,55 @@
-$( document ).ready(function() {
-console.log('ready !')
+function createBubble() {
 
-Promise.all([ 
-	d3.json('data/nodes.json'), 
-	d3.json('data/links.json')
-]).then(data => {
 	let width = 500
 	let height = 500
 	var center = { x: width / 2 , y: height / 2 + 900 }
+
 	var bubble_title = 'Plural Endings Distribution'
 	var bubble_type = 'Plural'
-	count_cutoff = $('#sankey-count').val()
+	var bubble_nodes
 
-	console.log('bubble', data)
-	let nodes = data[0]
-	let links = data[1]
-	const nodes_orig = _.cloneDeep(nodes) // save copy of original data
-
+	// create svg
 	const svg = d3.select('#bubble').append('svg')
 		.attr('viewBox', [-width / 2, -height / 2, width, height])
 	
 	// filter and format data
 	function get_data() {
-		// filter nodes to show correct type (plural or singular)
-		nodes = nodes.filter(node => {
-			return node.type != selected_type // & node.count >= count_cutoff
-		})
+		bubble_nodes = nodes
+		bubble_links = links
+		console.log('bubble', data, bubble_nodes, bubble_links)
 
+		// filter nodes to show correct type (plural or singular)
+		// bubble_nodes = bubble_nodes.filter(node => {
+		// 	return node.type != selected_type // & node.count >= count_cutoff
+		// })
+
+		// filter nodes according to selected ending
+		var nodes_to_remove = []
+		var j
 		if (selected_i != -1) {
 			// adjust count according to selected ending
-			var nodes_to_remove = []
-			for (var i in nodes) {
-				var node = nodes[i]
-				// find link from selected singular to current node
+			for (var i in bubble_nodes) {
+				var node = bubble_nodes[i]
+				// find link from selected singular to current plural node
 				if (selected_type == 'singular') {
-					var j = links.findIndex(x => x.target == node.i & x.source == selected_i)
-				} else { // find link from current node to selected plural
-					var j = links.findIndex(x => x.source == node.i & x.target == selected_i)
+					j = bubble_links.findIndex(x => x.source == selected_i & x.target == i)
+				} else { // find link from current singular node to selected plural
+					j = bubble_links.findIndex(x => x.source == i & x.target == selected_i)
 				}
 				// if link not found
 				if (j == -1) {
 					nodes_to_remove.push(node)
 				} else { // set node count as link count 
-					node.count = links[j].value
+					node.count = bubble_links[j].value
 				}
 			}
 			// remove nodes with 0 count
-			nodes = nodes.filter(node => {
+			bubble_nodes = bubble_nodes.filter(node => {
 				return !nodes_to_remove.includes(node)
 			})
 		}
 
-		const maxSize = d3.max(nodes, d => +d.count)
+		const maxSize = d3.max(bubble_nodes, d => +d.count)
 		
 		// size bubbles based on area
 		const radiusScale = d3.scaleSqrt()
@@ -59,7 +57,7 @@ Promise.all([
 			.range([0, 80])
 		
 		// format nodes info
-		nodes = nodes.map(d => ({
+		bubble_nodes = bubble_nodes.map(d => ({
 			...d,
 			radius: radiusScale(+d.count),
 			size: +d.count,
@@ -67,27 +65,24 @@ Promise.all([
 			y: Math.random() * 100
 		}))
 
-		console.log('bubble nodes', nodes)
-		return nodes
+		console.log('bubble nodes', bubble_nodes)
+		return bubble_nodes
 	}
 
 	// update bubble chart
 	function update() {
-		nodes = nodes_orig
-		selected_i = nodes.findIndex(x => x.name == selected_ending & x.type == selected_type)
-		console.log('selected ending', selected_ending, selected_i)
 
 		// clear svg contents
 		svg.selectAll('*').remove()
 
-		nodes = get_data()
+		bubble_nodes = get_data()
 
 		// charge is dependent on size of the bubble, so bigger towards the middle
 		function charge(d) {
 			return Math.pow(d.radius, 2.0) * 0.01
 		}
 
-		const force = d3.forceSimulation(nodes)
+		const force = d3.forceSimulation(bubble_nodes)
 			.force('charge', d3.forceManyBody().strength(charge))
 			.force('center', d3.forceCenter())
 			.force('x', d3.forceX().strength(0.07).x(center.x))
@@ -95,36 +90,10 @@ Promise.all([
 			.force('collision', d3.forceCollide().radius(d => d.radius + 1))
 
 		force.stop()
-
-		// drag
-		drag = simulation => {
-
-			function dragstarted(d) {
-				if (!d3.event.active) simulation.alphaTarget(0.3).restart()
-				d.fx = d.x
-				d.fy = d.y
-			}
-			
-			function dragged(d) {
-				d.fx = d3.event.x
-				d.fy = d3.event.y
-			}
-			
-			function dragended(d) {
-				if (!d3.event.active) simulation.alphaTarget(0)
-				d.fx = null
-				d.fy = null
-			}
-			
-			return d3.drag()
-				.on('start', dragstarted)
-				.on('drag', dragged)
-				.on('end', dragended)
-		}
 		
 		// create node as circles
 		var node = svg.selectAll('g')
-			.data(nodes)
+			.data(bubble_nodes)
 			.enter()
 			.append('g')
 
@@ -249,7 +218,4 @@ Promise.all([
 		$('#selected-type').html('')
 		update()
 	})
-})
-
-
-})
+}
