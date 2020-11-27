@@ -30,9 +30,13 @@ Zahlklassifikator = classifier (e.g. "flock" in "a flock of sheep")
 
 Toponym = toponym (place name)
 Eigenname = proper name
-Vorname = first name
-Nachname = last name
+Vorname = given name
+Nachname = surname
 Straßenname = street name
+
+### nouns_freq.txt, nouns_freq.json ###
+https://github.com/hermitdave/FrequencyWords/blob/master/content/2018/de/de_full.txt
+Frequency counts for 1,157,685 German words
 
 ### learners.csv ###
 https://www.auswaertiges-amt.de/de/aussenpolitik/themen/kulturdialog/-/2346768
