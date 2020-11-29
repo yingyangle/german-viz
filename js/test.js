@@ -224,6 +224,26 @@ var plot_opts = {
 
 var tp = ternaryPlot( '#plot', plot_opts );
 
+Promise.all([
+	d3.json('data/gender_pct.json')
+]).then(gender_pct => {
+	var d = []
+	var i = 0;
+	for(let item in gender_pct[0]){
+		// console.log(`${gender_pct[0][item].m} 
+		// ${gender_pct[0][item].n}`);
+		
+		d.push({
+			f:gender_pct[0][item].f,
+			m:gender_pct[0][item].m,
+			n:gender_pct[0][item].n,
+			label:'point'+i
+		})
+		i++;
+	 }
+	 console.log('d',d)
+	tp.data(d, function(d){ return [d.f, d.m, d.n]}, 'label');
+})
 function next(){
 	Promise.all([
 		d3.json('data/gender_pct.json')
@@ -245,18 +265,6 @@ function next(){
 		 console.log('d',d)
 		tp.data(d, function(d){ return [d.f, d.m, d.n]}, 'label');
 	})
-
-	// var d = []
-	// for(var i = 0; i < 100; i++){
-	// 	d.push({
-	// 		f:Math.random(),
-	// 		m:Math.random(),
-	// 		n:Math.random(),
-	// 		label:'point'+i
-	// 	})
-	// }
-	// console.log(d)
-	// tp.data(d, function(d){ return [d.f, d.m, d.n]}, 'label');
 
 }
 next();
