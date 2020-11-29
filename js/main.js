@@ -2,7 +2,7 @@
 document.body.classList.toggle('noscroll', true)
 $('#loading').css('visibility', 'visible')
 
-var count_cutoff = $('#sankey-count').val()
+var count_cutoff = $('#sankey-range').val()
 var other_flag = 0 // whether or not to show singular "other" category
 
 var selected_ending = ''
