@@ -138,7 +138,7 @@ svg.append("text")
 			.attr('y', 520)
 			.style('font-size', '10px')
 			.style('fill', '#4d4b47')
-			.text('86,000,000')
+			.text('7,115,780')
 
 		// title
 		svg.append('text')
@@ -287,14 +287,14 @@ svg.append("text")
 			.attr('y', 520)
 			.style('font-size', '10px')
 			.style('fill', '#4d4b47')
-			.text('100')
+			.text('1')
 
 svg.append("text")
 .attr('x', 600)
 			.attr('y', 520)
 			.style('font-size', '10px')
 			.style('fill', '#4d4b47')
-			.text('16,000,000')
+			.text('1,953,014')
 
 		// title
 		svg.append('text')
