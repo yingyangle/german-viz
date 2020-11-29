@@ -244,6 +244,7 @@ Promise.all([
 	 console.log('d',d)
 	tp.data(d, function(d){ return [d.f, d.m, d.n]}, 'label');
 })
+
 function next(){
 	Promise.all([
 		d3.json('data/gender_pct.json')
@@ -269,6 +270,8 @@ function next(){
 }
 next();
 
-d3.select('#nextbutton').on('click', function(e){
-	next();
-	d3.event.preventDefault(); });
+// d3.select('#nextbutton').on('click', function(e){
+// 	next();
+// 	d3.event.preventDefault(); });
+
+
