@@ -12,7 +12,7 @@ function createMap() {
 	var map_data = d3.map()
 	var colorScale_map = d3.scaleThreshold()
 		.domain([100, 1000, 10000, 100000, 500000, 1000000, 10000000, 100000000])
-		.range(['transparent'].concat(d3.schemeYlGn[9]))
+		.range(['transparent'].concat(['transparent'].concat('#ddf4f1', '#a4d1cc', '#86bdbc', '#45988d', '#24716b', '#146263', '#187183')))
 	
 	width = 1000
 	height = 540 // use this height to cut off Antarctica
@@ -104,7 +104,7 @@ function createMap() {
 			.attr('cx', 130)
 			.attr('cy', 420)
 			.attr('r', 90)
-			.style('fill', 'rgb(217, 240, 163) ')
+			.style('fill', '#ddf4f1')
 			.attr('opacity', 0.8)
 		svg.append('text')
 			.attr('x', 130)
@@ -205,13 +205,14 @@ function createMap() {
 			.style('font-size', '36px')
 			.style('fill', '#4d4b47')
 			.text('German Language Learners Around the World')
+			
 		
 		// total
 		svg.append('circle')
 			.attr('cx', 130)
 			.attr('cy', 420)
 			.attr('r', 90)
-			.style('fill', 'rgb(217, 240, 163) ')
+			.style('fill', '#ddf4f1')
 			.attr('opacity', 0.8)
 		svg.append('text')
 			.attr('x', 130)
