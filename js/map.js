@@ -1,3 +1,4 @@
+
 function createMap() {
 	data = _.cloneDeep(data_orig)
 	var world = data.world
@@ -89,6 +90,55 @@ function createMap() {
 			.append('div')
 			.attr('class', 'tooltip')
 			.style('opacity', 0)
+
+			//Legend
+
+//Append a defs (for definition) element to your SVG
+var defs = svg.append("defs");
+
+//Append a linearGradient element to the defs and give it a unique id
+var linearGradient = defs.append("linearGradient")
+	.attr("id", "linear-gradient");
+	
+//Horizontal gradient
+linearGradient
+    .attr("x1", "0%")
+    .attr("y1", "0%")
+    .attr("x2", "100%")
+    .attr("y2", "0%");	
+  
+
+//Set the color for the start (0%)
+linearGradient.append("stop")
+    .attr("offset", "0%")
+    .attr("stop-color", '#ddf4f1'); //light blue
+
+//Set the color for the end (100%)
+linearGradient.append("stop")
+    .attr("offset", "100%")
+	.attr("stop-color", '#187183'); //dark blue
+
+//Draw the rectangle and fill with gradient
+svg.append("rect")
+    .attr("width", 200)
+	.attr("height", 20)
+	.attr("x", 400)
+	.attr("y", 530)
+	.style("fill", "url(#linear-gradient)");
+	
+svg.append("text")
+.attr('x', 400)
+			.attr('y', 520)
+			.style('font-size', '10px')
+			.style('fill', '#4d4b47')
+			.text('100')
+
+svg.append("text")
+.attr('x', 600)
+			.attr('y', 520)
+			.style('font-size', '10px')
+			.style('fill', '#4d4b47')
+			.text('86,000,000')
 
 		// title
 		svg.append('text')
@@ -197,6 +247,55 @@ function createMap() {
 			.attr('class', 'tooltip')
 			.style('opacity', 0)
 
+						//Legend
+
+//Append a defs (for definition) element to your SVG
+var defs = svg.append("defs");
+
+//Append a linearGradient element to the defs and give it a unique id
+var linearGradient = defs.append("linearGradient")
+	.attr("id", "linear-gradient");
+	
+//Horizontal gradient
+linearGradient
+    .attr("x1", "0%")
+    .attr("y1", "0%")
+    .attr("x2", "100%")
+    .attr("y2", "0%");	
+  
+
+//Set the color for the start (0%)
+linearGradient.append("stop")
+    .attr("offset", "0%")
+    .attr("stop-color", '#ddf4f1'); //light blue
+
+//Set the color for the end (100%)
+linearGradient.append("stop")
+    .attr("offset", "100%")
+	.attr("stop-color", '#187183'); //dark blue
+
+//Draw the rectangle and fill with gradient
+svg.append("rect")
+    .attr("width", 200)
+	.attr("height", 20)
+	.attr("x", 400)
+	.attr("y", 530)
+	.style("fill", "url(#linear-gradient)");
+	
+svg.append("text")
+.attr('x', 400)
+			.attr('y', 520)
+			.style('font-size', '10px')
+			.style('fill', '#4d4b47')
+			.text('100')
+
+svg.append("text")
+.attr('x', 600)
+			.attr('y', 520)
+			.style('font-size', '10px')
+			.style('fill', '#4d4b47')
+			.text('16,000,000')
+
 		// title
 		svg.append('text')
 			.attr('x', width / 2)
@@ -240,6 +339,7 @@ function createMap() {
 			.text('learners')
 	}
 
+		
 	// show native speaker map
 	showSpeakers()
 

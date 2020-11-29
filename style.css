@@ -305,7 +305,12 @@ div.tooltip {
 	pointer-events: none;
 }
 
-
+.legend .gradient {
+	border-radius: 4px;
+	background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(78,183,201,1) 0%, rgba(70,154,193,1) 17%, rgba(62,127,185,1) 32%, rgba(95,93,143,1) 50%, rgba(109,78,124,1) 65%, rgba(133,53,93,1) 80%, rgba(157,27,61,1) 100%);
+	min-height: 30px;
+	min-width: 80px;
+}
 /* MEDIA QUERIES */
 
 /* MOBILE */
