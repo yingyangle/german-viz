@@ -1,15 +1,11 @@
-// color based on origin lanuguage/dialect?
-// details on origin language
-// or a diagram of bubbles, hover over bubbles for source word, color bubbles by language
-
-// make interactive, put circles containing the word. Activity is to guess what the english word borrowed from the german word is. Click circle to see source word.
+// make interactive, put circles containing the word. Activity is to guess what the english word borrowed from the german word is. Hover over circle to see source word.
 
 function createLoanwords() {
 	data = _.cloneDeep(data_orig)
 	let words = data.loanwords 
 	// console.log(words)
 	let width = 1000
-	let height = 540
+	let height = 700
 
 	
 
@@ -23,12 +19,12 @@ function createLoanwords() {
 	.attr('height', height)
 	
 		loan_nodes.forEach(d=>{
-		d.r = 40
+		d.r = 45
 	})
 
 	const force = d3.forceSimulation(loan_nodes)
 		.force('charge', d3.forceManyBody().strength(50))
-		.force('center', d3.forceCenter(500, 280))
+		.force('center', d3.forceCenter(500, 350))
 		.force('collide', d3.forceCollide().radius(function(d) {
 			return d.r
 		}))
@@ -45,7 +41,7 @@ function createLoanwords() {
 
 	let circle = node.append('circle')
 		.attr('class', 'node')
-		.attr('r', width / 25)
+		.attr('r', width / 22)
 		.attr('fill', d => colorScale(d.DonorLanguage))
 		.attr('opacity', 0.8)
 		.call(drag(force))

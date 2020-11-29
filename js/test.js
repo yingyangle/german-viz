@@ -80,7 +80,7 @@ function ternaryPlot(selector, userOpt) {
 
 			axes.append('line')
 				.attr( lineAttributes(coord1, coord2) )
-				.classed('a-axis minor-tick', true)
+				.attr('a-axis minor-tick', true)
 
 			axes.append('line')
 				.attr( lineAttributes(coord2, coord3) )
