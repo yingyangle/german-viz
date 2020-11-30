@@ -19,7 +19,7 @@ function createLoanwords(words) {
 		.attr('viewBox', [0, 0, width, height])
 	
 	loan_nodes.forEach(d => {
-		d.r = 45
+		d.r = 43
 	})
 
 	const force = d3.forceSimulation(loan_nodes)
@@ -40,7 +40,7 @@ function createLoanwords(words) {
 
 	let circle = node.append('circle')
 		.attr('class', 'node')
-		.attr('r', width / 22)
+		.attr('r', width / 23)
 		.attr('fill', d => colorScale(d.DonorLanguage))
 		.attr('opacity', 0.8)
 		.call(drag(force))
@@ -116,8 +116,8 @@ function createLoanwords(words) {
 		.append('rect')
 		.attr('x', width - 145)
 		.attr('y', (d,i) => (i * 20) + 200)
-		.attr('width', 10)
-		.attr('height', 10)
+		.attr('width', 13)
+		.attr('height', 13)
 		.attr('fill', d => colorScale(d))
 
 		legend.selectAll('text')
@@ -125,7 +125,7 @@ function createLoanwords(words) {
 		.enter()
 		.append('text')
 		.attr('x', width - 130)
-		.attr('y', (d,i) => (i * 20 + 9) + 200)
+		.attr('y', (d,i) => (i * 20 + 9) + 203)
 		.attr('font-size', '16')
 		.attr('font-family', 'Nunito Sans')
 		.text(function(d) {
