@@ -15,7 +15,7 @@ function createMap(data) {
 	console.log('map', data)
 
 	var width = 1000
-	var height = 700
+	var height = 720
 
 	// var path = d3.geoPath()
 	var projection = d3.geoNaturalEarth1()
@@ -106,11 +106,11 @@ function createMap(data) {
 		// title
 		svg.append('text')
 			.attr('x', width / 2)
-			.attr('y', 30)
+			.attr('y', 34)
 			.attr('text-anchor', 'middle')
-			.style('font-size', '36px')
+			.style('font-size', '44px')
 			.style('fill', '#4d4b47')
-			.text('Native German Speakers Around the World')
+			.text('Native German Speakers')
 		
 		// total
 		svg.append('circle')
@@ -264,18 +264,18 @@ function createMap(data) {
 		// title
 		svg.append('text')
 			.attr('x', width / 2)
-			.attr('y', 30)
+			.attr('y', 34)
 			.attr('text-anchor', 'middle')
-			.style('font-size', '36px')
+			.style('font-size', '44px')
 			.style('fill', '#4d4b47')
-			.text('German Language Learners Around the World')
+			.text('German Language Learners')
 		
 		// total circle
 		svg.append('circle')
 			.attr('cx', 130)
 			.attr('cy', 420)
 			.attr('r', 90)
-			.style('fill', '#ddf4f1')
+			.style('fill', '#a4d1cc')
 			.attr('opacity', 0.8)
 		svg.append('text')
 			.attr('x', 130)
@@ -362,7 +362,7 @@ function createMap(data) {
 	$('#map-toggle').on('click', function() {
 		if ($('#map-toggle').text() == 'Show Learners') {
 			showLearners()
-			$('#map-toggle').text('Show Speakers')
+			$('#map-toggle').text('Show Native Speakers')
 		} else {
 			showSpeakers()
 			$('#map-toggle').text('Show Learners')

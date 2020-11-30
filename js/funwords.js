@@ -24,6 +24,9 @@ d3.selectAll('.funword-part')
 		d3.select(this)
 			.style('text-decoration', 'underline')
 			.style('text-decoration-thickness', '1px')
+		d3.select(this.parentNode)
+			.selectAll('.funword-part')
+			.style('opacity', 0.7)
 	})
 	.on('mouseout.tooltip', function() {
 		tooltip.transition()
@@ -31,10 +34,11 @@ d3.selectAll('.funword-part')
 			.style('opacity', 0)
 		d3.select(this)
 			.style('text-decoration', 'none')
+		d3.select(this.parentNode)
+			.selectAll('.funword-part')
+			.style('opacity', 1)
 	})
 	.on('mousemove', function() {
 		tooltip.style('left', (d3.event.pageX - 30) + 'px')
 			.style('top', (d3.event.pageY - 70) + 'px')
 	})
-	
-

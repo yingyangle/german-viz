@@ -91,6 +91,11 @@ h3 {
 	font-size: 40px;
 }
 
+h4 {
+	font-weight: 600px;
+	font-size: 30px;
+}
+
 h5 {
 	font-size: 20px;
 	font-family: 'Nunito Sans', sans-serif; 
@@ -99,6 +104,18 @@ h5 {
 svg {
 	font-family: 'Sacramento', serif;
 	color: #4d4b47;
+}
+
+td {
+	padding: 0 12px;
+}
+
+table {
+	margin: auto;
+}
+
+.teal {
+	color: #76b7b2;
 }
 
 .nunito {
