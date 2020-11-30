@@ -3,10 +3,14 @@ $('.funword-part').on('click', function() {
 	var parent = $(this).parent()
 	if ($('.funword-answer', parent).css('visibility') == 'hidden') {
 		// show answer
-		$('.funword-answer', parent).css('visibility', 'visible')
-	} else { 
+		$('.funword-answer', parent)
+			.css('visibility', 'visible')
+			.css('opacity', 1)
+	} else {
 		// hide answer
-		$('.funword-answer', parent).css('visibility', 'hidden')
+		$('.funword-answer', parent)
+			.css('visibility', 'hidden')
+			.css('opacity', 0)
 	}
 })
 

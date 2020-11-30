@@ -188,6 +188,8 @@ a:hover {
 	visibility: hidden;
 	font-size: 18px;
 	line-height: 34px;
+	opacity: 0;
+	transition: 0.5s;
 }
 
 .sankey-node, #show-all-singulars, #show-all-plurals {
