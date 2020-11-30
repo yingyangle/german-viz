@@ -176,16 +176,38 @@
 			
 			<!-- GENDER VIZ -->
 			<div class="viz-container">
-				<!-- RANGE SLIDER -->
-				<h6>Minimum count:</h6>
-				<br>
-				<div class="range-wrap">
-					<div class="range-value" id="gender-range-value"></div>
-					<input id="gender-range" type="range" min=200 max=4000 value=800 step=10>
-				</div>
-				<br>
-				<!-- TERNARY PLOT -->
-				<div id="ternary"></div>
+				<div class="row">
+					<div class="col-md-7">
+						<!-- RANGE SLIDER -->
+						<h6>Minimum count:</h6>
+						<br>
+						<div class="range-wrap">
+							<div class="range-value" id="gender-range-value"></div>
+							<input id="gender-range" type="range" min=200 max=4000 value=800 step=10>
+						</div>
+						<br>
+						<!-- TERNARY PLOT -->
+						<div id="ternary"></div>
+					</div> <!-- end col -->
+					<div class="col-md-5">
+						<br><br>
+						<!-- GENDER ENDINGS LIST -->
+						<div id="genderlist-container">
+							<div id="genderlist">
+								<!-- HEADER -->
+								<div id="genderlist-header" class="row">
+									<div class="col-5"><b>Singular Ending</b></div>
+									<div class="col-2"><b>fem.</b></div>
+									<div class="col-2"><b>masc.</b></div>
+									<div class="col-2"><b>neut.</b></div>
+								</div>
+								<hr>
+								<!-- LIST -->
+								<div id="genderlist-list"></div>
+							</div>
+						</div>
+					</div> <!-- end col -->
+				</div> <!-- end row -->
 			</div>
 			
 			
@@ -277,7 +299,8 @@
 
 		<script src="js/loan.js" defer></script>
 		<script src="js/map.js" defer></script>
-		<script src="js/ternary.js"></script> 
+		<script src="js/ternary.js" defer></script>
+		<script src="js/genderlist.js" defer></script>
 		<!-- <script src="js/force.js" defer></script> -->
 
 		<script src="js/sankey.js" defer></script>
