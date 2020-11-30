@@ -95,11 +95,15 @@
 				<p>The reason we see all these similarities is because English is a Germanic language just like German. When the Anglo-Saxon tribes migrated to Britain from northern Germany and the Netherlands around the mid 5th to 7th centuries AD, they brought with them their Germanic language which would eventually become English. English then received a lot of influence from other languages such as French, Latin, and Greek in the centuries following, but much of our English grammar is still recognizably Germanic and about 26% of our vocabulary is Germanic in origin. We can still see the traces of our Germanic origins in many of the words we use today.</p>
 
 				<p>Try to guess which English word originated from the following Germanic words. Hover over the words to see the answers!</p>
+			</div>
 
+			<div class="viz-container">
 				<!-- LOANWORDS VIZ -->
 				<div id="loanwords"></div>
-				<div id="tooltip" class="hidden">
-				</div>
+				<div id="tooltip" class="hidden"></div>
+			</div>
+
+			<div class="text-container">
 
 				<p>We also have a lot of loanwords in English taken directly from German vocabulary. German has many interesting words to express very specific and relatable concepts that we don't have words for in English. Some of these words such as "Zeitgeist" might sound familiar to you, because in fact English borrows a lot of words from German when it lacks a proper words itself.</p>
 
@@ -145,12 +149,12 @@
 			</div>
 
 			<!-- GERMAN SPEAKERS VIZ -->
-			<button id="map-toggle" class="btn">Show Learners</button>
-			<br><br>
-			<div id="map"></div>
-			<br><br>
-			<!-- <img src="img/duolingo.png" alt=""> -->
-			<!-- <br><br> -->
+			<div class="viz-container">
+				<button id="map-toggle" class="btn">Show Learners</button>
+				<br><br>
+				<div id="map"></div>
+				<br><br>
+			</div>
 
 			<!-- GERMAN GRAMMAR -->
 			<div class="text-container">
@@ -171,16 +175,19 @@
 			</div>
 			
 			<!-- GENDER VIZ -->
-			<!-- RANGE SLIDER -->
-			<h6>Minimum count:</h6>
-			<br>
-			<div class="range-wrap">
-				<div class="range-value" id="gender-range-value"></div>
-				<input id="gender-range" type="range" min=200 max=4000 value=800 step=10>
+			<div class="viz-container">
+				<!-- RANGE SLIDER -->
+				<h6>Minimum count:</h6>
+				<br>
+				<div class="range-wrap">
+					<div class="range-value" id="gender-range-value"></div>
+					<input id="gender-range" type="range" min=200 max=4000 value=800 step=10>
+				</div>
+				<br>
+				<!-- TERNARY PLOT -->
+				<div id="ternary"></div>
 			</div>
-			<br>
-			<!-- TERNARY PLOT -->
-			<div id="ternary"></div>
+			
 			
 			<!-- GENDER FORCE DIAGRAM? -->
 			<div id="force" ></div>
@@ -238,7 +245,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<div id="wordlist-col" class="col-5 text-center">
+					<div id="wordlist-col" class="col-md-5 col-sm-12 text-center">
 						<br><br>
 						<h3>Word List</h3>
 						<p>a sample of nouns in the current selection</p><br>
@@ -247,7 +254,7 @@
 							<div id="wordlist"></div>
 						</div>
 					</div> <!-- end col -->
-					<div class="col-7">
+					<div class="col-md-7 col-sm-12">
 						<!-- SCATTER PLOT -->
 						<br><br>
 						<div id="scatter"></div>

@@ -34,8 +34,9 @@ Promise.all([
 
 	var svg = d3.select('#ternary')
 		.append('svg')
-		.attr('width', opt.width)
-		.attr('height', opt.height)
+		// .attr('width', opt.width)
+		// .attr('height', opt.height)
+		.attr('viewBox', [0, 0, opt.width, opt.height])
 
 		var axes = svg.append('g')
 		.attr('class', 'axes')

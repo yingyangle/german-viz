@@ -68,7 +68,11 @@ body {
 }
 
 .text-container {
-	margin: 100px;
+	margin: 0 100px 0 100px;
+}
+
+.viz-container {
+	margin: 0 180px 0 180px;
 }
 
 #title {
@@ -164,8 +168,8 @@ a:hover {
 	font-size: 16px;
 	border: 1px solid #4d4b47;
 	/* background-color: transparent; */
-	height: 400px;
 	width: 400px;
+	height: 400px;
 	border-radius: 20px;
 	margin-left: 120px;
 	padding: 26px;
@@ -174,8 +178,8 @@ a:hover {
 }
 
 #wordlist {
-	height: 360px;
-	width: 360px;
+	width: 100%;
+	height: 346px;
 	overflow-y: scroll;
 	overflow-x: hidden;
 }
@@ -342,6 +346,24 @@ text.tick-text {
 /* MOBILE */
 @media only screen and (max-width: 600px) {
 
+	body {
+		font-size: 14px;
+		line-height: 28px;
+	}
+
+	.text-container {
+		margin: 0 10px 0 10px;
+	}
+
+	.viz-container {
+		margin: 0;
+	}
+	
+	h5 {
+		font-size: 20px;
+		line-height: 2.5rem;
+	}
+
 	.flag-icon {
 		min-width: 40%;
 		margin-bottom: 20px;
@@ -352,9 +374,19 @@ text.tick-text {
 		font-size: 60px;
 	}
 
-	h5 {
-		font-size: 20px;
-		line-height: 2.5rem;
+
+	#wordlist-container {
+		font-size: 12px;
+		width: 100%;
+		height: 300px;
+		border-radius: 20px;
+		margin: auto;
+		padding: 16px;
+	}
+
+	#wordlist {
+		width: 100%;
+		height: 270px;
 	}
 
 }

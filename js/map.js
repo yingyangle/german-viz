@@ -31,8 +31,9 @@ function createMap(data) {
 
 	var svg = d3.select('#map')
 		.append('svg')
-		.attr('width', width)
-		.attr('height', height)
+		// .attr('width', width)
+		// .attr('height', height)
+		.attr('viewBox', [0, 0, width, height])
 	
 	function showSpeakers() {
 		// clear svg contents

@@ -11,10 +11,11 @@ function createScatter() {
 	
 	let svg = d3.select('#scatter')
 		.append('svg')
+		// .attr('viewBox', [0, 0, width, height])
 		.attr('width', width + margin.left + margin.right)
 		.attr('height', height + margin.top + margin.bottom)
 		.append('g')
-		.attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+		.attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
 
 	let xScale = d3
 		.scaleLinear()

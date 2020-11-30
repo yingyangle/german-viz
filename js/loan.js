@@ -16,10 +16,9 @@ function createLoanwords(words) {
 	console.log('loanwords', words, loan_nodes)
 
 	const svg = d3.select('#loanwords').append('svg')
-	.attr('width', width)
-	.attr('height', height)
+		.attr('viewBox', [0, 0, width, height])
 	
-		loan_nodes.forEach(d => {
+	loan_nodes.forEach(d => {
 		d.r = 45
 	})
 
@@ -29,7 +28,6 @@ function createLoanwords(words) {
 		.force('collide', d3.forceCollide().radius(function(d) {
 			return d.r
 		}))
-
 	
 	// create node as circles
 	var node = svg.selectAll('g')
@@ -37,8 +35,8 @@ function createLoanwords(words) {
 		.append('g')
 
 	let colorScale = d3.scaleOrdinal()
-    .domain(["German", "Germanic", "Middle High German", "Middle Low German", "Middle North Germanic", "Proto-Germanic", "West Germanic"])
-	.range(d3.schemeTableau10)
+		.domain(['German', 'Germanic', 'Middle High German', 'Middle Low German', 'Middle North Germanic', 'Proto-Germanic', 'West Germanic'])
+		.range(d3.schemeTableau10)
 
 	let circle = node.append('circle')
 		.attr('class', 'node')
@@ -106,41 +104,41 @@ function createLoanwords(words) {
 		.style('opacity', 0)
 
 	//Legend
-		var legend = svg.append("g")
-		.attr("class", "legend")
-		.attr("height", 100)
-		.attr("width", 100)
-	  .attr('transform', 'translate(-20,50)')    
+		var legend = svg.append('g')
+		.attr('class', 'legend')
+		.attr('height', 100)
+		.attr('width', 100)
+		.attr('transform', 'translate(-20,50)')
 		
-	  legend.selectAll('rect')
-		.data(["German", "Germanic", "Middle High German", "Middle Low German", "Middle North Germanic", "Proto-Germanic", "West Germanic"])
+	legend.selectAll('rect')
+		.data(['German', 'Germanic', 'Middle High German', 'Middle Low German', 'Middle North Germanic', 'Proto-Germanic', 'West Germanic'])
 		.enter()
-		.append("rect")
-		.attr("x", width - 145)
-		.attr("y", function(d, i){ return (i *  20) + 200;})
-		.attr("width", 10)
-		.attr("height", 10)
-		.attr('fill', function(d){return colorScale(d);}) 
-  
+		.append('rect')
+		.attr('x', width - 145)
+		.attr('y', (d,i) => (i * 20) + 200)
+		.attr('width', 10)
+		.attr('height', 10)
+		.attr('fill', d => colorScale(d))
+
 		legend.selectAll('text')
-		.data(["German", "Germanic", "Middle High German", "Middle Low German", "Middle North Germanic", "Proto-Germanic", "West Germanic"])
+		.data(['German', 'Germanic', 'Middle High German', 'Middle Low German', 'Middle North Germanic', 'Proto-Germanic', 'West Germanic'])
 		.enter()
-		.append("text")
-		.attr("x", width - 130)
-		.attr("y", function(d, i){return (i *  20 + 9) + 200;})
-		.attr("font-size", "16")
+		.append('text')
+		.attr('x', width - 130)
+		.attr('y', (d,i) => (i * 20 + 9) + 200)
+		.attr('font-size', '16')
 		.attr('font-family', 'Nunito Sans')
 		.text(function(d) {
-		  let text = d;
-		  return text;
-  });
+			let text = d;
+			return text;
+		});
 
 	// called each time the simulation ticks
 	// each tick, take new x and y values for each link and circle, x y values calculated by d3 and appended to our dataset objects
 	force.on('tick', ()=>{
 		circle.attr('cx', d => d.x)
 		.attr('cy', d => d.y)
-		text.attr('x', function(d) { return d.x; })
-			.attr('y', function(d) { return d.y; })
+		text.attr('x', d => d.x)
+			.attr('y', d => d.y)
 	})
 }
