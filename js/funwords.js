@@ -6,6 +6,8 @@ $('.funword-part').on('click', function() {
 		$('.funword-answer', parent)
 			.css('visibility', 'visible')
 			.css('opacity', 1)
+		// play word pronunciation
+		myAudioFunction(parent)
 	} else {
 		// hide answer
 		$('.funword-answer', parent)
@@ -13,6 +15,16 @@ $('.funword-part').on('click', function() {
 			.css('opacity', 0)
 	}
 })
+
+// play word pronunciation
+function myAudioFunction(parent) {
+	word = ''
+	$('.funword-part', parent).each(function() {
+		word = word + $(this).text()
+	})
+	var audiofile = new Audio('audio/' + word.toLowerCase() + '.mp3')
+	audiofile.play()
+}
 
 // show meaning of each part on hover
 d3.selectAll('.funword-part')
