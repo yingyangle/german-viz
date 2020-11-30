@@ -276,8 +276,8 @@ function createTernary(gender_pct) {
 	$('#gender-range').on('change', function() {
 		count_cutoff_gender = $('#gender-range').val()
 		selected_ending_gender = ''
+		createGenderlist(gender_pct) // update genderlist
 		update() // update ternary plot
-		createGenderlist(data.gender_pct) // update genderlist
 
 		$('.gender-row').on('click', function() {
 			selected_ending_gender = $(this).text()

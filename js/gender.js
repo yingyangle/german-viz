@@ -47,13 +47,4 @@ Promise.all([
 	// CREATE VISUALIZATIONS
 	createGenderlist(data.gender_pct)
 	createTernary(data.gender_pct)
-
-	// update genderlist
-	$('#gender-range').on('change', function() {
-		count_cutoff_gender = $('#gender-range').val()
-		selected_ending_gender = ''
-		createGenderlist(data.gender_pct)
-	})
-
-
 })
