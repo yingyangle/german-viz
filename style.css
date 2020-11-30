@@ -2,9 +2,9 @@ body {
 	color: #4d4b47;
 	background-color: #fef9ee;
 	font-family: 'Nunito Sans', sans-serif;
-	font-size: 24px;
+	font-size: 20px;
 	font-weight: 900px;
-	line-height: 34px;
+	line-height: 36px;
 	/* font-family: 'Sacramento', serif; */
 	text-align: center;
 }
@@ -180,7 +180,7 @@ a:hover {
 
 .funword-part {
 	font-family: 'Jacques Francois Shadow';
-	font-size: 50px;
+	font-size: 38px;
 	cursor: pointer;
 }
 
