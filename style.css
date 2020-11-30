@@ -167,14 +167,9 @@ a:hover {
 	height: 400px;
 	border-radius: 20px;
 	/* margin-left: 120px; */
-	padding: 26px;
-	padding-top: 18px;
+	padding: 18px 18px 18px 26px;
 	text-align: left;
 }
-
-/* #genderlist-header {
-	width: 96%;
-} */
 
 #genderlist {
 	width: 100%;
@@ -182,6 +177,14 @@ a:hover {
 	overflow-y: scroll;
 	overflow-x: hidden;
 	margin-right: 10px;
+}
+
+.gender-row {
+	cursor: pointer;
+}
+
+.gender-row:hover {
+	color: #76b7b2;
 }
 
 #wordlist-col p, #wordlist-col h3 {

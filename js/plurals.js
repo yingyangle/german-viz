@@ -15,17 +15,6 @@ var data_orig
 var f = d3.format(',.0f') // format number strings
 var colorScale_plurals = d3.scaleOrdinal(d3.schemeTableau10)
 
-const gender_names = {
-	'f': 'feminine',
-	'm': 'masculine',
-	'n': 'neuter'
-}
-const gender_names_short = {
-	'f': 'fem.',
-	'm': 'masc.',
-	'n': 'neut.'
-}
-
 // drag
 drag = simulation => {
 

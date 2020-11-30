@@ -1,20 +1,4 @@
-// RANGE SLIDER FOR *GENDER* MINIMUM COUNT (count_cutoff_gender)
-var range_gender = document.getElementById('gender-range')
-var rangeV_gender = document.getElementById('gender-range-value')
-var setValue_gender = () => {
-		var newValue_gender = Number( (range_gender.value - range_gender.min) * 100 / (range_gender.max - range_gender.min) )
-		var newPosition_gender = 10 - (newValue_gender * 0.2)
-		rangeV_gender.innerHTML = `<span>${range_gender.value}</span>`
-		rangeV_gender.style.left = `calc(${newValue_gender}% + (${newPosition_gender}px))`
-	}
-document.addEventListener('DOMContentLoaded', setValue_gender)
-range_gender.addEventListener('input', setValue_gender)
-
-var count_cutoff_gender = $('#gender-range').val()
-
-Promise.all([
-	d3.json('data/gender_pct.json')
-]).then(gender_pct => {
+function createTernary(gender_pct) {
 
 	var f = d3.format(',.0f') // format number strings
 
@@ -245,16 +229,21 @@ Promise.all([
 	function update() {
 		var d = []
 		var i = 0
-		for (let item in gender_pct[0]) {
-			if (gender_pct[0][item].total < count_cutoff_gender) {
+		for (let item in gender_pct) {
+			// don't include if below count_cutoff_gender
+			if ( gender_pct[item].total < count_cutoff_gender) {
+				continue
+			}
+			// filter for selected ending
+			if (selected_ending_gender != '' & item != selected_ending_gender) {
 				continue
 			}
 			d.push({
-				f: gender_pct[0][item].f,
-				m: gender_pct[0][item].m,
-				n: gender_pct[0][item].n,
-				name: gender_pct[0][item].name,
-				total: gender_pct[0][item].total,
+				f: gender_pct[item].f,
+				m: gender_pct[item].m,
+				n: gender_pct[item].n,
+				name: gender_pct[item].name,
+				total: gender_pct[item].total,
 				label: 'point' + i
 			})
 			i++
@@ -266,16 +255,17 @@ Promise.all([
 	// INITIALIZE
 	var d = []
 	var i = 0
-	for (let item in gender_pct[0]) {
-		if (gender_pct[0][item].total < count_cutoff_gender) {
+	for (let item in gender_pct) {
+		// don't include if below count_cutoff_gender
+		if (gender_pct[item].total < count_cutoff_gender) {
 			continue
 		}
 		d.push({
-			f: gender_pct[0][item].f,
-			m: gender_pct[0][item].m,
-			n: gender_pct[0][item].n,
-			name: gender_pct[0][item].name,
-			total: gender_pct[0][item].total,
+			f: gender_pct[item].f,
+			m: gender_pct[item].m,
+			n: gender_pct[item].n,
+			name: gender_pct[item].name,
+			total: gender_pct[item].total,
 			label: 'point' + i
 		})
 		i++
@@ -285,8 +275,27 @@ Promise.all([
 
 	$('#gender-range').on('change', function() {
 		count_cutoff_gender = $('#gender-range').val()
+		selected_ending_gender = ''
+		update() // update ternary plot
+		createGenderlist(data.gender_pct) // update genderlist
+
+		$('.gender-row').on('click', function() {
+			selected_ending_gender = $(this).text()
+			update()
+			console.log('select gender ending', selected_ending_gender)
+		})
+	})
+
+	$('#ternary-reset').on('click', function() {
+		selected_ending_gender = ''
 		update()
 	})
 
-})
+	$('.gender-row').on('click', function() {
+		selected_ending_gender = $(this).text()
+		update()
+		console.log('select gender ending', selected_ending_gender)
+	})
+
+}
 
