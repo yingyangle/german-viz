@@ -336,7 +336,7 @@ text.tick-text {
 #ternary circle {
 	fill: #fef9ee;
 	stroke: #76b7b2;
-	stroke-width: 2px;
+	stroke-width: 3px;
 }
 
 /*** SCROLLBAR APPEARANCE ***/
