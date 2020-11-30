@@ -1,12 +1,23 @@
+// RANGE SLIDER FOR MINIMUM COUNT (count_cutoff_gender)
+const range = document.getElementById('gender-range')
+const rangeV = document.getElementById('gender-range-value')
+const setValue = () => {
+		const newValue = Number( (range.value - range.min) * 100 / (range.max - range.min) )
+		const newPosition = 10 - (newValue * 0.2)
+		rangeV.innerHTML = `<span>${range.value}</span>`
+		rangeV.style.left = `calc(${newValue}% + (${newPosition}px))`
+	}
+document.addEventListener('DOMContentLoaded', setValue)
+range.addEventListener('input', setValue)
+
+
 Promise.all([
 	d3.json('data/gender_pct.json')
 ]).then(gender_pct => {
 
 	var f = d3.format(',.0f') // format number strings
 
-	var plot = {
-		dataset: []
-	}
+	var dataset
 
 	var opt = {
 		width: 900,
@@ -17,7 +28,8 @@ Promise.all([
 		axis_ticks:d3.range(0, 101, 20),
 		minor_axis_ticks: d3.range(0, 101, 5),
 		tickLabelMargin: 10,
-		axisLabelMargin: 40 }
+		axisLabelMargin: 40 
+	}
 
 	var svg = d3.select('#plot')
 		.append('svg')
@@ -41,12 +53,14 @@ Promise.all([
 		.data(opt.axis_labels)
 		.enter()
 		.append('g')
+		.attr('fill', '#4d4b47')
 		.attr('class', 'axis-title')
 		.attr('transform', function(d,i) {
 			return 'translate(' + corners[i][0] + ',' + corners[i][1] + ')'
 		})
 		.append('text')
 		.text(d => d)
+		.attr('class', 'nunito')
 		.attr('text-anchor', function(d,i) {
 			if (i === 0) return 'end'
 			if (i === 2) return 'middle'
@@ -96,7 +110,7 @@ Promise.all([
 				.attr('x2', coord4[0])
 				.attr('y1', coord3[1])
 				.attr('y2', coord4[1])
-				.classed('c-axis minor-tick', true);		
+				.classed('c-axis minor-tick', true)
 		})
 	}
 
@@ -130,35 +144,41 @@ Promise.all([
 
 		// tick labels
 		axes.append('g')
-			.attr('transform',function(d){
+			.attr('transform',function(d) {
 				return 'translate(' + coord1[0] + ',' + coord1[1] + ')'
 			})
 			.append('text')
-				.attr('transform','rotate(60)')
-				.attr('text-anchor','end')
-				.attr('x',-opt.tickLabelMargin)
-				.text(function (d) { return v; })
-				.classed('a-axis tick-text', true)
+			.attr('transform','rotate(60)')
+			.attr('text-anchor','end')
+			.attr('fill', '#4d4b47')
+			.attr('x',-opt.tickLabelMargin)
+			.text(function (d) { return v })
+			.attr('class', 'nunito')
+			.classed('a-axis tick-text', true)
 
 		axes.append('g')
 			.attr('transform',function(d){
 				return 'translate(' + coord2[0] + ',' + coord2[1] + ')'
 			})
 			.append('text')
-				.attr('transform','rotate(-60)')
-				.attr('text-anchor','end')
-				.attr('x',-opt.tickLabelMargin)
-				.text(function (d) { return (100- v); })
-				.classed('b-axis tick-text', true)
+			.attr('transform','rotate(-60)')
+			.attr('text-anchor','end')
+			.attr('fill', '#4d4b47')
+			.attr('x',-opt.tickLabelMargin)
+			.text(function (d) { return (100- v) })
+			.attr('class', 'nunito')
+			.classed('b-axis tick-text', true)
 
 		axes.append('g')
 			.attr('transform',function(d){
 				return 'translate(' + coord3[0] + ',' + coord3[1] + ')'
 			})
 			.append('text')
-				.text(function (d) { return v; })
-				.attr('x',opt.tickLabelMargin)
-				.classed('c-axis tick-text', true)
+			.attr('fill', '#4d4b47')
+			.text(function (d) { return v })
+			.attr('x',opt.tickLabelMargin)
+			.attr('class', 'nunito')
+			.classed('c-axis tick-text', true)
 
 	})
 
@@ -177,71 +197,52 @@ Promise.all([
 		return pos
 	}
 
-
 	function getData(data, accessor) {
-		console.log('THIS', this)
-		console.log('PLOT', plot)
-		// bind by is the dataset property used as an id for the join
-		plot.dataset = data
-
-		console.log('ddd', data)
-		console.log(data.length)
-
+		dataset = data
 		circle_data = data.map(d => coord(accessor(d))), function(d,i) {
-			// console.log(i)
-			// console.log(plot.dataset[i])
-			// if (!plot.dataset[i]) {
-			// 	console.log(i)
-			// 	return
-			// }
-			// if (bindBy) {
-				return plot.dataset[i]['label']
-			// }
-			// return i
+				return dataset[i]['label']
 		}
 
-		console.log('DDD', data)
-		console.log(data.length)
+		// clear current circles
+		svg.selectAll('circle').remove()
 
 		var circles = svg.selectAll('circle')
 			.data(circle_data)
-
-		circles.enter()
+			.enter()
 			.append('circle')
-
-		circles.transition()
 			.attr('cx', d => d[0])
 			.attr('cy', d => d[1])
-			.attr('r', 6)
+			.attr('r', 2)
+
+		circles.transition()
+			.attr('r', 8)
 		
 		// tooltip on link hover
-		circles
-		.data(data)
-		.on('mouseover.tooltip', function(d) {
-			tooltip.transition()
-				.duration(200)
-				.style('font-family', 'Nunito Sans')
-				.style('padding', '10px')
-				.style('opacity', .9);
-			tooltip.html('Singular Ending: <b>' + d.name + '</b></br>Count: <b>' + `${f(d.total)} words` + '</b>')
-		})
-		.on('mouseout.tooltip', function() {
-			tooltip.transition()
-				.duration(200)
-				.style('opacity', 0)
-		})
-		.on('mousemove', function() {
-			tooltip.style('left', (d3.event.pageX) + 'px')
-				.style('top', (d3.event.pageY + 10) + 'px')
-		})
+		circles.data(data)
+			.on('mouseover.tooltip', function(d) {
+				tooltip.transition()
+					.duration(200)
+					.style('font-family', 'Nunito Sans')
+					.style('padding', '10px')
+					.style('opacity', .9);
+				tooltip.html('Singular Ending: <b>' + d.name + '</b></br>Count: <b>' + `${f(d.total)} words` + '</b>')
+			})
+			.on('mouseout.tooltip', function() {
+				tooltip.transition()
+					.duration(200)
+					.style('opacity', 0)
+			})
+			.on('mousemove', function() {
+				tooltip.style('left', (d3.event.pageX) + 'px')
+					.style('top', (d3.event.pageY + 10) + 'px')
+			})
 			
 		// tooltip
 		var tooltip = d3.select('body')
 			.append('div')
 			.attr('class', 'tooltip')
 			.style('opacity', 0)
-	
-			return plot
+
 	}
 
 	var d = []
@@ -259,8 +260,7 @@ Promise.all([
 	}
 	console.log('d',d)
 
-	// var tp = ternaryPlot()
-	plot = getData(d, function(d) { return [d.f, d.m, d.n]})
+	getData(d, d => [d.f, d.m, d.n])
 
 	var count_cutoff_gender = $('#gender-range').val()
 
@@ -286,7 +286,7 @@ Promise.all([
 			i++
 		}
 		console.log('d', d)
-		plot = getData(d, function(d) { return [d.f, d.m, d.n]})
+		getData(d, d => [d.f, d.m, d.n])
 	}
 
 	next()
@@ -294,7 +294,6 @@ Promise.all([
 	$('#gender-range').on('change', function() {
 		// count_cutoff_gender = $('#gender-range').val()
 
-		// svg.selectAll('circle').remove()
 		next()
 	})
 

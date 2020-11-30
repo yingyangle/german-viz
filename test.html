@@ -33,7 +33,7 @@
 		<script src="//d3js.org/d3.v4.min.js"></script>
 
 		<style>
-			a{
+			/* a{
 				font-family: sans-serif;
 				color: #DB7365;
 				padding: 0.3rem;
@@ -44,7 +44,7 @@
 			}
 			body{
 				background: #fff1e0;
-			}
+			} */
 			line.tick {
 				stroke-width: 0.5;
 			}
@@ -55,51 +55,52 @@
 			}
 	
 			.a-axis{
-				stroke: #333;
+				stroke: #4d4b47;
 			}
 	
 			.b-axis{
-				stroke: #333;
+				stroke: #4d4b47;
 			}
 	
 			.c-axis{
-				stroke: #333;
+				stroke: #4d4b47;
 			}
 	
 			.axis-title{
-				font-family: sans-serif;
+				/* font-family: sans-serif; */
 				font-size: 1.5rem;
 			}
 	
 			text.tick-text {
-				font-family: sans-serif;
+				/* font-family: sans-serif; */
 				font-weight: lighter;
 				font-size: 1rem;
-				fill: #333;
+				/* fill: #333; */
 				stroke:none;
 			}
 	
 			circle {
-				fill: #fff1e0;
-				stroke: #DB7365;
+				/* fill: #fff1e0; */
+				fill: #fef9ee;
+				/* stroke: #DB7365; */
+				stroke: #76b7b2;
 				stroke-width: 2px;
 			}
 		</style>
 
 	</head>
-	<body>
+	<body class="text-center">
 
 		<svg width="500" height="100" id='slider'>Range filter</svg>
 
 		<!-- RANGE SLIDER -->
-		<div class="col-md-8">
 			<h6>Minimum count:</h6>
 			<br>
 			<div class="range-wrap">
 				<div class="range-value" id="gender-range-value"></div>
 				<input id="gender-range" type="range" min=200 max=4000 value=800 step=10>
 			</div>
-		</div>
+		<br>
 
 		<div id="plot"></div>
 		

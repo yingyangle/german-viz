@@ -13,7 +13,7 @@ function createMap() {
 	var map_data = d3.map()
 	var colorScale_map = d3.scaleThreshold()
 		.domain([100, 1000, 10000, 100000, 500000, 1000000, 10000000, 100000000])
-		.range(['transparent'].concat(['transparent'].concat('#ddf4f1', '#a4d1cc', '#86bdbc', '#45988d', '#24716b', '#146263', '#187183')))
+		.range(['transparent', 'transparent', '#ddf4f1', '#a4d1cc', '#86bdbc', '#45988d', '#24716b', '#146263', '#187183'])
 	
 	width = 1000
 	height = 540 // use this height to cut off Antarctica
@@ -91,55 +91,6 @@ function createMap() {
 			.attr('class', 'tooltip')
 			.style('opacity', 0)
 
-			//Legend
-
-//Append a defs (for definition) element to your SVG
-var defs = svg.append("defs");
-
-//Append a linearGradient element to the defs and give it a unique id
-var linearGradient = defs.append("linearGradient")
-	.attr("id", "linear-gradient");
-	
-//Horizontal gradient
-linearGradient
-    .attr("x1", "0%")
-    .attr("y1", "0%")
-    .attr("x2", "100%")
-    .attr("y2", "0%");	
-  
-
-//Set the color for the start (0%)
-linearGradient.append("stop")
-    .attr("offset", "0%")
-    .attr("stop-color", '#ddf4f1'); //light blue
-
-//Set the color for the end (100%)
-linearGradient.append("stop")
-    .attr("offset", "100%")
-	.attr("stop-color", '#187183'); //dark blue
-
-//Draw the rectangle and fill with gradient
-svg.append("rect")
-    .attr("width", 200)
-	.attr("height", 20)
-	.attr("x", 400)
-	.attr("y", 530)
-	.style("fill", "url(#linear-gradient)");
-	
-svg.append("text")
-.attr('x', 400)
-			.attr('y', 520)
-			.style('font-size', '10px')
-			.style('fill', '#4d4b47')
-			.text('100')
-
-svg.append("text")
-.attr('x', 600)
-			.attr('y', 520)
-			.style('font-size', '10px')
-			.style('fill', '#4d4b47')
-			.text('7,115,780')
-
 		// title
 		svg.append('text')
 			.attr('x', width / 2)
@@ -154,7 +105,7 @@ svg.append("text")
 			.attr('cx', 130)
 			.attr('cy', 420)
 			.attr('r', 90)
-			.style('fill', '#ddf4f1')
+			.style('fill', '#a4d1cc')
 			.attr('opacity', 0.8)
 		svg.append('text')
 			.attr('x', 130)
@@ -180,6 +131,57 @@ svg.append("text")
 			.style('font-size', '18px')
 			.style('fill', '#4d4b47')
 			.text('native speakers')
+
+		// LEGEND
+		// append a defs (for definition) element to your SVG
+		var defs = svg.append('defs')
+
+		// append a linearGradient element to the defs and give it a unique id
+		var linearGradient = defs.append('linearGradient')
+			.attr('id', 'linear-gradient')
+			
+		// horizontal gradient
+		linearGradient
+			.attr('x1', '0%')
+			.attr('y1', '0%')
+			.attr('x2', '100%')
+			.attr('y2', '0%')
+
+		// set the color for the start (0%)
+		linearGradient.append('stop')
+			.attr('offset', '0%')
+			.attr('stop-color', '#ddf4f1'); // light blue
+
+		// set the color for the end (100%)
+		linearGradient.append('stop')
+			.attr('offset', '100%')
+			.attr('stop-color', '#187183'); // dark blue
+
+		// draw the rectangle and fill with gradient
+		svg.append('rect')
+			.attr('width', 200)
+			.attr('height', 20)
+			.attr('x', 400)
+			.attr('y', 530)
+			.style('fill', 'url(#linear-gradient)')
+			
+		// legend text (left end)
+		svg.append('text')
+			.attr('x', 400)
+			.attr('y', 520)
+			.attr('class', 'nunito')
+			.style('font-size', '14px')
+			.style('fill', '#4d4b47')
+			.text('100')
+
+		// legend text (right end)
+		svg.append('text')
+			.attr('x', 600)
+			.attr('y', 520)
+			.attr('class', 'nunito')
+			.style('font-size', '14px')
+			.style('fill', '#4d4b47')
+			.text('7,115,780')
 		
 	}
 	
@@ -247,55 +249,6 @@ svg.append("text")
 			.attr('class', 'tooltip')
 			.style('opacity', 0)
 
-						//Legend
-
-//Append a defs (for definition) element to your SVG
-var defs = svg.append("defs");
-
-//Append a linearGradient element to the defs and give it a unique id
-var linearGradient = defs.append("linearGradient")
-	.attr("id", "linear-gradient");
-	
-//Horizontal gradient
-linearGradient
-    .attr("x1", "0%")
-    .attr("y1", "0%")
-    .attr("x2", "100%")
-    .attr("y2", "0%");	
-  
-
-//Set the color for the start (0%)
-linearGradient.append("stop")
-    .attr("offset", "0%")
-    .attr("stop-color", '#ddf4f1'); //light blue
-
-//Set the color for the end (100%)
-linearGradient.append("stop")
-    .attr("offset", "100%")
-	.attr("stop-color", '#187183'); //dark blue
-
-//Draw the rectangle and fill with gradient
-svg.append("rect")
-    .attr("width", 200)
-	.attr("height", 20)
-	.attr("x", 400)
-	.attr("y", 530)
-	.style("fill", "url(#linear-gradient)");
-	
-svg.append("text")
-.attr('x', 400)
-			.attr('y', 520)
-			.style('font-size', '10px')
-			.style('fill', '#4d4b47')
-			.text('1')
-
-svg.append("text")
-.attr('x', 600)
-			.attr('y', 520)
-			.style('font-size', '10px')
-			.style('fill', '#4d4b47')
-			.text('1,953,014')
-
 		// title
 		svg.append('text')
 			.attr('x', width / 2)
@@ -304,9 +257,8 @@ svg.append("text")
 			.style('font-size', '36px')
 			.style('fill', '#4d4b47')
 			.text('German Language Learners Around the World')
-			
 		
-		// total
+		// total circle
 		svg.append('circle')
 			.attr('cx', 130)
 			.attr('cy', 420)
@@ -337,6 +289,57 @@ svg.append("text")
 			.style('font-size', '18px')
 			.style('fill', '#4d4b47')
 			.text('learners')
+
+		// LEGEND
+		// append a defs (for definition) element to your SVG
+		var defs = svg.append('defs')
+
+		// append a linearGradient element to the defs and give it a unique id
+		var linearGradient = defs.append('linearGradient')
+			.attr('id', 'linear-gradient')
+			
+		// horizontal gradient
+		linearGradient
+			.attr('x1', '0%')
+			.attr('y1', '0%')
+			.attr('x2', '100%')
+			.attr('y2', '0%')
+
+		// set the color for the start (0%)
+		linearGradient.append('stop')
+			.attr('offset', '0%')
+			.attr('stop-color', '#ddf4f1'); // light blue
+
+		// set the color for the end (100%)
+		linearGradient.append('stop')
+			.attr('offset', '100%')
+			.attr('stop-color', '#187183'); // dark blue
+
+		// draw the rectangle and fill with gradient
+		svg.append('rect')
+			.attr('width', 200)
+			.attr('height', 20)
+			.attr('x', 400)
+			.attr('y', 530)
+			.style('fill', 'url(#linear-gradient)')
+			
+		// legend text (left end)
+		svg.append('text')
+			.attr('x', 400)
+			.attr('y', 520)
+			.attr('class', 'nunito')
+			.style('font-size', '14px')
+			.style('fill', '#4d4b47')
+			.text('1')
+
+		// legend text (right end)
+		svg.append('text')
+			.attr('x', 600)
+			.attr('y', 520)
+			.attr('class', 'nunito')
+			.style('font-size', '14px')
+			.style('fill', '#4d4b47')
+			.text('1,953,014')
 	}
 
 		
