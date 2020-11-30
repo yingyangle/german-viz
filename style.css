@@ -76,7 +76,7 @@ body {
 }
 
 #title {
-	font-family: 'Averia Serif Libre', serif;
+	font-family: 'Sacramento', serif;
 	font-size: 90px;
 	margin-bottom: 10px;
 }
@@ -175,7 +175,7 @@ a:hover {
 }
 
 .funword {
-	margin: 20px 0;
+	margin: 10px 0;
 }
 
 .funword-part {
@@ -186,6 +186,8 @@ a:hover {
 
 .funword-answer {
 	visibility: hidden;
+	font-size: 18px;
+	line-height: 34px;
 }
 
 .sankey-node, #show-all-singulars, #show-all-plurals {
