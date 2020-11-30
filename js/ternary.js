@@ -217,11 +217,11 @@ function createTernary(gender_pct) {
 					.style('top', (d3.event.pageY + 10) + 'px')
 			})
 			
-		// tooltip
-		var tooltip = d3.select('body')
-			.append('div')
-			.attr('class', 'tooltip')
-			.style('opacity', 0)
+		// // tooltip
+		// var tooltip = d3.select('body')
+		// 	.append('div')
+		// 	.attr('class', 'tooltip')
+		// 	.style('opacity', 0)
 
 	}
 

@@ -107,6 +107,61 @@
 
 				<p>In addition to a shared origin with German, we also have a lot of <b>loanwords</b> in English taken directly from modern German vocabulary. German has many interesting words to express specific and relatable concepts that we don't have words for in English. Some of these words such as <b>"zeitgeist"</b> might sound familiar to you, because in fact English borrows a lot of words from modern German, especially when we lack the exact word ourselves.</p>
 
+				<p>Hover over the following German words and see if you can guess the meaning from its parts. Click on the word to reveal the answer!</p>
+
+				<!-- FUN WORDS -->
+				<div id="funwords-container">
+					<!-- ROW 1 -->
+					<div class="row">
+						<!-- TREPPENWITZ -->
+						<div class="col-md-4">
+							<div class="funword">
+								<span class="funword-part" data-funword-part="staircase">Treppen</span><span class="funword-part" data-funword-part="joke">witz</span>
+								<div class="funword-answer"><i>(lit. "staircase joke")</i> a remark or rejoinder thought of only when it is too late; an ironic and absurd coincidence</div>
+							</div>
+						</div> <!-- end col -->
+						<!-- TREPPENWITZ -->
+						<div class="col-md-4">
+							<div class="funword">
+								<span class="funword-part" data-funword-part="staircase">Treppen</span><span class="funword-part" data-funword-part="joke">witz</span>
+								<div class="funword-answer"><i>(lit. "staircase joke")</i> a remark or rejoinder thought of only when it is too late; an ironic and absurd coincidence</div>
+							</div>
+						</div> <!-- end col -->
+						<!-- TREPPENWITZ -->
+						<div class="col-md-4">
+							<div class="funword">
+								<span class="funword-part" data-funword-part="staircase">Treppen</span><span class="funword-part" data-funword-part="joke">witz</span>
+								<div class="funword-answer"><i>(lit. "staircase joke")</i> a remark or rejoinder thought of only when it is too late; an ironic and absurd coincidence</div>
+							</div>
+						</div> <!-- end col -->
+					</div> <!-- end row -->
+					<!-- ROW 2 -->
+					<div class="row">
+						<!-- TREPPENWITZ -->
+						<div class="col-md-4">
+							<div class="funword">
+								<span class="funword-part" data-funword-part="staircase">Treppen</span><span class="funword-part" data-funword-part="joke">witz</span>
+								<div class="funword-answer"><i>(lit. "staircase joke")</i> a remark or rejoinder thought of only when it is too late; an ironic and absurd coincidence</div>
+							</div>
+						</div> <!-- end col -->
+						<!-- TREPPENWITZ -->
+						<div class="col-md-4">
+							<div class="funword">
+								<span class="funword-part" data-funword-part="staircase">Treppen</span><span class="funword-part" data-funword-part="joke">witz</span>
+								<div class="funword-answer"><i>(lit. "staircase joke")</i> a remark or rejoinder thought of only when it is too late; an ironic and absurd coincidence</div>
+							</div>
+						</div> <!-- end col -->
+						<!-- TREPPENWITZ -->
+						<div class="col-md-4">
+							<div class="funword">
+								<span class="funword-part" data-funword-part="staircase">Treppen</span><span class="funword-part" data-funword-part="joke">witz</span>
+								<div class="funword-answer"><i>(lit. "staircase joke")</i> a remark or rejoinder thought of only when it is too late; an ironic and absurd coincidence</div>
+							</div>
+						</div> <!-- end col -->
+					</div> <!-- end row -->
+				</div> <!-- end container -->
+				<br>
+
 				<p>[FUN WORDS] (Treppenwitz (staircase joke, a joke/comeback you think of after a conversation/argument) Erklärungsnot (lack of an explanation), Backpfeifengesicht (a face in need of a slap), Kummerspeck (weight gained from stress eating/emotional eating), Fremdschämen (feeling second hand embarassment for someone else), Weltschmerz (a feeling of world weariness/ melancholy), Schadenfreude (feeling pleasure at others' pain), Drachenfutter (A gift given to placate someone, especially a spouse, who is angry at the giver), Futterneid (food envy, that feeling you get when someone else ordered a better dish than you), Ruinenlust (an obsession with ancient ruins), Schattenparker (somebody who parks his car in the shade for fear of it getting too hot in the sun, aka wimp), Schnapsidee ("booze idea", an idea sounds crazy, useless, or completely foolish), Sitzfleisch ("sitting meat", aka buttocks), Zeitgeist (spirit of the times), etc.)</p>
 
 			</div>
@@ -273,9 +328,17 @@
 
 
 
+		<script>
+			// tooltip
+			var tooltip = d3.select('body')
+				.append('div')
+				.attr('class', 'tooltip')
+				.style('opacity', 0)
+		</script>
 
 		<script src="js/loan.js" defer></script>
 		<script src="js/map.js" defer></script>
+		<script src="js/funwords.js" defer></script>
 
 		<script src="js/gender.js" defer></script>
 		<script src="js/ternary.js" defer></script>

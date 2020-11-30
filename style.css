@@ -156,6 +156,20 @@ a:hover {
 	max-width: 10%;
 }
 
+.funword {
+	margin: 20px 0;
+}
+
+.funword-part {
+	font-family: 'Jacques Francois Shadow';
+	font-size: 50px;
+	cursor: pointer;
+}
+
+.funword-answer {
+	visibility: hidden;
+}
+
 .sankey-node, #show-all-singulars, #show-all-plurals {
 	cursor: pointer;
 }

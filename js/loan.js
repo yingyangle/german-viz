@@ -97,11 +97,11 @@ function createLoanwords(words) {
 		})
 		
 
-	// tooltip
-	var tooltip = d3.select('body')
-		.append('div')
-		.attr('class', 'tooltip')
-		.style('opacity', 0)
+	// // tooltip
+	// var tooltip = d3.select('body')
+	// 	.append('div')
+	// 	.attr('class', 'tooltip')
+	// 	.style('opacity', 0)
 
 	//Legend
 		var legend = svg.append('g')
