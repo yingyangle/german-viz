@@ -1,7 +1,14 @@
-function createForce() {
-	data = _.cloneDeep(data_orig)
-	var gender_data = data.genders
-	console.log('force',gender_data.nodes)
+// load .json files
+Promise.all([
+	d3.json('data/genders.json')
+]).then(data => {
+	createForce(data[0])
+})
+	
+function createForce(data) {
+	// data = _.cloneDeep(data_orig)
+	var gender_data = data
+	console.log('force', gender_data.nodes)
 
 	width = 1000
 	height = 700

@@ -1,15 +1,16 @@
-// RANGE SLIDER FOR MINIMUM COUNT (count_cutoff_gender)
-const range = document.getElementById('gender-range')
-const rangeV = document.getElementById('gender-range-value')
-const setValue = () => {
-		const newValue = Number( (range.value - range.min) * 100 / (range.max - range.min) )
-		const newPosition = 10 - (newValue * 0.2)
-		rangeV.innerHTML = `<span>${range.value}</span>`
-		rangeV.style.left = `calc(${newValue}% + (${newPosition}px))`
+// RANGE SLIDER FOR *GENDER* MINIMUM COUNT (count_cutoff_gender)
+var range_gender = document.getElementById('gender-range')
+var rangeV_gender = document.getElementById('gender-range-value')
+var setValue_gender = () => {
+		var newValue_gender = Number( (range_gender.value - range_gender.min) * 100 / (range_gender.max - range_gender.min) )
+		var newPosition_gender = 10 - (newValue_gender * 0.2)
+		rangeV_gender.innerHTML = `<span>${range_gender.value}</span>`
+		rangeV_gender.style.left = `calc(${newValue_gender}% + (${newPosition_gender}px))`
 	}
-document.addEventListener('DOMContentLoaded', setValue)
-range.addEventListener('input', setValue)
+document.addEventListener('DOMContentLoaded', setValue_gender)
+range_gender.addEventListener('input', setValue_gender)
 
+var count_cutoff_gender = $('#gender-range').val()
 
 Promise.all([
 	d3.json('data/gender_pct.json')
@@ -20,15 +21,15 @@ Promise.all([
 	var dataset
 
 	var opt = {
-		width: 900,
-		height: 900,
+		width: 700,
+		height: 500,
 		side: 400,
-		margin: {top: 70,left: 150,bottom: 150,right: 150},
-		axis_labels:['Feminine', 'Masculine', 'Neuter'],
-		axis_ticks:d3.range(0, 101, 20),
+		margin: {top: 70, left: 150, bottom: 150, right: 150},
+		axis_labels: ['Feminine', 'Masculine', 'Neuter'],
+		axis_ticks: d3.range(0, 101, 20),
 		minor_axis_ticks: d3.range(0, 101, 5),
 		tickLabelMargin: 10,
-		axisLabelMargin: 40 
+		axisLabelMargin: 40
 	}
 
 	var svg = d3.select('#ternary')
@@ -78,7 +79,6 @@ Promise.all([
 			return 'translate('+x+','+y+')'
 		})
 
-
 	// ticks
 	var n = opt.axis_ticks.length
 	if (opt.minor_axis_ticks){
@@ -89,7 +89,6 @@ Promise.all([
 			var coord4 = coord([100-v, 0, v])
 			
 			axes.append('line')
-				// .attr(lineAttributes(coord1, coord2))
 				.attr('x1', coord1[0])
 				.attr('x2', coord2[0])
 				.attr('y1', coord1[1])
@@ -97,7 +96,6 @@ Promise.all([
 				.classed('a-axis minor-tick', true)
 
 			axes.append('line')
-				// .attr(lineAttributes(coord2, coord3))
 				.attr('x1', coord2[0])
 				.attr('x2', coord3[0])
 				.attr('y1', coord2[1])
@@ -105,7 +103,6 @@ Promise.all([
 				.classed('b-axis minor-tick', true)
 
 			axes.append('line')
-				// .attr(lineAttributes(coord3, coord4))
 				.attr('x1', coord3[0])
 				.attr('x2', coord4[0])
 				.attr('y1', coord3[1])
@@ -179,9 +176,7 @@ Promise.all([
 			.attr('x',opt.tickLabelMargin)
 			.attr('class', 'nunito')
 			.classed('c-axis tick-text', true)
-
 	})
-
 
 	function coord(arr) {
 		var a = arr[0], b = arr[1], c = arr[2]
@@ -197,7 +192,7 @@ Promise.all([
 		return pos
 	}
 
-	function getData(data, accessor) {
+	function drawCircles(data, accessor) {
 		dataset = data
 		circle_data = data.map(d => coord(accessor(d))), function(d,i) {
 				return dataset[i]['label']
@@ -245,30 +240,8 @@ Promise.all([
 
 	}
 
-	var d = []
-	var i = 0
-	for (let item in gender_pct[0]) {
-		d.push({
-			f: gender_pct[0][item].f,
-			m: gender_pct[0][item].m,
-			n: gender_pct[0][item].n,
-			name: gender_pct[0][item].name,
-			total: gender_pct[0][item].total,
-			label: 'point' + i
-		})
-		i++
-	}
-	console.log('d',d)
-
-	getData(d, d => [d.f, d.m, d.n])
-
-	var count_cutoff_gender = $('#gender-range').val()
-
-	function next() {
-		console.log('NEXT')
-		count_cutoff_gender = $('#gender-range').val()
-		console.log('cutoff', count_cutoff_gender)
-
+	// UPDATE TERNARY PLOT
+	function update() {
 		var d = []
 		var i = 0
 		for (let item in gender_pct[0]) {
@@ -285,16 +258,33 @@ Promise.all([
 			})
 			i++
 		}
-		console.log('d', d)
-		getData(d, d => [d.f, d.m, d.n])
+		console.log('ternary', d)
+		drawCircles(d, d => [d.f, d.m, d.n])
 	}
 
-	next()
+	// INITIALIZE
+	var d = []
+	var i = 0
+	for (let item in gender_pct[0]) {
+		if (gender_pct[0][item].total < count_cutoff_gender) {
+			continue
+		}
+		d.push({
+			f: gender_pct[0][item].f,
+			m: gender_pct[0][item].m,
+			n: gender_pct[0][item].n,
+			name: gender_pct[0][item].name,
+			total: gender_pct[0][item].total,
+			label: 'point' + i
+		})
+		i++
+	}
+	console.log('ternary', d)
+	drawCircles(d, d => [d.f, d.m, d.n])
 
 	$('#gender-range').on('change', function() {
-		// count_cutoff_gender = $('#gender-range').val()
-
-		next()
+		count_cutoff_gender = $('#gender-range').val()
+		update()
 	})
 
 })

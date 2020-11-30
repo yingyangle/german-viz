@@ -19,7 +19,7 @@ function createBubble() {
 			bubble_links = data.links
 			// filter nodes to show correct type (plural or singular)
 			bubble_nodes = bubble_nodes.filter(node => {
-				return node.type != selected_type // & node.count >= count_cutoff
+				return node.type != selected_type // & node.count >= count_cutoff_plural
 			})
 		} else {
 			bubble_nodes = nodes

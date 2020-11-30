@@ -1,16 +1,27 @@
 
-function createMap() {
-	data = _.cloneDeep(data_orig)
-	var world = data.world
-	var speakers = data.speakers
-	var learners = data.learners
+// load .json files
+Promise.all([
+	d3.json('data/world.geojson'),
+	d3.json('data/speakers.json'),
+	d3.json('data/learners.json'),
+]).then(data => {
+	createMap(data)
+})
+
+function createMap(data) {
+	var world = data[0]
+	var speakers = data[1]
+	var learners = data[2]
 	console.log('map', data)
 
-	var path = d3.geoPath()
+	var width = 1000
+	var height = 700
+
+	// var path = d3.geoPath()
 	var projection = d3.geoNaturalEarth1()
 		.fitExtent([[0, 0], [width, height]], world)
 
-	var map_data = d3.map()
+	// var map_data = d3.map()
 	var colorScale_map = d3.scaleThreshold()
 		.domain([100, 1000, 10000, 100000, 500000, 1000000, 10000000, 100000000])
 		.range(['transparent', 'transparent', '#ddf4f1', '#a4d1cc', '#86bdbc', '#45988d', '#24716b', '#146263', '#187183'])
@@ -18,7 +29,7 @@ function createMap() {
 	width = 1000
 	height = 540 // use this height to cut off Antarctica
 
-	svg = d3.select('#map')
+	var svg = d3.select('#map')
 		.append('svg')
 		.attr('width', width)
 		.attr('height', height)

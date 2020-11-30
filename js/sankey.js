@@ -1,5 +1,4 @@
 function createSankey() {
-	console.log(data, 'sank')
 	let m = 90
 	let margin = ({ top: 50, right: m, bottom: 10, left: m })
 	let width = 700
@@ -38,14 +37,14 @@ function createSankey() {
 		var nodes_to_remove = []
 		for (var i in data.nodes) {
 			n = data.nodes[i]
-			if (n.count < count_cutoff) {
+			if (n.count < count_cutoff_plural) {
 				nodes_to_remove.push(n.i)
 			} 
 		}
 		// console.log('remove', nodes_to_remove)
-		// remove nodes with count < count_cutoff
+		// remove nodes with count < count_cutoff_plural
 		data.nodes = data.nodes.filter(node => {
-			return node.count > count_cutoff
+			return node.count > count_cutoff_plural
 		})
 
 		// get index of singular 'other' type and plural 'other' type
@@ -115,15 +114,15 @@ function createSankey() {
 	// UPDATE FUNCTION
 	// re-filter data, clear svg contents, draw new svg contents
 	function update() {
-		// get new count_cutoff
-		count_cutoff = parseInt($('#sankey-range').val())
+		// get new count_cutoff_plural
+		count_cutoff_plural = parseInt($('#sankey-range').val())
 		// get new filtered data
 		var sankey_data = getData()
 		var sankey_nodes = sankey_data.sankey_nodes 
 		var sankey_links = sankey_data.sankey_links
 		// console.log(sankey_nodes, sankey_links)
 		// console.log('nodes:', sankey_nodes.length, 'links:', sankey_links.length)
-		// console.log('count_cutoff', count_cutoff)
+		// console.log('count_cutoff_plural', count_cutoff_plural)
 
 		// clear svg contents
 		svg.selectAll('*').remove()
@@ -235,6 +234,7 @@ function createSankey() {
 			.data(sankey_nodes)
 			.join('text')
 			.attr('class', 'nunito')
+			.attr('font-size', '16px')
 			.attr('x', d => d.x0 < width / 2 ? d.x1 - 20 : d.x0 + 20)
 			.attr('y', d => (d.y1 + d.y0) / 2)
 			.attr('dy', '0.35em')
@@ -246,6 +246,7 @@ function createSankey() {
 			.data(sankey_nodes)
 			.join('text')
 			.attr('class', 'nunito')
+			.attr('font-size', '16px')
 			.attr('x', d => d.x0 < width / 2 ? d.x1 + 6 : d.x0 - 6)
 			.attr('y', d => (d.y1 + d.y0) / 2)
 			.attr('dy', '0.35em')

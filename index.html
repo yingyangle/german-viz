@@ -171,9 +171,20 @@
 			</div>
 			
 			<!-- GENDER VIZ -->
+			<!-- RANGE SLIDER -->
+			<h6>Minimum count:</h6>
+			<br>
+			<div class="range-wrap">
+				<div class="range-value" id="gender-range-value"></div>
+				<input id="gender-range" type="range" min=200 max=4000 value=800 step=10>
+			</div>
+			<br>
+			<!-- TERNARY PLOT -->
+			<div id="ternary"></div>
+			
+			<!-- GENDER FORCE DIAGRAM? -->
 			<div id="force" ></div>
 			<div id="forcetooltip" class="hidden"></div>
-			<!-- <img src="img/gender.png" alt=""><br><br> -->
 
 			<!-- PLURALS -->
 			<div class="text-container">
@@ -244,35 +255,31 @@
 				</div> <!-- end row -->
 			</div>
 			<br><br>
-
-			<!-- <img src="img/plurals.png" alt=""><br><br> -->
 			
 			<div class="text-container">
 				<p><i>[talk about insights gained from this visualization, patterns found, exceptions to the rule, how this can help learners of German]</i></p>
 			</div>
 		
-		<br><br><br><br><br>
-		<p> gemacht mit <img src="https://www.flaticon.com/svg/static/icons/svg/3208/3208707.svg" alt="" height="20px" class="heart-icon"> in Boston </p>
+			<!-- FOOTER -->
+			<br><br><br><br><br>
+			<p> gemacht mit <img src="https://www.flaticon.com/svg/static/icons/svg/3208/3208707.svg" alt="" height="20px" class="heart-icon"> in Boston </p>
 		</div>
 
 
 
-		<script src="js/main.js" defer></script>
 
 		<script src="js/loan.js" defer></script>
 		<script src="js/map.js" defer></script>
-		<script src="js/force.js" defer></script>
+		<script src="js/ternary.js"></script> 
+		<!-- <script src="js/force.js" defer></script> -->
+
 		<script src="js/sankey.js" defer></script>
 		<script src="js/bubble.js" defer></script>
 		<script src="js/pie.js" defer></script>
 		<script src="js/wordlist.js" defer></script>
-		<script src="js/scatter.js"></script> 
+		<script src="js/scatter.js" defer></script>
+		<script src="js/plurals.js" defer></script>
 		
-		
-		<!-- 
-		<script src="js/force.js"></script>
-		
-		-->
 
 	</body>
 </html>
