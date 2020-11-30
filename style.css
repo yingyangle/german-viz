@@ -124,9 +124,10 @@ table {
 	color: #4d4b47;
 }
 
-/* .row {
-	width: 100%;
-} */
+.row {
+	/* width: 100%; */
+	margin: auto;
+}
 
 /* h5 {
 	font-family: 'Sacramento', serif;
