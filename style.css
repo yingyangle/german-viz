@@ -158,6 +158,17 @@ a:hover {
 	display: inline-block;
 }
 
+/* for plurals selection */
+.current-selection {
+	padding: 30px;
+	font-size: 30px;
+	/* background-color: #4d4b47; */
+	/* color: #fef9ee; */
+	border: 2px solid #4d4b47;
+	border-radius: 14px;
+	display: inline-block;
+}
+
 .btn {
 	/* color: #f7f7f7; */
 	/* background-color: #79b7bb; */

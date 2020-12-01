@@ -2,7 +2,7 @@ function createSankey() {
 	let m = 90
 	let margin = ({ top: 50, right: m, bottom: 10, left: m })
 	let width = 700
-	let height = 1000
+	let height = 900
 
 	var edgeColor = 'path' // color of links
 
@@ -12,8 +12,8 @@ function createSankey() {
 		.append('g')
 		.attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
 
-	width = 700 - margin.left - margin.right
-	height = 1000 - margin.top - margin.bottom
+	width = width - margin.left - margin.right
+	height = height - margin.top - margin.bottom
 
 	let _sankey = d3.sankey()
 		.nodeWidth(15)

@@ -554,18 +554,31 @@
 			</div>
 			<br>
 
+			<div class="current-selection">Currently showing data for: <b><span id="selected-ending">All Plurals</span> <span id="selected-type"></span></b></div>
+			<br><br>
+
+			<button id="show-all-plurals" class="btn">Show All Plurals</button>
+			<button id="show-all-singulars" class="btn">Show All Singulars</button>
+			<br><br>
+
 			<!-- PLURALS VIZ -->
 			<div class="container-fluid">
 				<div class="row">
 					<!-- LEFT COLUMN - SANKEY -->
 					<div id="sankey-container" class="col-md-7">
-						<!-- top row -->
+						<div class="important-text"><b>Click the edges</b> of the graph below to select a singular or plural ending.</div>
+						<br><br>
+						<!-- SANKEY DIAGRAM -->
+						<svg id="sankey" ></svg>
+						<br><br>
+						<!-- buttons row -->
 						<div class="row">
 							<!-- SHOW OTHER BUTTON -->
-							<div class="col-md-4">
-								<br><br>
+							<!-- <div class="col-md-4">
+								<br>
 								<button id="sankey-other-button" class="btn">Show "Other"</button>
-							</div>
+							</div> -->
+							<div class="col-md-2"></div>
 							<!-- RANGE SLIDER -->
 							<div class="col-md-8">
 								<h6>Minimum count:</h6>
@@ -575,20 +588,11 @@
 									<input id="sankey-range" type="range" min=200 max=2000 value=800 step=100>
 								</div>
 							</div>
+							<div class="col-md-2"></div>
 						</div> <!-- end row -->
-						<br>
-						<div class="important-text"><b>Click the edges</b> of the graph below to select a singular or plural ending.</div>
-						<br><br>
-						<!-- SANKEY DIAGRAM -->
-						<svg id="sankey" ></svg>
-						<br>
 					</div>
 					<!-- RIGHT COLUMN - BUBBLE CHART, PIE CHART -->
 					<div class="col-md-5">
-						<div class="important-text">Currently showing Data For: <b><span id="selected-ending">All Plurals</span> <span id="selected-type"></span></b></div>
-						<br><br>
-						<button id="show-all-plurals" class="btn">Show All Plurals</button>
-						<button id="show-all-singulars" class="btn">Show All Singulars</button>
 						<br><br>
 						<!-- BUBBLE CHART -->
 						<div id="bubble"></div>
