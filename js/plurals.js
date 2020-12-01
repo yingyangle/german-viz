@@ -88,8 +88,8 @@ Promise.all([
 	createSankey()
 	createBubble()
 	createPie()
-	createWordlist()
-	createScatter()
+	// createWordlist()
+	// createScatter()
 
 	// HIDE LOADING SCREEN
 	// document.body.classList.toggle('noscroll', false)
