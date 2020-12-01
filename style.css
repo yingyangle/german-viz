@@ -453,3 +453,36 @@ text.tick-text {
 	}
 
 }
+
+
+/* navbar */
+nav {
+	position: fixed;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	background-color: #fef9ee;
+	/* display: block; */
+  }
+  
+  nav ul{
+	list-style-type: none;
+	display: flex;
+	flex-direction: row;
+	width : 100%;
+	justify-content : center;
+	background-color: #fef9ee;
+  }
+  
+  nav>ul>li {
+	margin-left: 5%;
+	margin-right: 5%
+  }
+  
+  nav a{
+	font-weight: 600;
+	text-transform:uppercase;
+	position:relative;
+	display:inline-block;
+	color:black;
+  }

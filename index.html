@@ -34,12 +34,24 @@
 	</head>
 
 	<body>
-
+		
 		<!-- LOADING SCREEN -->
 		<div id="loading">
 			<div class="spinner"></div>
 		</div>
 
+<!-- NAVIGATION -->
+
+		<nav>
+				<ul>
+					<li><a href="#Introduction"> Introduction</a></li>
+					<li><a href="#grammar"> German Grammar</a></li>
+					<li><a href="#genderpattern"> Gender Pattern</a></li>
+					<li><a href="#pluralpattern"> Plural Pattern</a></li>
+				</ul>
+		</nav>
+
+	
 		<div id="container" class="text-center">
 
 			<!-- TITLE -->
@@ -52,6 +64,8 @@
 
 			<!-- INTRO -->
 			<div class="text-container">
+				<section id='Introduction'>
+
 				
 				<!-- <h2>Why learn German?</h2>
 				
@@ -215,9 +229,12 @@
 				<br><br>
 			</div>
 
+		</section>
+
 			<!-- BAR CHART SHOWING TOP COUNTRIES WITH MOST GERMAN LEARNERS?? -->
 
 			<!-- GERMAN GRAMMAR -->
+		<section id="grammar">
 			<div class="text-container">
 				<br>
 				<h2>German Grammar</h2>
@@ -463,7 +480,9 @@
 
 			</div>
 			<br>
-			
+		</section>
+
+		<section id='genderpattern'>
 			<!-- GENDER VIZ -->
 			<div class="viz-container">
 				<div class="row">
@@ -504,9 +523,12 @@
 			</div>
 			<br>
 			
-			
 			<!-- GENDER FORCE DIAGRAM? -->
 			<div id="force" ></div>
+		</section>
+
+		<section id='pluralpattern'>
+			
 
 			<!-- PLURALS -->
 			<div class="text-container">
@@ -585,7 +607,7 @@
 			<br><br><br><br><br>
 			<p> gemacht mit <img src="https://www.flaticon.com/svg/static/icons/svg/3208/3208707.svg" alt="" height="20px" class="heart-icon"> in Boston </p>
 		</div>
-
+	</div>
 
 
 		<script>
@@ -597,6 +619,8 @@
 				.style('opacity', 0)
 
 		</script>
+	
+	</section>
 
 		<script src="js/loan.js" defer></script>
 		<script src="js/map.js" defer></script>
