@@ -5,7 +5,7 @@ body {
 	font-size: 20px;
 	font-weight: 900px;
 	line-height: 36px;
-	/* font-family: 'Sacramento', serif; */
+	/* font-family: 'Nanum Pen Script', serif; */
 	text-align: center;
 }
 
@@ -76,18 +76,18 @@ body {
 }
 
 #title {
-	font-family: 'Sacramento', serif;
+	font-family: 'Nanum Pen Script', serif;
 	font-size: 90px;
 	margin-bottom: 10px;
 }
 
 h2 {
-	font-family: 'Sacramento', serif;
+	font-family: 'Nanum Pen Script', serif;
 	font-size: 60px;
 }
 
 h3 {
-	font-family: 'Sacramento', serif;
+	font-family: 'Nanum Pen Script', serif;
 	font-size: 40px;
 }
 
@@ -102,7 +102,7 @@ h5 {
 }
 
 svg {
-	font-family: 'Sacramento', serif;
+	font-family: 'Nanum Pen Script', serif;
 	color: #4d4b47;
 }
 
@@ -130,7 +130,7 @@ table {
 }
 
 /* h5 {
-	font-family: 'Sacramento', serif;
+	font-family: 'Nanum Pen Script', serif;
 	font-size: 30px;
 } */
 
@@ -458,31 +458,36 @@ text.tick-text {
 /* navbar */
 nav {
 	position: fixed;
+	z-index: 5;
 	top: 0%;
 	left: 0%;
 	width: 100%;
 	background-color: #fef9ee;
-	/* display: block; */
-  }
-  
-  nav ul{
+}
+
+nav ul{
 	list-style-type: none;
 	display: flex;
 	flex-direction: row;
 	width : 100%;
 	justify-content : center;
 	background-color: #fef9ee;
-  }
-  
-  nav>ul>li {
+	margin: 0;
+	padding: 10px;
+}
+
+nav>ul>li {
 	margin-left: 5%;
 	margin-right: 5%
-  }
-  
-  nav a{
+}
+
+nav a{
 	font-weight: 600;
-	text-transform:uppercase;
-	position:relative;
-	display:inline-block;
-	color:black;
-  }
+	position: relative;
+	display: inline-block;
+	color: #4d4b47;
+	font-family: 'Nunito Sans';
+	text-transform: uppercase;
+	font-size: 20px;
+	/* font-size: 30px; */
+}
