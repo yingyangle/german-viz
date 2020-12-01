@@ -1,4 +1,4 @@
-// SHOW LOADING SCREEN
+// // SHOW LOADING SCREEN
 // document.body.classList.toggle('noscroll', true)
 // $('#loading').css('visibility', 'visible')
 
@@ -8,6 +8,8 @@ var other_flag = 0 // whether or not to show singular "other" category
 var selected_ending = ''
 var selected_type = 'singular'
 var selected_i = -1 // index of selected_ending in nodes list
+
+var plurals_total = 180424
 
 var data, nodes, links, nouns
 var data_orig
@@ -32,21 +34,11 @@ Promise.all([
 	d3.json('data/nodes.json'),
 	d3.json('data/links.json'),
 	d3.json('data/nouns.json'),
-	// d3.json('data/loanwords.json'),
-	// d3.json('data/genders.json'),
-	// d3.json('data/world.geojson'),
-	// d3.json('data/speakers.json'),
-	// d3.json('data/learners.json'),
 ]).then(data => {
 	data = {
 		'nodes': data[0],
 		'links': data[1],
 		'nouns': data[2],
-		// 'loanwords': data[3],
-		// 'genders': data[4],
-		// 'world': data[5],
-		// 'speakers': data[6],
-		// 'learners': data[7],
 	}
 	// move singular "other" to end of nodes list
 	var removed = data.nodes.splice(data.nodes.findIndex(x => x.name == 'other' & x.type == 'singular'), 1)
@@ -65,7 +57,7 @@ Promise.all([
 	// createWordlist()
 	// createScatter()
 
-	// HIDE LOADING SCREEN
+	// // HIDE LOADING SCREEN
 	// document.body.classList.toggle('noscroll', false)
 	// $('#loading').css('visibility', 'hidden')
 

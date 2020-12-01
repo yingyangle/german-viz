@@ -2,7 +2,7 @@ function createBubble() {
 
 	let width = 500
 	let height = 500
-	var center = { x: width / 2 , y: height / 2 + 900 }
+	var center = { x: 0 , y: 40 }
 
 	var bubble_title = 'Plural Endings Distribution'
 	var bubble_type = 'Plural'
@@ -51,6 +51,9 @@ function createBubble() {
 			bubble_nodes = bubble_nodes.filter(node => {
 				return !nodes_to_remove.includes(node)
 			})
+		} else {
+			// update total
+			plurals_total = 180424
 		}
 
 		const maxSize = d3.max(bubble_nodes, d => +d.count)
@@ -87,7 +90,7 @@ function createBubble() {
 
 		const force = d3.forceSimulation(bubble_nodes)
 			.force('charge', d3.forceManyBody().strength(charge))
-			.force('center', d3.forceCenter())
+			.force('center', d3.forceCenter(center.x, center.y))
 			.force('x', d3.forceX().strength(0.07).x(center.x))
 			.force('y', d3.forceY().strength(0.07).y(center.y))
 			.force('collision', d3.forceCollide().radius(d => d.radius + 1))
@@ -108,10 +111,12 @@ function createBubble() {
 			.attr('opacity', 0.6)
 			.call(drag(force))
 			.on('mouseover.tooltip', function(d) {
+				var pct = Math.round(1000 * d.count / plurals_total) / 10
+
 				tooltip.transition()
 					.duration(200)
 					.style('opacity', 0.9)
-				tooltip.html(bubble_type + ' Type: <b>' + d.name + '</b><br>' + `${f(d.count)} words`)
+				tooltip.html(bubble_type + ' Type: <b>' + d.name + '</b><br>Percentage: <b>' + pct + '%</b>')
 					.style('left', (d3.event.pageX) + 'px')
 					.style('top', (d3.event.pageY + 10) + 'px')
 			})
@@ -136,10 +141,11 @@ function createBubble() {
 			.attr('text-anchor', 'middle')
 			.call(drag(force))
 			.on('mouseover.tooltip', function(d) {
+				var pct = Math.round(1000 * d.count / plurals_total) / 10
 				tooltip.transition()
 					.duration(200)
-					.style('opacity', .9)
-				tooltip.html(bubble_type + ' Type: <b>' + d.name + '</b><br>' + `${f(d.count)} words`)
+					.style('opacity', 0.9)
+				tooltip.html(bubble_type + ' Type: <b>' + d.name + '</b><br>Percentage: <b>' + pct + '%</b>')
 					.style('left', (d3.event.pageX) + 'px')
 					.style('top', (d3.event.pageY + 10) + 'px')
 			})

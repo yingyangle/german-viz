@@ -65,7 +65,7 @@ d3.selectAll('#genderlist-header div')
 		tooltip.transition()
 			.duration(200)
 			.style('opacity', .9)
-		tooltip.html('Click on a column header to sort by that column.')
+		tooltip.html('Click on a column header to sort by that column')
 			.style('left', (d3.event.pageX - 100) + 'px')
 			.style('top', (d3.event.pageY - 90) + 'px')
 		d3.select(this)
@@ -84,13 +84,38 @@ d3.selectAll('#genderlist-header div')
 			.style('top', (d3.event.pageY - 90) + 'px')
 	})
 
-// show meaning of each part on hover
+// instructional tooltip for "Show All" button
 d3.selectAll('#ternary-reset')
-	.on('mouseover.tooltip', function(d) {
+	.on('mouseover.tooltip', function() {
 		tooltip.transition()
 			.duration(200)
 			.style('opacity', .9)
-		tooltip.html('Click to show all endings again.')
+		tooltip.html('Click to show all endings again')
+			.style('left', (d3.event.pageX) + 'px')
+			.style('top', (d3.event.pageY + 20) + 'px')
+		d3.select(this)
+			.style('text-decoration', 'underline')
+			.style('text-decoration-thickness', '1px')
+	})
+	.on('mouseout.tooltip', function() {
+		tooltip.transition()
+			.duration(200)
+			.style('opacity', 0)
+		d3.select(this)
+			.style('text-decoration', 'none')
+	})
+	.on('mousemove', function() {
+		tooltip.style('left', (d3.event.pageX) + 'px')
+			.style('top', (d3.event.pageY + 20) + 'px')
+	})
+
+// instructional tooltip for "Minimum Count" slider
+d3.selectAll('#gender-range-wrap')
+	.on('mouseover.tooltip', function() {
+		tooltip.transition()
+			.duration(200)
+			.style('opacity', .9)
+		tooltip.html('Use this slider to filter out the less frequent endings')
 			.style('left', (d3.event.pageX) + 'px')
 			.style('top', (d3.event.pageY + 20) + 'px')
 		d3.select(this)

@@ -1,7 +1,9 @@
 function createPie() {
-	var width = 500
-	var height = 500
-	var radius = Math.min(width, height) / 2 - 100
+	var width = 400
+	var height = 360
+	var radius = Math.max(width, height) / 2 - 100
+
+	var total = 0
 
 	// set the color scale
 	var colorScale = d3.scaleOrdinal()
@@ -48,10 +50,12 @@ function createPie() {
 	// tooltip on hover
 	svg.selectAll('path')
 		.on('mouseover.tooltip', function(d) {
+			var pct = Math.round(1000 * d.data.value / total) / 10
+
 			tooltip.transition()
 				.duration(200)
 				.style('opacity', 0.9)
-			tooltip.html('Gender: <b>' + gender_names[d.data.key] + '</b><br>' + `${f(d.data.value)} words`)
+			tooltip.html('Gender: <b>' + gender_names[d.data.key] + '</b><br>Percentage: <b>' + pct + '%</b>')
 				.style('left', (d3.event.pageX) + 'px')
 				.style('top', (d3.event.pageY + 10) + 'px')
 		})
@@ -68,7 +72,7 @@ function createPie() {
 	// title
 	svg.append('text')
 		.attr('x', -10)
-		.attr('y', -220)
+		.attr('y', -130)
 		.attr('text-anchor', 'middle')
 		.style('font-size', '40px')
 		.style('fill', '#4d4b47')
@@ -83,8 +87,8 @@ function createPie() {
 		.attr('class', 'box')
 		.attr('height', 16) 
 		.attr('width', 16) 
-		.attr('x', (d,i) => i * 100 - radius + 30)
-		.attr('y', height - 320)
+		.attr('x', (d,i) => i * 100 - radius - 18)
+		.attr('y', height - 230)
 		.attr('fill', d => colorScale(d.data.key))
 
 	// legend labels
@@ -94,9 +98,9 @@ function createPie() {
 		.enter()
 		.append('text')
 		.text(d => gender_names_short[d.data.key])
-		.attr('x', (d,i) => i * 100 - radius + 50)
-		.attr('y', height - 320 + 14)
-		.attr('font-size', '16px')
+		.attr('x', (d,i) => i * 100 - radius + 6)
+		.attr('y', height - 230 + 13)
+		.attr('font-size', '14px')
 		// .attr('fill', '#6d6d6d')
 		.attr('font-family', 'Nunito Sans')
 		.attr('text-anchor', 'beginning')
@@ -118,6 +122,7 @@ function createPie() {
 		console.log('pie', nouns)
 
 		// count nouns for each gender
+		total = 0
 		var gender_count = {
 			'f': 0,
 			'm': 0,
@@ -126,6 +131,7 @@ function createPie() {
 		for (var i in nouns) {
 			if (nouns[i].genus == 0) continue
 			gender_count[nouns[i].genus] += 1
+			total += 1
 		}
 		nouns = gender_count
 

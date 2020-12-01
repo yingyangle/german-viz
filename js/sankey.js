@@ -147,6 +147,7 @@ function createSankey() {
 				$('#selected-ending').html(selected_ending)
 				$('#selected-type').html('('+selected_type+' ending)')
 				selected_i = sankey_nodes.findIndex(x => x.name == selected_ending & x.type == selected_type)
+				plurals_total = sankey_nodes[selected_i].count
 				console.log('selected ending', selected_ending, selected_i)
 			})
 			.on('mouseover', function(d) {
@@ -280,3 +281,28 @@ function createSankey() {
 		}
 	})
 }
+
+// instructional tooltip for "Minimum Count" slider
+d3.selectAll('#sankey-range-wrap')
+	.on('mouseover.tooltip', function() {
+		tooltip.transition()
+			.duration(200)
+			.style('opacity', .9)
+		tooltip.html('Use this slider to filter out the less frequent endings')
+			.style('left', (d3.event.pageX) + 'px')
+			.style('top', (d3.event.pageY + 20) + 'px')
+		d3.select(this)
+			.style('text-decoration', 'underline')
+			.style('text-decoration-thickness', '1px')
+	})
+	.on('mouseout.tooltip', function() {
+		tooltip.transition()
+			.duration(200)
+			.style('opacity', 0)
+		d3.select(this)
+			.style('text-decoration', 'none')
+	})
+	.on('mousemove', function() {
+		tooltip.style('left', (d3.event.pageX) + 'px')
+			.style('top', (d3.event.pageY + 20) + 'px')
+	})
