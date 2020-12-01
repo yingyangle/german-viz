@@ -212,6 +212,7 @@ a:hover {
 	padding: 10px;
 	margin: 12px;
 	opacity: 0.9;
+	cursor: pointer !important;
 }
 
 .blue-grid-square {
@@ -369,10 +370,11 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 
 div.tooltip {
 	position: absolute;
+	font-family: 'Nunito Sans';
 	background-color: white;
 	max-width: 200px;
 	height: auto;
-	padding: 1px;
+	padding: 10px;
 	border-radius: 10px;
 	border-width: 1px;
 	box-shadow: 3px 3px 10px rgba(0, 0, 0, .5);

@@ -31,8 +31,6 @@ d3.selectAll('.funword-part')
 	.on('mouseover.tooltip', function(d) {
 		tooltip.transition()
 			.duration(200)
-			.style('font-family', 'Nunito Sans')
-			.style('padding', '10px')
 			.style('opacity', .9)
 		tooltip.html(d3.select(this).attr('data-funword-part'))
 			.style('left', (d3.event.pageX - 30) + 'px')

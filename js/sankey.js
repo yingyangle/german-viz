@@ -205,8 +205,6 @@ function createSankey() {
 		link.on('mouseover.tooltip', function(d) {
 				tooltip.transition()
 					.duration(200)
-					.style('font-family', 'Nunito Sans')
-					.style('padding', '10px')
 					.style('opacity', .9)
 				tooltip.html('<b>' + d.source.name + ' → ' + d.target.name + '</b><br>' + `${f(d.value)} words`)
 					.style('left', (d3.event.pageX) + 'px')

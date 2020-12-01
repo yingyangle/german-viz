@@ -110,8 +110,6 @@ function createBubble() {
 			.on('mouseover.tooltip', function(d) {
 				tooltip.transition()
 					.duration(200)
-					.style('font-family', 'Nunito Sans')
-					.style('padding', '10px')
 					.style('opacity', 0.9)
 				tooltip.html(bubble_type + ' Type: <b>' + d.name + '</b><br>' + `${f(d.count)} words`)
 					.style('left', (d3.event.pageX) + 'px')
@@ -140,8 +138,6 @@ function createBubble() {
 			.on('mouseover.tooltip', function(d) {
 				tooltip.transition()
 					.duration(200)
-					.style('font-family', 'Nunito Sans')
-					.style('padding', '10px')
 					.style('opacity', .9)
 				tooltip.html(bubble_type + ' Type: <b>' + d.name + '</b><br>' + `${f(d.count)} words`)
 					.style('left', (d3.event.pageX) + 'px')

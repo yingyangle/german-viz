@@ -47,8 +47,6 @@ function createLoanwords(words) {
 		.on('mouseover.tooltip', function(d) {
 			tooltip.transition()
 				.duration(200)
-				.style('font-family', 'Nunito Sans')
-				.style('padding', '20px')
 				.style('opacity', 0.9)
 			tooltip.html('English Word: <b>' + d.BorrowedWord + '</b><br>Origin: <b>' + d.DonorLanguage + '</b>')
 				.style('left', (d3.event.pageX) + 'px')
@@ -79,8 +77,6 @@ function createLoanwords(words) {
 		.on('mouseover.tooltip', function(d) {
 			tooltip.transition()
 				.duration(200)
-				.style('font-family', 'Nunito Sans')
-				.style('padding', '10px')
 				.style('opacity', 0.9)
 			tooltip.html('English Word: <b>' + d.BorrowedWord + '</b><br>Origin: <b>' + d.DonorLanguage + '</b>')
 				.style('left', (d3.event.pageX) + 'px')

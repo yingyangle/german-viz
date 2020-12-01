@@ -71,8 +71,6 @@ function createScatter() {
 		.on('mouseover.tooltip', function(d) {
 			tooltip.transition()
 				.duration(200)
-				.style('font-family', 'Nunito Sans')
-				.style('padding', '10px')
 				.style('opacity', 0.9)
 			tooltip.html('Word: <b>' + d.lemma + ' (' + d.genus +') </b><br>Letters: <b>' + d.letters + '</b><br>Syllables: <b>' + d.syllables + '</b>')
 				.style('left', (d3.event.pageX) + 'px')

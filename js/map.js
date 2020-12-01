@@ -80,8 +80,6 @@ function createMap(data) {
 			.on('mouseover.tooltip', function(d) {
 				tooltip.transition()
 					.duration(200)
-					.style('font-family', 'Nunito Sans')
-					.style('padding', '10px')
 					.style('opacity', .9)
 				tooltip.html('Country: <b>' + d.properties.name +'</b><br>' + 'Native Speakers: <b>' + `${f(d.pop)}` + '</b><br>' + 'Percentage of Population: <b>' + `${f(d.percent)}%` + '</b>')
 					.style('left', (d3.event.pageX) + 'px')
@@ -235,8 +233,6 @@ function createMap(data) {
 			.on('mouseover.tooltip', function(d) {
 				tooltip.transition()
 					.duration(200)
-					.style('font-family', 'Nunito Sans')
-					.style('padding', '10px')
 					.style('opacity', .9)
 				var pop = d.pop
 				if (d.pop == -1) pop = 'N/A'

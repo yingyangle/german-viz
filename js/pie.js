@@ -50,8 +50,6 @@ function createPie() {
 		.on('mouseover.tooltip', function(d) {
 			tooltip.transition()
 				.duration(200)
-				.style('font-family', 'Nunito Sans')
-				.style('padding', '10px')
 				.style('opacity', 0.9)
 			tooltip.html('Gender: <b>' + gender_names[d.data.key] + '</b><br>' + `${f(d.data.value)} words`)
 				.style('left', (d3.event.pageX) + 'px')

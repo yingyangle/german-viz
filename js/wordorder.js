@@ -6,7 +6,6 @@ new Sortable(example1, {
 	onUpdate: function () {
 		checkexample1()
 	},
-	
 })
 
 // check sentence correctness
@@ -19,19 +18,16 @@ function checkexample1() {
 
 	// correct sentence 1
 	if (sent == 'the dog bit the mailman ') {
-		console.log('111')
 		$('#example1-output .translation').text('"The dog bit the mailman."')
 		$('#example1-output .correct').text('CORRECT')
 			.css('color', 'green')
 	} // correct sentence 2
 	else if (sent == 'the mailman bit the dog ') {
-		console.log('222')
 		$('#example1-output .translation').text('"The mailman bit the dog." (strange but okay)')
 		$('#example1-output .correct').text('CORRECT')
 			.css('color', 'green')
 	} // bad sentences
 	else {
-		console.log('333')
 		$('#example1-output .translation').text('BAD SENTENCE')
 		$('#example1-output .correct').text('INCORRENT')
 		.css('color', 'rgb(182, 45, 45)') // dark red
@@ -46,7 +42,6 @@ new Sortable(example2, {
 	animation: 150,
 	ghostClass: 'gray-grid-square',
 	onUpdate: function () {
-		console.log('UPDATEEEE')
 		checkexample2()
 	},
 	
