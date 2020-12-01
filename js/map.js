@@ -119,7 +119,7 @@ function createMap(data) {
 			.attr('opacity', 0.8)
 		svg.append('text')
 			.attr('x', 130)
-			.attr('y', 400)
+			.attr('y', 394)
 			.attr('class', 'nunito')
 			.attr('text-anchor', 'middle')
 			.style('font-size', '24px')
@@ -127,15 +127,16 @@ function createMap(data) {
 			.text('Total:')
 		svg.append('text')
 			.attr('x', 130)
-			.attr('y', 430)
+			.attr('y', 428)
 			.attr('class', 'nunito')
 			.attr('text-anchor', 'middle')
-			.style('font-size', '18px')
+			.style('font-size', '24px')
 			.style('fill', '#4d4b47')
+			.style('font-weight', 'bold')
 			.text('85,222,201')
 		svg.append('text')
 			.attr('x', 130)
-			.attr('y', 456)
+			.attr('y', 454)
 			.attr('class', 'nunito')
 			.attr('text-anchor', 'middle')
 			.style('font-size', '18px')
@@ -275,7 +276,7 @@ function createMap(data) {
 			.attr('opacity', 0.8)
 		svg.append('text')
 			.attr('x', 130)
-			.attr('y', 400)
+			.attr('y', 394)
 			.attr('class', 'nunito')
 			.attr('text-anchor', 'middle')
 			.style('font-size', '24px')
@@ -283,15 +284,16 @@ function createMap(data) {
 			.text('Total:')
 		svg.append('text')
 			.attr('x', 130)
-			.attr('y', 430)
+			.attr('y', 428)
 			.attr('class', 'nunito')
 			.attr('text-anchor', 'middle')
-			.style('font-size', '18px')
+			.style('font-size', '24px')
 			.style('fill', '#4d4b47')
+			.style('font-weight', 'bold')
 			.text(`${f(learners.total)}`)
 		svg.append('text')
 			.attr('x', 130)
-			.attr('y', 456)
+			.attr('y', 454)
 			.attr('class', 'nunito')
 			.attr('text-anchor', 'middle')
 			.style('font-size', '18px')
@@ -353,16 +355,29 @@ function createMap(data) {
 		
 	// show native speaker map
 	showSpeakers()
+	$('#map-speakers-btn').css('background-color', '#e3dcd0')
 
-	// event handlers
-	$('#map-toggle').on('click', function() {
-		if ($('#map-toggle').text() == 'Show Learners') {
-			showLearners()
-			$('#map-toggle').text('Show Native Speakers')
-		} else {
-			showSpeakers()
-			$('#map-toggle').text('Show Learners')
-		}
+	// buttons
+	$('#map-speakers-btn').on('click', function() {
+		showSpeakers()
+		$(this).css('background-color', '#e3dcd0')
+		$('#map-learners-btn').css('background-color', 'transparent')
 	})
+	$('#map-learners-btn').on('click', function() {
+		showLearners()
+		$(this).css('background-color', '#e3dcd0')
+		$('#map-speakers-btn').css('background-color', 'transparent')
+	})
+
+	// // toggle button
+	// $('#map-toggle').on('click', function() {
+	// 	if ($('#map-toggle').text() == 'Show Learners') {
+	// 		showLearners()
+	// 		$('#map-toggle').text('Show Native Speakers')
+	// 	} else {
+	// 		showSpeakers()
+	// 		$('#map-toggle').text('Show Learners')
+	// 	}
+	// })
 
 }
