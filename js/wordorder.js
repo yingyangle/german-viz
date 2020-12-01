@@ -78,12 +78,12 @@ function checkExample3() {
 		$('#example3-output .correct').text('CORRECT')
 			.css('color', 'green')
 	} // correct sentence
-	else if (sent == 'the bone gave the dog the boy ') {
+	else if (sent == 'a bone gave the dog the boy ') {
 		$('#example3-output .translation').text('"The bone gave the boy to the dog." (very strange but okay)')
 		$('#example3-output .correct').text('CORRECT')
 			.css('color', 'green')
 	} // correct sentence
-	else if (sent == 'the bone gave the boy the dog ') {
+	else if (sent == 'a bone gave the boy the dog ') {
 		$('#example3-output .translation').text('"The bone gave the dog to the boy." (very strange but okay)')
 		$('#example3-output .correct').text('CORRECT')
 			.css('color', 'green')

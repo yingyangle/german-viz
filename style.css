@@ -407,7 +407,7 @@ line.minor-tick {
 }
 
 .axis-title{
-	font-size: 1.5rem;
+	font-size: 1.7rem;
 }
 
 text.tick-text {
@@ -418,8 +418,8 @@ text.tick-text {
 
 #ternary circle {
 	fill: #fef9ee;
-	stroke: #187183;
-	stroke-width: 3px;
+	stroke: rgb(69, 152, 141);
+	stroke-width: 4px;
 }
 
 /*** SCROLLBAR APPEARANCE ***/
