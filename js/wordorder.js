@@ -18,25 +18,24 @@ function checkexample1() {
 
 	// correct sentence 1
 	if (sent == 'the dog bit the mailman ') {
-		$('#example1-output .translation').text('"The dog bit the mailman."')
+		$('#example1-output .meaning').text('"The dog bit the mailman."')
 		$('#example1-output .correct').text('CORRECT')
 			.css('color', 'green')
 	} // correct sentence 2
 	else if (sent == 'the mailman bit the dog ') {
-		$('#example1-output .translation').text('"The mailman bit the dog." (strange but okay)')
+		$('#example1-output .meaning').text('"The mailman bit the dog." (strange but okay)')
 		$('#example1-output .correct').text('CORRECT')
 			.css('color', 'green')
 	} // bad sentences
 	else {
-		$('#example1-output .translation').text('UNGRAMMATICAL SENTENCE')	
+		$('#example1-output .meaning').text('UNGRAMMATICAL SENTENCE')	
 			.css('color', 'rgb(182, 45, 45)') // dark red
 			.css('font-weight', 'bold')
 		$('#example1-output .correct').text('INCORRENT')
 			.css('color', 'rgb(182, 45, 45)') // dark red
 		return
 	}
-	$('#example1-output .translation').css('color', '#4d4b47')
-		.css('font-weight', 'normal')
+	$('#example1-output .meaning').css('color', '#4d4b47')
 }
 
 // EXAMPLE 3 (ENGLISH)
@@ -59,45 +58,44 @@ function checkExample3() {
 
 	// correct sentence
 	if (sent == 'the boy gave the dog a bone ') {
-		$('#example3-output .translation').text('"The boy gave the dog a bone."')
+		$('#example3-output .meaning').text('"The boy gave the dog a bone."')
 		$('#example3-output .correct').text('CORRECT')
 			.css('color', 'green')
 	} // correct sentence
 	else if (sent == 'the boy gave a bone the dog ') {
-		$('#example3-output .translation').text('"The boy gave the dog to a bone." (strange but okay)')
+		$('#example3-output .meaning').text('"The boy gave the dog to a bone." (strange but okay)')
 		$('#example3-output .correct').text('CORRECT')
 			.css('color', 'green')
 	} // correct sentence
 	else if (sent == 'the dog gave the boy a bone ') {
-		$('#example3-output .translation').text('"The dog gave the boy a bone." (weird role reversal but okay)')
+		$('#example3-output .meaning').text('"The dog gave the boy a bone." (weird role reversal but okay)')
 		$('#example3-output .correct').text('CORRECT')
 			.css('color', 'green')
 	} // correct sentence
 	else if (sent == 'the dog gave a bone the boy ') {
-		$('#example3-output .translation').text('"The dog gave the boy to a bone." (strange but okay)')
+		$('#example3-output .meaning').text('"The dog gave the boy to a bone." (strange but okay)')
 		$('#example3-output .correct').text('CORRECT')
 			.css('color', 'green')
 	} // correct sentence
 	else if (sent == 'a bone gave the dog the boy ') {
-		$('#example3-output .translation').text('"The bone gave the boy to the dog." (very strange but okay)')
+		$('#example3-output .meaning').text('"The bone gave the boy to the dog." (very strange but okay)')
 		$('#example3-output .correct').text('CORRECT')
 			.css('color', 'green')
 	} // correct sentence
 	else if (sent == 'a bone gave the boy the dog ') {
-		$('#example3-output .translation').text('"The bone gave the dog to the boy." (very strange but okay)')
+		$('#example3-output .meaning').text('"The bone gave the dog to the boy." (very strange but okay)')
 		$('#example3-output .correct').text('CORRECT')
 			.css('color', 'green')
 	} // bad sentences
 	else {
-		$('#example3-output .translation').text('UNGRAMMATICAL SENTENCE')
+		$('#example3-output .meaning').text('UNGRAMMATICAL SENTENCE')
 			.css('color', 'rgb(182, 45, 45)') // dark red
 			.css('font-weight', 'bold')
 		$('#example3-output .correct').text('INCORRENT')
 			.css('color', 'rgb(182, 45, 45)') // dark red
 		return
 	}
-	$('#example3-output .translation').css('color', '#4d4b47')
-		.css('font-weight', 'normal')
+	$('#example3-output .meaning').css('color', '#4d4b47')
 }
 
 // EXAMPLE 2 (GERMAN)
@@ -133,17 +131,17 @@ function checkexample2() {
 
 	// correct sentence
 	if (correct_sents.includes(sent)) {
-		$('#example2-output .translation').text('"I write stories for my friends."')
+		$('#example2-output .meaning').text('"I write stories for my friends."')
 		$('#example2-output .correct').text('CORRECT')
 			.css('color', 'green')
 	} // okay sentence
 	else if (okay_sents.includes(sent)) {
-		$('#example2-output .translation').text('"I write stories for my friends." (slightly unnatural)')
+		$('#example2-output .meaning').text('"I write stories for my friends." (slightly unnatural)')
 		$('#example2-output .correct').text('OKAY')
 			.css('color', 'green')
 	} // bad sentence
 	else {
-		$('#example2-output .translation').text('BAD SENTENCE')
+		$('#example2-output .meaning').text('BAD SENTENCE')
 		$('#example2-output .correct').text('INCORRENT')
 		.css('color', 'rgb(182, 45, 45)') // dark red
 	}

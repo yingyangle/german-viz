@@ -276,6 +276,7 @@ function createTernary(gender_pct) {
 			update()
 			console.log('select gender ending', selected_ending_gender)
 		})
+
 	})
 
 	$('#ternary-reset').on('click', function() {
@@ -287,6 +288,21 @@ function createTernary(gender_pct) {
 		selected_ending_gender = $(this).text()
 		update()
 		console.log('select gender ending', selected_ending_gender)
+	})
+
+	// sort buttons
+	$('#genderlist-f').on('click', () => { gender_sort = 'f' })
+	$('#genderlist-m').on('click', () => { gender_sort = 'm' })
+	$('#genderlist-n').on('click', () => { gender_sort = 'n' })
+	$('#genderlist-alpha').on('click', () => { gender_sort = '' })
+
+	$('#genderlist-header div').on('click', function() {
+		createGenderlist(gender_pct)
+		$('.gender-row').on('click', function() {
+			selected_ending_gender = $(this).text()
+			update()
+			console.log('select gender ending', selected_ending_gender)
+		})
 	})
 
 }

@@ -13,6 +13,8 @@ $('.funword-part').on('click', function() {
 		$('.funword-answer', parent)
 			.css('visibility', 'hidden')
 			.css('opacity', 0)
+		// play word pronunciation
+		myAudioFunction(parent)
 	}
 })
 

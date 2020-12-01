@@ -279,6 +279,14 @@ a:hover {
 	margin-right: 10px;
 }
 
+#genderlist-header div {
+	cursor: pointer;
+}
+
+#genderlist-header div:hover {
+	opacity: 0.6;
+}
+
 .gender-row {
 	cursor: pointer;
 }
@@ -534,7 +542,7 @@ nav {
 	background-color: #fef9ee;
 }
 
-nav ul{
+nav ul {
 	list-style-type: none;
 	display: flex;
 	flex-direction: row;
@@ -550,7 +558,7 @@ nav>ul>li {
 	margin-right: 5%
 }
 
-nav a{
+nav a {
 	font-weight: 600;
 	position: relative;
 	display: inline-block;
@@ -559,4 +567,8 @@ nav a{
 	text-transform: uppercase;
 	font-size: 20px;
 	/* font-size: 30px; */
+}
+
+nav a:hover {
+	text-decoration: none;
 }
