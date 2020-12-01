@@ -133,11 +133,6 @@ table {
 	margin: auto;
 }
 
-/* h5 {
-	font-family: 'Nanum Pen Script', serif;
-	font-size: 30px;
-} */
-
 img {
 	max-width: 80%;
 }
@@ -152,6 +147,7 @@ a:hover {
 	color: #79b7bb;
 }
 
+/* FOR INSTRUCTIONS */
 .important-text {
 	background-color: rgba(255, 255, 255, 0.8);
 	border: 1px solid #7e7c774f;
@@ -184,9 +180,12 @@ a:hover {
 	border-color: #4d4b47;
 }
 
+/* title icon */
 .flag-icon {
 	max-width: 10%;
 }
+
+/* FUNWORDS */
 
 .funword {
 	margin: 10px 0;
@@ -204,6 +203,12 @@ a:hover {
 	line-height: 34px;
 	opacity: 0;
 	transition: 0.5s;
+}
+
+/* MAP */
+
+#map-speakers-btn, #map-learners-btn {
+	z-index: 10;
 }
 
 /* WORD ORDER DRAG & DROP */
@@ -242,6 +247,8 @@ a:hover {
 	cursor: pointer;
 }
 
+/* GENDERLIST */
+
 #genderlist-container {
 	font-size: 16px;
 	border: 1px solid #4d4b47;
@@ -269,6 +276,8 @@ a:hover {
 	color: #76b7b2;
 }
 
+/* WORDLIST */
+
 #wordlist-col p, #wordlist-col h3 {
 	margin-left: 100px;
 }
@@ -293,6 +302,7 @@ a:hover {
 	overflow-x: hidden;
 }
 
+/* footer icon */
 .heart-icon {
 	margin: 6px;
 }

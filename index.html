@@ -225,9 +225,11 @@
 			<div class="text-container">
 				<p>Today, German has become a very popular language around the world. There are about <b>85 million</b> native speakers of German and <b>15 million</b> non-native speakers. In Europe, German is the second most popular foreign language to learn after English, and it's particularly relevant in neighboring countries of <b>Poland</b>, <b>France</b>, and <b>Russia</b>, and also countries such as <b>Slovenia</b>, where German has historically been the language of the nobility, and <b>Turkey</b>, which has been a major source of Germany's immigrants since the 1990s. Take a look at where native speakers and learners of German live in the world today in the map below.</p>
 			</div>
+			<br>
 
 			<!-- GERMAN SPEAKERS VIZ -->
 			<div class="viz-container">
+				<h3 id="map-title">Native German Speakers</h3>
 				<button id="map-speakers-btn" class="btn">Show Speakers</button>
 				<button id="map-learners-btn" class="btn">Show Learners</button>
 				<br><br>
@@ -618,6 +620,32 @@
 				.style('opacity', 0)
 				.style('padding', '10px')
 				.style('font-family', 'Nunito Sans')
+
+			// drag
+			drag = simulation => {
+
+			function dragstarted(d) {
+				if (!d3.event.active) simulation.alphaTarget(0.3).restart()
+				d.fx = d.x
+				d.fy = d.y
+			}
+
+			function dragged(d) {
+				d.fx = d3.event.x
+				d.fy = d3.event.y
+			}
+
+			function dragended(d) {
+				if (!d3.event.active) simulation.alphaTarget(0)
+				d.fx = null
+				d.fy = null
+			}
+
+			return d3.drag()
+				.on('start', dragstarted)
+				.on('drag', dragged)
+				.on('end', dragended)
+			}
 
 		</script>
 	

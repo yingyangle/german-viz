@@ -15,7 +15,8 @@ function createMap(data) {
 	console.log('map', data)
 
 	var width = 1000
-	var height = 720
+	var height = 520
+	var total_y = 330
 
 	// var path = d3.geoPath()
 	var projection = d3.geoNaturalEarth1()
@@ -27,7 +28,7 @@ function createMap(data) {
 		.range(['transparent', 'transparent', '#ddf4f1', '#a4d1cc', '#86bdbc', '#45988d', '#24716b', '#146263', '#187183'])
 	
 	width = 1000
-	height = 540 // use this height to cut off Antarctica
+	height = 450 // use this height to cut off Antarctica
 
 	var svg = d3.select('#map')
 		.append('svg')
@@ -94,32 +95,26 @@ function createMap(data) {
 				tooltip.style('left', (d3.event.pageX) + 'px')
 					.style('top', (d3.event.pageY + 10) + 'px')
 			})
-			
-		// // tooltip
-		// var tooltip = d3.select('body')
-		// 	.append('div')
-		// 	.attr('class', 'tooltip')
-		// 	.style('opacity', 0)
 
-		// title
-		svg.append('text')
-			.attr('x', width / 2)
-			.attr('y', 34)
-			.attr('text-anchor', 'middle')
-			.style('font-size', '44px')
-			.style('fill', '#4d4b47')
-			.text('Native German Speakers')
+		// // title
+		// svg.append('text')
+		// 	.attr('x', width / 2)
+		// 	.attr('y', 34)
+		// 	.attr('text-anchor', 'middle')
+		// 	.style('font-size', '44px')
+		// 	.style('fill', '#4d4b47')
+		// 	.text('Native German Speakers')
 		
 		// total
 		svg.append('circle')
 			.attr('cx', 130)
-			.attr('cy', 420)
+			.attr('cy', total_y)
 			.attr('r', 90)
 			.style('fill', '#a4d1cc')
 			.attr('opacity', 0.8)
 		svg.append('text')
 			.attr('x', 130)
-			.attr('y', 394)
+			.attr('y', total_y - 24)
 			.attr('class', 'nunito')
 			.attr('text-anchor', 'middle')
 			.style('font-size', '24px')
@@ -127,7 +122,7 @@ function createMap(data) {
 			.text('Total:')
 		svg.append('text')
 			.attr('x', 130)
-			.attr('y', 428)
+			.attr('y', total_y + 10)
 			.attr('class', 'nunito')
 			.attr('text-anchor', 'middle')
 			.style('font-size', '24px')
@@ -136,7 +131,7 @@ function createMap(data) {
 			.text('85,222,201')
 		svg.append('text')
 			.attr('x', 130)
-			.attr('y', 454)
+			.attr('y', total_y + 36)
 			.attr('class', 'nunito')
 			.attr('text-anchor', 'middle')
 			.style('font-size', '18px')
@@ -251,32 +246,26 @@ function createMap(data) {
 				tooltip.style('left', (d3.event.pageX) + 'px')
 					.style('top', (d3.event.pageY + 10) + 'px')
 			})
-			
-		// // tooltip
-		// var tooltip = d3.select('body')
-		// 	.append('div')
-		// 	.attr('class', 'tooltip')
-		// 	.style('opacity', 0)
 
-		// title
-		svg.append('text')
-			.attr('x', width / 2)
-			.attr('y', 34)
-			.attr('text-anchor', 'middle')
-			.style('font-size', '44px')
-			.style('fill', '#4d4b47')
-			.text('German Language Learners')
-		
+		// // title
+		// svg.append('text')
+		// 	.attr('x', width / 2)
+		// 	.attr('y', 34)
+		// 	.attr('text-anchor', 'middle')
+		// 	.style('font-size', '44px')
+		// 	.style('fill', '#4d4b47')
+		// 	.text('German Language Learners')
+
 		// total circle
 		svg.append('circle')
 			.attr('cx', 130)
-			.attr('cy', 420)
+			.attr('cy', total_y)
 			.attr('r', 90)
 			.style('fill', '#a4d1cc')
 			.attr('opacity', 0.8)
 		svg.append('text')
 			.attr('x', 130)
-			.attr('y', 394)
+			.attr('y', total_y - 24)
 			.attr('class', 'nunito')
 			.attr('text-anchor', 'middle')
 			.style('font-size', '24px')
@@ -284,7 +273,7 @@ function createMap(data) {
 			.text('Total:')
 		svg.append('text')
 			.attr('x', 130)
-			.attr('y', 428)
+			.attr('y', total_y + 10)
 			.attr('class', 'nunito')
 			.attr('text-anchor', 'middle')
 			.style('font-size', '24px')
@@ -293,7 +282,7 @@ function createMap(data) {
 			.text(`${f(learners.total)}`)
 		svg.append('text')
 			.attr('x', 130)
-			.attr('y', 454)
+			.attr('y', total_y + 36)
 			.attr('class', 'nunito')
 			.attr('text-anchor', 'middle')
 			.style('font-size', '18px')
@@ -359,14 +348,22 @@ function createMap(data) {
 
 	// buttons
 	$('#map-speakers-btn').on('click', function() {
+		// update map
 		showSpeakers()
+		// update buttons
 		$(this).css('background-color', '#e3dcd0')
 		$('#map-learners-btn').css('background-color', 'transparent')
+		// update title
+		$('#map-title').text('Native German Speakers')
 	})
 	$('#map-learners-btn').on('click', function() {
+		// update map
 		showLearners()
+		// update buttons
 		$(this).css('background-color', '#e3dcd0')
 		$('#map-speakers-btn').css('background-color', 'transparent')
+		// update title
+		$('#map-title').text('German Language Learners')
 	})
 
 	// // toggle button

@@ -15,32 +15,6 @@ var data_orig
 var f = d3.format(',.0f') // format number strings
 var colorScale_plurals = d3.scaleOrdinal(d3.schemeTableau10)
 
-// drag
-drag = simulation => {
-
-	function dragstarted(d) {
-		if (!d3.event.active) simulation.alphaTarget(0.3).restart()
-		d.fx = d.x
-		d.fy = d.y
-	}
-	
-	function dragged(d) {
-		d.fx = d3.event.x
-		d.fy = d3.event.y
-	}
-	
-	function dragended(d) {
-		if (!d3.event.active) simulation.alphaTarget(0)
-		d.fx = null
-		d.fy = null
-	}
-	
-	return d3.drag()
-		.on('start', dragstarted)
-		.on('drag', dragged)
-		.on('end', dragended)
-}
-
 // RANGE SLIDER FOR *PLURALS* MINIMUM COUNT (count_cutoff_plural)
 var range_plural = document.getElementById('sankey-range')
 var rangeV_plural = document.getElementById('sankey-range-value')
