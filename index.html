@@ -253,10 +253,10 @@
 				<br>
 				<h4>Word Order</h4>
 
-				<p>In English, our word order is relatively simple but very strict, meaning that if you change the order of the words, it <b>changes the meaning of sentence</b>. Other languages with a very strict word order include languages like <b>Mandarin</b> or <b>Cantonese</b>.</p>
+				<p>In English, our word order is relatively simple but very strict, meaning that if you change the order of the words, it <b>changes the meaning of sentence</b>. This is because in English the order of the words tells us how they function in the sentence. Other languages with a strict word order include <b>Mandarin</b> and <b>Cantonese</b>, while languages such as <b>Russian</b>, <b>Greek</b>, and <b>Korean</b> allow the words to move around more freely without changing the meaning of the sentence.</p>
 				<br>
 
-				<div class="important-text"><b>Drag and drop</b> to <b>rearrange the words below</b>  and see how it <b>changes the meaning of the sentence</b>.</div>
+				<div class="important-text"><b>Drag and drop</b> to <b>rearrange the words</b> below and see how it <b>changes the meaning of the sentence</b>.</div>
 				<br><br>
 
 				<div id="example1" class="col">
@@ -296,14 +296,14 @@
 				</div>
 				<br><br>
 
-				<p>You might also be familiar with languages where word order is more <b>free</b>, meaning that words can move around in the sentence, often for emphasis. These languages are usually highly <b>inflected</b>, which means that they have a lot of noun endings to indicate the role of the noun in the sentence (e.g. subject vs. object). Languages that have relatively free word order include <b>Latin</b>, <b>Greek</b>, <b>Russian</b>, <b>Korean</b>, and <b>Japanese</b>.</p>
+				<!-- <p>You might also be familiar with languages where word order is more <b>free</b>, meaning that words can move around in the sentence, often for emphasis. These languages are usually highly <b>inflected</b>, which means that they have a lot of noun endings to indicate the role of the noun in the sentence (e.g. subject vs. object). Languages that have relatively free word order include <b>Latin</b>, <b>Greek</b>, <b>Russian</b>, <b>Korean</b>, and <b>Japanese</b>.</p> -->
 
-				<p>In German, word order is somewhat strict, but in a very different way. While English word order follows the pattern of Subject + Verb + Object, the biggest rule for German word order is that <b>the main verb must come second in the sentence</b>. The other parts of the sentence can move around more freely, but the verb always has to be second.</p>
+				<p>In German, the word order is somewhat strict, but in a very different way. While English word order follows the pattern of Subject + Verb + Object, the biggest rule for German word order is that <b>the main verb must come second</b> in the sentence. The other parts of the sentence can move around more freely, but the verb always has to be second.</p>
 
-				<p>For example, look at the word order in the following sentence. The <b>main verb</b> ("write") always stays in second position, while the <b>other words can move around</b> in the sentence. No matter how you rearrange the other words in the sentence, the <b>meaning of the sentence stays the same</b>, unlike the English examples.</p>
+				<p>For example, look at the word order in the following sentence. The main verb ("write") always stays in second position, while the <b>other words can move around</b> in the sentence. Unlike the English examples, in German no matter how you rearrange the other words in the sentence, the core <b>meaning of the sentence stays the same</b>.</p>
 
 				<br>
-				<div class="important-text"><b>Drag and drop</b> to <b>rearrange the words below</b> and see <b>which combinations are grammatically correct</b>. Notice that the verb must always come second!</div>
+				<div class="important-text"><b>Drag and drop</b> to <b>rearrange the words</b> below and see <b>which combinations are grammatically correct</b>. Notice that the verb must always come second!</div>
 				<br><br>
 
 				<div id="example2" class="col">
@@ -331,7 +331,7 @@
 				</div>
 				<br>
 
-				<p>Furthermore, the word order gets more complicated when you introduce things like <b>complementary infinitives</b>, which must go at the end of the sentence, and <b>subordinate clauses</b>, which send the verb from second position to the end of the clause.</p>
+				<p>The word order also gets more complicated when you introduce things like <b>complementary infinitives</b>, which must go at the end of the sentence, and <b>subordinate clauses</b>, which send the verb from second position to the end of the clause.</p>
 
 				<table border="0">
 					<tr>
@@ -381,7 +381,7 @@
 					</tr>
 				</table><br>
 
-				<p>The rules of German word order aren't too difficult on their own, but students of German must spend a lot of time practicing and getting used to this strange word order.</p>
+				<p>While these rules may seem straightforward at first, there are even more subtleties to German word order as you introduce more complicated constructions, and students of German must spend a lot of time practicing and getting used to this strange word order.</p>
 
 				<br>
 				<h4>Noun Case</h4>
@@ -505,11 +505,13 @@
 						<!-- TERNARY PLOT -->
 						<div id="ternary"></div>
 						<!-- RANGE SLIDER -->
-						<h6>Minimum count:</h6>
-						<br>
-						<div id="gender-range-wrap" class="range-wrap">
-							<div id="gender-range-value" class="range-value"></div>
-							<input id="gender-range" type="range" min=200 max=2000 value=800 step=100>
+						<div class="minimum-count">
+							<h6>Minimum count:</h6>
+							<br>
+							<div id="gender-range-wrap" class="range-wrap">
+								<div id="gender-range-value" class="range-value"></div>
+								<input id="gender-range" type="range" min=200 max=2000 value=800 step=100>
+							</div>
 						</div>
 						<br>
 					</div> <!-- end col -->
@@ -580,7 +582,7 @@
 							</div> -->
 							<div class="col-md-2"></div>
 							<!-- RANGE SLIDER -->
-							<div class="col-md-8">
+							<div class="col-md-8 minimum-count">
 								<h6>Minimum count:</h6>
 								<br>
 								<div id="sankey-range-wrap" class="range-wrap">
@@ -610,6 +612,9 @@
 			<!-- FOOTER -->
 			<br><br><br><br><br>
 			<p> gemacht mit <img src="https://www.flaticon.com/svg/static/icons/svg/3208/3208707.svg" alt="" height="20px" class="heart-icon"> in Boston </p>
+			<div class="link">
+				<a href="https://github.com/yingyangle/german_viz/" target=_blank>Source</a>
+			</div>
 		</div>
 	</div>
 

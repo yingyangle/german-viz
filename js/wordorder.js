@@ -1,7 +1,29 @@
+// tooltip hint on how to use
+d3.selectAll('.grid-square')
+	.on('click.tooltip', function() {
+		tooltip.transition()
+			.duration(200)
+			.style('opacity', .9)
+		tooltip.html('Drag me!')
+			.style('left', (d3.event.pageX) + 'px')
+			.style('top', (d3.event.pageY + 20) + 'px')
+	})
+	.on('mouseout.tooltip', function() {
+		tooltip.transition()
+			.duration(200)
+			.style('opacity', 0)
+	})
+	.on('mousemove', function() {
+		tooltip.style('left', (d3.event.pageX) + 'px')
+			.style('top', (d3.event.pageY + 20) + 'px')
+	})
+
+
 // EXAMPLE 1 (ENGLISH)
 example1 = document.getElementById('example1')
 new Sortable(example1, {
-	animation: 150,
+	animation: 350,
+	swapThreshold: 1,
 	ghostClass: 'gray-grid-square',
 	onUpdate: function () {
 		checkexample1()
@@ -41,7 +63,8 @@ function checkexample1() {
 // EXAMPLE 3 (ENGLISH)
 example3 = document.getElementById('example3')
 new Sortable(example3, {
-	animation: 150,
+	animation: 350,
+	swapThreshold: 1,
 	ghostClass: 'gray-grid-square',
 	onUpdate: function () {
 		checkExample3()
@@ -101,7 +124,8 @@ function checkExample3() {
 // EXAMPLE 2 (GERMAN)
 example2 = document.getElementById('example2')
 new Sortable(example2, {
-	animation: 150,
+	animation: 350,
+	swapThreshold: 1,
 	ghostClass: 'gray-grid-square',
 	onUpdate: function () {
 		checkexample2()

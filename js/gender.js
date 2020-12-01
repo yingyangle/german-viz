@@ -48,3 +48,44 @@ Promise.all([
 	createGenderlist(data.gender_pct)
 	createTernary(data.gender_pct)
 })
+
+
+// instructional tooltip for "Show All" button
+d3.selectAll('#ternary-reset')
+	.on('mouseover.tooltip', function() {
+		tooltip.transition()
+			.duration(200)
+			.style('opacity', .9)
+		tooltip.html('Click to show all endings again')
+			.style('left', (d3.event.pageX) + 'px')
+			.style('top', (d3.event.pageY + 20) + 'px')
+	})
+	.on('mouseout.tooltip', function() {
+		tooltip.transition()
+			.duration(200)
+			.style('opacity', 0)
+	})
+	.on('mousemove', function() {
+		tooltip.style('left', (d3.event.pageX) + 'px')
+			.style('top', (d3.event.pageY + 20) + 'px')
+	})
+
+// instructional tooltip for "Minimum Count" sliders
+d3.selectAll('.minimum-count')
+	.on('mouseover.tooltip', function() {
+		tooltip.transition()
+			.duration(200)
+			.style('opacity', .9)
+		tooltip.html('Use this slider to filter out the less frequent endings')
+			.style('left', (d3.event.pageX) + 'px')
+			.style('top', (d3.event.pageY + 20) + 'px')
+	})
+	.on('mouseout.tooltip', function() {
+		tooltip.transition()
+			.duration(200)
+			.style('opacity', 0)
+	})
+	.on('mousemove', function() {
+		tooltip.style('left', (d3.event.pageX) + 'px')
+			.style('top', (d3.event.pageY + 20) + 'px')
+	})
