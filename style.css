@@ -152,6 +152,16 @@ a:hover {
 	color: #79b7bb;
 }
 
+.important-text {
+	background-color: rgba(255, 255, 255, 0.8);
+	border: 1px solid #7e7c774f;
+	border-radius: 14px;
+	/* font-weight: bold; */
+	padding: 8px 20px;
+	max-width: 90%;
+	display: inline-block;
+}
+
 .btn {
 	/* color: #f7f7f7; */
 	/* background-color: #79b7bb; */
@@ -206,8 +216,8 @@ a:hover {
 	width: 200px;
 	max-height: 100px;
 	display: inline-block;
-	background-color: #fff;
-	border: solid 1px rgb(0,0,0,0.2);
+	background-color: rgba(255, 255, 255, 0.8);
+	border: solid 1px #7e7c774f;
 	border-radius: 10px;
 	padding: 10px;
 	margin: 12px;

@@ -28,13 +28,77 @@ function checkexample1() {
 			.css('color', 'green')
 	} // bad sentences
 	else {
-		$('#example1-output .translation').text('BAD SENTENCE')
+		$('#example1-output .translation').text('UNGRAMMATICAL SENTENCE')	
+			.css('color', 'rgb(182, 45, 45)') // dark red
+			.css('font-weight', 'bold')
 		$('#example1-output .correct').text('INCORRENT')
-		.css('color', 'rgb(182, 45, 45)') // dark red
+			.css('color', 'rgb(182, 45, 45)') // dark red
+		return
 	}
+	$('#example1-output .translation').css('color', '#4d4b47')
+		.css('font-weight', 'normal')
 }
 
+// EXAMPLE 3 (ENGLISH)
+example3 = document.getElementById('example3')
+new Sortable(example3, {
+	animation: 150,
+	ghostClass: 'gray-grid-square',
+	onUpdate: function () {
+		checkExample3()
+	},
+})
 
+// check sentence correctness
+function checkExample3() {
+	var sent = ''
+	$('#example3 .grid-square').each(function() {
+		sent = sent + $(this).attr('data-word') + ' '
+	})
+	console.log('SENT', sent)
+
+	// correct sentence
+	if (sent == 'the boy gave the dog a bone ') {
+		$('#example3-output .translation').text('"The boy gave the dog a bone."')
+		$('#example3-output .correct').text('CORRECT')
+			.css('color', 'green')
+	} // correct sentence
+	else if (sent == 'the boy gave a bone the dog ') {
+		$('#example3-output .translation').text('"The boy gave the dog to a bone." (strange but okay)')
+		$('#example3-output .correct').text('CORRECT')
+			.css('color', 'green')
+	} // correct sentence
+	else if (sent == 'the dog gave the boy a bone ') {
+		$('#example3-output .translation').text('"The dog gave the boy a bone." (weird role reversal but okay)')
+		$('#example3-output .correct').text('CORRECT')
+			.css('color', 'green')
+	} // correct sentence
+	else if (sent == 'the dog gave a bone the boy ') {
+		$('#example3-output .translation').text('"The dog gave the boy to a bone." (strange but okay)')
+		$('#example3-output .correct').text('CORRECT')
+			.css('color', 'green')
+	} // correct sentence
+	else if (sent == 'the bone gave the dog the boy ') {
+		$('#example3-output .translation').text('"The bone gave the boy to the dog." (very strange but okay)')
+		$('#example3-output .correct').text('CORRECT')
+			.css('color', 'green')
+	} // correct sentence
+	else if (sent == 'the bone gave the boy the dog ') {
+		$('#example3-output .translation').text('"The bone gave the dog to the boy." (very strange but okay)')
+		$('#example3-output .correct').text('CORRECT')
+			.css('color', 'green')
+	} // bad sentences
+	else {
+		$('#example3-output .translation').text('UNGRAMMATICAL SENTENCE')
+			.css('color', 'rgb(182, 45, 45)') // dark red
+			.css('font-weight', 'bold')
+		$('#example3-output .correct').text('INCORRENT')
+			.css('color', 'rgb(182, 45, 45)') // dark red
+		return
+	}
+	$('#example3-output .translation').css('color', '#4d4b47')
+		.css('font-weight', 'normal')
+}
 
 // EXAMPLE 2 (GERMAN)
 example2 = document.getElementById('example2')

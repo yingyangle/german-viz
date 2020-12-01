@@ -47,6 +47,7 @@ function createTernary(gender_pct) {
 		.append('text')
 		.text(d => d)
 		.attr('class', 'nunito')
+		.style('font-weight', 'bold')
 		.attr('text-anchor', function(d,i) {
 			if (i === 0) return 'end'
 			if (i === 2) return 'middle'
