@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-eueryuiv="X-UA-Compatible" content="IE=edge">
 
 		<title>The German Language</title>
 		<link rel="icon" type="image/x-icon" href="https://www.flaticon.com/svg/static/icons/svg/2053/2053281.svg">
@@ -29,6 +29,8 @@
 		<script src="https://unpkg.com/d3-sankey@0.7.1/build/d3-sankey.js" type="text/javascript"></script>
 		<!-- Lodash (for cloneDeep function) -->
 		<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+		<!-- drag & drop -->
+		<script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
 
 
 	</head>
@@ -40,15 +42,15 @@
 			<div class="spinner"></div>
 		</div>
 
-<!-- NAVIGATION -->
 
+		<!-- NAVIGATION -->
 		<nav>
-				<ul>
-					<li><a href="#introduction"> Introduction</a></li>
-					<li><a href="#grammar"> German Grammar</a></li>
-					<li><a href="#genderpatterns"> Gender Patterns</a></li>
-					<li><a href="#pluralpatterns"> Plural Patterns</a></li>
-				</ul>
+			<ul>
+				<li><a href="#introduction"> Introduction</a></li>
+				<li><a href="#grammar"> German Grammar</a></li>
+				<li><a href="#genderpatterns"> Gender Patterns</a></li>
+				<li><a href="#pluralpatterns"> Plural Patterns</a></li>
+			</ul>
 		</nav>
 
 	
@@ -246,10 +248,23 @@
 
 				<p>In English, our word order is relatively simple but very strict, meaning that if you change the order of the words, it <b>changes the meaning of sentence</b>. Other languages with a very strict word order include languages like <b>Mandarin</b> or <b>Cantonese</b>.</p>
 
-				<div class="example">
-					<p>" <b>The dog</b> bit <b>the mailman</b>."</p>
-					<p>"<b>The mailman</b> bit <b>the dog</b>."</p>
+				<div id="example1" class="col">
+					<div class="grid-square" data-word="the dog">
+						the dog
+					</div>
+					<div class="grid-square blue-grid-square" data-word="bit">
+						bit
+					</div>
+					<div class="grid-square" data-word="the mailman">
+						the mailman
+					</div>
 				</div>
+				<div id="example1-output">
+					<p>This sentence is grammatically <b><span class="correct">CORRECT</span></b></p>
+					<b>Translation:</b>
+					<div class="translation">"The dog bit the mailman."</div>
+				</div>
+				<br>
 
 				<p>You might also be familiar with languages where word order is more <b>free</b>, meaning that words can move around in the sentence, often for emphasis. These languages are usually highly <b>inflected</b>, which means that they have a lot of noun endings to indicate the role of the noun in the sentence (e.g. subject vs. object). Languages that have relatively free word order include <b>Latin</b>, <b>Greek</b>, <b>Russian</b>, <b>Korean</b>, and <b>Japanese</b>.</p>
 
@@ -257,65 +272,30 @@
 
 				<p>For example, look at the word order in the following sentences. The <b>main verb</b> ("write") always stays in second position, while the other parts of the sentence such as the <b>subject</b> ("I"), <b>direct object</b> ("stories") and <b>prepositional phrases</b> ("for my friends") can move around in the sentence. Despite the different word order, each of these sentences means <b>"I write stories for my friends."</b></p>
 
-				<table border="0">
-					<tr>
-						<td align="left">Ich</td>
-						<td align="left"><b>schreibe</b></td>
-						<td align="left">Geschichten</td>
-						<td align="left">für</td>
-						<td align="left">meine</td>
-						<td align="left">Freunde</td>
-					</tr>
-					<tr>
-						<td align="left">I</td>
-						<td align="left"><b>write</b></td>
-						<td align="left">stories</td>
-						<td align="left">for</td>
-						<td align="left">my</td>
-						<td align="left">friends</td>
-					<!-- </tr><tr><td colspan="7">"I write stories for my friends."</td> -->
-					</tr>
-				</table><br>
-
-				<table border="0">
-					<tr>
-						<td align="left">Geschichten</td>
-						<td align="left"><b>schreibe</b></td>
-						<td align="left">ich</td>
-						<td align="left">für</td>
-						<td align="left">meine</td>
-						<td align="left">Freunde</td>
-					</tr>
-					<tr>
-						<td align="left">stories</td>
-						<td align="left"><b>write</b></td>
-						<td align="left">I</td>
-						<td align="left">for</td>
-						<td align="left">my</td>
-						<td align="left">friends</td>
-					<!-- </tr><tr><td colspan="7">"I write stories for my friends."</td> -->
-					</tr>
-				</table><br>
-
-				<table border="0">
-					<tr>
-						<td align="left">Für</td>
-						<td align="left">meine</td>
-						<td align="left">Freund</td>
-						<td align="left"><b>schreibe</b></td>
-						<td align="left">ich</td>
-						<td align="left">Geschichten</td>
-					</tr>
-					<tr>
-						<td align="left">for</td>
-						<td align="left">my</td>
-						<td align="left">friends</td>
-						<td align="left"><b>write</b></td>
-						<td align="left">I</td>
-						<td align="left">stories</td>
-					<!-- </tr><tr><td colspan="7">"I write stories for my friends."</td> -->
-					</tr>
-				</table><br>
+				<div id="example2" class="col">
+					<div class="grid-square" data-word="I">
+						<b>ich</b> <br>
+						"I"
+					</div>
+					<div class="grid-square blue-grid-square" data-word="write">
+						<b>schreibe</b> <br>
+						"write"
+					</div>
+					<div class="grid-square" data-word="stories">
+						<b>Geschichten</b> <br>
+						"stories"
+					</div>
+					<div class="grid-square" data-word="for my friends">
+						<b>für meine Freunde</b> <br>
+						"for my friends"
+					</div>
+				</div>
+				<div id="example2-output">
+					<p>This sentence is grammatically <b><span class="correct">CORRECT</span></b></p>
+					<b>Translation:</b>
+					<div class="translation">"I write stories for my friends."</div>
+				</div>
+				<br>
 
 				<p>Furthermore, the word order gets more complicated when you introduce things like <b>complementary infinitives</b>, which the must go at the end of the sentence, and <b>subordinate clauses</b>, which send the verb from second position to the end of the clause.</p>
 
@@ -385,23 +365,23 @@
 					</tr>
 					<tr>
 						<td align="left"><b>Nominative</b></td>
-						<td align="left">das Buch</td>
-						<td align="left">die Bücher</td>
+						<td align="left"><b>das</b> Buch</td>
+						<td align="left"><b>die</b> Bücher</b></td>
 					</tr>
 					<tr>
 						<td align="left"><b>Genitive</b></td>
-						<td align="left">des Buches</td>
-						<td align="left">der Bücher</td>
+						<td align="left"><b>des</b> Buch<b>es</b></td>
+						<td align="left"><b>der</b> Bücher</td>
 					</tr>
 					<tr>
 						<td align="left"><b>Dative</b></td>
-						<td align="left">dem Buch</td>
-						<td align="left">den Büchern</td>
+						<td align="left"><b>dem</b> Buch</td>
+						<td align="left"><b>den</b> Büch<b>ern</b></td>
 					</tr>
 					<tr>
 						<td align="left"><b>Accusative</b></td>
-						<td align="left">das Buch</td>
-						<td align="left">die Bücher</td>
+						<td align="left"><b>das</b> Buch</td>
+						<td align="left"><b>die</b> Bücher</td>
 					</tr>
 				</table><br>
 
@@ -415,7 +395,7 @@
 					<div class="col-4">
 						<b>Feminine</b><br>
 						<hr>
-						<b>die Wolke</b> - cloud<br>
+						<b>die Frau</b> - woman<br>
 						<b>die Straße</b> - street<br>
 						<b>die Uhr</b> - clock<br>
 						<b>die Kamera</b> - camera<br>
@@ -433,9 +413,9 @@
 					<div class="col-4">
 						<b>Neuter</b><br>
 						<hr>
+						<b>das Mädchen</b> - girl<br>
 						<b>das Buch</b> - book<br>
 						<b>das Land</b> - country<br>
-						<b>das Mädchen</b> - girl<br>
 						<b>das Auto</b> - car<br>
 						<b>das Haus</b> - house<br>
 					</div>
@@ -450,20 +430,20 @@
 				<div class="row">
 					<div class="col-md-6">
 						<p><b>Adding "e"</b></p>
-						<p>der Hund → die Hunde (the dog → the dogs)</p>
-						<p>die Gans → die Gänse (the goose → the geese)</p>
-						<p>der Koch → die Köche (the chef → the chefs)</p>
+						<p>der Hund → die Hund<b>e</b> (the dog → the dogs)</p>
+						<p>die Gans → die G<b>ä</b>ns<b>e</b> (the goose → the geese)</p>
+						<p>der Koch → die K<b>ö</b>ch<b>e</b> (the chef → the chefs)</p>
 
 						<p><b>Adding an Umlaut</b></p>
-						<p>die Mutter → die Mütter (the mother → the mothers)</p>
-						<p>der Garten → die Gärten (the garden → the gardens)</p>
+						<p>die Mutter → die M<b>ü</b>tter (the mother → the mothers)</p>
+						<p>der Garten → die G<b>ä</b>rten (the garden → the gardens)</p>
 					</div>
 					
 					<div class="col-md-6">
 						<p><b>Adding "n/en"</b></p>
-						<p>das Auge → die Augen (the eye → theeyes)</p>
-						<p>der Name → die Namen (the name → the names)</p>
-						<p>die Lehre → die Lehren (the doctrine → the doctrines)</p>
+						<p>das Auge → die Auge<b>n</b> (the eye → theeyes)</p>
+						<p>der Name → die Name<b>n</b> (the name → the names)</p>
+						<p>die Lehre → die Lehre<b>n</b> (the doctrine → the doctrines)</p>
 						
 						<p><b>No Change</b></p>
 						<p>der Onkel → die Onkel (the uncle → the uncles)</p>
@@ -472,7 +452,7 @@
 			</div>
 			</section>
 
-			<section id='genderpatterns'>
+			<section id="genderpatterns">
 			<div class="text-container">
 				<br><br><br>
 				<h2>Gender Patterns</h2>
@@ -526,7 +506,7 @@
 			<div id="force" ></div>
 		</section>
 
-		<section id='pluralpatterns'>
+		<section id="pluralpatterns">
 			
 
 			<!-- PLURALS -->
@@ -608,6 +588,8 @@
 		<script src="js/loan.js" defer></script>
 		<script src="js/map.js" defer></script>
 		<script src="js/funwords.js" defer></script>
+
+		<script src="js/wordorder.js" defer></script>
 
 		<script src="js/gender.js" defer></script>
 		<script src="js/ternary.js" defer></script>

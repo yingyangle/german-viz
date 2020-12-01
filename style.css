@@ -196,6 +196,37 @@ a:hover {
 	transition: 0.5s;
 }
 
+/* WORD ORDER DRAG & DROP */
+
+.ghost {
+	visibility: hidden;
+}
+
+.grid-square {
+	width: 200px;
+	height: 100px;
+	display: inline-block;
+	background-color: #fff;
+	border: solid 1px rgb(0,0,0,0.2);
+	border-radius: 10px;
+	padding: 10px;
+	margin: 12px;
+	opacity: 0.9;
+}
+
+.blue-grid-square {
+	background-color: rgb(221, 244, 241);
+}
+
+.gray-grid-square {
+	background-color: #e3dcd0;
+}
+
+.correct {
+	color: green;
+	/* color: rgb(182, 45, 45); */
+}
+
 .sankey-node, #show-all-singulars, #show-all-plurals {
 	cursor: pointer;
 }
