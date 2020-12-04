@@ -142,25 +142,25 @@ function checkexample2() {
 	console.log('SENT', sent)
 
 	var correct_sents = [
-		'I write stories for my friends ',
-		'stories write I for my friends ',
-		'for my friends write I stories ',
-		'I write for my friends stories ',
+		'the author writes stories for his friends ',
+		'stories writes the author for his friends ',
+		'for his friends writes the author stories ',
+		'the author writes for his friends stories ',
+		'stories writes for his friends the author ',
 	]
 
 	var okay_sents = [
-		'stories write for my friends I ',
-		'for my friends write stories I ',
+		'for his friends writes stories the author ',
 	]
 
 	// correct sentence
 	if (correct_sents.includes(sent)) {
-		$('#example2-output .meaning').text('"I write stories for my friends."')
+		$('#example2-output .meaning').text('"The author writes stories for his friends."')
 		$('#example2-output .correct').text('CORRECT')
 			.css('color', 'green')
 	} // okay sentence
 	else if (okay_sents.includes(sent)) {
-		$('#example2-output .meaning').text('"I write stories for my friends." (slightly unnatural)')
+		$('#example2-output .meaning').text('"The author writes stories for his friends." (strong emphasis on the author)')
 		$('#example2-output .correct').text('OKAY')
 			.css('color', 'green')
 	} // bad sentence
