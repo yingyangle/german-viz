@@ -222,7 +222,7 @@ function createSankey() {
 			.attr('stroke', d => edgeColor === 'path' ? d.uid
 				: edgeColor === 'input' ? colorScale_plurals(d.source.name)
 				: colorScale_plurals(d.target.name))
-			.attr('opacity', 0.2)
+			// .attr('opacity', 0.2)
 			.attr('stroke-width', d => Math.max(1, d.width))
 
 		// tooltip on link hover
