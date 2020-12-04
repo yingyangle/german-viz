@@ -89,3 +89,23 @@ d3.selectAll('.minimum-count')
 		tooltip.style('left', (d3.event.pageX) + 'px')
 			.style('top', (d3.event.pageY + 20) + 'px')
 	})
+
+// instructional tooltip for "Minimum Count" sliders
+d3.selectAll('.gender-guess-word')
+	.on('mouseover.tooltip', function() {
+		tooltip.transition()
+			.duration(200)
+			.style('opacity', .9)
+		tooltip.html('<b>' + gender_names[d3.select(this).attr('data-gender')] + '</b>')
+			.style('left', (d3.event.pageX) + 'px')
+			.style('top', (d3.event.pageY + 20) + 'px')
+	})
+	.on('mouseout.tooltip', function() {
+		tooltip.transition()
+			.duration(200)
+			.style('opacity', 0)
+	})
+	.on('mousemove', function() {
+		tooltip.style('left', (d3.event.pageX) + 'px')
+			.style('top', (d3.event.pageY + 20) + 'px')
+	})

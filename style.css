@@ -289,6 +289,16 @@ a:hover:before, a:hover:after {
 	/* color: rgb(182, 45, 45); */
 }
 
+/* GENDER GRAMMAR */
+
+.gender-guess-word {
+	margin: 30px 0;
+	padding: 0;
+	border-radius: 10px;
+	border: 1px solid #7e7c774f;
+	background-color: #ffffffb9;
+}
+
 .sankey-node, #show-all-singulars, #show-all-plurals {
 	cursor: pointer;
 }
