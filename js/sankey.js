@@ -16,8 +16,8 @@ function createSankey() {
 	height = height - margin.top - margin.bottom
 
 	let _sankey = d3.sankey()
-		.nodeWidth(15)
-		.nodePadding(10)
+		.nodeWidth(30)
+		.nodePadding(4)
 		.extent([[1, 1], [width - 1, height - 5]])
 
 	let sankey = ({nodes, links}) => _sankey({
@@ -29,9 +29,6 @@ function createSankey() {
 	function getData() {
 		// set data to original full data
 		data = _.cloneDeep(data_orig)
-		// nodes_orig = _.cloneDeep(data.nodes)
-		// links_orig = _.cloneDeep(data.links)
-		// console.log('orig', data_orig, nodes_orig, links_orig)
 
 		// find nodes to remove
 		var nodes_to_remove = []
@@ -135,6 +132,7 @@ function createSankey() {
 			.data(sankey_nodes)
 			.join('rect')
 			.attr('class', 'sankey-node')
+			.attr('data-ending-type', d => d.type)
 			.attr('x', d => d.x0)
 			.attr('y', d => d.y0)
 			.attr('height', d => d.y1 - d.y0)
@@ -142,6 +140,7 @@ function createSankey() {
 			.attr('fill', d => colorScale_plurals(d.name))
 			.attr('opacity', 0.8)
 			.on('click', function(d) {
+				// update selection
 				selected_ending = d.name
 				selected_type = d.type
 				$('#selected-ending').html(selected_ending)
@@ -149,16 +148,37 @@ function createSankey() {
 				selected_i = sankey_nodes.findIndex(x => x.name == selected_ending & x.type == selected_type)
 				plurals_total = sankey_nodes[selected_i].count
 				console.log('selected ending', selected_ending, selected_i)
+
+				// highlight selected link
+				link.selectAll('path').attr('opacity', 0.2)
+				d3.selectAll('g[data-' + selected_type + '="' + d.name + '"]')
+					.selectAll('path').attr('opacity', 1)
 			})
 			.on('mouseover', function(d) {
+				// highlight selectedn node
 				d3.select(this)
-					// .attr('fill', 'black')
 					.attr('opacity', 1)
+				
+				// highlight selected link
+				link.selectAll('path').attr('opacity', 0.2)
+				var current_type = d3.select(this).attr('data-ending-type')
+				d3.selectAll('g[data-' + current_type + '="' + d.name + '"]')
+					.selectAll('path').attr('opacity', 0.8)
 			})
 			.on('mouseout', function(d) {
+				// unhighlight nodes
 				d3.select(this)
-					.attr('fill', d => colorScale_plurals(d.name))
-					.attr('opacity', 0.8)
+						.attr('fill', d => colorScale_plurals(d.name))
+						.attr('opacity', 0.8)
+				
+				// highlight links 
+				if (selected_ending == '') {
+					link.selectAll('path').attr('opacity', 1)
+				} else {
+					link.selectAll('path').attr('opacity', 0.2)
+					d3.selectAll('g[data-' + selected_type + '="' + selected_ending + '"]')
+						.selectAll('path').attr('opacity', 1)
+				}
 			})
 			.append('title')
 			.text(d => `${d.name}\n${f(d.value)} words`)
@@ -172,6 +192,8 @@ function createSankey() {
 			.data(sankey_links)
 			.join('g')
 			.style('mix-blend-mode', 'multiply')
+			.attr('data-singular', d => d.source.name)
+			.attr('data-plural', d => d.target.name)
 
 		// link colors
 		if (edgeColor === 'path') {
@@ -200,6 +222,7 @@ function createSankey() {
 			.attr('stroke', d => edgeColor === 'path' ? d.uid
 				: edgeColor === 'input' ? colorScale_plurals(d.source.name)
 				: colorScale_plurals(d.target.name))
+			.attr('opacity', 0.2)
 			.attr('stroke-width', d => Math.max(1, d.width))
 
 		// tooltip on link hover
@@ -228,7 +251,7 @@ function createSankey() {
 			.join('text')
 			.attr('class', 'nunito')
 			.attr('font-size', '16px')
-			.attr('x', d => d.x0 < width / 2 ? d.x1 - 20 : d.x0 + 20)
+			.attr('x', d => d.x0 < width / 2 ? d.x1 - 40 : d.x0 + 40)
 			.attr('y', d => (d.y1 + d.y0) / 2)
 			.attr('dy', '0.35em')
 			.attr('text-anchor', d => d.x0 < width / 2 ? 'end' : 'start')
