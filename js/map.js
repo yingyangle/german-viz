@@ -12,7 +12,7 @@ function createMap(data) {
 	var world = data[0]
 	var speakers = data[1]
 	var learners = data[2]
-	console.log('map', data)
+	// console.log('map', data)
 
 	var width = 1000
 	var height = 520

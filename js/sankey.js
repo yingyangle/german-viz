@@ -38,7 +38,6 @@ function createSankey() {
 				nodes_to_remove.push(n.i)
 			} 
 		}
-		// console.log('remove', nodes_to_remove)
 		// remove nodes with count < count_cutoff_plural
 		data.nodes = data.nodes.filter(node => {
 			return node.count > count_cutoff_plural
@@ -47,8 +46,6 @@ function createSankey() {
 		// get index of singular 'other' type and plural 'other' type
 		var other_singular = data.nodes.findIndex(x => x.name == 'other' & x.type == 'singular')
 		var other_plural = data.nodes.findIndex(x => x.name == 'other' & x.type == 'plural')
-		// console.log('other_singular', other_singular)
-		// console.log('other_plural', other_plural)
 
 		var other_singular_add = 0, other_plural_add = 0
 
@@ -81,7 +78,6 @@ function createSankey() {
 				unique_links[i].value += link.value
 			}
 		})
-		// console.log('unique', unique_links)
 		data.links = unique_links
 
 		// remove singular "other" type if other_flag == 0
@@ -102,8 +98,8 @@ function createSankey() {
 		var sankey_data = sankey(data)
 		var sankey_nodes = sankey_data.nodes 
 		var sankey_links = sankey_data.links
-		console.log('sankey nodes', sankey_nodes)
-		console.log('sankey links', sankey_links)
+		// console.log('sankey nodes', sankey_nodes)
+		// console.log('sankey links', sankey_links)
 
 		return {sankey_nodes, sankey_links}
 	}
@@ -117,9 +113,6 @@ function createSankey() {
 		var sankey_data = getData()
 		var sankey_nodes = sankey_data.sankey_nodes 
 		var sankey_links = sankey_data.sankey_links
-		// console.log(sankey_nodes, sankey_links)
-		// console.log('nodes:', sankey_nodes.length, 'links:', sankey_links.length)
-		// console.log('count_cutoff_plural', count_cutoff_plural)
 
 		// clear svg contents
 		svg.selectAll('*').remove()
@@ -147,7 +140,7 @@ function createSankey() {
 				$('#selected-type').html('('+selected_type+' ending)')
 				selected_i = sankey_nodes.findIndex(x => x.name == selected_ending & x.type == selected_type)
 				plurals_total = sankey_nodes[selected_i].count
-				console.log('selected ending', selected_ending, selected_i)
+				// console.log('selected ending', selected_ending, selected_i)
 
 				// highlight selected link
 				link.selectAll('path').attr('opacity', 0.2)
@@ -182,10 +175,10 @@ function createSankey() {
 			})
 			.append('title')
 			.text(d => `${d.name}\n${f(d.value)} words`)
-			
 
 		// links
 		let link = svg.append('g')
+			.attr('class', 'link')
 			.attr('fill', 'none')
 			.attr('stroke-opacity', 0.4)
 			.selectAll('g')
@@ -303,4 +296,8 @@ function createSankey() {
 			update()
 		}
 	})
+	$('#show-all-singulars, #show-all-plurals').on('click', () => {
+		d3.selectAll('.link').selectAll('path').attr('opacity', 1)
+	})
+
 }

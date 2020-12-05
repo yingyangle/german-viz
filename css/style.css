@@ -461,50 +461,59 @@ button.navbar-toggler {
 #loading {
 	position: fixed; 
 	overflow: hidden;
-	z-index: 2;
+	z-index: 100;
 	top: 0; 
 	right: 0; 
 	bottom: 0; 
 	left: 0; 
-	background-color: rgba(0, 0, 0, 0.481);
-	visibility: hidden;
+	background-color: #fef9ee;
+	visibility: visible;
 }
 
 /* loading spinner */
-.spinner {
-	z-index: 5;
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	height: 60px;
-	width: 60px;
-	margin: 0px auto;
-	-webkit-animation: rotation .6s infinite linear;
-	-moz-animation: rotation .6s infinite linear;
-	-o-animation: rotation .6s infinite linear;
-	animation: rotation .6s infinite linear;
-	border-left: 6px solid rgba(255, 255, 255, 0.7);
-	border-right: 6px solid rgba(255, 255, 255, 0.7);
-	border-bottom: 6px solid rgba(255, 255, 255, 0.7);
-	border-top: 6px solid transparent;
-	border-radius: 100%;
+
+*, *:before, *:after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
-@-webkit-keyframes rotation {
-	from {-webkit-transform: rotate(0deg);}
-	to {-webkit-transform: rotate(359deg);}
+#outline {
+	stroke: #4d4b47;
+	stroke-dasharray: 2.42777px, 242.77666px;
+	stroke-dashoffset: 0;
+	-webkit-animation: anim 1.6s linear infinite;
+			animation: anim 1.6s linear infinite;
 }
-@-moz-keyframes rotation {
-	from {-moz-transform: rotate(0deg);}
-	to {-moz-transform: rotate(359deg);}
+
+@-webkit-keyframes anim {
+	12.5% {
+	stroke-dasharray: 33.98873px, 242.77666px;
+	stroke-dashoffset: -26.70543px;
+	}
+	43.75% {
+	stroke-dasharray: 84.97183px, 242.77666px;
+	stroke-dashoffset: -84.97183px;
+	}
+	100% {
+	stroke-dasharray: 2.42777px, 242.77666px;
+	stroke-dashoffset: -240.34889px;
+	}
 }
-@-o-keyframes rotation {
-	from {-o-transform: rotate(0deg);}
-	to {-o-transform: rotate(359deg);}
-}
-@keyframes rotation {
-	from {transform: rotate(0deg);}
-	to {transform: rotate(359deg);}
+
+@keyframes anim {
+	12.5% {
+	stroke-dasharray: 33.98873px, 242.77666px;
+	stroke-dashoffset: -26.70543px;
+	}
+	43.75% {
+	stroke-dasharray: 84.97183px, 242.77666px;
+	stroke-dashoffset: -84.97183px;
+	}
+	100% {
+	stroke-dasharray: 2.42777px, 242.77666px;
+	stroke-dashoffset: -240.34889px;
+	}
 }
 
 /* MEDIA QUERIES */

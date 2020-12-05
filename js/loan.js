@@ -4,7 +4,6 @@ Promise.all([
 	d3.json('data/loanwords.json')
 ]).then(data => {
 	words = data[0]
-	// console.log(words)
 	createLoanwords(words)
 })
 
@@ -13,7 +12,7 @@ function createLoanwords(words) {
 	let height = 700
 
 	let loan_nodes = words.nodes
-	console.log('loanwords', words, loan_nodes)
+	// console.log('loanwords', words, loan_nodes)
 
 	const svg = d3.select('#loanwords').append('svg')
 		.attr('viewBox', [0, 0, width, height])

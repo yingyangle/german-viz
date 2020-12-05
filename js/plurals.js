@@ -1,7 +1,3 @@
-// // SHOW LOADING SCREEN
-// document.body.classList.toggle('noscroll', true)
-// $('#loading').css('visibility', 'visible')
-
 var count_cutoff_plural = $('#sankey-range').val()
 var other_flag = 0 // whether or not to show singular "other" category
 
@@ -46,7 +42,7 @@ Promise.all([
 
 	// create copy or original untouched data
 	data_orig = _.cloneDeep(data)
-	console.log('plurals data', data)
+	// console.log('plurals data', data)
 
 
 	// CREATE VISUALIZATIONS
@@ -56,10 +52,6 @@ Promise.all([
 	createPie()
 	// createWordlist()
 	// createScatter()
-
-	// // HIDE LOADING SCREEN
-	// document.body.classList.toggle('noscroll', false)
-	// $('#loading').css('visibility', 'hidden')
 
 })
 

@@ -8,7 +8,7 @@ Promise.all([
 function createForce(data) {
 	// data = _.cloneDeep(data_orig)
 	var gender_data = data
-	console.log('force', gender_data.nodes)
+	// console.log('force', gender_data.nodes)
 
 	width = 1000
 	height = 700
@@ -37,28 +37,7 @@ function createForce(data) {
 		.data(gender_data.links)
 		.join('line')
 
-	console.log('force', gender_data.nodes)
-
-	// var nodes = svg.selectAll('g')
-	// .data(gender_data.nodes).enter()
-	// .append('g')
-
-	// let circle = nodes.append('circle')
-	// 	.attr('class', 'nodes')
-	// 	.attr('r', d => sizeScale(d.freq))
-	// 	.attr('fill', d => colorScale(d.gender))
-	// 	.attr('opacity', 0.8)
-	// 	.call(drag(simulation))
-
-	// let nodes = svg.append('g')
-	// 	.attr('stroke', '#fff')
-	// 	.attr('stroke-width', 1.5)
-	// 	.selectAll('circle')
-	// 	.data(gender_data.nodes)
-	// 	.join('circle')
-	// 	.attr('r', d => sizeScale(d.freq))
-	// 	.style('fill', d => colorScale(d.gender))
-	// 	.call(drag(simulation))
+	// console.log('force', gender_data.nodes)
 
 	var colorScale = d3.scaleOrdinal()
 		.range(['rgb(89, 161, 79)', 'rgb(255, 157, 167)', 'rgb(118, 183, 178)'])

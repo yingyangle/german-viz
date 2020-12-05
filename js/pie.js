@@ -22,7 +22,7 @@ function createPie() {
 	
 	nouns = get_data()
 	var data_ready = pie(d3.entries(nouns))
-	console.log('pie', nouns)
+	// console.log('pie', nouns)
 
 	// create svg
 	var svg = d3.select('#pie')
@@ -106,7 +106,6 @@ function createPie() {
 				return word.plural_type == selected_ending 
 			})
 		}
-		// console.log('pie', nouns)
 
 		// count nouns for each gender
 		total = 0
@@ -122,7 +121,6 @@ function createPie() {
 		}
 		nouns = gender_count
 
-		// console.log('pie ', nouns)
 		return nouns
 	}
 
@@ -130,7 +128,7 @@ function createPie() {
 	function update() {
 		nouns = get_data()
 		data_ready = pie(d3.entries(nouns))
-		console.log('pie', data_ready)
+		// console.log('pie', data_ready)
 
 		// join new data
 		var path = svg.selectAll('path')

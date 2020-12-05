@@ -240,7 +240,6 @@ function createTernary(gender_pct) {
 			})
 			i++
 		}
-		// console.log('ternary', d)
 		drawCircles(d, d => [d.f, d.m, d.n])
 	}
 
@@ -262,7 +261,7 @@ function createTernary(gender_pct) {
 		})
 		i++
 	}
-	console.log('ternary', d)
+	// console.log('ternary', d)
 	drawCircles(d, d => [d.f, d.m, d.n])
 
 	function gender_endings_clickable() {
@@ -274,7 +273,7 @@ function createTernary(gender_pct) {
 				.css('color', '#4d4b47')
 			$(this).css('background-color', '#4d4b47')
 				.css('color', '#fef9ee')
-			console.log('select gender ending', selected_ending_gender)
+			// console.log('select gender ending', selected_ending_gender)
 		})
 	}
 

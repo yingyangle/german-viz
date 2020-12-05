@@ -42,7 +42,7 @@ Promise.all([
 
 	// create copy or original untouched data
 	gender_pct_orig = _.cloneDeep(data.gender_pct)
-	console.log('gender_pct', data.gender_pct)
+	// console.log('gender_pct', data.gender_pct)
 
 	// CREATE VISUALIZATIONS
 	createGenderlist(data.gender_pct)

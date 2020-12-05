@@ -6,7 +6,6 @@ var colorScale_gender = d3.scaleThreshold()
 	.range(['transparent', '#e0f4d4'+opacity, '#c9e6b6'+opacity, '#c0dfab'+opacity, '#b6db9d'+opacity, '#a4cf87'+opacity, '#a4cf87'+opacity, '#acd790'+opacity, '#88b46a'+opacity])
 
 function createGenderlist(gender_pct) {
-	// console.log('genderlist', gender_pct)
 
 	var html_content = ''
 

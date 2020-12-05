@@ -24,7 +24,7 @@ function createBubble() {
 			bubble_nodes = nodes
 			bubble_links = links
 		}
-		console.log('bubble', bubble_nodes, bubble_links)
+		// console.log('bubble', bubble_nodes, bubble_links)
 
 		// filter nodes according to selected ending
 		var nodes_to_remove = []
@@ -72,7 +72,7 @@ function createBubble() {
 			y: Math.random() * 100
 		}))
 
-		console.log('bubble nodes', bubble_nodes)
+		// console.log('bubble nodes', bubble_nodes)
 		return bubble_nodes
 	}
 
@@ -227,7 +227,7 @@ function createBubble() {
 		selected_type = 'plural'
 		selected_i = -1
 		bubble_type = 'Singular'
-		console.log('selected', selected_ending, selected_type, selected_i)
+		// console.log('selected', selected_ending, selected_type, selected_i)
 		$('#selected-ending').html('All Singulars')
 		$('#selected-type').html('')
 		update()
@@ -238,7 +238,7 @@ function createBubble() {
 		selected_type = 'singular'
 		selected_i = -1
 		bubble_type = 'Plural'
-		console.log('selected', selected_ending, selected_type, selected_i)
+		// console.log('selected', selected_ending, selected_type, selected_i)
 		$('#selected-ending').html('All Plurals')
 		$('#selected-type').html('')
 		update()

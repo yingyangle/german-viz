@@ -36,7 +36,7 @@ function checkexample1() {
 	$('#example1 .grid-square').each(function() {
 		sent = sent + $(this).attr('data-word') + ' '
 	})
-	console.log('SENT', sent)
+	// console.log('SENT', sent)
 
 	// correct sentence 1
 	if (sent == 'the dog bit the mailman ') {
@@ -77,7 +77,7 @@ function checkExample3() {
 	$('#example3 .grid-square').each(function() {
 		sent = sent + $(this).attr('data-word') + ' '
 	})
-	console.log('SENT', sent)
+	// console.log('SENT', sent)
 
 	// correct sentence
 	if (sent == 'the boy gave the dog a bone ') {
@@ -139,7 +139,7 @@ function checkexample2() {
 	$('#example2 .grid-square').each(function() {
 		sent = sent + $(this).attr('data-word') + ' '
 	})
-	console.log('SENT', sent)
+	// console.log('SENT', sent)
 
 	var correct_sents = [
 		'the author writes stories for his friends ',
