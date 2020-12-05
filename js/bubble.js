@@ -13,6 +13,12 @@ function createBubble() {
 	
 	// filter and format data
 	function get_data() {
+		// set data to original full data
+		data = _.cloneDeep(data_orig)
+		// remove nodes with count < count_cutoff_plural
+		data.nodes = data.nodes.filter(node => {
+			return node.count > count_cutoff_plural
+		})
 		if (selected_ending == '') {
 			bubble_nodes = data.nodes
 			bubble_links = data.links
@@ -171,10 +177,10 @@ function createBubble() {
 			.text(() => {
 				if (selected_type == 'plural') {
 					if (selected_ending == '') return 'Singular Endings'
-					return 'Singular Endings For'
+					return 'Singular Endings For Nouns'
 				} else {
 					if (selected_ending == '') return 'Plural Endings'
-					return 'Plural Endings For'
+					return 'Plural Endings For Nouns'
 				}
 			})
 		svg.append('text')
@@ -186,9 +192,11 @@ function createBubble() {
 			.text(() => {
 				if (selected_ending == '') return 'For All Nouns'
 				if (selected_type == 'plural') {
-					return 'Plurals Ending In "' + selected_ending + '"'
+					if (selected_ending == 'no change') return 'With No Change in the Plural'
+					if (selected_ending == 'other') return 'With Other Plural Type Not Listed'
+					return 'With Plurals Ending In "' + selected_ending + '"'
 				} else {
-					return 'Singulars Ending In "' + selected_ending + '"'
+					return 'With Singulars Ending In "' + selected_ending + '"'
 				}
 			})
 
@@ -227,7 +235,6 @@ function createBubble() {
 		selected_type = 'plural'
 		selected_i = -1
 		bubble_type = 'Singular'
-		// console.log('selected', selected_ending, selected_type, selected_i)
 		$('#selected-ending').html('All Singulars')
 		$('#selected-type').html('')
 		update()
@@ -238,7 +245,6 @@ function createBubble() {
 		selected_type = 'singular'
 		selected_i = -1
 		bubble_type = 'Plural'
-		// console.log('selected', selected_ending, selected_type, selected_i)
 		$('#selected-ending').html('All Plurals')
 		$('#selected-type').html('')
 		update()

@@ -172,9 +172,11 @@ function createPie() {
 			.text(() => {
 				if (selected_ending == '') return ''
 				if (selected_type == 'plural') {
-					return 'with Plurals Ending in "' + selected_ending + '"'
+					if (selected_ending == 'no change') return 'With No Change in the Plural'
+					if (selected_ending == 'other') return 'With Other Plural Type Not Listed'
+					return 'With Plurals Ending In "' + selected_ending + '"'
 				} else {
-					return 'with Singulars Ending in "' + selected_ending + '"'
+					return 'With Singulars Ending In "' + selected_ending + '"'
 				}
 			})
 		
