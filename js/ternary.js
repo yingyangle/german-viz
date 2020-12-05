@@ -5,10 +5,10 @@ function createTernary(gender_pct) {
 	var dataset
 
 	var opt = {
-		width: 600,
-		height: 400,
+		width: 700,
+		height: 460,
 		side: 300,
-		margin: {top: 70, left: 150, bottom: 150, right: 150},
+		margin: {top: 120, left: 200, bottom: 0, right: 150},
 		axis_labels: ['Feminine', 'Masculine', 'Neuter'],
 		axis_ticks: d3.range(0, 101, 20),
 		minor_axis_ticks: d3.range(0, 101, 5),

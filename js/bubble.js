@@ -52,7 +52,7 @@ function createBubble() {
 			})
 		} else {
 			// update total
-			plurals_total = 180424
+			plurals_total = d3.sum(bubble_nodes, d => +d.count)
 		}
 
 		var maxSize = d3.max(bubble_nodes, d => +d.count)

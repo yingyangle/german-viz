@@ -92,8 +92,8 @@ function createLoanwords(words) {
 				.style('top', (d3.event.pageY + 10) + 'px')
 		})
 
-	//Legend
-		var legend = svg.append('g')
+	// legend
+	var legend = svg.append('g')
 		.attr('class', 'legend')
 		.attr('height', 100)
 		.attr('width', 100)
@@ -103,8 +103,8 @@ function createLoanwords(words) {
 		.data(['German', 'Germanic', 'Middle High German', 'Middle Low German', 'Middle North Germanic', 'Proto-Germanic', 'West Germanic'])
 		.enter()
 		.append('rect')
-		.attr('x', width - 145)
-		.attr('y', (d,i) => (i * 20) + 200)
+		.attr('x', 20)
+		.attr('y', (d,i) => (i * 26) + 60)
 		.attr('width', 13)
 		.attr('height', 13)
 		.attr('fill', d => colorScale(d))
@@ -113,8 +113,8 @@ function createLoanwords(words) {
 		.data(['German', 'Germanic', 'Middle High German', 'Middle Low German', 'Middle North Germanic', 'Proto-Germanic', 'West Germanic'])
 		.enter()
 		.append('text')
-		.attr('x', width - 130)
-		.attr('y', (d,i) => (i * 20 + 9) + 203)
+		.attr('x', 40)
+		.attr('y', (d,i) => (i * 26 + 9) + 63)
 		.attr('font-size', '16')
 		.attr('font-family', 'Nunito Sans')
 		.text(function(d) {

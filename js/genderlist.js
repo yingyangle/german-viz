@@ -1,9 +1,9 @@
 var gender_sort = '' // col to sort by
-
+var opacity = 'cc' // opacity in hex to append to each color in colorscale
 var colorScale_gender = d3.scaleThreshold()
 	.domain([0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1])
 	// .range(['transparent'].concat(d3.schemeYlGn[9]))
-	.range(['transparent', '#f0ffe7b3', '#daf3cab3', '#c3e6acb3', '#acd98eb3', '#95cc70b3'])
+	.range(['transparent', '#e0f4d4'+opacity, '#c9e6b6'+opacity, '#c0dfab'+opacity, '#b6db9d'+opacity, '#a4cf87'+opacity, '#a4cf87'+opacity, '#acd790'+opacity, '#88b46a'+opacity])
 
 function createGenderlist(gender_pct) {
 	// console.log('genderlist', gender_pct)
