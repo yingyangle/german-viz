@@ -46,14 +46,14 @@
 
 
 		<!-- NAVIGATION -->
-		<nav>
+		<!-- <nav>
 			<ul>
 				<li><a href="#introduction"> Introduction</a></li>
 				<li><a href="#grammar"> German Grammar</a></li>
 				<li><a href="#genderpatterns"> Gender Patterns</a></li>
 				<li><a href="#pluralpatterns"> Plural Patterns</a></li>
 			</ul>
-		</nav>
+		</nav> -->
 
 	
 		<section id="introduction">
@@ -574,15 +574,15 @@
 						<br><br>
 						<!-- GENDER ENDINGS LIST -->
 						<div id="genderlist-container">
+							<!-- HEADER -->
+							<div id="genderlist-header" class="row">
+								<div id="genderlist-alpha" class="col-5"><b>Noun Ending <span class="down-arrow">▾</span></b></div>
+								<div id="genderlist-f" class="col-2"><b>fem.</b></div>
+								<div id="genderlist-m" class="col-2"><b>masc.</b></div>
+								<div id="genderlist-n" class="col-2"><b>neut.</b></div>
+							</div>
+							<hr>
 							<div id="genderlist">
-								<!-- HEADER -->
-								<div id="genderlist-header" class="row">
-									<div id="genderlist-alpha" class="col-5"><b>Noun Ending <span class="down-arrow">▾</span></b></div>
-									<div id="genderlist-f" class="col-2"><b>fem.</b></div>
-									<div id="genderlist-m" class="col-2"><b>masc.</b></div>
-									<div id="genderlist-n" class="col-2"><b>neut.</b></div>
-								</div>
-								<hr>
 								<!-- LIST -->
 								<div id="genderlist-list"></div>
 							</div>
@@ -610,12 +610,8 @@
 			</div>
 			<br>
 
-			<div class="current-selection">Currently showing data for: <b><span id="selected-ending">All Plurals</span> <span id="selected-type"></span></b></div>
-			<br><br>
-
-			<button id="show-all-plurals" class="btn">Show All Plurals</button>
-			<button id="show-all-singulars" class="btn">Show All Singulars</button>
-			<br><br>
+			<!-- <div class="current-selection">Currently showing data for: <b><span id="selected-ending">All Plurals</span> <span id="selected-type"></span></b></div>
+			<br><br> -->
 
 			<!-- PLURALS VIZ -->
 			<div class="container-fluid">
@@ -650,6 +646,9 @@
 					<!-- RIGHT COLUMN - BUBBLE CHART, PIE CHART -->
 					<div class="col-md-5">
 						<br><br><br>
+						<button id="show-all-plurals" class="btn">Show All Plurals</button>
+						<button id="show-all-singulars" class="btn">Show All Singulars</button>
+						<br>
 						<!-- BUBBLE CHART -->
 						<div id="bubble"></div>
 						<!-- PIE CHART -->

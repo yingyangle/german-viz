@@ -2,7 +2,7 @@ function createSankey() {
 	let m = 90
 	let margin = ({ top: 50, right: m, bottom: 10, left: m })
 	let width = 700
-	let height = 760
+	let height = 720
 
 	var edgeColor = 'path' // color of links
 

@@ -1,10 +1,9 @@
 function createBubble() {
 
-	let width = 500
-	let height = 500
-	var center = { x: 0 , y: 40 }
+	let width = 400
+	let height = 320
+	var center = { x: 0 , y: 30 }
 
-	var bubble_title = 'Plural Endings Distribution'
 	var bubble_type = 'Plural'
 	var bubble_nodes
 
@@ -56,12 +55,13 @@ function createBubble() {
 			plurals_total = 180424
 		}
 
-		const maxSize = d3.max(bubble_nodes, d => +d.count)
+		var maxSize = d3.max(bubble_nodes, d => +d.count)
+		var minSize = d3.min(bubble_nodes, d => +d.count)
 		
 		// size bubbles based on area
-		const radiusScale = d3.scaleSqrt()
-			.domain([0, maxSize])
-			.range([0, 80])
+		var radiusScale = d3.scaleSqrt()
+			.domain([minSize, maxSize])
+			.range([0, 50])
 		
 		// format nodes info
 		bubble_nodes = bubble_nodes.map(d => ({
@@ -133,7 +133,7 @@ function createBubble() {
 		// circle labels
 		let labels = node.append('text')
 			.text(d => d.name)
-			.style('font-size', '18px')
+			.style('font-size', '14px')
 			.attr('class', 'nunito')
 			.attr('fill', '#4d4b47')
 			.attr('x', 0)
@@ -164,11 +164,33 @@ function createBubble() {
 		// title
 		svg.append('text')
 			.attr('x', 0)
-			.attr('y', -200)
+			.attr('y', -120)
 			.attr('text-anchor', 'middle')
-			.style('font-size', '40px')
+			.style('font-size', '24px')
 			.style('fill', '#4d4b47')
-			.text(bubble_title)
+			.text(() => {
+				if (selected_type == 'plural') {
+					if (selected_ending == '') return 'Singular Endings'
+					return 'Singular Endings For'
+				} else {
+					if (selected_ending == '') return 'Plural Endings'
+					return 'Plural Endings For'
+				}
+			})
+		svg.append('text')
+			.attr('x', 0)
+			.attr('y', -120 + 24)
+			.attr('text-anchor', 'middle')
+			.style('font-size', '24px')
+			.style('fill', '#4d4b47')
+			.text(() => {
+				if (selected_ending == '') return 'For All Nouns'
+				if (selected_type == 'plural') {
+					return 'Plurals Ending In "' + selected_ending + '"'
+				} else {
+					return 'Singulars Ending In "' + selected_ending + '"'
+				}
+			})
 
 
 		// called each time the simulation ticks
@@ -204,7 +226,6 @@ function createBubble() {
 		selected_ending = ''
 		selected_type = 'plural'
 		selected_i = -1
-		bubble_title = 'Singular Endings Distribution'
 		bubble_type = 'Singular'
 		console.log('selected', selected_ending, selected_type, selected_i)
 		$('#selected-ending').html('All Singulars')
@@ -216,7 +237,6 @@ function createBubble() {
 		selected_ending = ''
 		selected_type = 'singular'
 		selected_i = -1
-		bubble_title = 'Plural Endings Distribution'
 		bubble_type = 'Plural'
 		console.log('selected', selected_ending, selected_type, selected_i)
 		$('#selected-ending').html('All Plurals')

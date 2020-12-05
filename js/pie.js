@@ -1,7 +1,7 @@
 function createPie() {
-	var width = 400
-	var height = 360
-	var radius = Math.max(width, height) / 2 - 100
+	var width = 500
+	var height = 300
+	var radius = Math.min(width, height) / 2 - 80
 
 	var total = 0
 
@@ -27,9 +27,6 @@ function createPie() {
 	// create svg
 	var svg = d3.select('#pie')
 		.append('svg')
-		// .attr('width', width)
-		// .attr('height', height)
-		// .attr('viewBox', `0 0 ${width + margin.left + margin.right} ${height + margin.top + margin.bottom}`)
 		.attr('viewBox',  [-width / 2, -height / 2, width, height])
 		.append('g')
 		// .attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')')
@@ -52,7 +49,6 @@ function createPie() {
 	svg.selectAll('path')
 		.on('mouseover.tooltip', function(d) {
 			var pct = Math.round(1000 * d.data.value / total) / 10
-
 			tooltip.transition()
 				.duration(200)
 				.style('opacity', 0.9)
@@ -69,15 +65,6 @@ function createPie() {
 			tooltip.style('left', (d3.event.pageX) + 'px')
 				.style('top', (d3.event.pageY + 10) + 'px')
 		})
-	
-	// title
-	svg.append('text')
-		.attr('x', -10)
-		.attr('y', -130)
-		.attr('text-anchor', 'middle')
-		.style('font-size', '40px')
-		.style('fill', '#4d4b47')
-		.text('Gender Distribution')
 
 	// legend boxes
 	svg.append('g')
@@ -88,8 +75,8 @@ function createPie() {
 		.attr('class', 'box')
 		.attr('height', 16) 
 		.attr('width', 16) 
-		.attr('x', (d,i) => i * 100 - radius - 18)
-		.attr('y', height - 230)
+		.attr('x', (d,i) => i * 100 - radius - 52)
+		.attr('y', height - 200)
 		.attr('fill', d => colorScale(d.data.key))
 
 	// legend labels
@@ -99,10 +86,9 @@ function createPie() {
 		.enter()
 		.append('text')
 		.text(d => gender_names_short[d.data.key])
-		.attr('x', (d,i) => i * 100 - radius + 6)
-		.attr('y', height - 230 + 13)
+		.attr('x', (d,i) => i * 100 - radius - 52 + 24)
+		.attr('y', height - 200 + 13)
 		.attr('font-size', '14px')
-		// .attr('fill', '#6d6d6d')
 		.attr('font-family', 'Nunito Sans')
 		.attr('text-anchor', 'beginning')
 
@@ -162,6 +148,38 @@ function createPie() {
 			.attr('stroke', 'white')
 			.attr('stroke-width', '6px')
 			.each(function(d) { this._current = d })
+
+		// remove old title
+		svg.selectAll('.pie-title').remove()
+
+		// title
+		svg.append('text')
+			.attr('class', 'pie-title')
+			.attr('x', -10)
+			.attr('y', -120)
+			.attr('text-anchor', 'middle')
+			.style('font-size', '30px')
+			.style('fill', '#4d4b47')
+			.text(() => {
+				if (selected_ending == '') return 'Gender Distribution For All Nouns'
+				return 'Gender Distribution For Nouns'
+			})
+		svg.append('text')
+			.attr('class', 'pie-title')
+			.attr('x', -10)
+			.attr('y', -120 + 30)
+			.attr('text-anchor', 'middle')
+			.style('font-size', '30px')
+			.style('fill', '#4d4b47')
+			.text(() => {
+				console.log(selected_ending)
+				if (selected_ending == '') return ''
+				if (selected_type == 'plural') {
+					return 'with Plurals Ending in "' + selected_ending + '"'
+				} else {
+					return 'with Singulars Ending in "' + selected_ending + '"'
+				}
+			})
 		
 		// console.log('UPDATED PIE !')
 	}
