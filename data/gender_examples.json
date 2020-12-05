@@ -2,6 +2,26 @@
 	"a": {
 		"f": ["example1", "example2", "example3"],
 		"m": ["example1", "example2", "example3"],
-		"n": ["example1", "example2", "example3"]
+		"n": ["das Amerika", "das Guinea", " das Uganda"]
+	},
+	"chen": {
+		"f": ["die Watschen", "die Wintersachen", "die Badesachen"],
+		"m": ["der Apfelkuchen", "der Backenknochen", "der Baumkuchen"],
+		"n": ["das Mädchen", "das Häuschen", " das Hündchen"]
+	},
+	"e": {
+		"f": ["die Seite", "die Zeile", "die Adresse"],
+		"m": ["der Bote ", "der Junge", "der Löwe"],
+		"n": ["das Abece", "das Adlergebirge", " das Ammergebirge"]
+	},
+	"el": {
+		"f": ["example1", "example2", "example3"],
+		"m": ["der Spiegel", "der Aitel", "der Alkoholpegel"],
+		"n": ["das Spiel", "das Aerogel", " das Allheilmittel"]
+	},
+	"en": {
+		"f": ["example1", "example2", "example3"],
+		"m": ["der Husten", "der Braten", "der Apfelbutzen"],
+		"n": ["das Lesen", "das Verstehen", " das Malen"]
 	}
 }
