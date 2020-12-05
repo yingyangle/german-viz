@@ -44,17 +44,19 @@
 			<div class="spinner"></div>
 		</div>
 
-
-		<!-- NAVIGATION -->
-		<!-- <nav>
-			<ul>
-				<li><a href="#introduction"> Introduction</a></li>
-				<li><a href="#grammar"> German Grammar</a></li>
-				<li><a href="#genderpatterns"> Gender Patterns</a></li>
-				<li><a href="#pluralpatterns"> Plural Patterns</a></li>
-			</ul>
-		</nav> -->
-
+		<!-- HAMBURGER BUTTON -->
+		<button id="hamburger" class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbar-items" aria-controls="navbar-items" aria-expanded="false" aria-label="toggle navigation">
+			<span class="icon-bar top-bar"></span>
+			<span class="icon-bar middle-bar"></span>
+			<span class="icon-bar bottom-bar"></span>
+		</button>
+		<!-- NAVIGATION BAR -->
+		<div id="navbar-items" class="collapsed">
+			<a href="#introduction">Introduction</a><br>
+			<a href="#grammar">Grammar</a><br>
+			<a href="#gender">Gender</a><br>
+			<a href="#plurals">Plurals</a><br>
+		</div>
 	
 		<section id="introduction">
 		<div id="container" class="text-center">
@@ -243,10 +245,11 @@
 
 			<!-- BAR CHART SHOWING TOP COUNTRIES WITH MOST GERMAN LEARNERS?? -->
 
-			<!-- GERMAN GRAMMAR -->
+			<br><br>
 			<section id="grammar">
+
 			<div class="text-container">
-				<br><br><br>
+				<br>
 				<h2>German Grammar</h2>
 
 				<p>While English and German may be historically related, there are many differences in the grammar of German that may pose difficulties for students of German. The <b>Foreign Language Institute</b> provides an overview categorizing the difficulty of learning foreign languages for native English speakers, and German is the only language in the <b>"Category II"</b> group, meaning it requires approximately <b>750 hours</b> of study. This makes German <b>easier</b> to learn than languages like <b>Russian</b> and <b>Indonesian</b>, but <b>harder</b> than languages like <b>French</b> and <b>Italian</b>.</p>
@@ -540,9 +543,11 @@
 			</div>
 			</section>
 
-			<section id="genderpatterns">
+			<br><br>
+			<section id="gender">
+			
 			<div class="text-container">
-				<br><br><br>
+				<br>
 				<h2>Gender Patterns</h2>
 
 				<p>Now let's take a look at what patterns we might find for determining the gender of German nouns. To do this, we identified a list of about <b>140 noun endings</b> and plotted them to see which endings tend to take which grammatical gender.</p>
@@ -598,12 +603,12 @@
 			<div id="force" ></div>
 		</section>
 
-		<section id="pluralpatterns">
+		<br><br>
+		<section id="plurals">
 			
-
 			<!-- PLURALS -->
 			<div class="text-container">
-				<br><br><br>
+				<br>
 				<h2>Plural Patterns</h2>
 
 				<p>We can also do a similar kind of analysis for different plural formations in German nouns. Using the same list of about <b>140 singular noun endings</b>, we can see which singular endings tend to take which plural endings in the <b>Sankey diagram</b> on the left.</p>
@@ -677,6 +682,12 @@
 
 
 		<script>
+
+			// navbar button click
+			$('#hamburger').on('click', () => {
+				$('#hamburger').toggleClass('collapsed')
+				$('#navbar-items').toggleClass('collapsed')
+			})
 
 			// tooltip
 			var tooltip = d3.select('body')

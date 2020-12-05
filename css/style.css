@@ -330,44 +330,103 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 
 /*** NAVIGATION BAR ***/
 
-nav {
+#navbar-items.collapsed {
 	position: fixed;
-	z-index: 5;
-	top: 0%;
-	left: 0%;
-	width: 100%;
+	top: 60px;
+	left: 20px;
+	visibility: hidden;
+	opacity: 0;
+	transform: translate(0, -60px);
+	transition: opacity 0.3s, visibility 0.3s, transform 0.4s ease;
+}
+
+#navbar-items {
 	background-color: #fef9ee;
+	padding-right: 20px;
+	padding-top: 20px;
+	position: fixed;
+	top: 50px;
+	left: 20px;
+	z-index: 40;
+	text-align: left;
+	visibility: visible;
+	opacity: 0.9;
+	transform: translate(0, 0);
+	transition: opacity 0.3s, visibility 0.3s, transform 0.4s ease;
 }
 
-nav ul {
-	list-style-type: none;
-	display: flex;
-	flex-direction: row;
-	width : 100%;
-	justify-content : center;
-	background-color: #fef9ee;
-	margin: 0;
-	padding: 10px;
-}
-
-nav>ul>li {
-	margin-left: 5%;
-	margin-right: 5%
-}
-
-nav a {
+#navbar-items a {
 	font-weight: 600;
 	position: relative;
 	display: inline-block;
 	color: #4d4b47;
 	font-family: 'Nunito Sans';
 	text-transform: uppercase;
-	font-size: 20px;
-	/* font-size: 30px; */
+	font-size: 18px;
+	line-height: 28px;
+	margin-bottom: 14px;
 }
 
-nav a:hover {
+#navbar-items a:hover {
 	text-decoration: none;
+	color: #79b7bb;
+	cursor: pointer;
+}
+
+/*** NAVBAR HAMBURGER BUTTON ***/
+
+#hamburger {
+	position: fixed;
+	top: 8px;
+	left: 8px;
+	z-index: 20;
+}
+
+.icon-bar {
+	width: 25px; 
+	height: 2px;
+	background-color: #4d4b47;
+	display: block;
+	transition: all 0.2s;
+	margin-top: 6px
+}
+ 
+.navbar-toggler {
+	border: none;
+	background: transparent !important;
+	margin-bottom: 6px;
+	/*margin-top: -10px;*/
+}
+
+button.navbar-toggler {
+	border: none;
+}
+
+.navbar-toggler .top-bar {
+	transform: rotate(40deg) translate(3px);
+	transform-origin: 10% 10%;
+	/*translate(3px) rotate(45deg);*/
+}
+ 
+.navbar-toggler .middle-bar {
+	opacity: 0;
+}
+ 
+.navbar-toggler .bottom-bar {
+	transform: rotate(-40deg) translate(3px);
+	transform-origin: 10% 90%;
+}
+ 
+.navbar-toggler.collapsed .top-bar {
+	transform: rotate(0);
+}
+ 
+.navbar-toggler.collapsed .middle-bar {
+	opacity: 1;
+}
+ 
+.navbar-toggler.collapsed .bottom-bar {
+	transform: rotate(0);
 }
 
 /*** SCROLLBAR APPEARANCE ***/

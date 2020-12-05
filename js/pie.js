@@ -172,7 +172,6 @@ function createPie() {
 			.style('font-size', '30px')
 			.style('fill', '#4d4b47')
 			.text(() => {
-				console.log(selected_ending)
 				if (selected_ending == '') return ''
 				if (selected_type == 'plural') {
 					return 'with Plurals Ending in "' + selected_ending + '"'
