@@ -307,9 +307,21 @@ function createTernary(gender_pct) {
 
 	// sort genderlist by a column
 	$('#genderlist-header div').on('click', function() {
+		if ($('.down-arrow', this).length) {
+			$('.down-arrow').remove()
+			$(this).append(' <span class="up-arrow">▲</span>')
+			gender_sort_dir = 'ascending'
+		} else if ($('.up-arrow', this).length) {
+			$('.up-arrow').remove()
+			$(this).append(' <span class="down-arrow">▼</span>')
+			gender_sort_dir = 'descending'
+		} else {
+			$('.up-arrow').remove()
+			$('.down-arrow').remove()
+			$(this).append(' <span class="down-arrow">▼</span>')
+			gender_sort_dir = 'descending'
+		}
 		createGenderlist(gender_pct)
-		$('.down-arrow').remove()
-		$(this).append('<span class="down-arrow">▾</span>')
 		gender_endings_clickable()
 	})
 

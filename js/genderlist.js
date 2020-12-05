@@ -1,4 +1,5 @@
 var gender_sort = '' // col to sort by
+var gender_sort_dir = 'descending' // sort direction
 var opacity = 'cc' // opacity in hex to append to each color in colorscale
 var colorScale_gender = d3.scaleThreshold()
 	.domain([0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1])
@@ -12,12 +13,20 @@ function createGenderlist(gender_pct) {
 	// sort endings if gender_sort selected
 	var endings_list = Object.keys(gender_pct)
 	if (gender_sort != '') {
-		endings_list.sort((a,b) => { 
-			return gender_pct[b][gender_sort] - gender_pct[a][gender_sort]
-		})
+		if (gender_sort_dir == 'descending') {
+			endings_list.sort((a,b) => { 
+				return gender_pct[b][gender_sort] - gender_pct[a][gender_sort]
+			})
+		} else {
+			endings_list.sort((a,b) => { 
+				return gender_pct[a][gender_sort] - gender_pct[b][gender_sort]
+			})
+		}
 	} else { // sort alphabetically
 		endings_list.sort()
+		if (gender_sort_dir == 'descending') endings_list.reverse()
 	}
+	
 	
 	// loop through each noun, add data to word list
 	for (var i in endings_list) {
@@ -70,7 +79,6 @@ function createGenderlist(gender_pct) {
 				.css('color', '#fef9ee')
 		}
 	})
-
 }
 
 // show tooltip on genderlist header

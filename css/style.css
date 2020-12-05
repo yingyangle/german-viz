@@ -128,6 +128,10 @@ a:hover:before, a:hover:after {
 	color: #4d4b47;
 }
 
+.down-arrow, .up-arrow {
+	font-size: 10px;
+}
+
 .noscroll {
 	/* overflow: hidden; */
 }

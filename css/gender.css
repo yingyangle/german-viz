@@ -31,8 +31,13 @@
 	margin-right: 10px;
 }
 
-#genderlist-header div {
+#genderlist-header {
 	cursor: pointer;
+}
+
+#genderlist-f, #genderlist-m, #genderlist-n {
+	padding: 0;
+	margin: auto;
 }
 
 #genderlist-header div:hover {

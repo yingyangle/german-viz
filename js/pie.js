@@ -39,8 +39,6 @@ function createPie() {
 		.attr('d', arcGenerator)
 		.transition()
 		.duration(300)
-		// .attr('stroke', 'black') // outline
-		// .style('stroke-width', '1px')
 		.attr('fill', d => colorScale(d.data.key))
 		// .attr('fill-opacity', 1)
 		.each(function(d) { this._current = d })
@@ -95,17 +93,22 @@ function createPie() {
 	// filter and format data
 	function get_data() {
 		nouns = data_orig.nouns
+		var endings = nodes.map(d => d.name)
 
 		// filter data to only included selected ending
 		if (selected_type == 'singular' & selected_ending != '') {
 			nouns = nouns.filter(word => {
 				return word.suffix == selected_ending
 			})
+		} else if (selected_type == 'plural' & selected_ending == 'other') {
+			nouns = nouns.filter(word => {
+				return !endings.includes(word.plural_type) || word.plural_type == 0
+			})
 		} else if (selected_type == 'plural' & selected_ending != '') {
 			nouns = nouns.filter(word => {
 				return word.plural_type == selected_ending 
 			})
-		}
+		} 
 
 		// count nouns for each gender
 		total = 0
@@ -128,7 +131,7 @@ function createPie() {
 	function update() {
 		nouns = get_data()
 		data_ready = pie(d3.entries(nouns))
-		// console.log('pie', data_ready)
+		// console.log('pie data_ready', data_ready)
 
 		// join new data
 		var path = svg.selectAll('path')
