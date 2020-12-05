@@ -1,0 +1,40 @@
+.sankey-node {
+	cursor: pointer;
+}
+
+/* for plurals selection */
+.current-selection {
+	padding: 30px;
+	font-size: 30px;
+	/* background-color: #4d4b47; */
+	/* color: #fef9ee; */
+	border: 2px solid #4d4b47;
+	border-radius: 14px;
+	display: inline-block;
+}
+
+/* WORDLIST (removed) */
+
+#wordlist-col p, #wordlist-col h3 {
+	margin-left: 100px;
+}
+
+#wordlist-container {
+	font-size: 16px;
+	border: 1px solid #4d4b47;
+	/* background-color: transparent; */
+	width: 400px;
+	height: 400px;
+	border-radius: 20px;
+	margin-left: 120px;
+	padding: 26px;
+	text-align: left;
+	/* overflow-y: scroll; */
+}
+
+#wordlist {
+	width: 100%;
+	height: 346px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}

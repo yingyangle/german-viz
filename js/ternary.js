@@ -204,7 +204,7 @@ function createTernary(gender_pct) {
 				tooltip.transition()
 					.duration(200)
 					.style('opacity', .9);
-				tooltip.html('Singular Ending: <b>' + d.name + '</b></br>Count: <b>' + `${f(d.total)} words` + '</b>')
+				tooltip.html('Singular Ending: <b>' + d.name + '</b></br>Count: <b>' + `${f(d.total)} words` + '</b></br>fem: <b>' + Math.round(d.f * 1000) / 10 + '%</b></br>masc: <b>' + Math.round(d.m * 1000) / 10 + '%</b></br>neut: <b>' + Math.round(d.n * 1000) / 10 + '%</b>')
 			})
 			.on('mouseout.tooltip', function() {
 				tooltip.transition()

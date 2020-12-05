@@ -1,4 +1,9 @@
-var gender_sort = ''
+var gender_sort = '' // col to sort by
+
+var colorScale_gender = d3.scaleThreshold()
+	.domain([0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1])
+	// .range(['transparent'].concat(d3.schemeYlGn[9]))
+	.range(['transparent', '#f0ffe7b3', '#daf3cab3', '#c3e6acb3', '#acd98eb3', '#95cc70b3'])
 
 function createGenderlist(gender_pct) {
 	// console.log('genderlist', gender_pct)
@@ -31,24 +36,27 @@ function createGenderlist(gender_pct) {
 		html_content = html_content + '<div class="col-5 gender-ending-select"><b>' + suffix + '</b></div>'
 		
 		// fem. pct
-		if (gender_pct[suffix].f == max) {
-			html_content = html_content + '<div class="col-2"><b>' + Math.round(gender_pct[suffix].f * 1000) / 10 + '%</b></div>'
+		var fem = gender_pct[suffix].f
+		if (fem == max) {
+			html_content = html_content + '<div class="col-2 gender-pct" style="background-color: ' + colorScale_gender(fem) + '"><b>' + Math.round(fem * 1000) / 10 + '%</b></div>'
 		} else {
-			html_content = html_content + '<div class="col-2">' + Math.round(gender_pct[suffix].f * 1000) / 10 + '%</div>'
+			html_content = html_content + '<div class="col-2 gender-pct" style="background-color: ' + colorScale_gender(fem) + '">' + Math.round(fem * 1000) / 10 + '%</div>'
 		}
 
 		// masc. pct
-		if (gender_pct[suffix].m == max) {
-			html_content = html_content + '<div class="col-2"><b>' + Math.round(gender_pct[suffix].m * 1000) / 10 + '%</b></div>'
+		var masc = gender_pct[suffix].m
+		if (masc == max) {
+			html_content = html_content + '<div class="col-2 gender-pct" style="background-color: ' + colorScale_gender(masc) + '"><b>' + Math.round(masc * 1000) / 10 + '%</b></div>'
 		} else {
-			html_content = html_content + '<div class="col-2">' + Math.round(gender_pct[suffix].m * 1000) / 10 + '%</div>'
+			html_content = html_content + '<div class="col-2 gender-pct" style="background-color: ' + colorScale_gender(masc) + '">' + Math.round(masc * 1000) / 10 + '%</div>'
 		}
 
 		// neut. pct
-		if (gender_pct[suffix].n == max) {
-			html_content = html_content + '<div class="col-2"><b>' + Math.round(gender_pct[suffix].n * 1000) / 10 + '%</b></div>'
+		var neut = gender_pct[suffix].n
+		if (neut == max) {
+			html_content = html_content + '<div class="col-2 gender-pct" style="background-color: ' + colorScale_gender(neut) + '"><b>' + Math.round(neut * 1000) / 10 + '%</b></div>'
 		} else {
-			html_content = html_content + '<div class="col-2">' + Math.round(gender_pct[suffix].n * 1000) / 10 + '%</div>'
+			html_content = html_content + '<div class="col-2 gender-pct" style="background-color: ' + colorScale_gender(neut) + '">' + Math.round(neut * 1000) / 10 + '%</div>'
 		}
 
 		// end row
