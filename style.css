@@ -303,17 +303,22 @@ a:hover:before, a:hover:after {
 	cursor: pointer;
 }
 
+#gender-range-wrap {
+	width: 50%;
+}
+
 /* GENDERLIST */
 
 #genderlist-container {
 	font-size: 16px;
 	border: 1px solid #4d4b47;
-	width: 400px;
+	width: 420px;
 	height: 400px;
 	border-radius: 20px;
 	/* margin-left: 120px; */
-	padding: 18px 18px 18px 26px;
+	padding: 20px 12px 8px 16px;
 	text-align: left;
+	margin: auto;
 }
 
 #genderlist {
@@ -332,11 +337,11 @@ a:hover:before, a:hover:after {
 	opacity: 0.6;
 }
 
-.gender-row {
+.gender-ending-select {
 	cursor: pointer;
 }
 
-.gender-row:hover {
+.gender-ending-select:hover {
 	color: #fef9ee;
 	background-color: #4d4b47;
 }
@@ -466,7 +471,15 @@ div.tooltip {
 	pointer-events: none;
 }
 
+#gender-container {
+	/* margin: 30px; */
+}
+
 /*** TERNARY PLOT ***/
+
+#ternary-reset {
+	visibility: hidden;
+}
 
 line.tick {
 	stroke-width: 0.5;
@@ -494,7 +507,7 @@ text.tick-text {
 #ternary circle {
 	fill: #fef9ee;
 	stroke: rgb(69, 152, 141);
-	stroke-width: 4px;
+	stroke-width: 3px;
 }
 
 /*** SCROLLBAR APPEARANCE ***/

@@ -46,7 +46,7 @@ Promise.all([
 
 	// create copy or original untouched data
 	data_orig = _.cloneDeep(data)
-	console.log('data', data)
+	console.log('plurals data', data)
 
 
 	// CREATE VISUALIZATIONS

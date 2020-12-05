@@ -184,7 +184,7 @@ function createBubble() {
 			})
 			.restart()
 
-		console.log('UPDATED BUBBLE !')
+		// console.log('UPDATED BUBBLE !')
 	}
 	
 	update()

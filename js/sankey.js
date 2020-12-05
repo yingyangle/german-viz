@@ -285,7 +285,7 @@ function createSankey() {
 			.style('fill', '#4d4b47')
 			.text('Plural Ending')
 		
-		console.log('UPDATED SANKEY !')
+		// console.log('UPDATED SANKEY !')
 	}
 		
 	update()

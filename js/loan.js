@@ -4,7 +4,7 @@ Promise.all([
 	d3.json('data/loanwords.json')
 ]).then(data => {
 	words = data[0]
-	console.log(words)
+	// console.log(words)
 	createLoanwords(words)
 })
 

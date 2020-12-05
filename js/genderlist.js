@@ -28,7 +28,7 @@ function createGenderlist(gender_pct) {
 		html_content = html_content + '<div class="row">'
 
 		// suffix
-		html_content = html_content + '<div class="col-5 gender-row"><b>' + suffix + '</b></div>'
+		html_content = html_content + '<div class="col-5 gender-ending-select"><b>' + suffix + '</b></div>'
 		
 		// fem. pct
 		if (gender_pct[suffix].f == max) {
@@ -56,10 +56,17 @@ function createGenderlist(gender_pct) {
 	}
 
 	$('#genderlist-list').html(html_content)
+	// highlight selected ending if any
+	$('.gender-ending-select').each((i,d) => {
+		if ($(d).text() == selected_ending_gender) {
+			$(d).css('background-color', '#4d4b47')
+				.css('color', '#fef9ee')
+		}
+	})
 
 }
 
-// show meaning of each part on hover
+// show tooltip on genderlist header
 d3.selectAll('#genderlist-header div')
 	.on('mouseover.tooltip', function(d) {
 		tooltip.transition()

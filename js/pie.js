@@ -22,6 +22,7 @@ function createPie() {
 	
 	nouns = get_data()
 	var data_ready = pie(d3.entries(nouns))
+	console.log('pie', nouns)
 
 	// create svg
 	var svg = d3.select('#pie')
@@ -119,7 +120,7 @@ function createPie() {
 				return word.plural_type == selected_ending 
 			})
 		}
-		console.log('pie', nouns)
+		// console.log('pie', nouns)
 
 		// count nouns for each gender
 		total = 0
@@ -135,7 +136,7 @@ function createPie() {
 		}
 		nouns = gender_count
 
-		console.log('pie ', nouns)
+		// console.log('pie ', nouns)
 		return nouns
 	}
 
@@ -162,7 +163,7 @@ function createPie() {
 			.attr('stroke-width', '6px')
 			.each(function(d) { this._current = d })
 		
-		console.log('UPDATED PIE !')
+		// console.log('UPDATED PIE !')
 	}
 
 	function arcTween(a) {

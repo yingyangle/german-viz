@@ -5,9 +5,9 @@ function createTernary(gender_pct) {
 	var dataset
 
 	var opt = {
-		width: 700,
-		height: 500,
-		side: 400,
+		width: 600,
+		height: 400,
+		side: 300,
 		margin: {top: 70, left: 150, bottom: 150, right: 150},
 		axis_labels: ['Feminine', 'Masculine', 'Neuter'],
 		axis_ticks: d3.range(0, 101, 20),
@@ -196,7 +196,7 @@ function createTernary(gender_pct) {
 			.attr('r', 2)
 
 		circles.transition()
-			.attr('r', 8)
+			.attr('r', 8) // radius
 		
 		// tooltip on link hover
 		circles.data(data)
@@ -240,7 +240,7 @@ function createTernary(gender_pct) {
 			})
 			i++
 		}
-		console.log('ternary', d)
+		// console.log('ternary', d)
 		drawCircles(d, d => [d.f, d.m, d.n])
 	}
 
@@ -265,29 +265,39 @@ function createTernary(gender_pct) {
 	console.log('ternary', d)
 	drawCircles(d, d => [d.f, d.m, d.n])
 
+	function gender_endings_clickable() {
+		$('.gender-ending-select').on('click', function() {
+			selected_ending_gender = $(this).text()
+			$('#ternary-reset').css('visibility', 'visible')
+			update()
+			$('.gender-ending-select').css('background-color', 'transparent')
+				.css('color', '#4d4b47')
+			$(this).css('background-color', '#4d4b47')
+				.css('color', '#fef9ee')
+			console.log('select gender ending', selected_ending_gender)
+		})
+	}
+
+	gender_endings_clickable()
+
 	$('#gender-range').on('change', function() {
 		count_cutoff_gender = $('#gender-range').val()
 		selected_ending_gender = ''
+		$('#ternary-reset').css('visibility', 'hidden')
 		createGenderlist(gender_pct) // update genderlist
 		update() // update ternary plot
 
-		$('.gender-row').on('click', function() {
-			selected_ending_gender = $(this).text()
-			update()
-			console.log('select gender ending', selected_ending_gender)
-		})
+		gender_endings_clickable()
 
 	})
 
 	$('#ternary-reset').on('click', function() {
 		selected_ending_gender = ''
+		// document.querySelector('#ternary-reset').disabled = true
+		$(this).css('visibility', 'hidden')
+		$('.gender-ending-select').css('background-color', 'transparent')
+				.css('color', '#4d4b47')
 		update()
-	})
-
-	$('.gender-row').on('click', function() {
-		selected_ending_gender = $(this).text()
-		update()
-		console.log('select gender ending', selected_ending_gender)
 	})
 
 	// sort buttons
@@ -296,13 +306,12 @@ function createTernary(gender_pct) {
 	$('#genderlist-n').on('click', () => { gender_sort = 'n' })
 	$('#genderlist-alpha').on('click', () => { gender_sort = '' })
 
+	// sort genderlist by a column
 	$('#genderlist-header div').on('click', function() {
 		createGenderlist(gender_pct)
-		$('.gender-row').on('click', function() {
-			selected_ending_gender = $(this).text()
-			update()
-			console.log('select gender ending', selected_ending_gender)
-		})
+		$('.down-arrow').remove()
+		$(this).append('<span class="down-arrow">▾</span>')
+		gender_endings_clickable()
 	})
 
 }
