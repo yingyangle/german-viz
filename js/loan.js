@@ -70,7 +70,7 @@ function createLoanwords(words) {
 		.attr('class', 'nunito')
 		.attr('fill', '#4d4b47')
 		.attr('x', 0)
-		.attr('y', 0)
+		.attr('dy', '.2em')
 		.attr('text-anchor', 'middle')
 		.call(drag(force))
 		.on('mouseover.tooltip', function(d) {

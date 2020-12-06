@@ -1,3 +1,5 @@
+var link 
+
 function createSankey() {
 	let m = 90
 	let margin = ({ top: 50, right: m, bottom: 10, left: m })
@@ -113,6 +115,7 @@ function createSankey() {
 		var sankey_data = getData()
 		var sankey_nodes = sankey_data.sankey_nodes 
 		var sankey_links = sankey_data.sankey_links
+		selected_i = sankey_nodes.findIndex(x => x.name == selected_ending & x.type == selected_type)
 
 		// clear svg contents
 		svg.selectAll('*').remove()
@@ -136,10 +139,8 @@ function createSankey() {
 				// update selection
 				selected_ending = d.name
 				selected_type = d.type
-				$('#selected-ending').html(selected_ending)
-				$('#selected-type').html('('+selected_type+' ending)')
 				selected_i = sankey_nodes.findIndex(x => x.name == selected_ending & x.type == selected_type)
-				plurals_total = sankey_nodes[selected_i].count
+				// plurals_total = sankey_nodes[selected_i].count
 				// console.log('selected ending', selected_ending, selected_i)
 
 				// highlight selected link
@@ -177,7 +178,7 @@ function createSankey() {
 			.text(d => `${d.name}\n${f(d.value)} words`)
 
 		// links
-		let link = svg.append('g')
+		link = svg.append('g')
 			.attr('class', 'link')
 			.attr('fill', 'none')
 			.attr('stroke-opacity', 0.4)
@@ -278,13 +279,23 @@ function createSankey() {
 			.style('fill', '#4d4b47')
 			.text('Plural Ending')
 		
+		// highlight links 
+		if (selected_ending == '') {
+			link.selectAll('path').attr('opacity', 1)
+		} else {
+			link.selectAll('path').attr('opacity', 0.2)
+			d3.selectAll('g[data-' + selected_type + '="' + selected_ending + '"]')
+				.selectAll('path').attr('opacity', 1)
+		}
 		// console.log('UPDATED SANKEY !')
 	}
 		
 	update()
 
 	// event listeners
-	$('#sankey-range').on('change', update)
+	$('#sankey-range').on('change', () => {
+		update()
+	})
 	$('#sankey-other-button').on('click', function() {
 		if (other_flag) {
 			other_flag = 0

@@ -1,11 +1,59 @@
+var bubble_type = 'Plural'
+var bubble_nodes
+var plurals_total
+	
+function bubble_mouseover(d) {
+	var pct = Math.round(1000 * d.count / plurals_total) / 10
+
+	// show tooltip
+	tooltip.transition()
+		.duration(200)
+		.style('opacity', 0.9)
+	tooltip.html(bubble_type + ' Ending: <b>' + d.name + '</b><br>Percentage: <b>' + pct + '%</b>')
+		.style('left', (d3.event.pageX) + 'px')
+		.style('top', (d3.event.pageY + 10) + 'px')
+
+	// highlight sankey links
+	link.selectAll('path').attr('opacity', 0.2)
+	if (selected_type == 'plural') {
+		if (selected_ending == '') {
+			d3.selectAll('g[data-singular="' + d.name + '"]')
+				.selectAll('path').attr('opacity', 1)
+		} else {
+			d3.select('g[data-singular="' + d.name + '"][data-plural="' + selected_ending + '"]')
+				.selectAll('path').attr('opacity', 1)
+		}
+	} else {
+		if (selected_ending == '') {
+			d3.select('g[data-plural="' + d.name + '"]')
+				.selectAll('path').attr('opacity', 1)
+		} else {
+			d3.selectAll('g[data-plural="' + d.name + '"][data-singular="' + selected_ending + '"]')
+				.selectAll('path').attr('opacity', 1)
+		}
+	}
+}
+
+function bubble_mouseout() {
+	tooltip.transition()
+		.duration(200)
+		.style('opacity', 0)
+
+	// highlight links 
+	if (selected_ending == '') {
+		link.selectAll('path').attr('opacity', 1)
+	} else {
+		link.selectAll('path').attr('opacity', 0.2)
+		d3.selectAll('g[data-' + selected_type + '="' + selected_ending + '"]')
+			.selectAll('path').attr('opacity', 1)
+	}
+}
+
 function createBubble() {
 
 	let width = 400
 	let height = 320
 	var center = { x: 0 , y: 30 }
-
-	var bubble_type = 'Plural'
-	var bubble_nodes
 
 	// create svg
 	const svg = d3.select('#bubble').append('svg')
@@ -56,10 +104,8 @@ function createBubble() {
 			bubble_nodes = bubble_nodes.filter(node => {
 				return !nodes_to_remove.includes(node)
 			})
-		} else {
-			// update total
-			plurals_total = d3.sum(bubble_nodes, d => +d.count)
-		}
+		} 
+		plurals_total = d3.sum(bubble_nodes, d => +d.count)
 
 		var maxSize = d3.max(bubble_nodes, d => +d.count)
 		var minSize = d3.min(bubble_nodes, d => +d.count)
@@ -116,21 +162,8 @@ function createBubble() {
 			.attr('fill', d => colorScale_plurals(d.name))
 			.attr('opacity', 0.6)
 			.call(drag(force))
-			.on('mouseover.tooltip', function(d) {
-				var pct = Math.round(1000 * d.count / plurals_total) / 10
-
-				tooltip.transition()
-					.duration(200)
-					.style('opacity', 0.9)
-				tooltip.html(bubble_type + ' Type: <b>' + d.name + '</b><br>Percentage: <b>' + pct + '%</b>')
-					.style('left', (d3.event.pageX) + 'px')
-					.style('top', (d3.event.pageY + 10) + 'px')
-			})
-			.on('mouseout.tooltip', function() {
-				tooltip.transition()
-					.duration(200)
-					.style('opacity', 0)
-			})
+			.on('mouseover.tooltip', bubble_mouseover)
+			.on('mouseout.tooltip', bubble_mouseout)
 			.on('mousemove', function() {
 				tooltip.style('left', (d3.event.pageX) + 'px')
 					.style('top', (d3.event.pageY + 10) + 'px')
@@ -143,23 +176,11 @@ function createBubble() {
 			.attr('class', 'nunito')
 			.attr('fill', '#4d4b47')
 			.attr('x', 0)
-			.attr('y', 0)
+			.attr('dy', '.2em')
 			.attr('text-anchor', 'middle')
 			.call(drag(force))
-			.on('mouseover.tooltip', function(d) {
-				var pct = Math.round(1000 * d.count / plurals_total) / 10
-				tooltip.transition()
-					.duration(200)
-					.style('opacity', 0.9)
-				tooltip.html(bubble_type + ' Type: <b>' + d.name + '</b><br>Percentage: <b>' + pct + '%</b>')
-					.style('left', (d3.event.pageX) + 'px')
-					.style('top', (d3.event.pageY + 10) + 'px')
-			})
-			.on('mouseout.tooltip', function() {
-				tooltip.transition()
-					.duration(200)
-					.style('opacity', 0)
-			})
+			.on('mouseover.tooltip', bubble_mouseover)
+			.on('mouseout.tooltip', bubble_mouseout)
 			.on('mousemove', function() {
 				tooltip.style('left', (d3.event.pageX) + 'px')
 					.style('top', (d3.event.pageY + 10) + 'px')
@@ -224,6 +245,8 @@ function createBubble() {
 			update()
 		})
 		update()
+		// d3.select('rect[data-' + selected_type + '="' + d.name + '"]')
+			
 	})
 
 	$('.sankey-node').on('click', () => {
