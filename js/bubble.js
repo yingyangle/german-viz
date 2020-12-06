@@ -20,12 +20,12 @@ function bubble_mouseover(d) {
 			d3.selectAll('g[data-singular="' + d.name + '"]')
 				.selectAll('path').attr('opacity', 1)
 		} else {
-			d3.select('g[data-singular="' + d.name + '"][data-plural="' + selected_ending + '"]')
+			d3.selectAll('g[data-singular="' + d.name + '"][data-plural="' + selected_ending + '"]')
 				.selectAll('path').attr('opacity', 1)
 		}
 	} else {
 		if (selected_ending == '') {
-			d3.select('g[data-plural="' + d.name + '"]')
+			d3.selectAll('g[data-plural="' + d.name + '"]')
 				.selectAll('path').attr('opacity', 1)
 		} else {
 			d3.selectAll('g[data-plural="' + d.name + '"][data-singular="' + selected_ending + '"]')
@@ -78,6 +78,7 @@ function createBubble() {
 			bubble_nodes = nodes
 			bubble_links = links
 		}
+		bubble_nodes = bubble_nodes.filter(d => !(d.name == 'other' & d.type == 'singular'))
 		// console.log('bubble', bubble_nodes, bubble_links)
 
 		// filter nodes according to selected ending

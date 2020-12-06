@@ -218,6 +218,27 @@ div.tooltip {
 	transition: 0.5s;
 }
 
+.question-mark {
+	position: absolute;
+	width: 100%;
+	top: 80px;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+	font-family: 'Jacques Francois Shadow';
+	font-size: 80px;
+	visibility: hidden;
+	opacity: 0;
+	transition: 0.5s;
+}
+
+.question-mark span {
+	font-family: 'Nunito Sans';
+	font-size: 16px;
+	line-height: 0px;
+}
+
+
 /* MAP */
 
 #map-speakers-btn, #map-learners-btn {

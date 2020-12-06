@@ -174,8 +174,6 @@ function createSankey() {
 						.selectAll('path').attr('opacity', 1)
 				}
 			})
-			.append('title')
-			.text(d => `${d.name}\n${f(d.value)} words`)
 
 		// links
 		link = svg.append('g')
@@ -224,7 +222,7 @@ function createSankey() {
 				tooltip.transition()
 					.duration(200)
 					.style('opacity', .9)
-				tooltip.html('<b>' + d.source.name + ' → ' + d.target.name + '</b><br>' + `${f(d.value)} words`)
+				tooltip.html('<b>' + d.source.name + ' → ' + d.target.name + '</b><br>There are <b>' + `${f(d.value)}` + '</b> nouns ending with <b>' + d.source.name + '</b> which take the plural ending <b>' + d.target.name + '</b>')
 					.style('left', (d3.event.pageX) + 'px')
 					.style('top', (d3.event.pageY + 10) + 'px')
 			})

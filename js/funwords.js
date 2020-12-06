@@ -8,6 +8,9 @@ $('.funword-part').on('click', function() {
 			.css('opacity', 1)
 		// play word pronunciation
 		myAudioFunction(parent)
+		// hide question mark
+		$('.question-mark', $(this).parent()).css('visibility', 'hidden')
+			.css('opacity', 0)
 	} else {
 		// hide answer
 		$('.funword-answer', parent)
@@ -15,6 +18,9 @@ $('.funword-part').on('click', function() {
 			.css('opacity', 0)
 		// play word pronunciation
 		myAudioFunction(parent)
+		// show question mark
+		$('.question-mark', $(this).parent()).css('visibility', 'visible')
+			.css('opacity', 1)
 	}
 })
 
@@ -37,11 +43,17 @@ d3.selectAll('.funword-part')
 		tooltip.html(d3.select(this).attr('data-funword-part'))
 			.style('left', (d3.event.pageX - 30) + 'px')
 			.style('top', (d3.event.pageY - 70) + 'px')
+		if ($('.funword-answer', $(this).parent()).css('visibility') == 'hidden') {
+			$('.question-mark', $(this).parent()).css('visibility', 'visible')
+			.css('opacity', 1)
+		}
 	})
 	.on('mouseout.tooltip', function() {
 		tooltip.transition()
 			.duration(200)
 			.style('opacity', 0)
+		$('.question-mark').css('visibility', 'hidden')
+			.css('opacity', 0)
 	})
 	.on('mousemove', function() {
 		tooltip.style('left', (d3.event.pageX - 30) + 'px')
