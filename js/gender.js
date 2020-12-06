@@ -33,11 +33,11 @@ range_gender.addEventListener('input', setValue_gender)
 // load .json files
 Promise.all([
 	d3.json('data/gender_pct.json'),
-	// d3.json('data/genders.json'),
+	d3.json('data/gender_examples.json'),
 ]).then(data => {
 	data = {
 		'gender_pct': data[0],
-		// 'genders': data[1],
+		'gender_examples': data[1],
 	}
 
 	// create copy or original untouched data
@@ -45,7 +45,7 @@ Promise.all([
 	// console.log('gender_pct', data.gender_pct)
 
 	// CREATE VISUALIZATIONS
-	createGenderlist(data.gender_pct)
+	createGenderlist(data.gender_pct, data.gender_examples)
 	createTernary(data.gender_pct)
 })
 
@@ -90,7 +90,7 @@ d3.selectAll('.minimum-count')
 			.style('top', (d3.event.pageY + 20) + 'px')
 	})
 
-// instructional tooltip for "Minimum Count" sliders
+// gender grammar section guessing game
 d3.selectAll('.gender-guess-word')
 	.on('mouseover.tooltip', function() {
 		tooltip.transition()

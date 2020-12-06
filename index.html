@@ -18,6 +18,7 @@
 		<!-- STYLESHEETS -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/widgets.css">
 		<link rel="stylesheet" href="css/gender.css">
 		<link rel="stylesheet" href="css/plurals.css">
 
@@ -43,31 +44,36 @@
 		<div id="loading">
 			<svg width="300px" height="200px" viewBox="0 0 187.3 93.7" preserveAspectRatio="xMidYMid meet" style="left: 50%; top: 50%; position: absolute; transform: translate(-50%, -50%) matrix(1, 0, 0, 1, 0, 0);">
 				<path stroke="#ededed" id="outline" fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" 
-							d="M93.9,46.4c9.3,9.5,13.8,17.9,23.5,17.9s17.5-7.8,17.5-17.5s-7.8-17.6-17.5-17.5c-9.7,0.1-13.3,7.2-22.1,17.1 				c-8.9,8.8-15.7,17.9-25.4,17.9s-17.5-7.8-17.5-17.5s7.8-17.5,17.5-17.5S86.2,38.6,93.9,46.4z" />
+					d="M93.9,46.4c9.3,9.5,13.8,17.9,23.5,17.9s17.5-7.8,17.5-17.5s-7.8-17.6-17.5-17.5c-9.7,0.1-13.3,7.2-22.1,17.1 				c-8.9,8.8-15.7,17.9-25.4,17.9s-17.5-7.8-17.5-17.5s7.8-17.5,17.5-17.5S86.2,38.6,93.9,46.4z" />
 				<path id="outline-bg" opacity="0.05" fill="none" stroke="#ededed" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" 
-							d="				M93.9,46.4c9.3,9.5,13.8,17.9,23.5,17.9s17.5-7.8,17.5-17.5s-7.8-17.6-17.5-17.5c-9.7,0.1-13.3,7.2-22.1,17.1 				c-8.9,8.8-15.7,17.9-25.4,17.9s-17.5-7.8-17.5-17.5s7.8-17.5,17.5-17.5S86.2,38.6,93.9,46.4z" />
+					d="				M93.9,46.4c9.3,9.5,13.8,17.9,23.5,17.9s17.5-7.8,17.5-17.5s-7.8-17.6-17.5-17.5c-9.7,0.1-13.3,7.2-22.1,17.1 				c-8.9,8.8-15.7,17.9-25.4,17.9s-17.5-7.8-17.5-17.5s7.8-17.5,17.5-17.5S86.2,38.6,93.9,46.4z" />
 			</svg>
 		</div>
 
-		<!-- HAMBURGER BUTTON -->
-		<button id="hamburger" class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbar-items" aria-controls="navbar-items" aria-expanded="false" aria-label="toggle navigation">
-			<span class="icon-bar top-bar"></span>
-			<span class="icon-bar middle-bar"></span>
-			<span class="icon-bar bottom-bar"></span>
-		</button>
 		<!-- NAVIGATION BAR -->
-		<div id="navbar-items" class="collapsed">
-			<a href="#introduction">Introduction</a><br>
-			<a href="#grammar">Grammar</a><br>
-			<a href="#gender">Gender</a><br>
-			<a href="#plurals">Plurals</a><br>
+		<div class="navbar">
+			<!-- HAMBURGER BUTTON -->
+			<button id="hamburger" class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbar-items" aria-controls="navbar-items" aria-expanded="false" aria-label="toggle navigation">
+				<span class="icon-bar top-bar"></span>
+				<span class="icon-bar middle-bar"></span>
+				<span class="icon-bar bottom-bar"></span>
+			</button>
+			<!-- NAVIGATION ITEMS -->
+			<div id="navbar-items" class="collapsed">
+				<a href="#introduction">Introduction</a><br>
+				<a href="#grammar">Grammar</a><br>
+				<a href="#gender">Gender</a><br>
+				<a href="#plurals">Plurals</a>
+				<hr>
+				<a href="about.html">About</a><br>
+			</div>
 		</div>
 	
 		<section id="introduction">
 		<div id="container" class="text-center">
 
 			<!-- TITLE -->
-			<br><br><br>
+			<br><br>
 			<img class="flag-icon" src="https://www.flaticon.com/svg/static/icons/svg/2053/2053281.svg" alt="">
 			<br>
 			<h2 id="title">The German Language</h2>
@@ -586,7 +592,7 @@
 						<div id="genderlist-container">
 							<!-- HEADER -->
 							<div id="genderlist-header" class="row">
-								<div id="genderlist-alpha" class="col-5"><b>Noun Ending <span class="down-arrow">▾</span></b></div>
+								<div id="genderlist-alpha" class="col-5"><b>Noun Ending <span class="down-arrow">▼</span></b></div>
 								<div id="genderlist-f" class="col-2"><b>fem.</b></div>
 								<div id="genderlist-m" class="col-2"><b>masc.</b></div>
 								<div id="genderlist-n" class="col-2"><b>neut.</b></div>
@@ -682,6 +688,7 @@
 			<div class="link">
 				<a href="https://github.com/yingyangle/german_viz/" target=_blank>Source</a>
 			</div>
+
 		</div>
 	</div>
 
@@ -709,11 +716,18 @@
 				
 			})
 
-
-			// navbar button click
+			// navbar collapse
 			$('#hamburger').on('click', () => {
 				$('#hamburger').toggleClass('collapsed')
 				$('#navbar-items').toggleClass('collapsed')
+			})
+			$(document).click(function (event) {
+					var clickover = $(event.target)
+					var opened = !$('#navbar-items').hasClass('collapsed')
+					if (opened == true && !clickover.hasClass('navbar-toggler') && clickover.parents('.navbar').length == 0) {
+						$('#hamburger').addClass('collapsed')
+						$('#navbar-items').addClass('collapsed')
+					}
 			})
 
 			// tooltip
