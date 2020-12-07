@@ -195,7 +195,7 @@ div.tooltip {
 /* FUNWORDS */
 
 .funword {
-	margin: 10px 0;
+	margin-top: 30px;
 }
 
 .funword-part {
@@ -221,7 +221,7 @@ div.tooltip {
 .question-mark {
 	position: absolute;
 	width: 100%;
-	top: 80px;
+	top: 90px;
 	left: 50%;
 	-webkit-transform: translateX(-50%);
 	transform: translateX(-50%);
@@ -293,6 +293,11 @@ div.tooltip {
 #team-members a:hover:before, #team-members a:hover:after {
 	width: 0;
 	opacity: 0;
+}
+
+#team-members p {
+	font-size: 16px;
+	line-height: 24px;
 }
 
 #showcase-vid {

@@ -46,7 +46,7 @@ Promise.all([
 
 	// CREATE VISUALIZATIONS
 	createGenderlist(data.gender_pct, data.gender_examples)
-	createTernary(data.gender_pct)
+	createTernary(data.gender_pct, data.gender_examples)
 })
 
 

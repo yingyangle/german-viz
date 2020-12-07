@@ -1,4 +1,4 @@
-function createTernary(gender_pct) {
+function createTernary(gender_pct, gender_examples) {
 
 	var f = d3.format(',.0f') // format number strings
 
@@ -283,7 +283,7 @@ function createTernary(gender_pct) {
 		count_cutoff_gender = $('#gender-range').val()
 		selected_ending_gender = ''
 		$('#ternary-reset').css('visibility', 'hidden')
-		createGenderlist(gender_pct) // update genderlist
+		createGenderlist(gender_pct, gender_examples) // update genderlist
 		update() // update ternary plot
 
 		gender_endings_clickable()
@@ -321,7 +321,7 @@ function createTernary(gender_pct) {
 			$(this).append(' <span class="down-arrow">▼</span>')
 			gender_sort_dir = 'descending'
 		}
-		createGenderlist(gender_pct)
+		createGenderlist(gender_pct, gender_examples)
 		gender_endings_clickable()
 	})
 

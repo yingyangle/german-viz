@@ -108,7 +108,7 @@ function createGenderlist(gender_pct, gender_examples) {
 					var tooltip_text = '<b>' + gender_names[gender] + '</b> nouns ending in <b>' + suffix + '</b>:</br>'
 
 					for (var k in examples) {
-						tooltip_text = tooltip_text + '<b>' + examples[k] + '</b></br>'
+						tooltip_text = tooltip_text + '<b>' + examples[k].de + '</b> - ' + examples[k].eng + '</br>'
 					}
 					return tooltip_text
 				})

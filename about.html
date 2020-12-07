@@ -57,6 +57,8 @@
 
 			<!-- TITLE -->
 			<br>
+			<img class="flag-icon" src="https://www.flaticon.com/svg/static/icons/svg/2053/2053281.svg" alt="">
+			<br>
 			<h2 id="title">About</h2>
 			<!-- <h5>Christine Yang, Yuezhen Chen, Ann Pan</h5> -->
 			<br>
@@ -64,15 +66,16 @@
 			<div class="text-container">
 
 				<h2>Motivation</h2>
-				<p>Our motivation was to create a website that would be helpful and intuitive to use for anyone who is interested in learning about the German language. The purpose of the website is to walk the user through background about the German language, its relevancy to English, as well as word origins and fun words that would make the user interested in learning more. After providing a background of the German language, the grammar visualizations act as an interactive and interesting way to learn some introductory grammar rules and begin recognizing patterns among German nouns to aid the learning process.</p>
+				<p>Our motivation was to create a website that would be helpful for beginners in German and for anyone who's interested in learning German. The purpose of this website is to introduce the user to some background about the German language, show why it's interesting to study, introduce some basic grammar, and finally provide a visualization tool for analyzing gender patterns and plural formation patterns in German. We decided to focus on gender patterns and plural patterns in particular since these are two areas where the rules aren't always so clear and students of German must often dedicate time memorizing the gender and plurals for individual nouns.</p>
 
 				<br>
 				<h2>Design Rationale</h2>
-				<p>To visualize the German language, we created visualizations that would show word origins, word order, and gender patterns because these are foundational topics in learning German. We chose a bubble chart for the root words chart so that color encoding would show the origin language while having each word in a draggable bubble would let the user compare words of different origins and guess the English word. For the interesting German words, our focus was on creating an engaging and interactive visualization for the user to learn new words and be more engaged with the website and learning the language. The purpose of the map was to show the number of speakers and learners in each region of the world to encourage the user to continue learning. We chose a ternary chart to show gender patterns among nouns because there are three gender categories, so the three points on the chart would effectively encode which word endings tend to fall under each category. Since there are exceptions to the rules, word endings can fall on a scale between any of the gender categories. Finally, we selected the sankey diagram to show plural patterns because the user can clearly see the most common plural endings that a singular ending would map to. </p>
+				<p>To introduce the viewer to the German language, we created an interactive visualization of cognates to show the relationship between English and German, an interactive activity showing some fun and interesting German words, and a map illustrating the distribution of German speakers and learners around the world. We created a bubble chart for the cognates visualization with the color encoding showing the origin language, and we also made the bubbles draggable to let the user play around with the words and reorganize them as they want. The user can also hover over the bubbles to guess which English word is related to the German words, therefore engaging the user to use their previous knowledge of English as well as a fun bit of guessing. For the fun words visualization, our goal was to pique the user's interest in German and engage them with a fun game where they look at the parts of the compound word and guess the meaning of the full word. The purpose of the map was to visualize the number of German speakers and learners around the world and give the user an idea of where German is spoken and which countries are most interested in learning it.</p>
+				<p>For the gender patterns visualization, we identified a list of common noun endings and used these endings to look for patterns in the gender of the nouns. Since there are 3 gender categories for German nouns and the noun endings may not completely correspond to one gender 100% of the time, we used a ternary plot which allows us to effectively encode the continuous percentages of word endings tend to fall under the three gender category. Word endings with more robust correlations to a certain ending will appear at the corners of the plot, while more problematic endings with looser correlations to a certain gender fall near the middle. For the plural patterns visualization, we created a Sankey diagram so that the user can clearly see which singular endings map to which plural endings, as well as the frequency of these pairings. The user can also click on a singular or plural ending on the Sankey diagram to select it and filter the data shown in the bubble chart and the pie chart on the right.</p>
 
 				<br>
 				<h2>Data Processing</h2>
-				<p>In order to create these visualizations, we found the data for the most common German nouns, the gender data of those nouns, the data for German origins of English words. Data was cleaned in Python to get the gender percentages, and data was also converted to json format to create the nodes and links for force charts.  </p>
+				<p>In order to create these visualizations, we found the data for the most common German nouns including plural forms and gender, German loanwords into English, native German speakers per country, and German learners per country. We formatted and processed the data in Python and converted the data to json. </p>
 
 				<br>
 				<h2>Showcase Video</h2>
@@ -90,7 +93,11 @@
 							<img src="https://avatars2.githubusercontent.com/u/31478185?s=400&u=53d7c772ea7f58af84fdaa1ff4bf9490acf3dc47&v=4" alt="Github">
 						</a>
 						<br>
-						<p>A very cool person</p>
+						<p>
+							Boston College '21 <br>
+							Linguistics & Computer Science <br>
+							Fan of the German Language
+						</p>
 					</div>
 					<div class="col-md-4">
 						<b>Yuezhen Chen</b><br>
@@ -98,7 +105,11 @@
 							<img src="https://avatars1.githubusercontent.com/u/31709979?s=400&u=8ed1a6722265159ca3b8745dc2b6671c342ca124&v=4" alt="Github">
 						</a>
 						<br>
-						<p>A very cool person</p>
+						<p>
+							Boston College '21 <br>
+							Computer Science & Philosophy <br>
+							Fan of the German Language
+						</p>
 					</div>
 					<div class="col-md-4">
 						<b>Ann Pan</b><br>
@@ -106,7 +117,11 @@
 							<img src="https://avatars2.githubusercontent.com/u/70868490?s=400&v=4" alt="Github">
 						</a>
 						<br>
-						<p>A very cool person</p>
+						<p>
+							Boston College '21 <br>
+							Computer Science & Economics <br>
+							A Very Cool Person
+						</p>
 					</div>
 				</div>
 
