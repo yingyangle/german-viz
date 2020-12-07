@@ -1,4138 +1,4138 @@
 {
-	"a":{
-		"f":[
+	"a": {
+		"f": [
 			{
-				"de":"die Arena",
-				"eng":"arena"
+				"de": "die Arena",
+				"eng": "arena"
 			},
 			{
-				"de":"die Sauna",
-				"eng":"sauna"
+				"de": "die Sauna",
+				"eng": "sauna"
 			},
 			{
-				"de":"die Propaganda",
-				"eng":"propaganda"
+				"de": "die Propaganda",
+				"eng": "propaganda"
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"der Buddha",
-				"eng":"Buddha"
+				"de": "der Buddha",
+				"eng": "Buddha"
 			},
 			{
-				"de":"der Chihuahua",
-				"eng":"chihuahua"
+				"de": "der Chihuahua",
+				"eng": "chihuahua"
 			},
 			{
-				"de":"der Gorilla",
-				"eng":"gorilla"
+				"de": "der Gorilla",
+				"eng": "gorilla"
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"das Amerika",
-				"eng":"Amerika"
+				"de": "das Amerika",
+				"eng": "Amerika"
 			},
 			{
-				"de":"das Guinea",
-				"eng":"Guinea"
+				"de": "das Guinea",
+				"eng": "Guinea"
 			},
 			{
-				"de":"das Uganda",
-				"eng":"Uganda"
+				"de": "das Uganda",
+				"eng": "Uganda"
 			}
 		]
 	},
-	"chen":{
-		"f":[
+	"chen": {
+		"f": [
 			{
-				"de":"die Watschen",
-				"eng":"slap in the face"
+				"de": "die Watschen",
+				"eng": "slap in the face"
 			},
 			{
-				"de":"die Badesachen",
-				"eng":"swimwear"
+				"de": "die Badesachen",
+				"eng": "swimwear"
 			},
 			{
-				"de":"die Wintersachen",
-				"eng":"winter things"
+				"de": "die Wintersachen",
+				"eng": "winter things"
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"der Apfelkuchen",
-				"eng":"apple cake"
+				"de": "der Apfelkuchen",
+				"eng": "apple cake"
 			},
 			{
-				"de":"der Baumkuchen",
-				"eng":"tree cake"
+				"de": "der Baumkuchen",
+				"eng": "tree cake"
 			},
 			{
-				"de":"der Backenknochen",
-				"eng":"cheekbone"
+				"de": "der Backenknochen",
+				"eng": "cheekbone"
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"das Mädchen",
-				"eng":"girl"
+				"de": "das Mädchen",
+				"eng": "girl"
 			},
 			{
-				"de":"das Häuschen",
-				"eng":"small house"
+				"de": "das Häuschen",
+				"eng": "small house"
 			},
 			{
-				"de":"das Hündchen",
-				"eng":"puppy"
+				"de": "das Hündchen",
+				"eng": "puppy"
 			}
 		]
 	},
-	"e":{
-		"f":[
+	"e": {
+		"f": [
 			{
-				"de":"die Seite",
-				"eng":"side"
+				"de": "die Seite",
+				"eng": "side"
 			},
 			{
-				"de":"die Zeile",
-				"eng":"line"
+				"de": "die Zeile",
+				"eng": "line"
 			},
 			{
-				"de":"die Adresse",
-				"eng":"address"
+				"de": "die Adresse",
+				"eng": "address"
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"der Bote ",
-				"eng":"messenger boy"
+				"de": "der Bote ",
+				"eng": "messenger boy"
 			},
 			{
-				"de":"der Junge",
-				"eng":"boy"
+				"de": "der Junge",
+				"eng": "boy"
 			},
 			{
-				"de":"der Löwe",
-				"eng":"lion"
+				"de": "der Löwe",
+				"eng": "lion"
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"das Heute",
-				"eng":"today"
+				"de": "das Heute",
+				"eng": "today"
 			},
 			{
-				"de":"das Gebirge",
-				"eng":"mountain range"
+				"de": "das Gebirge",
+				"eng": "mountain range"
 			},
 			{
-				"de":"das Image",
-				"eng":"image"
+				"de": "das Image",
+				"eng": "image"
 			}
 		]
 	},
-	"el":{
-		"f":[
+	"el": {
+		"f": [
 			{
-				"de":"die Partikel",
-				"eng":"particle"
+				"de": "die Partikel",
+				"eng": "particle"
 			},
 			{
-				"de":"die Regel",
-				"eng":"rule"
+				"de": "die Regel",
+				"eng": "rule"
 			},
 			{
-				"de":"die Spindel",
-				"eng":"spindle"
+				"de": "die Spindel",
+				"eng": "spindle"
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"der Spiegel",
-				"eng":"mirror"
+				"de": "der Spiegel",
+				"eng": "mirror"
 			},
 			{
-				"de":"der Flügel",
-				"eng":"wing"
+				"de": "der Flügel",
+				"eng": "wing"
 			},
 			{
-				"de":"der Vogel",
-				"eng":"bird"
+				"de": "der Vogel",
+				"eng": "bird"
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"das Lebensmittel",
-				"eng":"food"
+				"de": "das Lebensmittel",
+				"eng": "food"
 			},
 			{
-				"de":"das Viertel",
-				"eng":"quarter"
+				"de": "das Viertel",
+				"eng": "quarter"
 			},
 			{
-				"de":"das Übel",
-				"eng":"evil"
+				"de": "das Übel",
+				"eng": "evil"
 			}
 		]
 	},
-	"en":{
-		"f":[
+	"en": {
+		"f": [
 			{
-				"de":"die Sieben",
-				"eng":"seven"
+				"de": "die Sieben",
+				"eng": "seven"
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"der Husten",
-				"eng":"cough"
+				"de": "der Husten",
+				"eng": "cough"
 			},
 			{
-				"de":"der Braten",
-				"eng":"joint"
+				"de": "der Braten",
+				"eng": "joint"
 			},
 			{
-				"de":"der Apfelbutzen",
-				"eng":"apple core"
+				"de": "der Apfelbutzen",
+				"eng": "apple core"
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"das Lesen",
-				"eng":"reading"
+				"de": "das Lesen",
+				"eng": "reading"
 			},
 			{
-				"de":"das Verstehen",
-				"eng":"understanding"
+				"de": "das Verstehen",
+				"eng": "understanding"
 			},
 			{
-				"de":"das Malen",
-				"eng":"painting"
+				"de": "das Malen",
+				"eng": "painting"
 			}
 		]
 	},
-	"er":{
-		"f":[
+	"er": {
+		"f": [
 			{
-				"de":"die Butter",
-				"eng":"butter"
+				"de": "die Butter",
+				"eng": "butter"
 			},
 			{
-				"de":"die Dauer",
-				"eng":"duration"
+				"de": "die Dauer",
+				"eng": "duration"
 			},
 			{
-				"de":"die Mauer",
-				"eng":"wall"
+				"de": "die Mauer",
+				"eng": "wall"
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"der Deuter",
-				"eng":"interpreter"
+				"de": "der Deuter",
+				"eng": "interpreter"
 			},
 			{
-				"de":"der Denker",
-				"eng":"thinker"
+				"de": "der Denker",
+				"eng": "thinker"
 			},
 			{
-				"de":"der Fahrer",
-				"eng":"driver"
+				"de": "der Fahrer",
+				"eng": "driver"
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"das Fenster",
-				"eng":"window"
+				"de": "das Fenster",
+				"eng": "window"
 			},
 			{
-				"de":"das Wetter",
-				"eng":"weather"
+				"de": "das Wetter",
+				"eng": "weather"
 			},
 			{
-				"de":"das Wasser",
-				"eng":"water"
+				"de": "das Wasser",
+				"eng": "water"
 			}
 		]
 	},
-	"ie":{
-		"f":[
+	"ie": {
+		"f": [
 			{
-				"de":"die Philosophie",
-				"eng":"philosophy"
+				"de": "die Philosophie",
+				"eng": "philosophy"
 			},
 			{
-				"de":"die Melodie",
-				"eng":"melody"
+				"de": "die Melodie",
+				"eng": "melody"
 			},
 			{
-				"de":"die Familie",
-				"eng":"family"
+				"de": "die Familie",
+				"eng": "family"
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"der Zombie",
-				"eng":"zombie"
+				"de": "der Zombie",
+				"eng": "zombie"
 			},
 			{
-				"de":"der Junkie",
-				"eng":"junkie"
+				"de": "der Junkie",
+				"eng": "junkie"
 			},
 			{
-				"de":"der Laie",
-				"eng":"layman"
+				"de": "der Laie",
+				"eng": "layman"
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"das Knie",
-				"eng":"knee"
+				"de": "das Knie",
+				"eng": "knee"
 			},
 			{
-				"de":"das Genie",
-				"eng":"genie"
+				"de": "das Genie",
+				"eng": "genie"
 			}
 		]
 	},
-	"ik":{
-		"f":[
+	"ik": {
+		"f": [
 			{
-				"de":"die Musik",
-				"eng":"music"
+				"de": "die Musik",
+				"eng": "music"
 			},
 			{
-				"de":"die Politik",
-				"eng":"politics"
+				"de": "die Politik",
+				"eng": "politics"
 			},
 			{
-				"de":"die Physik",
-				"eng":"physics"
+				"de": "die Physik",
+				"eng": "physics"
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"der Atlantik",
-				"eng":"the Atlantic"
+				"de": "der Atlantik",
+				"eng": "the Atlantic"
 			},
 			{
-				"de":"der Katholik",
-				"eng":"Catholic"
+				"de": "der Katholik",
+				"eng": "Catholic"
 			},
 			{
-				"de":"der Beatnik",
-				"eng":"Beatnik"
+				"de": "der Beatnik",
+				"eng": "Beatnik"
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"das Arsenik",
-				"eng":"arsenic"
+				"de": "das Arsenik",
+				"eng": "arsenic"
 			}
 		]
 	},
-	"in":{
-		"f":[
+	"in": {
+		"f": [
 			{
-				"de":"die Lehrerin",
-				"eng":"female teacher"
+				"de": "die Lehrerin",
+				"eng": "female teacher"
 			},
 			{
-				"de":"die Kaiserin",
-				"eng":"empress"
+				"de": "die Kaiserin",
+				"eng": "empress"
 			},
 			{
-				"de":"die Königin",
-				"eng":"queen"
+				"de": "die Königin",
+				"eng": "queen"
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"der Termin",
-				"eng":"appointment"
+				"de": "der Termin",
+				"eng": "appointment"
 			},
 			{
-				"de":"der Satin",
-				"eng":"satin"
+				"de": "der Satin",
+				"eng": "satin"
 			},
 			{
-				"de":"der Pinguin",
-				"eng":"penguin"
+				"de": "der Pinguin",
+				"eng": "penguin"
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"das Magazin",
-				"eng":"magazine"
+				"de": "das Magazin",
+				"eng": "magazine"
 			},
 			{
-				"de":"das Nikotin",
-				"eng":"nicotine"
+				"de": "das Nikotin",
+				"eng": "nicotine"
 			},
 			{
-				"de":"das Insulin",
-				"eng":"insulin"
+				"de": "das Insulin",
+				"eng": "insulin"
 			}
 		]
 	},
-	"ion":{
-		"f":[
+	"ion": {
+		"f": [
 			{
-				"de":"die Diskussion",
-				"eng":"discussion"
+				"de": "die Diskussion",
+				"eng": "discussion"
 			},
 			{
-				"de":"die Position",
-				"eng":"position"
+				"de": "die Position",
+				"eng": "position"
 			},
 			{
-				"de":"die Information",
-				"eng":"information"
+				"de": "die Information",
+				"eng": "information"
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"der Spion",
-				"eng":"spy"
+				"de": "der Spion",
+				"eng": "spy"
 			},
 			{
-				"de":"der Champion",
-				"eng":"champion"
+				"de": "der Champion",
+				"eng": "champion"
 			},
 			{
-				"de":"der Postillion",
-				"eng":"postillion"
+				"de": "der Postillion",
+				"eng": "postillion"
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"das Symposion",
-				"eng":"symposium"
+				"de": "das Symposion",
+				"eng": "symposium"
 			},
 			{
-				"de":"das Stadion",
-				"eng":"stadium"
+				"de": "das Stadion",
+				"eng": "stadium"
 			},
 			{
-				"de":"das Mikrobion",
-				"eng":"microbe"
+				"de": "das Mikrobion",
+				"eng": "microbe"
 			}
 		]
 	},
-	"le":{
-		"f":[
+	"le": {
+		"f": [
 			{
-				"de":"die Weile",
-				"eng":"while"
+				"de": "die Weile",
+				"eng": "while"
 			},
 			{
-				"de":"die Pille",
-				"eng":"pill"
+				"de": "die Pille",
+				"eng": "pill"
 			},
 			{
-				"de":"die Seele",
-				"eng":"soul"
+				"de": "die Seele",
+				"eng": "soul"
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"der Wille",
-				"eng":"will"
+				"de": "der Wille",
+				"eng": "will"
 			},
 			{
-				"de":"der Geselle",
-				"eng":"journeyman"
+				"de": "der Geselle",
+				"eng": "journeyman"
 			},
 			{
-				"de":"der Kannibale",
-				"eng":"cannibal"
+				"de": "der Kannibale",
+				"eng": "cannibal"
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"das Finale",
-				"eng":"finale"
+				"de": "das Finale",
+				"eng": "finale"
 			},
 			{
-				"de":"das Faksimile",
-				"eng":"facsimile"
+				"de": "das Faksimile",
+				"eng": "facsimile"
 			},
 			{
-				"de":"das Puzzle",
-				"eng":"puzzle"
+				"de": "das Puzzle",
+				"eng": "puzzle"
 			}
 		]
 	},
-	"um":{
-		"f":[
+	"um": {
+		"f": [
 			{
-				"de":"die Begum",
-				"eng":"Muslim lady of high rank"
+				"de": "die Begum",
+				"eng": "Muslim lady of high rank"
 			},
 			{
-				"de":"die Magnum",
-				"eng":"wine bottle twice the standard size"
+				"de": "die Magnum",
+				"eng": "wine bottle twice the standard size"
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"der Slum",
-				"eng":"slum"
+				"de": "der Slum",
+				"eng": "slum"
 			},
 			{
-				"de":"der Konsum",
-				"eng":"consumption"
+				"de": "der Konsum",
+				"eng": "consumption"
 			},
 			{
-				"de":"der Kaffeekonsum",
-				"eng":"coffee consumption"
+				"de": "der Kaffeekonsum",
+				"eng": "coffee consumption"
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"das Zentrum",
-				"eng":"center"
+				"de": "das Zentrum",
+				"eng": "center"
 			},
 			{
-				"de":"das Museum",
-				"eng":"museum"
+				"de": "das Museum",
+				"eng": "museum"
 			},
 			{
-				"de":"das Studium",
-				"eng":"course of study"
+				"de": "das Studium",
+				"eng": "course of study"
 			}
 		]
 	},
-	"ung":{
-		"f":[
+	"ung": {
+		"f": [
 			{
-				"de":"die Wohnung",
-				"eng":"apartment"
+				"de": "die Wohnung",
+				"eng": "apartment"
 			},
 			{
-				"de":"die Zeitung",
-				"eng":"newspaper"
+				"de": "die Zeitung",
+				"eng": "newspaper"
 			},
 			{
-				"de":"die Übung",
-				"eng":"practice"
+				"de": "die Übung",
+				"eng": "practice"
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"der Sprung",
-				"eng":"jump"
+				"de": "der Sprung",
+				"eng": "jump"
 			},
 			{
-				"de":"der Schwung",
-				"eng":"swing"
+				"de": "der Schwung",
+				"eng": "swing"
 			},
 			{
-				"de":"der Dung",
-				"eng":"manure"
+				"de": "der Dung",
+				"eng": "manure"
 			}
 		],
-		"n":[
+		"n": [
 			
 		]
 	},
-	"algie":{
-		"f":[
+	"algie": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ant":{
-		"f":[
+	"ant": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"anz":{
-		"f":[
+	"anz": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"enz":{
-		"f":[
+	"enz": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ette":{
-		"f":[
+	"ette": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"heit":{
-		"f":[
+	"heit": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ier":{
-		"f":[
+	"ier": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ismus":{
-		"f":[
+	"ismus": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"keit":{
-		"f":[
+	"keit": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"kunde":{
-		"f":[
+	"kunde": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"lein":{
-		"f":[
+	"lein": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ling":{
-		"f":[
+	"ling": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"loge":{
-		"f":[
+	"loge": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"logie":{
-		"f":[
+	"logie": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"manie":{
-		"f":[
+	"manie": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"mantie":{
-		"f":[
+	"mantie": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"meter":{
-		"f":[
+	"meter": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"phagie":{
-		"f":[
+	"phagie": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"philie":{
-		"f":[
+	"philie": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"phobie":{
-		"f":[
+	"phobie": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"sal":{
-		"f":[
+	"sal": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"schaft":{
-		"f":[
+	"schaft": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"schrecke":{
-		"f":[
+	"schrecke": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"skopie":{
-		"f":[
+	"skopie": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"stan":{
-		"f":[
+	"stan": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"tum":{
-		"f":[
+	"tum": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"urie":{
-		"f":[
+	"urie": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"sche":{
-		"f":[
+	"sche": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"other":{
-		"f":[
+	"other": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"an":{
-		"f":[
+	"an": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ief":{
-		"f":[
+	"ief": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ieg":{
-		"f":[
+	"ieg": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ein":{
-		"f":[
+	"ein": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ug":{
-		"f":[
+	"ug": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"on":{
-		"f":[
+	"on": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"al":{
-		"f":[
+	"al": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"che":{
-		"f":[
+	"che": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"kt":{
-		"f":[
+	"kt": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ag":{
-		"f":[
+	"ag": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ahl":{
-		"f":[
+	"ahl": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ur":{
-		"f":[
+	"ur": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"end":{
-		"f":[
+	"end": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"or":{
-		"f":[
+	"or": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"uch":{
-		"f":[
+	"uch": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"aft":{
-		"f":[
+	"aft": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ind":{
-		"f":[
+	"ind": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ach":{
-		"f":[
+	"ach": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ad":{
-		"f":[
+	"ad": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"aum":{
-		"f":[
+	"aum": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"and":{
-		"f":[
+	"and": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"erk":{
-		"f":[
+	"erk": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"sch":{
-		"f":[
+	"sch": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ang":{
-		"f":[
+	"ang": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"isch":{
-		"f":[
+	"isch": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ei":{
-		"f":[
+	"ei": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"au":{
-		"f":[
+	"au": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"aut":{
-		"f":[
+	"aut": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"etz":{
-		"f":[
+	"etz": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"eif":{
-		"f":[
+	"eif": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ich":{
-		"f":[
+	"ich": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ehr":{
-		"f":[
+	"ehr": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ar":{
-		"f":[
+	"ar": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"us":{
-		"f":[
+	"us": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"om":{
-		"f":[
+	"om": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"as":{
-		"f":[
+	"as": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ee":{
-		"f":[
+	"ee": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"eld":{
-		"f":[
+	"eld": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ank":{
-		"f":[
+	"ank": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ekt":{
-		"f":[
+	"ekt": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"i":{
-		"f":[
+	"i": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ent":{
-		"f":[
+	"ent": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"rt":{
-		"f":[
+	"rt": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"is":{
-		"f":[
+	"is": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"echt":{
-		"f":[
+	"echt": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"aus":{
-		"f":[
+	"aus": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"th":{
-		"f":[
+	"th": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ien":{
-		"f":[
+	"ien": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"icht":{
-		"f":[
+	"icht": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ild":{
-		"f":[
+	"ild": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"o":{
-		"f":[
+	"o": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"eit":{
-		"f":[
+	"eit": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"eid":{
-		"f":[
+	"eid": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ma":{
-		"f":[
+	"ma": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"lz":{
-		"f":[
+	"lz": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"mpf":{
-		"f":[
+	"mpf": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"it":{
-		"f":[
+	"it": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"tät":{
-		"f":[
+	"tät": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ift":{
-		"f":[
+	"ift": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ns":{
-		"f":[
+	"ns": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"erg":{
-		"f":[
+	"erg": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"acht":{
-		"f":[
+	"acht": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ot":{
-		"f":[
+	"ot": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"zeit":{
-		"f":[
+	"zeit": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"nst":{
-		"f":[
+	"nst": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ied":{
-		"f":[
+	"ied": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"amm":{
-		"f":[
+	"amm": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ern":{
-		"f":[
+	"ern": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"atz":{
-		"f":[
+	"atz": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ub":{
-		"f":[
+	"ub": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"itz":{
-		"f":[
+	"itz": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"iv":{
-		"f":[
+	"iv": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ahrt":{
-		"f":[
+	"ahrt": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"eis":{
-		"f":[
+	"eis": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"auf":{
-		"f":[
+	"auf": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"all":{
-		"f":[
+	"all": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ort":{
-		"f":[
+	"ort": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"og":{
-		"f":[
+	"og": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"nis":{
-		"f":[
+	"nis": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ieb":{
-		"f":[
+	"ieb": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ahn":{
-		"f":[
+	"ahn": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"uss":{
-		"f":[
+	"uss": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ohr":{
-		"f":[
+	"ohr": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ist":{
-		"f":[
+	"ist": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"em":{
-		"f":[
+	"em": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"itt":{
-		"f":[
+	"itt": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"und":{
-		"f":[
+	"und": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"sel":{
-		"f":[
+	"sel": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ph":{
-		"f":[
+	"ph": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"nft":{
-		"f":[
+	"nft": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"at":{
-		"f":[
+	"at": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ät":{
-		"f":[
+	"ät": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"iff":{
-		"f":[
+	"iff": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ock":{
-		"f":[
+	"ock": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"y":{
-		"f":[
+	"y": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"uf":{
-		"f":[
+	"uf": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"eu":{
-		"f":[
+	"eu": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"eil":{
-		"f":[
+	"eil": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ahr":{
-		"f":[
+	"ahr": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ing":{
-		"f":[
+	"ing": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ack":{
-		"f":[
+	"ack": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ann":{
-		"f":[
+	"ann": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ehre":{
-		"f":[
+	"ehre": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"urz":{
-		"f":[
+	"urz": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ausch":{
-		"f":[
+	"ausch": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"off":{
-		"f":[
+	"off": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ig":{
-		"f":[
+	"ig": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"eim":{
-		"f":[
+	"eim": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"id":{
-		"f":[
+	"id": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"eck":{
-		"f":[
+	"eck": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ald":{
-		"f":[
+	"ald": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"eln":{
-		"f":[
+	"eln": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"aust":{
-		"f":[
+	"aust": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"nsch":{
-		"f":[
+	"nsch": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"eur":{
-		"f":[
+	"eur": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"os":{
-		"f":[
+	"os": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"lt":{
-		"f":[
+	"lt": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"är":{
-		"f":[
+	"är": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ut":{
-		"f":[
+	"ut": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"alt":{
-		"f":[
+	"alt": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"mt":{
-		"f":[
+	"mt": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"opf":{
-		"f":[
+	"opf": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"erl":{
-		"f":[
+	"erl": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"oss":{
-		"f":[
+	"oss": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"euz":{
-		"f":[
+	"euz": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"eich":{
-		"f":[
+	"eich": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"eiz":{
-		"f":[
+	"eiz": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"urm":{
-		"f":[
+	"urm": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"chs":{
-		"f":[
+	"chs": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"oot":{
-		"f":[
+	"oot": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"irsch":{
-		"f":[
+	"irsch": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"uhl":{
-		"f":[
+	"uhl": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"uh":{
-		"f":[
+	"uh": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ain":{
-		"f":[
+	"ain": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"eund":{
-		"f":[
+	"eund": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"darf":{
-		"f":[
+	"darf": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"utz":{
-		"f":[
+	"utz": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ü":{
-		"f":[
+	"ü": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"n":{
-		"f":[
+	"n": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"no change":{
-		"f":[
+	"no change": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"s":{
-		"f":[
+	"s": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"nen":{
-		"f":[
+	"nen": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"umlaut + e":{
-		"f":[
+	"umlaut + e": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"umlaut + er":{
-		"f":[
+	"umlaut + er": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"umlaut":{
-		"f":[
+	"umlaut": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"se":{
-		"f":[
+	"se": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"nes":{
-		"f":[
+	"nes": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"umlaut + en":{
-		"f":[
+	"umlaut + en": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"es":{
-		"f":[
+	"es": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ten":{
-		"f":[
+	"ten": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	},
-	"ta":{
-		"f":[
+	"ta": {
+		"f": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"m":[
+		"m": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		],
-		"n":[
+		"n": [
 			{
-				"de":"",
-				"eng":""
+				"de": "",
+				"eng": ""
 			}
 		]
 	}
