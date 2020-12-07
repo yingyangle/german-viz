@@ -23,5 +23,46 @@
 		"f": ["example1", "example2", "example3"],
 		"m": ["der Husten", "der Braten", "der Apfelbutzen"],
 		"n": ["das Lesen", "das Verstehen", " das Malen"]
-	}
+	},
+	"er": {
+		"f": ["die Butter", "die Dauer", "die Mauer"],
+		"m": ["der Deuter", "der Denker", "der Fahrer"],
+		"n": ["das Fenster", "das Wetter", " das Wasser"]
+	},
+	"ie": {
+		"f": ["die Philosophie", "die Melodie", "die Familie"],
+		"m": ["example1", "example2", "example3"],
+		"n": ["das Knie", "das Genie", " example3"]
+	},
+	"ik": {
+		"f": ["die Musik", "die Politik", "die Physik"],
+		"m": ["example1", "example2", "example3"],
+		"n": ["example1", "example2", "example3"],
+	},
+	"in": {
+		"f": ["die Lehrerin", "die Kaiserin", "die Königin"],
+		"m": ["example1", "example2", "example3"],
+		"n": ["example1", "example2", "example3"]
+	},
+	"ion": {
+		"f": ["die Diskussion", "die Position", "die Information"],
+		"m": ["example1", "example2", "example3"],
+		"n": ["example1", "example2", "example3"]
+	},
+	"le": {
+		"f": ["example1", "example2", "example3"],
+		"m": ["der Husten", "der Braten", "der Apfelbutzen"],
+		"n": ["das Lesen", "das Verstehen", " das Malen"]
+	},
+	"um": {
+		"f": ["example1", "example2", "example3"],
+		"m": ["der Konsum", "example2", "example3"],
+		"n": ["das Zentrum", "das Museum", " das Studium"]
+	},
+	"ung": {
+		"f": ["die Wohnung", "die Zeitung", "die Übung"],
+		"m": ["der Sprung", "der Schwung", "der Dung"],
+		"n": ["example1", "example2", "example3"]
+	},
+
 }
