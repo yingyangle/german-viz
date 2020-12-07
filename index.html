@@ -582,7 +582,7 @@
 				<div class="row">
 					<div class="col-md-7">
 						<div class="important-text"><b>Hover over the dots</b> to see what they represent.</div>
-						<br><br>
+						<br>
 						<!-- TERNARY PLOT -->
 						<div id="ternary"></div>
 						<!-- RANGE SLIDER -->
@@ -706,6 +706,7 @@
 
 			// SHOW LOADING SCREEN
 			$('#loading').css('visibility', 'visible')
+				.css('opacity', 1)
 
 			function onReady(callback) {
 				var intervalId = window.setInterval(function() {
@@ -718,7 +719,8 @@
 
 			onReady(function() {
 				setTimeout(function() { 
-					$('#loading').css('visibility', 'hidden') 
+					$('#loading').css('visibility', 'hidden')
+						.css('opacity', 0)
 				}, 4000)
 				
 			})

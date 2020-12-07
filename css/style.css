@@ -301,11 +301,12 @@ div.tooltip {
 }
 
 #showcase-vid {
-	width: 700px;
-	height: 500px;
+	width: 590px;
+	height: 345px;
 	border-radius: 10px;
 	border: 2px solid #4d4b47c1;
 	margin: auto;
+	padding: 10px;
 }
 
 /* MEDIA QUERIES */

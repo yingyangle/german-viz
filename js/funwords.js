@@ -30,7 +30,7 @@ function myAudioFunction(parent) {
 	$('.funword-part', parent).each(function() {
 		word = word + $(this).text()
 	})
-	var audiofile = new Audio('audio/' + word.toLowerCase() + '.mp3')
+	var audiofile = new Audio('media/' + word.toLowerCase() + '.mp3')
 	audiofile.play()
 }
 
