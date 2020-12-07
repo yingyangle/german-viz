@@ -1,8 +1,13 @@
 {
 	"a": {
-		"f": ["example1", "example2", "example3"],
-		"m": ["example1", "example2", "example3"],
+		"f": ["die Osteria", "die Nova", "die Media"],
+		"m": ["der Gorilla", "der Koala", "der Ballerina"],
 		"n": ["das Amerika", "das Guinea", " das Uganda"]
+	},
+	"ag": {
+		"f": ["die Prag", "die Waag"],
+		"m": ["der Ferientag", "der Feiertag", "der Fehlschlag"],
+		"n": ["das Mittag", "das Tag", " das Schalttag"]
 	},
 	"chen": {
 		"f": ["die Watschen", "die Wintersachen", "die Badesachen"],
@@ -12,15 +17,15 @@
 	"e": {
 		"f": ["die Seite", "die Zeile", "die Adresse"],
 		"m": ["der Bote ", "der Junge", "der Löwe"],
-		"n": ["das Abece", "das Adlergebirge", " das Ammergebirge"]
+		"n": ["das Gebirge", "das Heute", " das Gehäuse"]
 	},
 	"el": {
-		"f": ["example1", "example2", "example3"],
-		"m": ["der Spiegel", "der Aitel", "der Alkoholpegel"],
-		"n": ["das Spiel", "das Aerogel", " das Allheilmittel"]
+		"f": ["die Regel", "die Tafel", "die Angel"],
+		"m": ["der Spiegel", "der Gürtel", "der Dünkel"],
+		"n": ["das Spiel", "das Büschel", " das Hotel"]
 	},
 	"en": {
-		"f": ["example1", "example2", "example3"],
+		"f": ["die Sieben", "die Wieden", "die Masen"],
 		"m": ["der Husten", "der Braten", "der Apfelbutzen"],
 		"n": ["das Lesen", "das Verstehen", " das Malen"]
 	},
@@ -31,38 +36,37 @@
 	},
 	"ie": {
 		"f": ["die Philosophie", "die Melodie", "die Familie"],
-		"m": ["example1", "example2", "example3"],
-		"n": ["das Knie", "das Genie", " example3"]
+		"m": ["der Hoodie", "der Newbie", "der Brie"],
+		"n": ["das Knie", "das Genie", " das Selfie"]
 	},
 	"ik": {
 		"f": ["die Musik", "die Politik", "die Physik"],
-		"m": ["example1", "example2", "example3"],
-		"n": ["example1", "example2", "example3"],
+		"m": ["der Atlantik", "der Domestik", "der Indik"],
+		"n": ["das Plastik", "das Arsenik"],
 	},
 	"in": {
 		"f": ["die Lehrerin", "die Kaiserin", "die Königin"],
-		"m": ["example1", "example2", "example3"],
-		"n": ["example1", "example2", "example3"]
+		"m": ["der Gin", "der Florin", "der Jasmin"],
+		"n": ["das Aspirin", "das Insulin", "das Bulletin"]
 	},
 	"ion": {
 		"f": ["die Diskussion", "die Position", "die Information"],
-		"m": ["example1", "example2", "example3"],
-		"n": ["example1", "example2", "example3"]
+		"m": ["der Champion", "der Orion", "der Skorpion"],
+		"n": ["das Gymnasion", "das Dominion", "das Dominion"]
 	},
 	"le": {
-		"f": ["example1", "example2", "example3"],
-		"m": ["der Husten", "der Braten", "der Apfelbutzen"],
-		"n": ["das Lesen", "das Verstehen", " das Malen"]
+		"f": ["die Drille", "die Fülle", "die Mühle"],
+		"m": ["der Unwille", "der Geselle", "der Buhle"],
+		"n": ["das Finale", "das Gebelle", " das Mobile"]
 	},
 	"um": {
-		"f": ["example1", "example2", "example3"],
-		"m": ["der Konsum", "example2", "example3"],
+		"f": ["die Rum", "die Magnum", "die Begum"],
+		"m": ["der Konsum", "der Lebensmittelkonsum", "der Medikamentenkonsum"],
 		"n": ["das Zentrum", "das Museum", " das Studium"]
 	},
 	"ung": {
 		"f": ["die Wohnung", "die Zeitung", "die Übung"],
 		"m": ["der Sprung", "der Schwung", "der Dung"],
-		"n": ["example1", "example2", "example3"]
 	},
 
 }
