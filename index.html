@@ -5,9 +5,19 @@
 		<meta http-eueryuiv="X-UA-Compatible" content="IE=edge">
 
 		<title>The German Language</title>
-		<link rel="icon" type="image/x-icon" href="https://www.flaticon.com/svg/static/icons/svg/2053/2053281.svg">
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- FAVICON -->
+		<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+		<link rel="manifest" href="icons/site.webmanifest">
+		<link rel="mask-icon" href="icons/safari-pinned-tab.svg" color="#5bbad5">
+		<link rel="shortcut icon" href="icons/favicon.ico">
+		<meta name="msapplication-TileColor" content="#da532c">
+		<meta name="msapplication-config" content="icons/browserconfig.xml">
+		<meta name="theme-color" content="#ffffff">
 
 		<!-- FONTS -->
 		<link rel="preconnect" href="https://fonts.gstatic.com">
@@ -82,7 +92,7 @@
 
 			<!-- TITLE -->
 			<br>
-			<img class="flag-icon" src="https://www.flaticon.com/svg/static/icons/svg/2053/2053281.svg" alt="">
+			<img class="flag-icon" src="icons/icon.png" alt="">
 			<br>
 			<h2 id="title">The German Language</h2>
 			<h5>Christine Yang, Yuezhen Chen, Ann Pan</h5>
@@ -712,25 +722,10 @@
 
 		<script>
 
-			// SHOW LOADING SCREEN
-			$('#loading').css('visibility', 'visible')
-				.css('opacity', 1)
-
-			function onReady(callback) {
-				var intervalId = window.setInterval(function() {
-					if (document.getElementsByTagName('body')[0] !== undefined) {
-						window.clearInterval(intervalId)
-						callback.call(this)
-					}
-				}, 1000)
-			}
-
-			onReady(function() {
-				setTimeout(function() { 
-					$('#loading').css('visibility', 'hidden')
+			// HIDE LOADING SCREEN WHEN PAGE READY
+			$(document).ready(function() {
+				$('#loading').css('visibility', 'hidden')
 						.css('opacity', 0)
-				}, 4000)
-				
 			})
 
 			// navbar collapse
@@ -758,27 +753,27 @@
 			// drag
 			drag = simulation => {
 
-			function dragstarted(d) {
-				if (!d3.event.active) simulation.alphaTarget(0.3).restart()
-				d.fx = d.x
-				d.fy = d.y
-			}
+				function dragstarted(d) {
+					if (!d3.event.active) simulation.alphaTarget(0.3).restart()
+					d.fx = d.x
+					d.fy = d.y
+				}
 
-			function dragged(d) {
-				d.fx = d3.event.x
-				d.fy = d3.event.y
-			}
+				function dragged(d) {
+					d.fx = d3.event.x
+					d.fy = d3.event.y
+				}
 
-			function dragended(d) {
-				if (!d3.event.active) simulation.alphaTarget(0)
-				d.fx = null
-				d.fy = null
-			}
+				function dragended(d) {
+					if (!d3.event.active) simulation.alphaTarget(0)
+					d.fx = null
+					d.fy = null
+				}
 
-			return d3.drag()
-				.on('start', dragstarted)
-				.on('drag', dragged)
-				.on('end', dragended)
+				return d3.drag()
+					.on('start', dragstarted)
+					.on('drag', dragged)
+					.on('end', dragended)
 			}
 
 		</script>
