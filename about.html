@@ -156,20 +156,10 @@
 
 		<script>
 
-			// SHOW LOADING SCREEN
-			$('#loading').css('visibility', 'visible')
-
-			function onReady(callback) {
-				var intervalId = window.setInterval(function() {
-					if (document.getElementsByTagName('body')[0] !== undefined) {
-						window.clearInterval(intervalId)
-						callback.call(this)
-					}
-				}, 1000)
-			}
-
-			onReady(function() {
-				$('#loading').css('visibility', 'hidden') 
+			// HIDE LOADING SCREEN WHEN PAGE READY
+			$(document).ready(function() {
+				$('#loading').css('visibility', 'hidden')
+						.css('opacity', 0)
 			})
 
 			// navbar collapse
