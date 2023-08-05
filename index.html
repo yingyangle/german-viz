@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<meta http-eueryuiv="X-UA-Compatible" content="IE=edge">
 
 		<title>The German Language</title>
-		<meta name="description" content="">
+		<meta name="description" content="Here you'll find a visualization of the German langauge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<!-- FAVICON -->
@@ -46,12 +46,13 @@
 		<script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
 		
 		<!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-163440366-1"></script>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-8278FV5JZN"></script>
 		<script>
 			window.dataLayer = window.dataLayer || [];
 			function gtag(){dataLayer.push(arguments);}
 			gtag('js', new Date());
-			gtag('config', 'UA-163440366-1');
+
+			gtag('config', 'G-8278FV5JZN');
 		</script>
 
 	</head>
@@ -709,7 +710,7 @@
 		
 			<!-- FOOTER -->
 			<br><br><br><br><br>
-			<p> gemacht mit <img src="https://www.flaticon.com/svg/static/icons/svg/3208/3208707.svg" alt="" height="20px" class="heart-icon"> in Boston </p>
+			<p> gemacht mit <img src="icons/heart.png" alt="Liebe" height="20px" class="heart-icon"> in Boston </p>
 			<div class="link">
 				<a href="https://github.com/yingyangle/german_viz/" target=_blank>Source</a>
 			</div>
@@ -720,83 +721,74 @@
 	</section>
 
 
-		<script>
+	<script>
+		// HIDE LOADING SCREEN WHEN PAGE READY
+		$(document).ready(function() {
+			$('#loading').css('visibility', 'hidden')
+					.css('opacity', 0)
+		})
 
-			// HIDE LOADING SCREEN WHEN PAGE READY
-			$(document).ready(function() {
-				$('#loading').css('visibility', 'hidden')
-						.css('opacity', 0)
-			})
-
-			// navbar collapse
-			$('#hamburger').on('click', () => {
-				$('#hamburger').toggleClass('collapsed')
-				$('#navbar-items').toggleClass('collapsed')
-			})
-			$(document).click(function (event) {
-					var clickover = $(event.target)
-					var opened = !$('#navbar-items').hasClass('collapsed')
-					if (opened == true && !clickover.hasClass('navbar-toggler') && clickover.parents('.navbar').length == 0) {
-						$('#hamburger').addClass('collapsed')
-						$('#navbar-items').addClass('collapsed')
-					}
-			})
-
-			// tooltip
-			var tooltip = d3.select('body')
-				.append('div')
-				.attr('class', 'tooltip')
-				.style('opacity', 0)
-				.style('padding', '10px')
-				.style('font-family', 'Nunito Sans')
-
-			// drag
-			drag = simulation => {
-
-				function dragstarted(d) {
-					if (!d3.event.active) simulation.alphaTarget(0.3).restart()
-					d.fx = d.x
-					d.fy = d.y
+		// navbar collapse
+		$('#hamburger').on('click', () => {
+			$('#hamburger').toggleClass('collapsed')
+			$('#navbar-items').toggleClass('collapsed')
+		})
+		$(document).click(function (event) {
+				var clickover = $(event.target)
+				var opened = !$('#navbar-items').hasClass('collapsed')
+				if (opened == true && !clickover.hasClass('navbar-toggler') && clickover.parents('.navbar').length == 0) {
+					$('#hamburger').addClass('collapsed')
+					$('#navbar-items').addClass('collapsed')
 				}
+		})
 
-				function dragged(d) {
-					d.fx = d3.event.x
-					d.fy = d3.event.y
-				}
+		// tooltip
+		var tooltip = d3.select('body')
+			.append('div')
+			.attr('class', 'tooltip')
+			.style('opacity', 0)
+			.style('padding', '10px')
+			.style('font-family', 'Nunito Sans')
 
-				function dragended(d) {
-					if (!d3.event.active) simulation.alphaTarget(0)
-					d.fx = null
-					d.fy = null
-				}
+		// drag
+		drag = simulation => {
 
-				return d3.drag()
-					.on('start', dragstarted)
-					.on('drag', dragged)
-					.on('end', dragended)
+			function dragstarted(d) {
+				if (!d3.event.active) simulation.alphaTarget(0.3).restart()
+				d.fx = d.x
+				d.fy = d.y
 			}
 
-		</script>
+			function dragged(d) {
+				d.fx = d3.event.x
+				d.fy = d3.event.y
+			}
 
+			function dragended(d) {
+				if (!d3.event.active) simulation.alphaTarget(0)
+				d.fx = null
+				d.fy = null
+			}
 
+			return d3.drag()
+				.on('start', dragstarted)
+				.on('drag', dragged)
+				.on('end', dragended)
+		}
 
-		<script src="js/loan.js" defer></script>
-		<script src="js/map.js" defer></script>
-		<script src="js/funwords.js" defer></script>
+	</script>
 
-		<script src="js/wordorder.js" defer></script>
-
-		<script src="js/gender.js" defer></script>
-		<script src="js/ternary.js" defer></script>
-		<script src="js/genderlist.js" defer></script>
-		<!-- <script src="js/force.js" defer></script> -->
-
-		<script src="js/sankey.js" defer></script>
-		<script src="js/bubble.js" defer></script>
-		<script src="js/pie.js" defer></script>
-		<script src="js/wordlist.js" defer></script>
-		<script src="js/scatter.js" defer></script>
-		<script src="js/plurals.js" defer></script>
+	<script src="js/loan.js" defer></script>
+	<script src="js/map.js" defer></script>
+	<script src="js/funwords.js" defer></script>
+	<script src="js/wordorder.js" defer></script>
+	<script src="js/gender.js" defer></script>
+	<script src="js/ternary.js" defer></script>
+	<script src="js/genderlist.js" defer></script>
+	<script src="js/sankey.js" defer></script>
+	<script src="js/bubble.js" defer></script>
+	<script src="js/pie.js" defer></script>
+	<script src="js/plurals.js" defer></script>
 
 	</body>
 </html>
